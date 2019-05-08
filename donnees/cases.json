@@ -1,0 +1,30 @@
+[  
+   {  
+      "titre":"SI-CA1a",
+      "texte":"fpa info 1° année, les meilleurs !!!",
+      "couleur":"blue",
+      "cote":1,
+      "ordre":1
+   },
+   {  
+      "titre":"SI-CA2a",
+      "texte":"fpa info 2° année, CFC au bout !!!",
+      "couleur":"blue",
+      "cote":2,
+      "ordre":2
+   },
+   {  
+      "titre":"SI-C1",
+      "texte":"cfc info 1° année, facile !!!",
+      "couleur":"red",
+      "cote":3,
+      "ordre":4
+   },
+   {  
+      "titre":"SI-C2",
+      "texte":"cfc info 2° année, ça vient dur !!!",
+      "couleur":"red",
+      "cote":1,
+      "ordre":5
+   }
+]
