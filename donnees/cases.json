@@ -10,12 +10,89 @@
       "titre":"SI-CA2a",
       "texte":"fpa info 2° année, CFC au bout !!!",
       "couleur":"blue",
+      "cote":1,
+      "ordre":2
+   },
+   {  
+      "titre":"Chance",
+      "texte":"cfc info 1° année, facile !!!",
+      "couleur":"red",
+      "cote":1,
+      "ordre":3
+   },
+   {  
+      "titre":"SI-C2",
+      "texte":"cfc info 2° année, ça vient dur !!!",
+      "couleur":"red",
+      "cote":1,
+      "ordre":4
+   },
+   {  
+      "titre":"SI-C2",
+      "texte":"cfc info 2° année, ça vient dur !!!",
+      "couleur":"red",
+      "cote":1,
+      "ordre":5
+   },
+   {  
+      "titre":"SI-C2",
+      "texte":"cfc info 2° année, ça vient dur !!!",
+      "couleur":"red",
+      "cote":2,
+      "ordre":1
+   },
+   {  
+      "titre":"SI-C2",
+      "texte":"cfc info 2° année, ça vient dur !!!",
+      "couleur":"red",
       "cote":2,
       "ordre":2
    },
    {  
-      "titre":"SI-C1",
-      "texte":"cfc info 1° année, facile !!!",
+      "titre":"Chance",
+      "texte":"cfc info 2° année, ça vient dur !!!",
+      "couleur":"red",
+      "cote":2,
+      "ordre":3
+   },
+   {  
+      "titre":"SI-C2",
+      "texte":"cfc info 2° année, ça vient dur !!!",
+      "couleur":"red",
+      "cote":2,
+      "ordre":4
+   },
+   {  
+      "titre":"SI-C2",
+      "texte":"cfc info 2° année, ça vient dur !!!",
+      "couleur":"red",
+      "cote":2,
+      "ordre":5
+   },
+   {  
+      "titre":"SI-C2",
+      "texte":"cfc info 2° année, ça vient dur !!!",
+      "couleur":"red",
+      "cote":3,
+      "ordre":1
+   },
+   {  
+      "titre":"SI-C2",
+      "texte":"cfc info 2° année, ça vient dur !!!",
+      "couleur":"red",
+      "cote":3,
+      "ordre":2
+   },
+   {  
+      "titre":"Chance",
+      "texte":"cfc info 2° année, ça vient dur !!!",
+      "couleur":"red",
+      "cote":3,
+      "ordre":3
+   },
+   {  
+      "titre":"SI-C2",
+      "texte":"cfc info 2° année, ça vient dur !!!",
       "couleur":"red",
       "cote":3,
       "ordre":4
@@ -24,7 +101,42 @@
       "titre":"SI-C2",
       "texte":"cfc info 2° année, ça vient dur !!!",
       "couleur":"red",
-      "cote":1,
+      "cote":3,
+      "ordre":5
+   },
+   {  
+      "titre":"SI-C2",
+      "texte":"cfc info 2° année, ça vient dur !!!",
+      "couleur":"red",
+      "cote":4,
+      "ordre":1
+   },
+   {  
+      "titre":"SI-C2",
+      "texte":"cfc info 2° année, ça vient dur !!!",
+      "couleur":"red",
+      "cote":4,
+      "ordre":2
+   },
+   {  
+      "titre":"Chance",
+      "texte":"cfc info 2° année, ça vient dur !!!",
+      "couleur":"red",
+      "cote":4,
+      "ordre":3
+   },
+   {  
+      "titre":"SI-C2",
+      "texte":"cfc info 2° année, ça vient dur !!!",
+      "couleur":"red",
+      "cote":4,
+      "ordre":4
+   },
+   {  
+      "titre":"SI-C2",
+      "texte":"cfc info 2° année, ça vient dur !!!",
+      "couleur":"red",
+      "cote":4,
       "ordre":5
    }
 ]

@@ -8,16 +8,16 @@ var ctx = c.getContext("2d");
 var img = new Image();
 
 //param�tre de dessin
-var echelle = 1.2; //pour pouvoir zoomer
+var echelle = 1.7; //pour pouvoir zoomer
 var angle = 0;// pour pouvoir tourner
 var decx = 400;
 var decy = 400; //origine au milieu du plateau de jeu
 var tcx = 50;//taille carte en x
 var tcy = 100;
-var ncartes = 9;//nombre de carte par cot� (sans compter les coins)
-var acartes;
-//Donn�es
+const ncartes = 5;//nombre de carte par cot� (sans compter les coins)
+var acartes = [];
 
+//Donn�es
 $.getJSON('donnees/cases.json', function(data) {
     acartes = data;
 });
