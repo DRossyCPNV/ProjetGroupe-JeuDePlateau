@@ -1,127 +1,127 @@
 [  
    {  
-      "titre":"SI-CA1a",
-      "texte":"fpa info 1° année, les meilleurs !!!",
+      "titre":"Maths",
+      "texte":"Géométrie",
       "couleur":"blue",
       "cote":1,
       "ordre":1
    },
    {  
-      "titre":"SI-CA2a",
-      "texte":"fpa info 2° année, CFC au bout !!!",
+      "titre":"Maths",
+      "texte":"Algèbre",
       "couleur":"blue",
       "cote":1,
       "ordre":2
    },
    {  
       "titre":"Chance",
-      "texte":"cfc info 1° année, facile !!!",
-      "couleur":"red",
+      "texte":"Qui sait ce qui vous attend ?",
+      "couleur":"white",
       "cote":1,
       "ordre":3
    },
    {  
-      "titre":"SI-C2",
-      "texte":"cfc info 2° année, ça vient dur !!!",
+      "titre":"Informatique",
+      "texte":"Système",
       "couleur":"red",
       "cote":1,
       "ordre":4
    },
    {  
-      "titre":"SI-C2",
-      "texte":"cfc info 2° année, ça vient dur !!!",
+      "titre":"Informatique",
+      "texte":"Développement",
       "couleur":"red",
       "cote":1,
       "ordre":5
    },
    {  
-      "titre":"SI-C2",
-      "texte":"cfc info 2° année, ça vient dur !!!",
-      "couleur":"red",
+      "titre":"Français",
+      "texte":"Rédaction",
+      "couleur":"purple",
       "cote":2,
       "ordre":1
    },
    {  
-      "titre":"SI-C2",
-      "texte":"cfc info 2° année, ça vient dur !!!",
-      "couleur":"red",
+      "titre":"Français",
+      "texte":"Littérature",
+      "couleur":"purple",
       "cote":2,
       "ordre":2
    },
-   {  
+   {
       "titre":"Chance",
-      "texte":"cfc info 2° année, ça vient dur !!!",
-      "couleur":"red",
+      "texte":"Qui sait ce qui vous attend ?",
+      "couleur":"white",
       "cote":2,
       "ordre":3
    },
    {  
-      "titre":"SI-C2",
-      "texte":"cfc info 2° année, ça vient dur !!!",
-      "couleur":"red",
+      "titre":"Polymécanique",
+      "texte":"Dessin Technique",
+      "couleur":"green",
       "cote":2,
       "ordre":4
    },
    {  
-      "titre":"SI-C2",
-      "texte":"cfc info 2° année, ça vient dur !!!",
-      "couleur":"red",
+      "titre":"Polymécanique",
+      "texte":"Technique des matériaux",
+      "couleur":"green",
       "cote":2,
       "ordre":5
    },
    {  
-      "titre":"SI-C2",
-      "texte":"cfc info 2° année, ça vient dur !!!",
-      "couleur":"red",
+      "titre":"Langues",
+      "texte":"Allemand",
+      "couleur":"yellow",
       "cote":3,
       "ordre":1
    },
    {  
-      "titre":"SI-C2",
-      "texte":"cfc info 2° année, ça vient dur !!!",
-      "couleur":"red",
+      "titre":"Langues",
+      "texte":"Anglais",
+      "couleur":"yellow",
       "cote":3,
       "ordre":2
    },
-   {  
+   {
       "titre":"Chance",
-      "texte":"cfc info 2° année, ça vient dur !!!",
-      "couleur":"red",
+      "texte":"Qui sait ce qui vous attend ?",
+      "couleur":"white",
       "cote":3,
       "ordre":3
    },
    {  
-      "titre":"SI-C2",
-      "texte":"cfc info 2° année, ça vient dur !!!",
-      "couleur":"red",
+      "titre":"Médiamatique",
+      "texte":"Multimédia",
+      "couleur":"orange",
       "cote":3,
       "ordre":4
    },
-   {  
-      "titre":"SI-C2",
-      "texte":"cfc info 2° année, ça vient dur !!!",
-      "couleur":"red",
+   {
+      "titre":"Médiamatique",
+      "texte":"Web",
+      "couleur":"orange",
       "cote":3,
       "ordre":5
    },
    {  
-      "titre":"SI-C2",
-      "texte":"cfc info 2° année, ça vient dur !!!",
-      "couleur":"red",
+      "titre":"Culture générale",
+      "texte":"Citoyenneté",
+      "couleur":"pink",
       "cote":4,
       "ordre":1
    },
    {  
-      "titre":"SI-C2",
-      "texte":"cfc info 2° année, ça vient dur !!!",
-      "couleur":"red",
+      "titre":"Culture générale",
+      "texte":"Droit",
+      "couleur":"pink",
       "cote":4,
       "ordre":2
    },
-   {  
+   {
       "titre":"Chance",
-      "texte":"cfc info 2° année, ça vient dur !!!",
-      "couleur":"red",
+      "texte":"Qui sait ce qui vous attend ?",
+      "couleur":"white",
       "cote":4,
       "ordre":3
    },
