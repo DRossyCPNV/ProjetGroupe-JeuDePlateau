@@ -21,14 +21,14 @@
       "ordre":3
    },
    {  
-      "titre":"Informatique",
+      "titre":"Info",
       "texte":"Système",
       "couleur":"red",
       "cote":1,
       "ordre":4
    },
    {  
-      "titre":"Informatique",
+      "titre":"Info",
       "texte":"Développement",
       "couleur":"red",
       "cote":1,
@@ -56,14 +56,14 @@
       "ordre":3
    },
    {  
-      "titre":"Polymécanique",
-      "texte":"Dessin Technique",
+      "titre":"Méca",
+      "texte":"Dessin technique",
       "couleur":"green",
       "cote":2,
       "ordre":4
    },
    {  
-      "titre":"Polymécanique",
+      "titre":"Méca",
       "texte":"Technique des matériaux",
       "couleur":"green",
       "cote":2,
@@ -91,28 +91,28 @@
       "ordre":3
    },
    {  
-      "titre":"Médiamatique",
+      "titre":"Média",
       "texte":"Multimédia",
       "couleur":"orange",
       "cote":3,
       "ordre":4
    },
    {
-      "titre":"Médiamatique",
+      "titre":"Média",
       "texte":"Web",
       "couleur":"orange",
       "cote":3,
       "ordre":5
    },
    {  
-      "titre":"Culture générale",
-      "texte":"Citoyenneté",
+      "titre":"ECG",
+      "texte":"Economie",
       "couleur":"pink",
       "cote":4,
       "ordre":1
    },
    {  
-      "titre":"Culture générale",
+      "titre":"ECG",
       "texte":"Droit",
       "couleur":"pink",
       "cote":4,
@@ -126,16 +126,16 @@
       "ordre":3
    },
    {  
-      "titre":"SI-C2",
-      "texte":"cfc info 2° année, ça vient dur !!!",
-      "couleur":"red",
+      "titre":"Sport",
+      "texte":"Foot",
+      "couleur":"cyan",
       "cote":4,
       "ordre":4
    },
    {  
-      "titre":"SI-C2",
-      "texte":"cfc info 2° année, ça vient dur !!!",
-      "couleur":"red",
+      "titre":"Sport",
+      "texte":"Basket",
+      "couleur":"cyan",
       "cote":4,
       "ordre":5
    }
