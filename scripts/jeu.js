@@ -17,6 +17,11 @@ var tcy = 100;
 const ncartes = 5;//nombre de carte par cot� (sans compter les coins)
 var acartes = [];
 
+var coordCaseDep = {
+    X: 10,
+    Y: 10,
+};
+
 //Donn�es
 $.getJSON('donnees/cases.json', function(data) {
     acartes = data;
@@ -80,6 +85,30 @@ function fnText(t, x, y, c) {
     ctx.fillText(t, echelle * x, echelle * y);
 }
 
+function joueur(nom, couleur, argent_depart, section){
+    this.nom = nom;
+    this.couleur = couleur;
+    this.argent_depart = argent_depart;
+    this.section = section;
+
+    var cordX = coordCaseDep.X, cordY = coordCaseDep.Y;
+    var imgPion = new Image();
+    imgPion.src = "images/pions/" + couleur + ".png";
+
+    this.placerPionCaseDepart = function () {
+        imgPion.onload = function () {
+            ctx.drawImage(imgPion, cordX, cordY, 20 * echelle, 35 * echelle);
+        }
+
+    };
+    this.deplacerPion = function(){
+
+    };
+
+
+
+}
+
 function fnJeu() {
     //Cette fonction dessind le plateau de jeu entier
     ctx.translate(decx, decy); //on place l'origine en decx, decy
@@ -93,6 +122,10 @@ function fnJeu() {
 
     }
     ctx.translate(-decx, -decy); //on place l'origine en decx,
+
+
+    var luca = new joueur("luca", "rouge", 1000, "info");
+    luca.placerPionCaseDepart();
 
 }
 	
