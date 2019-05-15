@@ -25,8 +25,8 @@ const ncartes = 5;//nombre de carte par cot� (sans compter les coins)
 const nbJoueursMax = 6;
 var acartes = [];
 var coordCaseDep = {
-    X: 10,
-    Y: 10,
+    X: 30,
+    Y: 680,
 };
 
 //Donn�es
@@ -106,16 +106,16 @@ function fnJeu(nbJoueurs) {
     }
     ctx.translate(-decx, -decy); //on place l'origine en decx,
 
-
+    //crée les joueurs en fonction du nombre de joueurs selectionnés dans le menu
     var joueurs = maker(nbJoueurs);
     for(var i = 0;i < nbJoueurs;i++){
-        console.log("joueur : "+ i +" Nom: "+joueurs[i].nom+" Couleur "+joueurs[i].couleur+" Section: "+joueurs[i].section);
+        console.log("joueur : "+ i +", Nom: "+joueurs[i].nom+", Couleur: "+joueurs[i].couleur+", Section: "+joueurs[i].section);
     }
-    setInterval(function () {
-        var i = 0;
+
+    for (i = 0; i<nbJoueurs; i++){
         joueurs[i].placerPionCaseDepart();
-        i++;
-    }, 1000);
+    }
+
 
 }
 	
