@@ -51,6 +51,10 @@ function fnCarte(n) {
     ctx.font = 8 * echelle + "pt Arial";
     fnText(acartes[n].titre, (ncartes / 2 + 0.5 - acartes[n].ordre) * tcx, (ncartes / 2) * tcx + 0.5 * tcy, "black");
 
+    ctx.textAlign = "center";
+    ctx.font = 5 * echelle + "pt Arial";
+    fnText(acartes[n].texte, (ncartes / 2 + 0.5 - acartes[n].ordre) * tcx, (ncartes / 2) * tcx + 0.5 * tcy + 10, "dimgray");
+
     //
     ctx.rotate(-angle);
 

@@ -1,47 +1,47 @@
-[  
-   {  
+[
+   {
       "titre":"Maths",
       "texte":"Géométrie",
       "couleur":"blue",
       "cote":1,
       "ordre":1
    },
-   {  
+   {
       "titre":"Maths",
       "texte":"Algèbre",
       "couleur":"blue",
       "cote":1,
       "ordre":2
    },
-   {  
+   {
       "titre":"Chance",
-      "texte":"Qui sait ce qui vous attend ?",
+      "texte":"",
       "couleur":"white",
       "cote":1,
       "ordre":3
    },
-   {  
+   {
       "titre":"Info",
       "texte":"Système",
       "couleur":"red",
       "cote":1,
       "ordre":4
    },
-   {  
+   {
       "titre":"Info",
       "texte":"Développement",
       "couleur":"red",
       "cote":1,
       "ordre":5
    },
-   {  
+   {
       "titre":"Français",
       "texte":"Rédaction",
       "couleur":"purple",
       "cote":2,
       "ordre":1
    },
-   {  
+   {
       "titre":"Français",
       "texte":"Littérature",
       "couleur":"purple",
@@ -50,33 +50,33 @@
    },
    {
       "titre":"Chance",
-      "texte":"Qui sait ce qui vous attend ?",
+      "texte":"",
       "couleur":"white",
       "cote":2,
       "ordre":3
    },
-   {  
+   {
       "titre":"Méca",
-      "texte":"Dessin technique",
+      "texte":"Matériaux",
       "couleur":"green",
       "cote":2,
       "ordre":4
    },
-   {  
+   {
       "titre":"Méca",
-      "texte":"Technique des matériaux",
+      "texte":"Usinage",
       "couleur":"green",
       "cote":2,
       "ordre":5
    },
-   {  
+   {
       "titre":"Langues",
       "texte":"Allemand",
       "couleur":"yellow",
       "cote":3,
       "ordre":1
    },
-   {  
+   {
       "titre":"Langues",
       "texte":"Anglais",
       "couleur":"yellow",
@@ -85,12 +85,12 @@
    },
    {
       "titre":"Chance",
-      "texte":"Qui sait ce qui vous attend ?",
+      "texte":"",
       "couleur":"white",
       "cote":3,
       "ordre":3
    },
-   {  
+   {
       "titre":"Média",
       "texte":"Multimédia",
       "couleur":"orange",
@@ -104,14 +104,14 @@
       "cote":3,
       "ordre":5
    },
-   {  
+   {
       "titre":"ECG",
       "texte":"Economie",
       "couleur":"pink",
       "cote":4,
       "ordre":1
    },
-   {  
+   {
       "titre":"ECG",
       "texte":"Droit",
       "couleur":"pink",
@@ -120,19 +120,19 @@
    },
    {
       "titre":"Chance",
-      "texte":"Qui sait ce qui vous attend ?",
+      "texte":"",
       "couleur":"white",
       "cote":4,
       "ordre":3
    },
-   {  
+   {
       "titre":"Sport",
       "texte":"Foot",
       "couleur":"cyan",
       "cote":4,
       "ordre":4
    },
-   {  
+   {
       "titre":"Sport",
       "texte":"Basket",
       "couleur":"cyan",
