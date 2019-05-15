@@ -1,3 +1,10 @@
+//element html
+$("#btnPlay").click(function () {
+    var nbJoueurs = $("#nbJoueurs").val();
+    console.log(nbJoueurs);
+    fnJeu(nbJoueurs);
+});
+
 //Ce programme va devenir un programme de dessin
 //avec des boutons pour dessiner diff�rentes choses
 
@@ -16,7 +23,6 @@ var tcx = 50;//taille carte en x
 var tcy = 100;
 const ncartes = 5;//nombre de carte par cot� (sans compter les coins)
 var acartes = [];
-
 var coordCaseDep = {
     X: 10,
     Y: 10,
@@ -85,32 +91,8 @@ function fnText(t, x, y, c) {
     ctx.fillText(t, echelle * x, echelle * y);
 }
 
-function joueur(nom, couleur, argent_depart, section){
-    this.nom = nom;
-    this.couleur = couleur;
-    this.argent_depart = argent_depart;
-    this.section = section;
-
-    var cordX = coordCaseDep.X, cordY = coordCaseDep.Y;
-    var imgPion = new Image();
-    imgPion.src = "images/pions/" + couleur + ".png";
-
-    this.placerPionCaseDepart = function () {
-        imgPion.onload = function () {
-            ctx.drawImage(imgPion, cordX, cordY, 20 * echelle, 35 * echelle);
-        }
-
-    };
-    this.deplacerPion = function(){
-
-    };
-
-
-
-}
-
-function fnJeu() {
-    //Cette fonction dessind le plateau de jeu entier
+function fnJeu(nbJoueurs) {
+    //Cette fonction dessind le plateau de jeu entier et place les pions en fonction du nombre de joueur
     ctx.translate(decx, decy); //on place l'origine en decx, decy
 
     //Dessin du carr� (plateau jaune)
@@ -124,8 +106,15 @@ function fnJeu() {
     ctx.translate(-decx, -decy); //on place l'origine en decx,
 
 
-    var luca = new joueur("luca", "rouge", 1000, "info");
-    luca.placerPionCaseDepart();
+    var joueurs = maker(nbJoueurs);
+    for(var i = 0;i < nbJoueurs;i++){
+        console.log("joueur : "+ i +" Nom: "+joueurs[i].nom+" Couleur "+joueurs[i].couleur+" Section: "+joueurs[i].section);
+    }
+    setInterval(function () {
+        var i = 0;
+        joueurs[i].placerPionCaseDepart();
+        i++;
+    }, 1000);
 
 }
 	

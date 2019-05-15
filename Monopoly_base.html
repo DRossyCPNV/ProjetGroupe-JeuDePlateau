@@ -3,9 +3,19 @@
 <-- JCY mai 2019 -->
 
 <body>
-	
+	<div id="menu">
+		<label for="nbJoueurs">Nombre de joueurs:</label>
+		<select name="nbJoueurs" id="nbJoueurs">
+			<option value="2" selected>2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+		</select>
+		<button id="btnPlay" name="play" value="play">jouer</button>
+	</div>
 	<br>
-	<input type="button" value="Dessine Jeu" onClick="fnJeu()">	<input type="button" value="Efface" onClick="fnEfface()">	<BR>
+	<input type="button" value="Efface" onClick="fnEfface()">	<BR>
 
 	<BR>
 	<canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid gray; background-color:green"> 
@@ -17,4 +27,5 @@
 
 <script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="scripts/jeu.js"></script>
+<script type="text/javascript" src="scripts/joueurs.js"></script>
 
