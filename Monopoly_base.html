@@ -2,19 +2,42 @@
 <-- Exemple d'utilisation de canvas orient� monopoly -->
 <-- JCY mai 2019 -->
 
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
 <body>
 	
 	<br>
-	<input type="button" value="Dessine Jeu" onClick="fnJeu()">	<input type="button" value="Efface" onClick="fnEfface()">	<BR>
+	<input type="button" value="Dessine Jeu" onClick="fnJeu()">	<input type="button" value="Efface" onClick="fnEfface()"> <input type="button" value="Dessine Question" onclick="fnAfficheCarte();">	<BR>
 
 	<BR>
 	<canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid gray; background-color:green"> 
   Texte alternatif pour les navigateurs ne supportant pas Canvas.
-	</canvas>	
+	</canvas>
+
+	<div id="carte_question">
+		<p id="txt_question"></p>
+		<input type="radio" name="reponse" value="r1">
+		<label id="r1" for="r1"></label>
+		<br>
+		<input type="radio" name="reponse" value="r2">
+		<label id="r2" for="r2"></label>
+		<br>
+		<input type="radio" name="reponse" value="r3">
+		<label id="r3" for="r3"></label>
+		<br>
+		<input type="radio" name="reponse" value="r4">
+		<label id="r4" for="r4"></label>
+		<br>
+		<input type="button" value="Réponse" onclick="fnVerifReponse(); return false;">
+	</div>
 	
 </body>
 </html>
 
 <script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="scripts/jeu.js"></script>
+<script type="text/javascript" src="scripts/question.js"></script>
 

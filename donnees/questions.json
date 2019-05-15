@@ -1,31 +1,29 @@
 [
   {
-    "id":1,
-    "question":"Combien de sièges le Conseil fédéral a-t-il ?",
-    "r1":"246",
-    "r2":"200",
-    "r3":"46",
-    "r4":"7",
-    "br":"r4"
+    "id": 1,
+    "question": "Combien de sièges le Conseil fédéral a-t-il ?",
+    "r1": "246",
+    "r2": "200",
+    "r3": "46",
+    "r4": "7",
+    "br": "r4"
   },
-
   {
-    "id":2,
-    "question":"Que signifie 'prosélytisme' ?",
-    "r1":"Fait pour un homme de pouvoir se marier avec plusieurs femmes.",
-    "r2":"Zèle ardent pour recruter des adeptes, pour tenter d'imposer ses idées.",
-    "r3":"Opinion contraire aux vues communément admises.",
-    "r4":"Haine féroce pour toutes les innovations.",
-    "br":"r2"
+    "id": 2,
+    "question": "Que signifie 'prosélytisme' ?",
+    "r1": "Fait pour un homme de pouvoir se marier avec plusieurs femmes.",
+    "r2": "Zèle ardent pour recruter des adeptes, pour tenter d'imposer ses idées.",
+    "r3": "Opinion contraire aux vues communément admises.",
+    "r4": "Haine féroce pour toutes les innovations.",
+    "br": "r2"
   },
-
   {
-    "id":3,
-    "question":"La Suisse étant un pays néolibéral, dans quel domaine politique a-t-elle une attitude très réglementaire et interventionniste ?",
-    "r1":"L'agriculture",
-    "r2":"L'économie des finances et de l'industrie",
-    "r3":"La santé",
-    "r4":"La défense",
-    "br":"r1"
-  },
+    "id": 3,
+    "question": "La Suisse étant un pays néolibéral, dans quel domaine politique a-t-elle une attitude très réglementaire et interventionniste ?",
+    "r1": "L'agriculture",
+    "r2": "L'économie des finances et de l'industrie",
+    "r3": "La santé",
+    "r4": "La défense",
+    "br": "r1"
+  }
 ]
