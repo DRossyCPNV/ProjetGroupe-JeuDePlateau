@@ -22,6 +22,7 @@ var decy = 400; //origine au milieu du plateau de jeu
 var tcx = 50;//taille carte en x
 var tcy = 100;
 const ncartes = 5;//nombre de carte par cot� (sans compter les coins)
+const nbJoueursMax = 6;
 var acartes = [];
 var coordCaseDep = {
     X: 10,

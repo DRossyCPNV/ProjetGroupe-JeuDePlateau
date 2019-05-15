@@ -1,31 +1,116 @@
-<html lang="fr">
-<-- Exemple d'utilisation de canvas orient� monopoly -->
-<-- JCY mai 2019 -->
-
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 <body>
-	<div id="menu">
-		<label for="nbJoueurs">Nombre de joueurs:</label>
-		<select name="nbJoueurs" id="nbJoueurs">
-			<option value="2" selected>2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-		</select>
-		<button id="btnPlay" name="play" value="play">jouer</button>
-	</div>
-	<br>
-	<input type="button" value="Efface" onClick="fnEfface()">	<BR>
+<!-- Menu qui permet de choisir le nombre de joueur, le nom de chaque joueur ainsi que leur section-->
+<div id="menu">
+    <div id="div-nbJoueurs">
+        <label for="nbJoueurs">Nombre de joueurs:</label>
+        <select name="nbJoueurs" id="nbJoueurs">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6" selected>6</option>
+        </select>
+    </div>
+    <div id="options-joueurs">
+        <table>
+            <tr id="options-joueur1">
+                <td><label>Nom:</label></td>
+                <td><input type="text" name="nomJ1" id="nomJ1" value="Joueur1"></td>
+                <td><label>Section:</label></td>
+                <td>
+                    <select name="sectionJ1" id="sectionJ1">
+                        <option value="1" selected>Informatique</option>
+                        <option value="2">Polyméchanique</option>
+                        <option value="3">Médiamaticien</option>
+                    </select>
+                </td>
 
-	<BR>
-	<canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid gray; background-color:green"> 
-  Texte alternatif pour les navigateurs ne supportant pas Canvas.
-	</canvas>	
-	
-</body>
-</html>
+            </tr>
+            <tr id="options-joueur2">
+                <td><label>Nom:</label></td>
+                <td><input type="text" name="nomJ2" id="nomJ2" value="Joueur2"></td>
+                <td><label>Section:</label></td>
+                <td>
+                    <select name="sectionJ2" id="sectionJ2">
+                        <option value="1" selected>Informatique</option>
+                        <option value="2">Polyméchanique</option>
+                        <option value="3">Médiamaticien</option>
+                    </select>
+                </td>
+            </tr>
+            <tr id="options-joueur3">
+                <td><label>Nom:</label></td>
+                <td><input type="text" name="nomJ3" id="nomJ3" value="Joueur3"></td>
+                <td><label>Section:</label></td>
+                <td>
+                    <select name="sectionJ3" id="sectionJ3">
+                        <option value="1" selected>Informatique</option>
+                        <option value="2">Polyméchanique</option>
+                        <option value="3">Médiamaticien</option>
+                    </select>
+                </td>
+            </tr>
+            <tr id="options-joueur4">
+                <td><label>Nom:</label></td>
+                <td><input type="text" name="nomJ4" id="nomJ4" value="Joueur4"></td>
+                <td><label>Section:</label></td>
+                <td>
+                    <select name="sectionJ4" id="sectionJ4">
+                        <option value="1" selected>Informatique</option>
+                        <option value="2">Polyméchanique</option>
+                        <option value="3">Médiamaticien</option>
+                    </select>
+                </td>
+            </tr>
+            <tr id="options-joueur5">
+                <td><label>Nom:</label></td>
+                <td><input type="text" name="nomJ5" id="nomJ5" value="Joueur5"></td>
+                <td><label>Section:</label></td>
+                <td>
+                    <select name="sectionJ5" id="sectionJ5">
+                        <option value="1" selected>Informatique</option>
+                        <option value="2">Polyméchanique</option>
+                        <option value="3">Médiamaticien</option>
+                    </select>
+                </td>
+            </tr>
+            <tr id="options-joueur6">
+                <td><label>Nom:</label></td>
+                <td><input type="text" name="nomJ6" id="nomJ6" value="Joueur6"></td>
+                <td><label>Section:</label></td>
+                <td>
+                    <select name="sectionJ6" id="sectionJ6">
+                        <option value="1" selected>Informatique</option>
+                        <option value="2">Polyméchanique</option>
+                        <option value="3">Médiamaticien</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
 
+    </div>
+    <button id="btnPlay" name="play" value="play">jouer</button>
+</div>
+<br>
+<input type="button" value="Efface" onClick="fnEfface()"> <BR>
+
+<BR>
+<canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid gray; background-color:green">
+    Texte alternatif pour les navigateurs ne supportant pas Canvas.
+</canvas>
 <script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="scripts/jeu.js"></script>
 <script type="text/javascript" src="scripts/joueurs.js"></script>
+<script type="text/javascript" src="scripts/jeu-html.js"></script>
+</body>
+</html>
+
+
 
