@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 0,
     "question": "Combien de sièges le Conseil fédéral a-t-il ?",
     "r1": "246",
     "r2": "200",
@@ -9,7 +9,7 @@
     "br": "r4"
   },
   {
-    "id": 2,
+    "id": 1,
     "question": "Que signifie 'prosélytisme' ?",
     "r1": "Fait pour un homme de pouvoir se marier avec plusieurs femmes.",
     "r2": "Zèle ardent pour recruter des adeptes, pour tenter d'imposer ses idées.",
@@ -18,7 +18,7 @@
     "br": "r2"
   },
   {
-    "id": 3,
+    "id": 2,
     "question": "La Suisse étant un pays néolibéral, dans quel domaine politique a-t-elle une attitude très réglementaire et interventionniste ?",
     "r1": "L'agriculture",
     "r2": "L'économie des finances et de l'industrie",
