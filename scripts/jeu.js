@@ -22,7 +22,9 @@ var decy = 400; //origine au milieu du plateau de jeu
 var tcx = 50;//taille carte en x
 var tcy = 100;
 const ncartes = 5;//nombre de carte par cot� (sans compter les coins)
+var joueurs;
 const nbJoueursMax = 6;
+var nbJoueurJouant = 0;
 var acartes = [];
 var coordCaseDep = {
     X: 30,
@@ -93,6 +95,7 @@ function fnText(t, x, y, c) {
 }
 
 function fnJeu(nbJoueurs) {
+    nbJoueurJouant = nbJoueurs;
     //Cette fonction dessind le plateau de jeu entier et place les pions en fonction du nombre de joueur
     ctx.translate(decx, decy); //on place l'origine en decx, decy
 
@@ -107,7 +110,7 @@ function fnJeu(nbJoueurs) {
     ctx.translate(-decx, -decy); //on place l'origine en decx,
 
     //crée les joueurs en fonction du nombre de joueurs selectionnés dans le menu
-    var joueurs = maker(nbJoueurs);
+    joueurs = maker(nbJoueurs);
     for(var i = 0;i < nbJoueurs;i++){
         console.log("joueur : "+ i +", Nom: "+joueurs[i].nom+", Couleur: "+joueurs[i].couleur+", Section: "+joueurs[i].section);
     }
