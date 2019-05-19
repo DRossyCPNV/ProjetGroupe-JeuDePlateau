@@ -1,3 +1,4 @@
+//todo Ajouter les méthodes tirer une carte chance et réussir un exam
 //les couleurs de pions disponibles
 const couleursPions = ["rouge", "bleuClair", "bleuFonce", "orange", "violet", "vert"];
 
@@ -12,7 +13,7 @@ function maker(n) {
     return arr;
 }
 
-//L'objet joueur, contient un id, la couleur de pion, une sommme d'argent de départ, une section
+//L'objet joueur, contient un id, la couleur de pion, une sommme d'argent de départ et une section
 function Joueur(id, nom, couleur, argent_depart, section) {
     var that = this;
     this.id = id;
@@ -74,7 +75,7 @@ function emplacementVideCase(caseID) {
     //ce tableau sera rempli a true pour les valeurs déjà prise
     var tabEmplacement = new Array(nbJoueursMax).fill(false);
     for (var i = 0; i < nbJoueurJouant; i++) {
-        if (joueur[i].caseActuelle == caseID) {
+        if (joueurs[i].caseActuelle == caseID) {
             if (joueurs[i].emplacementCase < nbJoueursMax || joueurs[i].emplacementCase > -1) {
                 tabEmplacement[joueurs[i].emplacementCase] = true;
             }

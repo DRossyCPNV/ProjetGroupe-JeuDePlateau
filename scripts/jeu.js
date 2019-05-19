@@ -118,7 +118,9 @@ function fnJeu(nbJoueurs) {
     for (i = 0; i<nbJoueurs; i++){
         joueurs[i].placerPionCaseDepart();
     }
-
+    console.log(joueurs[1].argent)
+    joueurs[1].argent = 10;
+    console.log(joueurs[1].argent)
 
 }
 	
