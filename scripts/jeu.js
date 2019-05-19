@@ -1,3 +1,5 @@
+//todo ajouter une fonction qui s'occupera juste d'afficher les élément dans le canvas. Toute les position sont calculées ailleurs.
+
 //element html
 $("#btnPlay").click(function () {
     var nbJoueurs = $("#nbJoueurs").val();
