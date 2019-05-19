@@ -8,19 +8,19 @@ Dans le cadre du CPNV nous avons comme but de réaliser un projet en groupe afin
 Être le premier joueur à avoir son CFC.
 
 ### Matériel:(à modifier)
-1 plateau de jeu
-1 casier pour le Banquier
-2 sabots pour cartes
-8 pieds en caoutchouc pour les sabots
-28 Titres de propriété
-16 cartes Chance
-16 cartes Caisse de Communauté
-1 liasse de billets Monopoly®
-32 Maisons
-12 Hôtels
-2 dés
-1 cornet pour les dés
-et des pions...
+- 1 plateau de jeu
+- 1 casier pour le Banquier
+- 2 sabots pour cartes
+- 8 pieds en caoutchouc pour les sabots
+- 28 Titres de propriété
+- 16 cartes Chance
+- 16 cartes Caisse de Communauté
+- 1 liasse de billets Monopoly®
+- 32 Maisons
+- 12 Hôtels
+- 2 dés
+- 1 cornet pour les dés
+- et des pions...
 
 ### Préparation:
 1. Déplier le plateau de jeu
@@ -29,7 +29,7 @@ et des pions...
 4. Chaque joueur reçoit 500 points au début de partie.
 5. Chacun des joueurs lance ensuite le dé, le joueur qui obtient le plus grand nombre    commence la partie.
 
-### Quand arrive votre tour de jeu, lancez le dé, puis avancez votre pion d'autant de case que l'indique le dé, et dans le sens indiqué par la flèche sur la case départ. Si vous passez sur une case question vous êtes obligé de vous arrêter.
+Quand arrive votre tour de jeu, lancez le dé, puis avancez votre pion d'autant de case que l'indique le dé, et dans le sens indiqué par la flèche sur la case départ. Si vous passez sur une case question vous êtes obligé de vous arrêter.
 La case sur laquelle vous allez vous arrêter vous indique ce que vous devez ou pouvez faire.
 Plusieurs pions peuvent se trouver sur une même case au même moment.
 En fonction de la case sur laquelle vous êtes arrivé, vous pouvez effectuer l'une des opérations suivantes:
