@@ -17,7 +17,7 @@ Dans le cadre du CPNV nous avons comme but de réaliser un projet en groupe afin
 - 1 dé
 - 100x jetons blancs (White, #FFFFFF), 
 avec "50 points" en écriture vert étang (MediumAquaMarine, #66CDAA) => 5000 points
-- 70x jetons bleus acier (LightSteelBlue), 
+- 70x jetons bleus acier (LightSteelBlue, #B0C4DE), 
 avec "100 points" en écriture blanc (White, #FFFFFF) => 7000 points
 - 60x jetons rouges corail léger (LightCoral, #F08080), 
 avec "200 points" en écriture orange saumon léger (LightSalmon, #FFA07A) => 12000 points
