@@ -13,7 +13,7 @@ Dans le cadre du CPNV nous avons comme but de réaliser un projet en groupe afin
 - 6 pions de couleurs différentes
 - 30 cartes "Chance" imprimées horizontalement
 - 50 cartes "Question" imprimées horizontalement
-- 5x16 cartes "Modules" imprimées verticalement 
+- 36 cartes "Modules" imprimées verticalement 
 - 1 dé
 
 ### Préparation:
