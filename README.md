@@ -9,18 +9,12 @@ Dans le cadre du CPNV nous avons comme but de réaliser un projet en groupe afin
 
 ### Matériel:(à modifier)
 - 1 plateau de jeu
-- 1 casier pour le Banquier
-- 2 sabots pour cartes
-- 8 pieds en caoutchouc pour les sabots
-- 28 Titres de propriété
-- 16 cartes Chance
-- 16 cartes Caisse de Communauté
-- 1 liasse de billets Monopoly®
-- 32 Maisons
-- 12 Hôtels
-- 2 dés
-- 1 cornet pour les dés
-- et des pions...
+- 1 casier "Bibliothèque" distribuant les points de savoir aux joueurs
+- 6 pions de couleurs différentes
+- 30 cartes "Chance" imprimées horizontalement
+- 50 cartes "Question" imprimées horizontalement
+- 5x16 cartes "Modules" imprimées verticalement 
+- 1 dé
 
 ### Préparation:
 1. Déplier le plateau de jeu
