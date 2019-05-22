@@ -9,12 +9,23 @@ Dans le cadre du CPNV nous avons comme but de réaliser un projet en groupe afin
 
 ### Matériel:
 - 1 plateau de jeu
-- 1 casier "Bibliothèque" distribuant les points de savoir aux joueurs
 - 6 pions de couleurs différentes
+- 1 casier "Bibliothèque" distribuant les points de savoir aux joueurs
 - 30 cartes "Chance" imprimées horizontalement
 - 50 cartes "Question" imprimées horizontalement
-- 36 cartes "Modules" imprimées verticalement 
+- 36 cartes "Modules" imprimées verticalement
 - 1 dé
+- 100x jetons blancs (White, #FFFFFF), 
+avec "50 points" en écriture vert étang (MediumAquaMarine, #66CDAA) => 5000 points
+- 70x jetons bleus acier (LightSteelBlue), 
+avec "100 points" en écriture blanc (White, #FFFFFF) => 7000 points
+- 60x jetons rouges corail léger (LightCoral, #F08080), 
+avec "200 points" en écriture orange saumon léger (LightSalmon, #FFA07A) => 12000 points
+- 20x jetons noirs (Black, #000000), 
+avec "500 points" en écriture dorée pâle (GoldenRod, #DAA520) => 10000 points
+totaux : 250 jetons pour un montant de 34000 points de savoir,
+à répartir pendant le jeu entre maximum 6 joueurs.
+
 
 ### Préparation:
 1. Déplier le plateau de jeu
