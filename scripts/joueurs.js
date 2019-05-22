@@ -42,6 +42,7 @@ function Joueur(id, nom, couleur, argent_depart, section) {
             } else {
                 ctx.drawImage(imgPion, ((that.id) * (15 * echelle)) + coordCaseDep.X, coordCaseDep.Y, 15 * echelle, 25 * echelle);
             }
+            console.log("je dessine les pions");
         }
 
     };

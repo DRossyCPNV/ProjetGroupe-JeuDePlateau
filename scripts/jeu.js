@@ -1,5 +1,14 @@
 //todo ajouter une fonction qui s'occupera juste d'afficher les élément dans le canvas. Toute les position sont calculées ailleurs.
 
+//load files
+var img_case_standart = new Image();
+img_case_standart.src = ".\\images\\plateau\\Case_Standard.svg";
+var img_case_coin = new Image();
+img_case_coin.src = ".\\images\\plateau\\Case_Coin.svg";
+var img_fond = new Image();
+img_fond.src = ".\\images\\plateau\\Fond.svg";
+/////////////
+
 //element html
 $("#btnPlay").click(function () {
     var nbJoueurs = $("#nbJoueurs").val();
@@ -16,7 +25,7 @@ var ctx = c.getContext("2d");
 // Le reste du script ici....
 var img = new Image();
 
-//param�tre de dessin
+//paramètre de dessin
 var echelle = 1.7; //pour pouvoir zoomer
 var angle = 0;// pour pouvoir tourner
 var decx = 400;
@@ -33,11 +42,10 @@ var coordCaseDep = {
     Y: 680,
 };
 
-//Donn�es
-$.getJSON('donnees/cases.json', function(data) {
+//Données
+$.getJSON('donnees/cases.json', function (data) {
     acartes = data;
 });
-
 
 
 function fnEfface() {
@@ -48,21 +56,14 @@ function fnEfface() {
 }
 
 function fnCarte(n) {
-    //Cette fonction dessine une carte
 
-    //dessin du rectangle autour
+
     ctx.lineWidth = 2 * echelle;//2 pixels de largeur de trait
-
-    //Si on n'est pas dans la rang�e 1, il faut tourner
     var angle = (acartes[n].cote - 1) * Math.PI / 2;
     ctx.rotate(angle);
 
-    //Dessin du cadre de la carte
-    fnRect((ncartes / 2 - acartes[n].ordre) * tcx, ncartes / 2 * tcx, tcx, tcy, "lightgreen", "black");
-    //Dessin du haut de la carte
-    fnRect((ncartes / 2 - acartes[n].ordre) * tcx, ncartes / 2 * tcx, tcx, tcy * 0.2, acartes[n].couleur, "black");
+    ctx.drawImage(img_case_standart, (ncartes / 2 - acartes[n].ordre) * tcx * echelle, ncartes / 2 * tcx * echelle + 50 , tcx * echelle, tcy * echelle - 50);
 
-    //Ecriture
     ctx.textAlign = "center";
     ctx.font = 8 * echelle + "pt Arial";
     fnText(acartes[n].titre, (ncartes / 2 + 0.5 - acartes[n].ordre) * tcx, (ncartes / 2) * tcx + 0.5 * tcy, "black");
@@ -71,14 +72,25 @@ function fnCarte(n) {
     ctx.font = 5 * echelle + "pt Arial";
     fnText(acartes[n].texte, (ncartes / 2 + 0.5 - acartes[n].ordre) * tcx, (ncartes / 2) * tcx + 0.5 * tcy + 10, "dimgray");
 
-    //
     ctx.rotate(-angle);
+
+}
+
+//cette fonction dessine les coins du plateau de jeu
+function fnCoin(n) {
+    var angle = (n + 1) * Math.PI / 2;
+    ctx.rotate(angle);
+    ctx.translate(-decx, -decy);
+    ctx.drawImage(img_case_coin, 18 + 7 * tcx * echelle, tcx / 2 * echelle - 25, 2 * tcx * echelle, 2 * tcx * echelle)
+    ctx.translate(decx, decy);
+    ctx.rotate(-angle);
+    console.log("je dessine les coins");
 
 }
 
 function fnRect(x, y, lx, ly, c1, c2) {
     //Cette fonction dessine un rectangle
-    //Dessine un texte intelligent, dans une couleur donn�e tenant compte du cot� et de l'�chelle
+    //Dessine un texte intelligent, dans une couleur donnée tenant compte du coté et de l'échelle
 
     if (c1 != 0) {
         ctx.fillStyle = c1;//couleur du trait
@@ -103,26 +115,32 @@ function fnJeu(nbJoueurs) {
 
     //Dessin du carr� (plateau jaune)
     fnRect(-ncartes / 2 * tcx - tcy, -ncartes / 2 * tcx - tcy, 2 * tcy + ncartes * tcx, 2 * tcy + ncartes * tcx, "yellow", "black");
+    ctx.drawImage(img_fond, -ncartes / 2 * tcx - tcy, -ncartes / 2 * tcx - tcy, 2 * tcy + ncartes * tcx, 2 * tcy + ncartes * tcx);
+
+    //Dessin de touts les coins
+    for (i = 0; i < 4; i++) {
+        fnCoin(i);
+    }
+
 
     //Dessin de toutes les cartes
     for (i = 0; i < acartes.length; i++) {
         fnCarte(i);
-
     }
     ctx.translate(-decx, -decy); //on place l'origine en decx,
 
     //crée les joueurs en fonction du nombre de joueurs selectionnés dans le menu
     joueurs = maker(nbJoueurs);
-    for(var i = 0;i < nbJoueurs;i++){
-        console.log("joueur : "+ i +", Nom: "+joueurs[i].nom+", Couleur: "+joueurs[i].couleur+", Section: "+joueurs[i].section);
+    for (var i = 0; i < nbJoueurs; i++) {
+        console.log("joueur : " + i + ", Nom: " + joueurs[i].nom + ", Couleur: " + joueurs[i].couleur + ", Section: " + joueurs[i].section);
     }
 
-    for (i = 0; i<nbJoueurs; i++){
+    for (i = 0; i < nbJoueurs; i++) {
         joueurs[i].placerPionCaseDepart();
     }
-    console.log(joueurs[1].argent)
+    console.log(joueurs[1].argent);
     joueurs[1].argent = 10;
-    console.log(joueurs[1].argent)
+    console.log(joueurs[1].argent);
 
 }
 	
