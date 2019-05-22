@@ -7,7 +7,7 @@ Dans le cadre du CPNV nous avons comme but de réaliser un projet en groupe afin
 ### But du jeu:
 Être le premier joueur à avoir son CFC.
 
-### Matériel:(à modifier)
+### Matériel:
 - 1 plateau de jeu
 - 1 casier "Bibliothèque" distribuant les points de savoir aux joueurs
 - 6 pions de couleurs différentes
