@@ -47,7 +47,7 @@ var joueurs;
 const nbJoueursMax = 6;
 var nbJoueurJouant = 0;
 var acartes = [];
-var coordCaseDep = {X: 30,Y: 680};
+var coordCaseDep = {X: 15,Y: 385};
 
 // parametres du dé
 var tabNombres = new Array(); // tableau qui contient les nombres générés aléatoirement
@@ -216,5 +216,148 @@ function fnAfficheFaceDe() {
 		}
 
 }
+//Cette réaffiche les pions sur le canvas
+function fnAffichePions() {
 
+
+    //Variable de test pour positionner les pions
+    joueurs[0].deplacerPion(18);
+    joueurs[1].deplacerPion(3);
+    joueurs[2].deplacerPion(6);
+    joueurs[3].deplacerPion(10);
+    joueurs[4].deplacerPion(12);
+    joueurs[5].deplacerPion(20);
+
+
+    for (var i = 0; i < joueurs.length; i++ ) {
+
+        var imgPion = new Image();
+        imgPion.src = "images/pions/" + joueurs[i].couleur + ".png";
+
+        var j = joueurs[i].caseActuelle;
+
+        //On fait en sorte que les pions ne puissent pas dépasser la case de départ et qu'il s'y arrêtent obligatoirement
+        if (j >= 24) {
+            j = 0;
+        }
+
+        //Coordonnées des pions
+        var pionx;
+        var piony;
+        var anglePion = Math.PI/2;
+
+        switch (true) {
+
+            case (j == 0):
+
+                fnPivotePlateau(decx, decy, anglePion);
+
+                pionx = coordCaseDep.X + 7 * tcx;
+                piony = coordCaseDep.Y;
+                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, 15 * echelle, 25 * echelle);
+
+                fnPivotePlateau(decx, decy, -anglePion);
+
+                break;
+
+            case (j > 0 && j < 6):
+
+
+                fnPivotePlateau(decx, decy, anglePion);
+
+                pionx = coordCaseDep.X + (6 * tcx) - (j - 1) * tcx;
+                piony = coordCaseDep.Y;
+
+                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, 15 * echelle, 25 * echelle);
+
+                fnPivotePlateau(decx, decy, -anglePion);
+
+                break;
+
+            case (j == 6):
+
+                fnPivotePlateau(decx, decy, anglePion * 2);
+
+                pionx = coordCaseDep.X + 7 * tcx; //On avance de 6 cases par côté. Une case coin vaut 2 cases modules. On déplace donc le pion de 7 cases
+                piony = coordCaseDep.Y;
+
+                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, 15 * echelle, 25 * echelle);
+
+                fnPivotePlateau(decx, decy, -anglePion * 2);
+
+                break;
+
+            case (j > 6 && j < 12):
+
+                fnPivotePlateau(decx, decy, anglePion * 2);
+
+                pionx = coordCaseDep.X + 7 * tcx - (j - 6) * tcx; //On déplace le pion de 7 cases modules (on le met dans le coin en bout de ligne) puis on soustrait sa position actuelle au nombre de cases totale en bout de ligne....... ZE COMMENT PAS CLAIR
+                piony = coordCaseDep.Y;
+
+                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, 15 * echelle, 25 * echelle);
+
+                fnPivotePlateau(decx, decy, -anglePion * 2);
+
+                break;
+
+            case (j == 12):
+
+                fnPivotePlateau(decx, decy, anglePion * 3);
+
+                pionx = coordCaseDep.X + 7 * tcx;
+                piony = coordCaseDep.Y;
+
+                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, 15 * echelle, 25 * echelle);
+
+                fnPivotePlateau(decx, decy, -anglePion * 3);
+
+                break;
+
+            case (j > 12 && j < 18):
+
+                fnPivotePlateau(decx, decy, anglePion * 3);
+
+                pionx = coordCaseDep.X + 7 * tcx - (j - 12) * tcx;
+                piony = coordCaseDep.Y;
+
+                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, 15 * echelle, 25 * echelle);
+
+                fnPivotePlateau(decx, decy, -anglePion * 3);
+
+                break;
+
+            case (j == 18):
+
+                pionx = coordCaseDep.X + 7 * tcx;
+                piony = coordCaseDep.Y;
+
+                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, 15 * echelle, 25 * echelle);
+
+                break;
+
+            case (j > 18 && j < 24):
+
+                pionx = coordCaseDep.X + 7 * tcx - (j - 18) * tcx;
+                piony = coordCaseDep.Y;
+
+                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, 15 * echelle, 25 * echelle);
+
+                break;
+        }
+    }
+}
+
+//Cette fonction pivote le canvas au coordonnées x;y d'un certaint angle
+function fnPivotePlateau(x, y, angle) {
+
+    //On met l'origine au milieu du plateau
+    ctx.translate(x, y);
+
+    //On fait une rotation
+    ctx.rotate(angle);
+
+    //On remet l'origine en haut à gauche
+    ctx.translate(-x, -y);
+
+}
 

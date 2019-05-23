@@ -32,19 +32,6 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     this.placerPionCaseDepart = function () {
         that.caseActuelle = 0;
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
-        //Par la suite le dessin sera géré par une autre fonction.
-        //quand l'image a chargée
-        imgPion.onload = function () {
-            //si on est au 3 eme pion
-            if (id > 2) {
-                // (id - 3) car l'id commence à 0. Cela permettra de décaler le pion de chaque joueurs.
-                ctx.drawImage(imgPion, ((that.id - 3) * (15 * echelle)) + coordCaseDep.X, (25 * echelle) + coordCaseDep.Y, 15 * echelle, 25 * echelle);
-            } else {
-                ctx.drawImage(imgPion, ((that.id) * (15 * echelle)) + coordCaseDep.X, coordCaseDep.Y, 15 * echelle, 25 * echelle);
-            }
-            console.log("je dessine les pions");
-        }
-
     };
     //methode qui déplace le pion d'un nombre de case en fonction du dé
     this.deplacerPion = function (de) {
