@@ -40,17 +40,17 @@ function fnAfficheCarte() {
 function fnVerifReponse() {
 
     //On enregistre la réponse du joueur
-    jreponse = $("input[name='reponse']:checked").val();
+    jreponse = $("input[name='reponse']:checked");
 
     //Vérification de la réponse donnée par le joueur
     if (breponse == jreponse) {
         alert("Bravo ! Vous avez trouvé la bonne réponse");
         $('#carte_question').css('display','none');
-        $("input[name='reponse']:checked").prop("checked", false);
+        jreponse.prop("checked", false);
     }
     else {
         alert("Mauvaise réponse !");
         $('#carte_question').css('display','none');
-        $("input[name='reponse']:checked").prop("checked", false);
+        jreponse.prop("checked", false);
     }
 }
