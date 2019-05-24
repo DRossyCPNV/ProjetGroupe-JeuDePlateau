@@ -100,8 +100,8 @@
 </div>
 <br>
 <input type="button" value="Efface" onClick="fnEfface()"> <BR>
-<input type="button" value="Dessine Question" onclick="fnAfficheCarte();">
-
+<input type="button" value="Dessine Question" onclick="fnAfficheCarte();"><br>
+<input type="button" value="Dessine Chance" onclick="fnAfficheChance();">
 <BR>
 <canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid gray; background-color:green">
     Texte alternatif pour les navigateurs ne supportant pas Canvas.
@@ -122,14 +122,18 @@
     <br>
     <input type="button" value="Réponse" onclick="fnVerifReponse(); return false;">
 </div>
+
+<div id="carte_chance">
+  <p><strong id="titre_chance"></strong></p>
+  <br>
+  <p id="txt_chance"></p>
+</div>
+
 <script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="scripts/jeu.js"></script>
 <script type="text/javascript" src="scripts/joueurs.js"></script>
 <script type="text/javascript" src="scripts/jeu-html.js"></script>
 <script type="text/javascript" src="scripts/question.js"></script>
+<script type="text/javascript" src="scripts/chance.js"></script>
 </body>
 </html>
-
-
-
-
