@@ -33,11 +33,13 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     //fonction pour placer le pion du joueur sur la case départ
     this.placerPionCaseDepart = function () {
         that.caseActuelle = 0;
+        that.emplacementCase = -1;
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
     };
     //methode qui déplace le pion d'un nombre de case en fonction du dé
     this.deplacerPion = function (de) {
         that.caseActuelle += de;
+        that.emplacementCase = -1;
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
 
 
@@ -45,6 +47,7 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     //methode pour placer le pion sur la case CFC
     this.placerCaseCFC = function () {
         that.caseActuelle = -10;
+        that.emplacementCase = -1;
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
     };
 }
