@@ -3,11 +3,113 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/button.css">
     <link rel="stylesheet" href="css/menu.css">
-    <title></title>
+    <title>Modulopoly</title>
 </head>
 <body>
+<div id="cfg-bg">
+    <div id="game-config">
+        <div id="cfg-title">Configurer la partie</div>
+        <div id="croix">
+            <span class="croix" id="line1"></span>
+            <span class="croix" id="line2"></span>
+        </div>
+        <!-- Menu qui permet de choisir le nombre de joueur, le nom de chaque joueur ainsi que leur section-->
+        <div id="menu">
+            <div id="div-nbJoueurs">
+                <label for="nbJoueurs">Nombre de joueurs:</label>
+                <select name="nbJoueurs" id="nbJoueurs" class="">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6" selected>6</option>
+                </select>
+            </div>
+            <div id="options-joueurs">
+                <table>
+                    <tr id="options-joueur0">
+                        <td><label>Nom:</label></td>
+                        <td><input type="text" name="nomJ0" id="nomJ0" value="Joueur1" class=""></td>
+                        <td><label>Section:</label></td>
+                        <td>
+                            <select name="sectionJ0" id="sectionJ0">
+                                <option value="Informatique" selected>Informatique</option>
+                                <option value="Polyméchanique">Polyméchanique</option>
+                                <option value="Médiamaticien">Médiamaticien</option>
+                            </select>
+                        </td>
+
+                    </tr>
+                    <tr id="options-joueur1">
+                        <td><label>Nom:</label></td>
+                        <td><input type="text" name="nomJ1" id="nomJ1" value="Joueur2"></td>
+                        <td><label>Section:</label></td>
+                        <td>
+                            <select name="sectionJ1" id="sectionJ1">
+                                <option value="Informatique" selected>Informatique</option>
+                                <option value="Polyméchanique">Polyméchanique</option>
+                                <option value="Médiamaticien">Médiamaticien</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr id="options-joueur2">
+                        <td><label>Nom:</label></td>
+                        <td><input type="text" name="nomJ2" id="nomJ2" value="Joueur3"></td>
+                        <td><label>Section:</label></td>
+                        <td>
+                            <select name="sectionJ2" id="sectionJ2">
+                                <option value="Informatique" selected>Informatique</option>
+                                <option value="Polyméchanique">Polyméchanique</option>
+                                <option value="Médiamaticien">Médiamaticien</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr id="options-joueur3">
+                        <td><label>Nom:</label></td>
+                        <td><input type="text" name="nomJ3" id="nomJ3" value="Joueur4"></td>
+                        <td><label>Section:</label></td>
+                        <td>
+                            <select name="sectionJ3" id="sectionJ3">
+                                <option value="Informatique" selected>Informatique</option>
+                                <option value="Polyméchanique">Polyméchanique</option>
+                                <option value="Médiamaticien">Médiamaticien</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr id="options-joueur4">
+                        <td><label>Nom:</label></td>
+                        <td><input type="text" name="nomJ4" id="nomJ4" value="Joueur5"></td>
+                        <td><label>Section:</label></td>
+                        <td>
+                            <select name="sectionJ4" id="sectionJ4">
+                                <option value="Informatique" selected>Informatique</option>
+                                <option value="Polyméchanique">Polyméchanique</option>
+                                <option value="Médiamaticien">Médiamaticien</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr id="options-joueur5">
+                        <td><label>Nom:</label></td>
+                        <td><input type="text" name="nomJ5" id="nomJ5" value="Joueur6"></td>
+                        <td><label>Section:</label></td>
+                        <td>
+                            <select name="sectionJ5" id="sectionJ5">
+                                <option value="Informatique" selected>Informatique</option>
+                                <option value="Polyméchanique">Polyméchanique</option>
+                                <option value="Médiamaticien">Médiamaticien</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <button id="btnPlay" class="flat-button" name="play" value="play">jouer</button>
+        </div>
+    </div>
+</div>
+
 <div id="background">
     <div id="content">
         <header>
@@ -24,8 +126,9 @@
             <div id="btn-start" class='flat-button'>Start</div>
             <div id="btn-howto" class='flat-button'>Comment jouer</div>
         </div>
-
     </div>
 </div>
+<script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="scripts/menu.js"></script>
 </body>
 </html>

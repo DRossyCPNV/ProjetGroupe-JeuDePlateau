@@ -13,6 +13,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 0;
 
     height: 700px;
     width: 1300px;
@@ -23,12 +24,12 @@
     display: block;
 }
 #title{
-    font-family: "Avenir LT Std 95 Black";
+    font-family: "Avenir LT Std 95 Black", serif;
     font-size: 30pt;
     text-transform: uppercase;
 }
 #under-title{
-    font-family: "Avenir LT Std 45 Book";
+    font-family: "Avenir LT Std 45 Book", serif;
 }
 #text{
     color: white;
@@ -46,4 +47,70 @@
     background-color: white;
     height: 3px;
     width: 40px;
+}
+#cfg-bg{
+    visibility: hidden;
+    position: absolute;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.90);
+    opacity: 0;
+
+    height: 100vh;
+    width: 100vw;
+    top: 0px;
+    left: 0px;
+    transition: all 0.35s ease-in-out;
+
+}
+#cfg-title{
+    font-family: "Avenir LT Std 95 Black", serif;
+    text-align: center;
+    font-size: 20pt;
+}
+#game-config{
+
+    font-family: "Avenir LT Std 45 Book", Serif;
+    background-color: white;
+    height: 500px;
+    width: 800px;
+    padding: 20px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border-radius: 10px;
+}
+#btnPlay{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.croix{
+
+    display: block;
+    height: 3px;
+    width: 18px;
+    background-color: black;
+
+
+}
+#line1.croix{
+    transform: translateY(8px) translateX(1px) rotate(45deg);
+}
+#line2.croix{
+    transform:  translateY(5px) translateX(1px) rotate(-45deg);
+}
+
+#croix{
+    position: absolute;
+
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+
+    right: 15px;
+    top: 10px;
 }
