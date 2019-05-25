@@ -1,0 +1,49 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#background{
+    height: 100vh;
+    width: 100vw;
+    background-color: purple;
+    overflow: auto;
+}
+#content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 700px;
+    width: 1300px;
+    background-image: url("../images/menu/content-background.jpg");
+    background-size: cover;
+}
+.titles{
+    display: block;
+}
+#title{
+    font-family: "Avenir LT Std 95 Black";
+    font-size: 30pt;
+    text-transform: uppercase;
+}
+#under-title{
+    font-family: "Avenir LT Std 45 Book";
+}
+#text{
+    color: white;
+    margin-top: 350px;
+    padding: 40px;
+}
+#hamburger-menu{
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.line{
+    margin-bottom: 3px;
+    display: block;
+    background-color: white;
+    height: 3px;
+    width: 40px;
+}
