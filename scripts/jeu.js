@@ -19,7 +19,7 @@ img_plateau.src = "images/plateau/Plateau_avec_WIDTH-HEIGHT.svg";
 //element html
 $("#btnPlay").click(function () {
     var nbJoueurs = $("#nbJoueurs").val();
-    console.log(nbJoueurs);
+    console.log("il y a " + nbJoueurs + " Joueurs");
     fnJeu(nbJoueurs);
 });
 
@@ -43,9 +43,8 @@ var tcy = 98;
 var tcoinxy = 192;
 var tcfcxy = 194;
 const ncartes = 5;//nombre de carte par cot� (sans compter les coins)
-var joueurs;
+var joueurs; //tableau des joueurs
 const nbJoueursMax = 6;
-var nbJoueurJouant = 0;
 var acartes = [];
 var coordCaseDep = {X: 15,Y: 385};
 
@@ -157,16 +156,15 @@ function fnJeu(nbJoueurs) {
 
     //crée les joueurs en fonction du nombre de joueurs selectionnés dans le menu
     joueurs = maker(nbJoueurs);
+
     for (var i = 0; i < nbJoueurs; i++) {
-        console.log("joueur : " + i + ", Nom: " + joueurs[i].nom + ", Couleur: " + joueurs[i].couleur + ", Section: " + joueurs[i].section);
+        console.log("joueur : " + i + ", Nom: " + joueurs[i].nom + ", Couleur: " + joueurs[i].couleur + ", Section: " + joueurs[i].section + ", id: " + joueurs[i].id + ", emplacement: " + joueurs[i].emplacementCase + ", case actuel: " + joueurs[i].caseActuelle); //pour test
     }
 
     for (i = 0; i < nbJoueurs; i++) {
         joueurs[i].placerPionCaseDepart();
     }
-    console.log(joueurs[1].argent);
-    joueurs[1].argent = 10;
-    console.log(joueurs[1].argent);
+
 
 }
 
@@ -219,15 +217,17 @@ function fnAfficheFaceDe() {
 //Cette réaffiche les pions sur le canvas
 function fnAffichePions() {
 
+    //C'est pour tester la fonction des emplacement
+    joueurs[0].deplacerPion(1);
+    joueurs[1].deplacerPion(1);
+    joueurs[2].deplacerPion(2);
+    joueurs[3].deplacerPion(2);
 
-    //Variable de test pour positionner les pions
-    joueurs[0].deplacerPion(18);
-    joueurs[1].deplacerPion(3);
-    joueurs[2].deplacerPion(6);
-    joueurs[3].deplacerPion(10);
-    joueurs[4].deplacerPion(12);
-    joueurs[5].deplacerPion(20);
-
+    console.log(joueurs[0].emplacementCase);
+    console.log(joueurs[1].emplacementCase);
+    console.log(joueurs[2].emplacementCase);
+    console.log(joueurs[3].emplacementCase);
+    /////////////////////////////////////////////
 
     for (var i = 0; i < joueurs.length; i++ ) {
 
