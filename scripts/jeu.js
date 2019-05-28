@@ -218,15 +218,13 @@ function fnAfficheFaceDe() {
 function fnAffichePions() {
 
     //C'est pour tester la fonction des emplacement
-    joueurs[0].deplacerPion(1);
+    joueurs[0].deplacerPion(2);
     joueurs[1].deplacerPion(1);
     joueurs[2].deplacerPion(2);
     joueurs[3].deplacerPion(2);
 
-    console.log(joueurs[0].emplacementCase);
-    console.log(joueurs[1].emplacementCase);
-    console.log(joueurs[2].emplacementCase);
-    console.log(joueurs[3].emplacementCase);
+    console.log(joueurs[0].caseActuelle);
+
     /////////////////////////////////////////////
 
     for (var i = 0; i < joueurs.length; i++ ) {

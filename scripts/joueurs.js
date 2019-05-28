@@ -38,8 +38,22 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     };
     //methode qui déplace le pion d'un nombre de case en fonction du dé
     this.deplacerPion = function (de) {
-        that.caseActuelle += de;
         that.emplacementCase = -1;
+
+        //condition pour que les pions s'arrêtent à chaques coins
+        if((that.caseActuelle + de)>6 && that.caseActuelle < 6){
+            that.caseActuelle = 6;
+        }
+        else if((that.caseActuelle + de)>12 && that.caseActuelle < 12){
+            that.caseActuelle = 12;
+        }else if((that.caseActuelle + de)>18 && that.caseActuelle < 18){
+            that.caseActuelle = 18;
+        }else if((that.caseActuelle + de)>=24 && that.caseActuelle < 24){
+            //quand le pion arrive à la derniere case, caseActuel est remis à zero
+            that.caseActuelle = 0;
+        }else{
+            that.caseActuelle += de;
+        }
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
 
 
