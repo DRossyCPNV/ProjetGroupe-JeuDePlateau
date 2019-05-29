@@ -1,0 +1,82 @@
+#menu_indications{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    left: 1220px;
+    top: 270px;
+    width: 450px;
+    box-sizing: border-box;
+    border: 5px solid #330968;
+    border-radius: 25px;
+    background-color: #38196A;
+}
+
+#menu_indications_titre{
+    font-family: 'Baloo Bhai', cursive;
+    font-size: 2em;
+    color: white;
+}
+
+/* CSS des divs joueurs */
+
+#menu_indications_joueurs{
+    box-sizing: border-box;
+}
+
+.menu_indications_joueur{
+    width: 400px;
+    margin: 10px 0px 10px 0px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 5px solid #41A46B;
+    border-radius: 15px;
+    background-color: #73C69C;
+    font-family: 'Baloo Bhai', cursive;
+    font-size: 1em;
+    color: white;
+}
+
+.menu_indications_joueur_informations{
+    width: 100%;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+ 
+.menu_indications_joueur_nom{
+    width: 50%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.menu_indications_joueur_section{
+    width: 50%;
+    text-align: center;
+    box-sizing: border-box;    
+}
+
+.menu_indications_joueur_modules{
+    width: 100%;
+}
+
+.menu_indications_joueur_pointsSavoir{
+    width: 100%;
+}
+
+/* CSS couleur des sections */
+
+.section_info{
+    font-size: 1em;
+    color: #2B9D3C;
+}
+.section_media{
+    font-size: 1em;
+    color: #F1B92E;
+}
+.section_meca{
+    font-size: 1em;
+    color: #EF2D6D;
+}

@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu_indications.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="creerDivJoueurs()">
 <!-- Menu qui permet de choisir le nombre de joueur, le nom de chaque joueur ainsi que leur section-->
 <div id="menu">
     <div id="div-nbJoueurs">
@@ -14,8 +16,8 @@
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6" selected>6</option>
+            <option value="5" selected>5</option>
+            <option value="6">6</option>
         </select>
     </div>
     <div id="options-joueurs">
@@ -131,12 +133,23 @@
   <p id="txt_chance"></p>
 </div>
 
+<!-- Menu des indications ici -->
+
+<div id="menu_indications">
+    <div id="menu_indications_titre">SCORES</div>
+    <div id="menu_indications_tours"></div>
+    <div id="menu_indications_joueurs"></div>
+</div>
+
+<!-- Fin menu des indications -->
+
 <script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="scripts/jeu.js"></script>
 <script type="text/javascript" src="scripts/joueurs.js"></script>
 <script type="text/javascript" src="scripts/jeu-html.js"></script>
 <script type="text/javascript" src="scripts/question.js"></script>
 <script type="text/javascript" src="scripts/chance.js"></script>
+<script type="text/javascript" src="scripts/menu_indications.js"></script>
 </body>
 </html>
 
