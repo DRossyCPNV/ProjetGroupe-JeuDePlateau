@@ -38,7 +38,7 @@ var echelle = 1; //pour pouvoir zoomer
 var angle = 0;// pour pouvoir tourner
 var decx = 397.5 * echelle;
 var decy = 397.5 * echelle; //origine au milieu du plateau de jeu
-var tcx = 75.590551;//taille petite case en x
+var tcx = 76;//taille petite case en x
 var tcy = 94.5;
 var tcoinxy = 189; //Taille case coin (carré)
 var tcfcxy = 189; //Taille case cfc (carré)
@@ -442,6 +442,23 @@ function fnAffichePions() {
                 break;
         }
     }
+}
+
+/*
+function: Cette fonction calcule les coordonnées de l'emplacement des pions en prenant en compte la superposition
+param jCaseActuelle: Case sur laquelle se trouve le joueur actuel
+param facteurSoustraction: Soustraction au numéro de case actuelle pour afficher correctement les pions (et permettre à la fonction d'être réutilisable.
+param jEmplacementCase: Emplacement occupé sur la case par le joueur actuel
+param caseDepartX: Coordonnées X de la case départ
+param caseDepartY: Coordonnées Y de la case départ
+param caseCoinW: Largeur en pixel d'une case "coin"
+param caseW: Largeur en pixel d'une case standard
+
+return: Tableau contenant les coordonnées X et Y du pion
+*/
+
+function fnGetCoordonnees(jCaseActuelle, facteurSoustraction, jEmplacementCase, caseDepartX, caseDepartY, caseCoinW, caseW) {
+
 }
 
 //Cette fonction pivote le canvas au coordonnées x;y d'un certaint angle
