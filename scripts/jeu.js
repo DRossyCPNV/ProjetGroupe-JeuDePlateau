@@ -5,27 +5,27 @@
 // Guilain Mbayo, David Rossy & Luca Coduri - SI-CA1a - mai 2019
 // **************************************************************
 
-//load files
-var img_case_standart = new Image();
-img_case_standart.src = ".\\images\\plateau\\Case_Standard.svg";
+//Chargement des fichiers
+var img_case_standard = new Image();
+img_case_standard.src = ".\\images\\plateau\\Case_Standard.svg";
 var img_case_coin = new Image();
 img_case_coin.src = ".\\images\\plateau\\Case_Coin.svg";
 var img_fond = new Image();
 img_fond.src = ".\\images\\plateau\\Fond.svg";
 var img_plateau = new Image();
 img_plateau.src = "images/plateau/Plateau_avec_WIDTH-HEIGHT.svg";
+var img = new Image();
+img.src = "images/six-faces-de.jpg";
 /////////////
 
-//element html
+//Elements html
 $("#btnPlay").click(function () {
     var nbJoueurs = $("#nbJoueurs").val();
-    console.log("il y a " + nbJoueurs + " Joueurs");
+    console.log("Il y a " + nbJoueurs + " Joueurs");
     fnJeu(nbJoueurs);
 });
 
-//Ce programme va devenir un programme de dessin
-//avec des boutons pour dessiner différentes choses
-
+//Initialisation du canvas
 var c = document.getElementById("plateau_jeu");
 var ctx = c.getContext("2d");
 
@@ -45,26 +45,23 @@ var tcfcxy = 189; //Taille case cfc (carré)
 const ncartes = 5;//nombre de carte par cot� (sans compter les coins)
 var joueurs; //tableau des joueurs
 const nbJoueursMax = 6;
-var acartes = [];
+var acartes = []; // tableau des cartes
 var coordCaseDep = {X: 15,Y: 385};
 
-// parametres du dé
+// Parametres du dé
 var tabNombres = new Array(); // tableau qui contient les nombres générés aléatoirement
 var nbFacesAffichees = 0; // compte le nombre de fois qu'une face de dé est affichée
 var resultatDe = 0; // stocke la dernière valeur affichée par le dé, utilisée pour le déplacement des pions.
 
-//Donnees
+// Données
 $.getJSON('donnees/cases.json', function (data) {
     acartes = data;
 });
 
 
-
+//Effacement de tout le canvas
 function fnEfface() {
-    //Effacement du canvas
-
     ctx.clearRect(0, 0, c.width, c.height);
-
 }
 
 // function fnCarte(n) {
@@ -74,7 +71,7 @@ function fnEfface() {
 //     var angle = (acartes[n].cote - 1) * Math.PI / 2;
 //     ctx.rotate(angle);
 //
-//     ctx.drawImage(img_case_standart, (ncartes / 2 - acartes[n].ordre) * tcx * echelle, ncartes / 2 * tcx * echelle + 50 , tcx * echelle, tcy * echelle - 50);
+//     ctx.drawImage(img_case_standard, (ncartes / 2 - acartes[n].ordre) * tcx * echelle, ncartes / 2 * tcx * echelle + 50 , tcx * echelle, tcy * echelle - 50);
 //
 //     ctx.textAlign = "center";
 //     ctx.font = 8 * echelle + "pt Arial";
@@ -101,8 +98,7 @@ function fnEfface() {
 // }
 
 function fnRect(x, y, lx, ly, c1, c2) {
-    //Cette fonction dessine un rectangle
-    //Dessine un texte intelligent, dans une couleur donnée tenant compte du coté et de l'échelle
+    //Cette fonction dessine un rectangle intelligent, dans une couleur donnée et en tenant compte du coté et de l'échelle
 
     if (c1 != 0) {
         ctx.fillStyle = c1;//couleur du trait
@@ -115,51 +111,55 @@ function fnRect(x, y, lx, ly, c1, c2) {
 }
 
 function fnText(t, x, y, c) {
-    //Dessine un texte intelligent, dans une couleur donnée tenant compte de l'echelle
+    //Dessine un texte intelligent, dans une couleur donnée et en tenant compte de l'echelle
     ctx.fillStyle = c;
     ctx.fillText(t, echelle * x, echelle * y);
 }
 
 function fnDraw(img, p1, p2, p3, p4, p5, p6, p7, p8)
-{
-	//Dessine une image intelligente, à l'échelle.
-
-			//Dessine l'image déclarée au début du fichier, avec (1) la source, (2,3) les coordonnées x et y du coin haut-gauche, (4,5) la largeur et hauteur,
-		// (6,7) les coordonnées x et y du coin haut-gauche où dessiner l'image sur le canvas, (8,9) la largeur et hauteur voulue.
-	ctx.drawImage(img, p1, p2, p3, p4, p5 * echelle, p6 * echelle, p7 * echelle, p8 * echelle);
+{	//Dessine une image intelligente, à l'échelle, avec :
+    // (1) la source, (2,3) les coordonnées x et y du coin haut-gauche, (4,5) la largeur et hauteur,
+    // (6,7) les coordonnées x et y du coin haut-gauche où dessiner l'image sur le canvas,
+    // (8,9) la largeur et hauteur voulue.
+    ctx.drawImage(img, p1, p2, p3, p4, p5 * echelle, p6 * echelle, p7 * echelle, p8 * echelle);
 }
 
-
+// Dessine le plateau de jeu entier et place les pions en fonction du nombre de joueurs
 function fnJeu(nbJoueurs) {
     nbJoueurJouant = nbJoueurs;
-    //Cette fonction dessine le plateau de jeu entier et place les pions en fonction du nombre de joueur
-    ctx.translate(decx, decy); //on place l'origine en decx, decy
 
-    //Dessin du carr� (plateau jaune)
+    //L'origine est placée en decx, decy
+    ctx.translate(decx, decy);
+
+    //Dessin du carré (plateau)
     // fnRect(30 - decx, 30 - decy, 2 * tcy + ncartes * tcx +1, 2 * tcy + ncartes * tcx + 1, "black", "black");
     ctx.strokeWidth = 10;
-    ctx.strokeStyle = "black";//couleur du trait
+    // Couleur du trait
+    ctx.strokeStyle = "black";
     ctx.strokeRect(16 - decx, 16 - decy, 768, 768);
     ctx.drawImage(img_plateau, 18 - decx, 18 - decy, 765 * echelle, 765 * echelle);
     //ctx.translate(-decx, -decy); //on place l'origine en 0, 0
 
-    // //Dessin de touts les coins
+    // Dessin de tous les coins
     // for (i = 0; i < 4; i++) {
     //     fnCoin(i);
     // }
 
 
-    // //Dessin de toutes les cartes
+    // Dessin de toutes les cartes
     // for (i = 0; i < acartes.length; i++) {
     //     fnCarte(i);
     // }
-    ctx.translate(-decx, -decy); //on place l'origine en decx,
 
-    //crée les joueurs en fonction du nombre de joueurs selectionnés dans le menu
+    //L'origine est placée en decx, decy
+    ctx.translate(-decx, -decy);
+
+    //Crée les joueurs en fonction de leur nombre selectionné dans le menu
     joueurs = maker(nbJoueurs);
 
     for (var i = 0; i < nbJoueurs; i++) {
-        console.log("joueur : " + i + ", Nom: " + joueurs[i].nom + ", Couleur: " + joueurs[i].couleur + ", Section: " + joueurs[i].section + ", id: " + joueurs[i].id + ", emplacement: " + joueurs[i].emplacementCase + ", case actuel: " + joueurs[i].caseActuelle); //pour test
+        // pour test
+        console.log("joueur : " + i + ", Nom: " + joueurs[i].nom + ", Couleur: " + joueurs[i].couleur + ", Section: " + joueurs[i].section + ", id: " + joueurs[i].id + ", emplacement: " + joueurs[i].emplacementCase + ", case actuel: " + joueurs[i].caseActuelle);
     }
 
     for (i = 0; i < nbJoueurs; i++) {

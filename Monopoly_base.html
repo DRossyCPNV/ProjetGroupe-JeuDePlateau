@@ -1,5 +1,12 @@
+<!-- **************************************************************
+Modulopoly - fichier principal du jeu, héberge le canvas
+JCY, Laurent Barraud, Bastian Chollet, Guillaume Duvoisin,
+Guilain Mbayo, David Rossy & Luca Coduri - SI-CA1a - mai 2019
+******************************************************************* -->
+
+
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="fr" dir="ltr">
 <head>
     <meta charset="utf-8">
     <title>Modulopoly</title>
@@ -7,18 +14,21 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<!-- Menu qui permet de choisir le nombre de joueur, le nom de chaque joueur ainsi que leur section-->
+
+<!-- Menu qui permet de choisir le nombre de joueurs, le nom de chaque joueur ainsi que leur section-->
 <div id="menu">
+
     <div id="div-nbJoueurs">
         <label for="nbJoueurs">Nombre de joueurs:</label>
-        <select name="nbJoueurs" id="nbJoueurs">
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6" selected>6</option>
-        </select>
+            <select name="nbJoueurs" id="nbJoueurs">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6" selected>6</option>
+            </select>
     </div>
+
     <div id="options-joueurs">
         <table>
             <tr id="options-joueur0">
@@ -32,8 +42,8 @@
                         <option value="Médiamaticien">Médiamaticien</option>
                     </select>
                 </td>
-
             </tr>
+
             <tr id="options-joueur1">
                 <td><label>Nom:</label></td>
                 <td><input type="text" name="nomJ1" id="nomJ1" value="Joueur2"></td>
@@ -46,6 +56,7 @@
                     </select>
                 </td>
             </tr>
+
             <tr id="options-joueur2">
                 <td><label>Nom:</label></td>
                 <td><input type="text" name="nomJ2" id="nomJ2" value="Joueur3"></td>
@@ -58,6 +69,7 @@
                     </select>
                 </td>
             </tr>
+
             <tr id="options-joueur3">
                 <td><label>Nom:</label></td>
                 <td><input type="text" name="nomJ3" id="nomJ3" value="Joueur4"></td>
@@ -70,6 +82,7 @@
                     </select>
                 </td>
             </tr>
+
             <tr id="options-joueur4">
                 <td><label>Nom:</label></td>
                 <td><input type="text" name="nomJ4" id="nomJ4" value="Joueur5"></td>
@@ -82,6 +95,7 @@
                     </select>
                 </td>
             </tr>
+
             <tr id="options-joueur5">
                 <td><label>Nom:</label></td>
                 <td><input type="text" name="nomJ5" id="nomJ5" value="Joueur6"></td>
@@ -95,34 +109,52 @@
                 </td>
             </tr>
         </table>
-
     </div>
-    <button id="btnPlay" name="play" value="play">jouer</button>
+
+    <!-- Lance le jeu -->
+    <button id="btnPlay" name="play" value="play">Jouer</button>
 </div>
 <br>
-<input type="button" value="Efface" onClick="fnEfface()"> <BR>
-<input type="button" value="Dessine Question" onclick="fnAfficheCarte();">
+
+<!-- Efface tout le canvas -->
+<input type="button" value="Effacer" onClick="fnEfface()"> <BR>
+
+<!-- Affiche une carte question -->
+<input type="button" value="Dessiner Question" onclick="fnAfficheCarte();">
+
+<!-- Lance le dé -->
 <input type="button" value="Lancer le d&eacute;" onClick="fnLancerDe()">
-<input type="button" value="Déplace" onclick="fnAffichePions();">
-<input type="button" value="Dessine Chance" onclick="fnAfficheChance();">
-<BR>
+
+<!-- Affiche et déplace les pions -->
+<input type="button" value="Déplacer" onclick="fnAffichePions();">
+
+<!-- Affiche une carte chance -->
+<input type="button" value="Dessiner Chance" onclick="fnAfficheChance();">
+<br>
+
 <canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid gray; background-color:midnightblue">
     Texte alternatif pour les navigateurs ne supportant pas Canvas.
 </canvas>
+
+<!-- Boutons radios de réponses à la carte question -->
 <div id="carte_question">
     <p id="txt_question"></p>
     <input type="radio" name="reponse" value="r1">
     <label id="r1" for="r1"></label>
     <br>
+
     <input type="radio" name="reponse" value="r2">
     <label id="r2" for="r2"></label>
     <br>
+
     <input type="radio" name="reponse" value="r3">
     <label id="r3" for="r3"></label>
     <br>
+
     <input type="radio" name="reponse" value="r4">
     <label id="r4" for="r4"></label>
     <br>
+
     <input type="button" value="Réponse" onclick="fnVerifReponse(); return false;">
 </div>
 

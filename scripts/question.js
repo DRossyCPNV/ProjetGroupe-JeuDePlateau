@@ -13,7 +13,7 @@ $('#carte_question').css('display','none');
 $.getJSON('donnees/questions.json', function(data) {
     acquestion = data;
 
-    nbcquestion = acquestion.length; //Le nombre de carte question
+    nbcquestion = acquestion.length; //Le nombre de cartes questions
 
 });
 

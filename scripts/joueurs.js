@@ -2,7 +2,7 @@
 //les couleurs de pions disponibles
 const couleursPions = ["rouge", "bleuClair", "bleuFonce", "orange", "violet", "vert"];
 
-//Function pour crée un tableau objet joueur, n étant le nombre de joueur
+//Fonction pour créer un tableau objet joueur, n étant le nombre de joueurs
 function maker(n) {
     var arr = [];
     for (i = 0; i < n; i++) {
@@ -25,12 +25,11 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     this.emplacementCase = id; //emplacement sera différent car l'id est différent
 
 
-    var cordX = 0, cordY = 0;
     var imgPion = new Image();
     imgPion.src = "images/pions/" + couleur + ".png";
 
 
-    //fonction pour placer le pion du joueur sur la case départ
+    //méthode pour placer le pion du joueur sur la case départ
     this.placerPionCaseDepart = function () {
         that.caseActuelle = 0;
         that.emplacementCase = -1;
@@ -41,17 +40,16 @@ function Joueur(id, nom, couleur, argent_depart, section) {
         that.emplacementCase = -1;
 
         //condition pour que les pions s'arrêtent à chaques coins
-        if((that.caseActuelle + de)>6 && that.caseActuelle < 6){
+        if ((that.caseActuelle + de) > 6 && that.caseActuelle < 6) {
             that.caseActuelle = 6;
-        }
-        else if((that.caseActuelle + de)>12 && that.caseActuelle < 12){
+        } else if ((that.caseActuelle + de) > 12 && that.caseActuelle < 12) {
             that.caseActuelle = 12;
-        }else if((that.caseActuelle + de)>18 && that.caseActuelle < 18){
+        } else if ((that.caseActuelle + de) > 18 && that.caseActuelle < 18) {
             that.caseActuelle = 18;
-        }else if((that.caseActuelle + de)>=24 && that.caseActuelle < 24){
+        } else if ((that.caseActuelle + de) >= 24 && that.caseActuelle < 24) {
             //quand le pion arrive à la derniere case, caseActuel est remis à zero
             that.caseActuelle = 0;
-        }else{
+        } else {
             that.caseActuelle += de;
         }
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
@@ -79,16 +77,22 @@ function nbJoueursCase(caseID) {
 
 //fonction qui retourne l'emplacement vide d'une case du plateau
 function emplacementVideCase(caseID) {
-    //ce tableau sera rempli a true pour les valeurs déjà prise
+
+    // Crée un nouveau tableau de la taille de joueurs validés.
+    // Il sera rempli a true pour les valeurs déjà prise, par défaut il est rempli de false.
     var tabEmplacement = new Array(joueurs.length).fill(false);
     for (var i = 0; i < tabEmplacement.length; i++) {
         if (joueurs[i].caseActuelle === caseID) {
+
+            // Condition pour sélectionner que les joueurs qui se trouvent sur un emplacement entre 0 et 5.
             if (joueurs[i].emplacementCase < joueurs.length || joueurs[i].emplacementCase > -1) {
+
+                // On dit que l'emplacement de la case où est le joueur est occupée.
                 tabEmplacement[joueurs[i].emplacementCase] = true;
             }
         }
     }
-    //quitte la boucle au premier emplacement vide
+    // Quitte la boucle et renvoie le premier emplacement disponible.
     for (var emplacement = 0; emplacement < nbJoueursCase(caseID); emplacement++) {
         if (tabEmplacement[emplacement] != true) {
             return emplacement;
