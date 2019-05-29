@@ -1,6 +1,14 @@
-#menu{
+
+body {
+    background-color: purple;
+    font-family: "Avenir LT Std 45 Book";
+    color: white;
+}
+
+#menu {
     border-style: solid;
 }
+
 #carte_question {
     display: inline-block;
     border: solid;

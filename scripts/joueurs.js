@@ -22,27 +22,46 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     this.argent = argent_depart;
     this.section = section;
     this.caseActuelle = 0; //permettra de savoir quel action effectuer grace à l'id des cases, la case 0 est la case départ
-    this.emplacementCase = -1;
+    this.emplacementCase = id; //emplacement sera différent car l'id est différent
+
 
     var cordX = 0, cordY = 0;
     var imgPion = new Image();
     imgPion.src = "images/pions/" + couleur + ".png";
 
+
     //fonction pour placer le pion du joueur sur la case départ
     this.placerPionCaseDepart = function () {
         that.caseActuelle = 0;
+        that.emplacementCase = -1;
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
     };
     //methode qui déplace le pion d'un nombre de case en fonction du dé
     this.deplacerPion = function (de) {
-        that.caseActuelle += de;
+        that.emplacementCase = -1;
+
+        //condition pour que les pions s'arrêtent à chaques coins
+        if((that.caseActuelle + de)>6 && that.caseActuelle < 6){
+            that.caseActuelle = 6;
+        }
+        else if((that.caseActuelle + de)>12 && that.caseActuelle < 12){
+            that.caseActuelle = 12;
+        }else if((that.caseActuelle + de)>18 && that.caseActuelle < 18){
+            that.caseActuelle = 18;
+        }else if((that.caseActuelle + de)>=24 && that.caseActuelle < 24){
+            //quand le pion arrive à la derniere case, caseActuel est remis à zero
+            that.caseActuelle = 0;
+        }else{
+            that.caseActuelle += de;
+        }
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
 
 
     };
     //methode pour placer le pion sur la case CFC
     this.placerCaseCFC = function () {
-        that.caseActuelle
+        that.caseActuelle = -10;
+        that.emplacementCase = -1;
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
     };
 }
@@ -50,8 +69,8 @@ function Joueur(id, nom, couleur, argent_depart, section) {
 //fonctions qui donne le nombre de joueur se trouvent sur la case demandé
 function nbJoueursCase(caseID) {
     nombreJoueurs = 0;
-    for (var i = 0; i < nbJoueurJouant; i++) {
-        if (joueurs[i].caseActuelle == caseID) {
+    for (var i = 0; i < joueurs.length; i++) {
+        if (joueurs[i].caseActuelle === caseID) {
             nombreJoueurs++;
         }
     }
@@ -61,17 +80,17 @@ function nbJoueursCase(caseID) {
 //fonction qui retourne l'emplacement vide d'une case du plateau
 function emplacementVideCase(caseID) {
     //ce tableau sera rempli a true pour les valeurs déjà prise
-    var tabEmplacement = new Array(nbJoueursMax).fill(false);
-    for (var i = 0; i < nbJoueurJouant; i++) {
-        if (joueurs[i].caseActuelle == caseID) {
-            if (joueurs[i].emplacementCase < nbJoueursMax || joueurs[i].emplacementCase > -1) {
+    var tabEmplacement = new Array(joueurs.length).fill(false);
+    for (var i = 0; i < tabEmplacement.length; i++) {
+        if (joueurs[i].caseActuelle === caseID) {
+            if (joueurs[i].emplacementCase < joueurs.length || joueurs[i].emplacementCase > -1) {
                 tabEmplacement[joueurs[i].emplacementCase] = true;
             }
         }
     }
     //quitte la boucle au premier emplacement vide
-    for (var emplacement = 0; emplacement < nbJoueursCase(); emplacement++) {
-        if (tabEmplacement[emplacement] == false) {
+    for (var emplacement = 0; emplacement < nbJoueursCase(caseID); emplacement++) {
+        if (tabEmplacement[emplacement] != true) {
             return emplacement;
         }
     }
