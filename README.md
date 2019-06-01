@@ -15,16 +15,14 @@ Dans le cadre du CPNV nous avons comme but de réaliser un projet en groupe, ave
 - 50 cartes "Question" imprimées horizontalement
 - 36 cartes "Modules" imprimées verticalement
 - 1 dé
-- 100x jetons blancs (White, #FFFFFF), 
-avec "50 points" en écriture vert étang (MediumAquaMarine, #66CDAA) => 5000 points
-- 70x jetons bleus acier (LightSteelBlue, #B0C4DE), 
-avec "100 points" en écriture blanc (White, #FFFFFF) => 7000 points
-- 60x jetons rouges corail léger (LightCoral, #F08080), 
-avec "200 points" en écriture orange saumon léger (LightSalmon, #FFA07A) => 12000 points
-- 20x jetons noirs (Black, #000000), 
-avec "500 points" en écriture dorée pâle (GoldenRod, #DAA520) => 10000 points
-totaux : 250 jetons pour un montant de 34000 points de savoir,
-à répartir pendant le jeu entre maximum 6 joueurs.
+- 100x billets blancs (White, #FFFFFF), 
+avec "50 points" en écriture vert étang (MediumAquaMarine, #66CDAA), pour une somme de 5000 points
+- 70x billets bleus acier (LightSteelBlue, #B0C4DE), 
+avec "100 points" en écriture blanc (White, #FFFFFF), pour une somme de 7000 points
+- 60x billets rouges corail léger (LightCoral, #F08080), 
+avec "200 points" en écriture orange saumon léger (LightSalmon, #FFA07A), pour une somme de 12000 points
+- 20x billets noirs (Black, #000000), avec "500 points" en écriture dorée pâle (GoldenRod, #DAA520), pour une somme de 10000 points
+Totaux : 250 billets pour un montant de 34000 points de savoir, à répartir pendant le jeu entre maximum 6 joueurs.
 
 
 ### Préparation:
