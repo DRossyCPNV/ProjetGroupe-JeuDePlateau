@@ -1,7 +1,7 @@
 # Modulopoly
 
 ## introduction
-Dans le cadre du CPNV nous avons comme but de réaliser un projet en groupe afin de....
+Dans le cadre du CPNV nous avons comme but de réaliser un projet en groupe, avec une version boîte "physique" du jeu, ainsi qu'une version informatique, dont le code source doit être au besoin modulable.
 
 ## Règles du jeu:
 ### But du jeu:
