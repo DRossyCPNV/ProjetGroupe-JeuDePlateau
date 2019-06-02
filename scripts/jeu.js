@@ -10,7 +10,8 @@
 $("#btnPlay").click(function () {
     var nbJoueurs = $("#nbJoueurs").val();
     console.log("Il y a " + nbJoueurs + " Joueurs");
-    fnJeu(nbJoueurs);
+    //fnJeu(nbJoueurs);
+    gameloop(nbJoueurs);
 });
 
 // Données
@@ -177,20 +178,6 @@ function fnAfficheFaceDe() {
 }
 //Cette fonction réaffiche les pions sur le canvas
 function fnAffichePions() {
-
-    //C'est pour tester la fonction des emplacement
-    joueurs[0].deplacerPion(1);
-    joueurs[1].deplacerPion(1);
-    joueurs[2].deplacerPion(1);
-    joueurs[3].deplacerPion(1);
-    joueurs[4].deplacerPion(1);
-    joueurs[5].deplacerPion(1);
-    ctx.drawImage(img_plateau, 18 , 18 , 765 * echelle, 765 * echelle);
-
-    console.log(joueurs[0].caseActuelle);
-
-    /////////////////////////////////////////////
-
     for (var i = 0; i < joueurs.length; i++ ) {
 
         var imgPion = new Image();

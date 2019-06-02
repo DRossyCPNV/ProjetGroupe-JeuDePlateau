@@ -116,14 +116,11 @@ Guilain Mbayo, David Rossy & Luca Coduri - SI-CA1a - mai 2019
 </div>
 <br>
 
-<!-- Efface tout le canvas -->
-<input type="button" value="Effacer" onClick="fnEfface()"> <BR>
-
 <!-- Affiche une carte question -->
 <input type="button" value="Dessiner Question" onclick="fnAfficheCarte();">
 
 <!-- Lance le dé -->
-<input type="button" value="Lancer le d&eacute;" onClick="fnLancerDe()">
+<input id="btn-lancerDe" type="button" value="Lancer le dé">
 
 <!-- Affiche et déplace les pions -->
 <input type="button" value="Déplacer" onclick="fnAffichePions();">
@@ -172,6 +169,7 @@ Guilain Mbayo, David Rossy & Luca Coduri - SI-CA1a - mai 2019
 <script type="text/javascript" src="scripts/question.js"></script>
 <script type="text/javascript" src="scripts/chance.js"></script>
 <script type="text/javascript" src="scripts/varGlobal.js"></script>
+<script type="text/javascript" src="scripts/gameloop.js"></script>
 </body>
 </html>
 
