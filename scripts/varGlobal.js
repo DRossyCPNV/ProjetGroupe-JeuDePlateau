@@ -29,15 +29,15 @@ var echelle = 1; //pour pouvoir zoomer
 var angle = 0;// pour pouvoir tourner
 var decx = 397.5 * echelle;
 var decy = 397.5 * echelle; //origine au milieu du plateau de jeu
-var tcx = 76;//taille petite case en x
+var tcx = 75;//taille petite case en x
 var tcy = 94.5;
-var tcoinxy = 189; //Taille case coin (carré)
+var tcoinxy = 192; //Taille case coin (carré)
 var tcfcxy = 189; //Taille case cfc (carré)
 const ncartes = 5;//nombre de carte par cot� (sans compter les coins)
 var joueurs; //tableau des joueurs
 const nbJoueursMax = 6;
 var acartes = []; //tableau des cartes
-var coordCaseDep = {X: 15,Y: 710};
+var coordCaseDep = {X: 30,Y: 710};
 
 // Parametres du dé
 var tabNombres = new Array(); // tableau qui contient les nombres générés aléatoirement

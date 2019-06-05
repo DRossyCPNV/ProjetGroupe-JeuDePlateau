@@ -189,11 +189,11 @@ function fnGetCoordonnees(jEmplacementCase, jCaseActuelle, facteurSoustraction, 
     //S'il y a plus de trois pions aligné, on crée une deuxième rangée de pions.
     if (jEmplacementCase > 2){
         decj = (jEmplacementCase - 3) * 20;
-        coordxy[0] = caseDepartX + (1.15 * caseCoinW) + (5 * caseW) + decj - (jCaseActuelle * caseW);
+        coordxy[0] = caseDepartX + (1 * caseCoinW) + (5 * caseW) + decj - (jCaseActuelle * caseW);
         coordxy[1] = caseDepartY + 25;
     }
     else{
-        coordxy[0] = caseDepartX + (1.15 * caseCoinW) + (5 * caseW) + decj - (jCaseActuelle * caseW);
+        coordxy[0] = caseDepartX + (1 * caseCoinW) + (5 * caseW) + decj - (jCaseActuelle * caseW);
         coordxy[1] = caseDepartY;
     }
 
