@@ -15,10 +15,15 @@ function afficherMenuIndications(){
     }
     
     //Affiche et actualise les scores toutes les 500 milisecondes
-    setInterval(creerDivJoueurs(nbJoueurs, pointsSavoirJoueurs), 500);
+    creerDivJoueurs(nbJoueurs, pointsSavoirJoueurs);
 }
 
 function creerDivJoueurs(nbJoueurs, pointsSavoirJoueurs) {
+    setInterval(function(){
+    //Essai tour joueur à supprimer plus tard
+    var jActuel = Math.floor(Math.random() * (nbJoueurs - 1 + 1)) + 1;
+    var boutonAffiche = "";
+    
     //Afficher le nombre de joueurs dans la menu des indications
     document.getElementById('menu_indications_tours').innerHTML = 'Nombres de joueurs : ' + nbJoueurs;
 
@@ -37,6 +42,16 @@ function creerDivJoueurs(nbJoueurs, pointsSavoirJoueurs) {
                                    break;
             default:               couleur_section = '';
                                    break;
+        }
+        
+        //Test sur un seul bouton
+        if (i + 1 == jActuel){
+            boutonAffiche =   '<div class="menu_indications_joueur_boutons">' + '\n'
+                            + '<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer">' + '\n'
+                            + '</div>' + '\n'
+        }
+        else {
+            boutonAffiche = "";
         }
 
         divJoueurs +=   //Div du joueur
@@ -61,12 +76,11 @@ function creerDivJoueurs(nbJoueurs, pointsSavoirJoueurs) {
                             + 'Points de savoir : ' + pointsSavoirJoueurs[i] + '\n'
                             + '</div>' + '\n'
                             //Div affichant (ou pas) le bouton pour lancer le dé
-                            + '<div class="menu_indications_joueur_boutons">' + '\n'
-                            + '<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer">' + '\n'
-                            + '</div>' + '\n'
+                            + boutonAffiche
                         + '</div>' + '\n';
     }
 
     //Insérer des divs joueurs dans le code HTML
     document.getElementById('menu_indications_joueurs').innerHTML = divJoueurs;
+    }, 500);
 }
