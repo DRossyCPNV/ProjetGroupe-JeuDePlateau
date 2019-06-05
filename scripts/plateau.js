@@ -1,0 +1,6 @@
+function afficherPlateau(){
+
+}
+function afficherCaseCoin(){
+
+}

@@ -17,7 +17,7 @@ $.getJSON('donnees/questions.json', function(data) {
 
 });
 
-function fnAfficheCarte() {
+function fnAfficheQuestion() {
 
     //Affichage de la div
     $('#carte_question').css('display', 'block');
@@ -37,7 +37,7 @@ function fnAfficheCarte() {
     breponse = acquestion[nbaleat].br;
 }
 
-function fnVerifReponse() {
+function fnVerifReponseQuestion() {
 
     //On enregistre la réponse du joueur
     jreponse = $("input[name='reponse']:checked");
@@ -47,10 +47,12 @@ function fnVerifReponse() {
         alert("Bravo ! Vous avez trouvé la bonne réponse");
         $('#carte_question').css('display','none');
         jreponse.prop("checked", false);
+        return true;
     }
     else {
         alert("Mauvaise réponse !");
         $('#carte_question').css('display','none');
         jreponse.prop("checked", false);
+        return false;
     }
 }

@@ -6,10 +6,15 @@
 *  - joueur suivant
 *  - Recommencer
 * */
+//permet de vérifier si la réponse à la question à été validée
+$("#btn-verif").click(function () {
+    $(this).data('clicked', true);
+});
 
 //cette fonction sera la fonction principale qui liera toutes les autres pour rendre le jeu fonctionnel
-function gameloop(nbJoueurs){
-    nbJoueurJouant = nbJoueurs;
+function gameloop(nbJoueurs) {
+    var nbJoueurJouant = nbJoueurs;
+    var jActuel = 0;
     //crée les joueurs
     joueurs = maker(nbJoueurs);
     //message d'info dans la console
@@ -25,29 +30,34 @@ function gameloop(nbJoueurs){
     //L'origine est placée en decx, decy
     //ctx.translate(decx, decy);
 
-    ctx.drawImage(img_plateau, 18 , 18 , 765 * echelle, 765 * echelle);
+    ctx.drawImage(img_plateau, 18, 18, 765 * echelle, 765 * echelle);
     fnAffichePions();
 
     $("#btn-lancerDe").click(function () { // https://css-tricks.com/snippets/jquery/click-once-and-unbind/
         //désactive le bouton lancer le dé le temps que la fonction n'est pas terminé;
-        $("#btn-lancerDe").attr('disabled','disabled');
+        $("#btn-lancerDe").attr('disabled', 'disabled');
         console.log("je disable le bouton");
 
 
-        tourJoueur(0);
-
+        tourJoueur(jActuel);
+        if (jActuel < nbJoueurJouant - 1) {
+            jActuel++;
+        } else {
+            jActuel = 0;
+        }
 
     });
 }
+
 //fonction qui représente le tour d'un joueur
-function tourJoueur(joueurId){
+function tourJoueur(joueurId) {
     //crée un nombre aléatoire
     fnLancerDe();
     //Dlplacer le pion en fonction du résultat du dé
     joueurs[joueurId].deplacerPion(resultatDe);
 
     //redéssiner le plateau de jeu
-    ctx.drawImage(img_plateau, 18 , 18 , 765 * echelle, 765 * echelle);
+    ctx.drawImage(img_plateau, 18, 18, 765 * echelle, 765 * echelle);
 
     //redéssiner les pions
     fnAffichePions();
@@ -61,21 +71,39 @@ function tourJoueur(joueurId){
     $("#btn-lancerDe").removeAttr('disabled');
 }
 
-function actionCase(joueur){
+function actionCase(joueurActuel) {
 
-    caseToCheck = joueur.caseActuelle;
+    var caseToCheck = joueurActuel.caseActuelle;
+    var typeDeCase = acartes[caseToCheck].type;
 
     switch (true) {
         //case coin
-        case ((caseToCheck % 6) === 0):
+        case (typeDeCase === "normal"):
+            console.log(typeDeCase);
+            //demander si le joueur veut acheter la case
+            break;
+
+        case (typeDeCase === "question"):
+            /*console.log(typeDeCase);
             //poser une question
+            fnAfficheQuestion();
+            //on attend que la réponse soit validée
+            while($("#btn-verif").data('clicked')){}
+            if (fnVerifReponseQuestion() === true) {
+                joueurActuel.nbTestReussi++;
+                console.log("Voici mes point" + joueurActuel.nbTestReussi);
+                $("#id").data('clicked', false);
+            }*/
+
+
             break;
-        //case chance
-        case 2:
+        case (typeDeCase === "chance"):
+            console.log(typeDeCase);
+            //case chance
             break;
-        case 3:
-            break;
-        case 4:
+        case (typeDeCase === "cfc"):
+            console.log(typeDeCase);
+            //case CFC
             break;
     }
 }
