@@ -394,18 +394,34 @@ function fnAffichePions() {
 /*
 function: Cette fonction calcule les coordonnées de l'emplacement des pions en prenant en compte la superposition
 param jCaseActuelle: Case sur laquelle se trouve le joueur actuel
-param facteurSoustraction: Soustraction au numéro de case actuelle pour afficher correctement les pions (et permettre à la fonction d'être réutilisable.
+param facteurSoustraction: Soustraction au numéro de case actuelle pour afficher correctement les pions (et permettre à la fonction d'être réutilisable. ex: la 6ème, 12ème et 18ème cases redeviennent la case zéro).
 param jEmplacementCase: Emplacement occupé sur la case par le joueur actuel
 param caseDepartX: Coordonnées X de la case départ
 param caseDepartY: Coordonnées Y de la case départ
 param caseCoinW: Largeur en pixel d'une case "coin"
 param caseW: Largeur en pixel d'une case standard
 
-return: Tableau contenant les coordonnées X et Y du pion
+return pionxy: Tableau contenant les coordonnées X et Y du pion
 */
 
-function fnGetCoordonnees(jCaseActuelle, facteurSoustraction, jEmplacementCase, caseDepartX, caseDepartY, caseCoinW, caseW) {
+function fnGetCoordonnees(jEmplacementCase, jCaseActuelle, facteurSoustraction, caseDepartX, caseDepartY, caseCoinW, caseW) {
 
+    jCaseActuelle -= facteurSoustraction;
+    var decj = jEmplacementCase * 20; //Décalage joueur. Cette variable décale les pions afin qu'ils ne se superposent pas sur une même case
+    var pionxy = [0, 0];
+
+    //S'il y a plus de trois pions aligné, on crée une deuxième rangée de pions.
+    if (jEmplacementCase > 2){
+        decj = (jEmplacementCase - 3) * 20;
+        pionxy[0] = caseDepartX + (1.15 * caseCoinW) + (5 * caseW) + decj - (jCaseActuelle * caseW);
+        pionxy[1] = caseDepartY + 25;
+    }
+    else{
+        pionxy[0] = caseDepartX + (1.15 * caseCoinW) + (5 * caseW) + decj - (jCaseActuelle * caseW);
+        pionxy[1] = caseDepartY;
+    }
+
+    return pionxy;
 }
 
 //Cette fonction pivote le canvas au coordonnées x;y d'un certaint angle
