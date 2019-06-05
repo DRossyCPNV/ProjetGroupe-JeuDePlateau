@@ -31,4 +31,19 @@ body {
     padding: 20px;
     text-align: center;
     background-image: url("../images/chance/fond.png");
+    color: black;
+}
+#choix_cible{
+    display: none;
+    margin: auto;
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    width: 461px;
+    height: 500px;
+    border-radius: 9%;
+    padding: 20px;
+    text-align: center;
+    color: black;
+    background-color: white;
 }
