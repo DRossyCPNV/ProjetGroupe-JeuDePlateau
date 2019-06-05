@@ -1,6 +1,14 @@
-#menu{
+
+body {
+    background-color: purple;
+    font-family: "Avenir LT Std 45 Book";
+    color: white;
+}
+
+#menu {
     border-style: solid;
 }
+
 #carte_question {
     display: inline-block;
     border: solid;
@@ -10,4 +18,17 @@
     padding-bottom: 200px;
     padding-left: 300px;
     padding-right: 300px;
+}
+#carte_chance{
+    display: none;
+    margin: auto;
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    width: 461px;
+    height: 271px;
+    border-radius: 9%;
+    padding: 20px;
+    text-align: center;
+    background-image: url("../images/chance/fond.png");
 }

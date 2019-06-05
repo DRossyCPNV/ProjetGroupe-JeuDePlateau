@@ -5,66 +5,24 @@
 // Guilain Mbayo, David Rossy & Luca Coduri - SI-CA1a - mai 2019
 // **************************************************************
 
-//load files
-var img_case_standart = new Image();
-img_case_standart.src = ".\\images\\plateau\\Case_Standard.svg";
-var img_case_coin = new Image();
-img_case_coin.src = ".\\images\\plateau\\Case_Coin.svg";
-var img_fond = new Image();
-img_fond.src = ".\\images\\plateau\\Fond.svg";
-var img_plateau = new Image();
-img_plateau.src = "images/plateau/Plateau_avec_WIDTH-HEIGHT.svg";
-/////////////
 
-//element html
+//Elements html
 $("#btnPlay").click(function () {
     var nbJoueurs = $("#nbJoueurs").val();
-    console.log("il y a " + nbJoueurs + " Joueurs");
-    fnJeu(nbJoueurs);
+    console.log("Il y a " + nbJoueurs + " Joueurs");
+    //fnJeu(nbJoueurs);
+    gameloop(nbJoueurs);
 });
 
-//Ce programme va devenir un programme de dessin
-//avec des boutons pour dessiner différentes choses
-
-var c = document.getElementById("plateau_jeu");
-var ctx = c.getContext("2d");
-
-// Le reste du script ici....
-var img = new Image();
-img.src = "images/six-faces-de.jpg";
-
-//paramètre de dessin
-var echelle = 1.7; //pour pouvoir zoomer
-var angle = 0;// pour pouvoir tourner
-var decx = 400;
-var decy = 400; //origine au milieu du plateau de jeu
-var tcx = 78;//taille carte en x
-var tcy = 98;
-var tcoinxy = 192;
-var tcfcxy = 194;
-const ncartes = 5;//nombre de carte par cot� (sans compter les coins)
-var joueurs; //tableau des joueurs
-const nbJoueursMax = 6;
-var acartes = [];
-var coordCaseDep = {X: 15,Y: 385};
-
-// parametres du dé
-var tabNombres = new Array(); // tableau qui contient les nombres générés aléatoirement
-var nbFacesAffichees = 0; // compte le nombre de fois qu'une face de dé est affichée
-var resultatDe = 0; // stocke la dernière valeur affichée par le dé, utilisée pour le déplacement des pions.
-
-//Donnees
+// Données
 $.getJSON('donnees/cases.json', function (data) {
     acartes = data;
 });
 
 
-
+//Effacement de tout le canvas
 function fnEfface() {
-    //Effacement du canvas
-
     ctx.clearRect(0, 0, c.width, c.height);
-
 }
 
 // function fnCarte(n) {
@@ -74,7 +32,7 @@ function fnEfface() {
 //     var angle = (acartes[n].cote - 1) * Math.PI / 2;
 //     ctx.rotate(angle);
 //
-//     ctx.drawImage(img_case_standart, (ncartes / 2 - acartes[n].ordre) * tcx * echelle, ncartes / 2 * tcx * echelle + 50 , tcx * echelle, tcy * echelle - 50);
+//     ctx.drawImage(img_case_standard, (ncartes / 2 - acartes[n].ordre) * tcx * echelle, ncartes / 2 * tcx * echelle + 50 , tcx * echelle, tcy * echelle - 50);
 //
 //     ctx.textAlign = "center";
 //     ctx.font = 8 * echelle + "pt Arial";
@@ -101,8 +59,7 @@ function fnEfface() {
 // }
 
 function fnRect(x, y, lx, ly, c1, c2) {
-    //Cette fonction dessine un rectangle
-    //Dessine un texte intelligent, dans une couleur donnée tenant compte du coté et de l'échelle
+    //Cette fonction dessine un rectangle intelligent, dans une couleur donnée et en tenant compte du coté et de l'échelle
 
     if (c1 != 0) {
         ctx.fillStyle = c1;//couleur du trait
@@ -115,50 +72,55 @@ function fnRect(x, y, lx, ly, c1, c2) {
 }
 
 function fnText(t, x, y, c) {
-    //Dessine un texte intelligent, dans une couleur donnée tenant compte de l'echelle
+    //Dessine un texte intelligent, dans une couleur donnée et en tenant compte de l'echelle
     ctx.fillStyle = c;
     ctx.fillText(t, echelle * x, echelle * y);
 }
 
 function fnDraw(img, p1, p2, p3, p4, p5, p6, p7, p8)
-{
-	//Dessine une image intelligente, à l'échelle.
-
-			//Dessine l'image déclarée au début du fichier, avec (1) la source, (2,3) les coordonnées x et y du coin haut-gauche, (4,5) la largeur et hauteur,
-		// (6,7) les coordonnées x et y du coin haut-gauche où dessiner l'image sur le canvas, (8,9) la largeur et hauteur voulue.
-	ctx.drawImage(img, p1, p2, p3, p4, p5 * echelle, p6 * echelle, p7 * echelle, p8 * echelle);
+{	//Dessine une image intelligente, à l'échelle, avec :
+    // (1) la source, (2,3) les coordonnées x et y du coin haut-gauche, (4,5) la largeur et hauteur,
+    // (6,7) les coordonnées x et y du coin haut-gauche où dessiner l'image sur le canvas,
+    // (8,9) la largeur et hauteur voulue.
+    ctx.drawImage(img, p1, p2, p3, p4, p5 * echelle, p6 * echelle, p7 * echelle, p8 * echelle);
 }
 
-
+// Dessine le plateau de jeu entier et place les pions en fonction du nombre de joueurs
 function fnJeu(nbJoueurs) {
     nbJoueurJouant = nbJoueurs;
-    //Cette fonction dessind le plateau de jeu entier et place les pions en fonction du nombre de joueur
-    ctx.translate(decx, decy); //on place l'origine en decx, decy
 
-    //Dessin du carr� (plateau jaune)
+    //L'origine est placée en decx, decy
+    ctx.translate(decx, decy);
+
+    //Dessin du carré (plateau)
     // fnRect(30 - decx, 30 - decy, 2 * tcy + ncartes * tcx +1, 2 * tcy + ncartes * tcx + 1, "black", "black");
     ctx.strokeWidth = 10;
-    ctx.strokeStyle = "black";//couleur du trait
+    // Couleur du trait
+    ctx.strokeStyle = "black";
     ctx.strokeRect(16 - decx, 16 - decy, 768, 768);
-    ctx.drawImage(img_plateau, 18 - decx, 18 - decy, 765, 765);
+    ctx.drawImage(img_plateau, 18 - decx, 18 - decy, 765 * echelle, 765 * echelle);
+    //ctx.translate(-decx, -decy); //on place l'origine en 0, 0
 
-    // //Dessin de touts les coins
+    // Dessin de tous les coins
     // for (i = 0; i < 4; i++) {
     //     fnCoin(i);
     // }
 
 
-    // //Dessin de toutes les cartes
+    // Dessin de toutes les cartes
     // for (i = 0; i < acartes.length; i++) {
     //     fnCarte(i);
     // }
-    ctx.translate(-decx, -decy); //on place l'origine en decx,
 
-    //crée les joueurs en fonction du nombre de joueurs selectionnés dans le menu
+    //L'origine est placée en decx, decy
+    ctx.translate(-decx, -decy);
+
+    //Crée les joueurs en fonction de leur nombre selectionné dans le menu
     joueurs = maker(nbJoueurs);
 
     for (var i = 0; i < nbJoueurs; i++) {
-        console.log("joueur : " + i + ", Nom: " + joueurs[i].nom + ", Couleur: " + joueurs[i].couleur + ", Section: " + joueurs[i].section + ", id: " + joueurs[i].id + ", emplacement: " + joueurs[i].emplacementCase + ", case actuel: " + joueurs[i].caseActuelle); //pour test
+        // pour test
+        console.log("joueur : " + i + ", Nom: " + joueurs[i].nom + ", Couleur: " + joueurs[i].couleur + ", Section: " + joueurs[i].section + ", id: " + joueurs[i].id + ", emplacement: " + joueurs[i].emplacementCase + ", case actuel: " + joueurs[i].caseActuelle);
     }
 
     for (i = 0; i < nbJoueurs; i++) {
@@ -214,47 +176,46 @@ function fnAfficheFaceDe() {
 		}
 
 }
-//Cette réaffiche les pions sur le canvas
+//Cette fonction réaffiche les pions sur le canvas
 function fnAffichePions() {
-
-    //C'est pour tester la fonction des emplacement
-    joueurs[0].deplacerPion(1);
-    joueurs[1].deplacerPion(1);
-    joueurs[2].deplacerPion(2);
-    joueurs[3].deplacerPion(2);
-
-    console.log(joueurs[0].emplacementCase);
-    console.log(joueurs[1].emplacementCase);
-    console.log(joueurs[2].emplacementCase);
-    console.log(joueurs[3].emplacementCase);
-    /////////////////////////////////////////////
-
     for (var i = 0; i < joueurs.length; i++ ) {
 
         var imgPion = new Image();
         imgPion.src = "images/pions/" + joueurs[i].couleur + ".png";
 
-        var j = joueurs[i].caseActuelle;
-
-        //On fait en sorte que les pions ne puissent pas dépasser la case de départ et qu'il s'y arrêtent obligatoirement
-        if (j >= 24) {
-            j = 0;
-        }
-
         //Coordonnées des pions
         var pionx;
-        var piony;
+        var piony = coordCaseDep.Y;
+        var pionw = 15.5;
+        var pionh = 22.5;
         var anglePion = Math.PI/2;
+        var j = joueurs[i].caseActuelle;
+        var decj = joueurs[i].emplacementCase * 20; //cette variable décale les pions afin qu'ils ne se superposent pas sur une même case
 
+
+
+        //On recherche comment et où positionner les pions sur le plateau
         switch (true) {
 
-            case (j == 0):
+            case (j === 0):
 
                 fnPivotePlateau(decx, decy, anglePion);
 
-                pionx = coordCaseDep.X + 7 * tcx;
-                piony = coordCaseDep.Y;
-                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, 15 * echelle, 25 * echelle);
+                if (joueurs[i].emplacementCase > 2){
+
+                    decj = (joueurs [i].emplacementCase - 3) * 20;
+                    pionx = coordCaseDep.X + 1.15 * tcoinxy + 5 * tcx + decj;
+                    piony = coordCaseDep.Y + 25;
+
+                }
+                else{
+
+                    pionx = coordCaseDep.X + 1.15 * tcoinxy + 5 * tcx + decj;
+                    piony = coordCaseDep.Y;
+
+                }
+
+                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, pionw * echelle, pionh * echelle);
 
                 fnPivotePlateau(decx, decy, -anglePion);
 
@@ -265,23 +226,45 @@ function fnAffichePions() {
 
                 fnPivotePlateau(decx, decy, anglePion);
 
-                pionx = coordCaseDep.X + (6 * tcx) - (j - 1) * tcx;
-                piony = coordCaseDep.Y;
+                if (joueurs[i].emplacementCase > 2){
 
-                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, 15 * echelle, 25 * echelle);
+                    decj = (joueurs [i].emplacementCase - 3) * 20;
+                    pionx = coordCaseDep.X + (1.15 * tcoinxy) + (5 * tcx) + decj - (j * tcx);
+                    piony = coordCaseDep.Y + 25;
+
+                }
+                else{
+
+                    pionx = coordCaseDep.X + (1.15 * tcoinxy) + (5 * tcx) + decj - (j * tcx);
+                    piony = coordCaseDep.Y;
+
+                }
+
+                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, pionw * echelle, pionh * echelle);
 
                 fnPivotePlateau(decx, decy, -anglePion);
 
                 break;
 
-            case (j == 6):
+            case (j === 6):
 
                 fnPivotePlateau(decx, decy, anglePion * 2);
 
-                pionx = coordCaseDep.X + 7 * tcx; //On avance de 6 cases par côté. Une case coin vaut 2 cases modules. On déplace donc le pion de 7 cases
-                piony = coordCaseDep.Y;
+                if (joueurs[i].emplacementCase > 2){
 
-                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, 15 * echelle, 25 * echelle);
+                    decj = (joueurs [i].emplacementCase - 3) * 20;
+                    pionx = coordCaseDep.X + 1.15 * tcoinxy + 5 * tcx + decj;
+                    piony = coordCaseDep.Y + 25;
+
+                }
+                else{
+
+                    pionx = coordCaseDep.X + 1.15 * tcoinxy + 5 * tcx + decj;
+                    piony = coordCaseDep.Y;
+
+                }
+
+                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, pionw * echelle, pionh * echelle);
 
                 fnPivotePlateau(decx, decy, -anglePion * 2);
 
@@ -291,23 +274,47 @@ function fnAffichePions() {
 
                 fnPivotePlateau(decx, decy, anglePion * 2);
 
-                pionx = coordCaseDep.X + 7 * tcx - (j - 6) * tcx; //On déplace le pion de 7 cases modules (on le met dans le coin en bout de ligne) puis on soustrait sa position actuelle au nombre de cases totale en bout de ligne....... ZE COMMENT PAS CLAIR
-                piony = coordCaseDep.Y;
+                j -= 6; //On remet la valeur à zéro pour calculer correctement le décalage
 
-                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, 15 * echelle, 25 * echelle);
+                if (joueurs[i].emplacementCase > 2){
+
+                    decj = (joueurs [i].emplacementCase - 3) * 20;
+                    pionx = coordCaseDep.X + (1.15 * tcoinxy) + (5 * tcx) + decj - (j * tcx);
+                    piony = coordCaseDep.Y + 25;
+
+                }
+                else{
+
+                    pionx = coordCaseDep.X + (1.15 * tcoinxy) + (5 * tcx) + decj - (j * tcx);
+                    piony = coordCaseDep.Y;
+
+                }
+
+                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, pionw * echelle, pionh * echelle);
 
                 fnPivotePlateau(decx, decy, -anglePion * 2);
 
                 break;
 
-            case (j == 12):
+            case (j === 12):
 
                 fnPivotePlateau(decx, decy, anglePion * 3);
 
-                pionx = coordCaseDep.X + 7 * tcx;
-                piony = coordCaseDep.Y;
+                if (joueurs[i].emplacementCase > 2){
 
-                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, 15 * echelle, 25 * echelle);
+                    decj = (joueurs [i].emplacementCase - 3) * 20;
+                    pionx = coordCaseDep.X + 1.15 * tcoinxy + 5 * tcx + decj;
+                    piony = coordCaseDep.Y + 25;
+
+                }
+                else{
+
+                    pionx = coordCaseDep.X + 1.15 * tcoinxy + 5 * tcx + decj;
+                    piony = coordCaseDep.Y;
+
+                }
+
+                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, pionw * echelle, pionh * echelle);
 
                 fnPivotePlateau(decx, decy, -anglePion * 3);
 
@@ -317,34 +324,88 @@ function fnAffichePions() {
 
                 fnPivotePlateau(decx, decy, anglePion * 3);
 
-                pionx = coordCaseDep.X + 7 * tcx - (j - 12) * tcx;
-                piony = coordCaseDep.Y;
+                j -= 12; //On remet la valeur à zéro pour calculer correctement le décalage
 
-                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, 15 * echelle, 25 * echelle);
+                if (joueurs[i].emplacementCase > 2){
+
+                    decj = (joueurs [i].emplacementCase - 3) * 20;
+                    pionx = coordCaseDep.X + (1.15 * tcoinxy) + (5 * tcx) + decj - (j * tcx);
+                    piony = coordCaseDep.Y + 25;
+
+                }
+                else{
+
+                    pionx = coordCaseDep.X + (1.15 * tcoinxy) + (5 * tcx) + decj - (j * tcx);
+                    piony = coordCaseDep.Y;
+
+                }
+
+                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, pionw * echelle, pionh * echelle);
 
                 fnPivotePlateau(decx, decy, -anglePion * 3);
 
                 break;
 
-            case (j == 18):
+            case (j === 18):
 
-                pionx = coordCaseDep.X + 7 * tcx;
-                piony = coordCaseDep.Y;
+                if (joueurs[i].emplacementCase > 2){
 
-                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, 15 * echelle, 25 * echelle);
+                    decj = (joueurs [i].emplacementCase - 3) * 20;
+                    pionx = coordCaseDep.X + 1.15 * tcoinxy + 5 * tcx + decj;
+                    piony = coordCaseDep.Y + 25;
+
+                }
+                else{
+
+                    pionx = coordCaseDep.X + 1.15 * tcoinxy + 5 * tcx + decj;
+                    piony = coordCaseDep.Y;
+
+                }
+
+                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, pionw * echelle, pionh * echelle);
 
                 break;
 
             case (j > 18 && j < 24):
 
-                pionx = coordCaseDep.X + 7 * tcx - (j - 18) * tcx;
-                piony = coordCaseDep.Y;
+                j -= 18; //On remet la valeur à zéro pour calculer correctement le décalage
 
-                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, 15 * echelle, 25 * echelle);
+                if (joueurs[i].emplacementCase > 2){
+
+                    decj = (joueurs [i].emplacementCase - 3) * 20;
+                    pionx = coordCaseDep.X + (1.15 * tcoinxy) + (5 * tcx) + decj - (j * tcx);
+                    piony = coordCaseDep.Y + 25;
+
+                }
+                else{
+
+                    pionx = coordCaseDep.X + (1.15 * tcoinxy) + (5 * tcx) + decj - (j * tcx);
+                    piony = coordCaseDep.Y;
+
+                }
+
+                ctx.drawImage(imgPion, pionx * echelle, piony * echelle, pionw * echelle, pionh * echelle);
 
                 break;
         }
     }
+}
+
+/*
+function: Cette fonction calcule les coordonnées de l'emplacement des pions en prenant en compte la superposition
+param jCaseActuelle: Case sur laquelle se trouve le joueur actuel
+param facteurSoustraction: Soustraction au numéro de case actuelle pour afficher correctement les pions (et permettre à la fonction d'être réutilisable.
+param jEmplacementCase: Emplacement occupé sur la case par le joueur actuel
+param caseDepartX: Coordonnées X de la case départ
+param caseDepartY: Coordonnées Y de la case départ
+param caseCoinW: Largeur en pixel d'une case "coin"
+param caseW: Largeur en pixel d'une case standard
+
+return: Tableau contenant les coordonnées X et Y du pion
+*/
+
+function fnGetCoordonnees(jCaseActuelle, facteurSoustraction, jEmplacementCase, caseDepartX, caseDepartY, caseCoinW, caseW) {
+
 }
 
 //Cette fonction pivote le canvas au coordonnées x;y d'un certaint angle
