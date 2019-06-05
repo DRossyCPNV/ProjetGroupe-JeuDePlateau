@@ -1,6 +1,4 @@
 //todo Ajouter les méthodes tirer une carte chance et réussir un exam
-//les couleurs de pions disponibles
-const couleursPions = ["rouge", "bleuClair", "bleuFonce", "orange", "violet", "vert"];
 
 //Fonction pour créer un tableau objet joueur, n étant le nombre de joueurs
 function maker(n) {

@@ -10,7 +10,6 @@
 $("#btnPlay").click(function () {
     var nbJoueurs = $("#nbJoueurs").val();
     console.log("Il y a " + nbJoueurs + " Joueurs");
-    //fnJeu(nbJoueurs);
     gameloop(nbJoueurs);
 });
 
@@ -23,52 +22,6 @@ $.getJSON('donnees/cases.json', function (data) {
 //Effacement de tout le canvas
 function fnEfface() {
     ctx.clearRect(0, 0, c.width, c.height);
-}
-
-// function fnCarte(n) {
-//
-//
-//     ctx.lineWidth = 2 * echelle;//2 pixels de largeur de trait
-//     var angle = (acartes[n].cote - 1) * Math.PI / 2;
-//     ctx.rotate(angle);
-//
-//     ctx.drawImage(img_case_standard, (ncartes / 2 - acartes[n].ordre) * tcx * echelle, ncartes / 2 * tcx * echelle + 50 , tcx * echelle, tcy * echelle - 50);
-//
-//     ctx.textAlign = "center";
-//     ctx.font = 8 * echelle + "pt Arial";
-//     fnText(acartes[n].titre, (ncartes / 2 + 0.5 - acartes[n].ordre) * tcx, (ncartes / 2) * tcx + 0.5 * tcy, "black");
-//
-//     ctx.textAlign = "center";
-//     ctx.font = 5 * echelle + "pt Arial";
-//     fnText(acartes[n].texte, (ncartes / 2 + 0.5 - acartes[n].ordre) * tcx, (ncartes / 2) * tcx + 0.5 * tcy + 10, "dimgray");
-//
-//     ctx.rotate(-angle);
-//
-// }
-
-//cette fonction dessine les coins du plateau de jeu
-// function fnCoin(n) {
-//     var angle = (n + 1) * Math.PI / 2;
-//     ctx.rotate(angle);
-//     ctx.translate(-decx, -decy);
-//     ctx.drawImage(img_case_coin, 18 + 7 * tcx * echelle, tcx / 2 * echelle - 25, 2 * tcx * echelle, 2 * tcx * echelle)
-//     ctx.translate(decx, decy);
-//     ctx.rotate(-angle);
-//     console.log("je dessine les coins");
-//
-// }
-
-function fnRect(x, y, lx, ly, c1, c2) {
-    //Cette fonction dessine un rectangle intelligent, dans une couleur donnée et en tenant compte du coté et de l'échelle
-
-    if (c1 != 0) {
-        ctx.fillStyle = c1;//couleur du trait
-        ctx.fillRect(echelle * x, echelle * y, echelle * lx, echelle * ly);
-    }
-    if (c2 != 0) {
-        ctx.strokeStyle = c2;//couleur du trait
-        ctx.strokeRect(echelle * x, echelle * y, echelle * lx, echelle * ly);
-    }
 }
 
 function fnText(t, x, y, c) {
@@ -95,22 +48,11 @@ function fnJeu(nbJoueurs) {
     //Dessin du carré (plateau)
     // fnRect(30 - decx, 30 - decy, 2 * tcy + ncartes * tcx +1, 2 * tcy + ncartes * tcx + 1, "black", "black");
     ctx.strokeWidth = 10;
+
     // Couleur du trait
     ctx.strokeStyle = "black";
     ctx.strokeRect(16 - decx, 16 - decy, 768, 768);
     ctx.drawImage(img_plateau, 18 - decx, 18 - decy, 765 * echelle, 765 * echelle);
-    //ctx.translate(-decx, -decy); //on place l'origine en 0, 0
-
-    // Dessin de tous les coins
-    // for (i = 0; i < 4; i++) {
-    //     fnCoin(i);
-    // }
-
-
-    // Dessin de toutes les cartes
-    // for (i = 0; i < acartes.length; i++) {
-    //     fnCarte(i);
-    // }
 
     //L'origine est placée en decx, decy
     ctx.translate(-decx, -decy);
@@ -148,14 +90,11 @@ function fnLancerDe() {
 	// timer qui appelle la fonction toutes les 120 milli-secondes, pour l'animation du dé.
 	tmrAffiche = setInterval(fnAfficheFaceDe, 120);
 
-
-
 	return nbAffiche;
 }
 
 function fnAfficheFaceDe() {
 	//Cette fonction va afficher une des 6 faces du dé, selon les nombres du tableau choisis au hasard
-
 	randomNumber = tabNombres[nbFacesAffichees];
 	var faceDe= Math.floor(randomNumber/10); //génère un nombre aléatoire entre 0 et 5
 
@@ -179,13 +118,7 @@ function fnAfficheFaceDe() {
 //Cette fonction réaffiche les pions sur le canvas
 function fnAffichePions() {
 
-    joueurs[0].deplacerPion(1);
-    joueurs[1].deplacerPion(2);
-
     for (var i = 0; i < joueurs.length; i++ ) {
-
-        var imgPion = new Image();
-        imgPion.src = "images/pions/" + joueurs[i].couleur + ".png";
 
         //Paramètres pions
         var pionxy = [];
@@ -201,7 +134,7 @@ function fnAffichePions() {
 
                 fnPivotePlateau(decx, decy, anglePion); //On déplace l'origine au centre du plateau et on le pivote
                 pionxy = fnGetCoordonnees(joueurs[i].emplacementCase, jCaseAct, 0, coordCaseDep.X, coordCaseDep.Y, tcoinxy, tcx); //On récupère les coordonnées d'affichage du pion
-                ctx.drawImage(imgPion, pionxy[0] * echelle, pionxy[1] * echelle, pionw * echelle, pionh * echelle); //On dessine le pion
+                ctx.drawImage(imgPion[i], pionxy[0] * echelle, pionxy[1] * echelle, pionw * echelle, pionh * echelle); //On dessine le pion
                 fnPivotePlateau(decx, decy, -anglePion); //On repivote le plateau et on remet l'origine en haut à gauche
 
                 break;
@@ -210,7 +143,7 @@ function fnAffichePions() {
 
                 fnPivotePlateau(decx, decy, anglePion * 2);
                 pionxy = fnGetCoordonnees(joueurs[i].emplacementCase, jCaseAct, 6, coordCaseDep.X, coordCaseDep.Y, tcoinxy, tcx);
-                ctx.drawImage(imgPion, pionxy[0] * echelle, pionxy[1] * echelle, pionw * echelle, pionh * echelle);
+                ctx.drawImage(imgPion[i], pionxy[0] * echelle, pionxy[1] * echelle, pionw * echelle, pionh * echelle);
                 fnPivotePlateau(decx, decy, -anglePion * 2);
 
                 break;
@@ -219,7 +152,7 @@ function fnAffichePions() {
 
                 fnPivotePlateau(decx, decy, anglePion * 3);
                 pionxy = fnGetCoordonnees(joueurs[i].emplacementCase, jCaseAct, 12, coordCaseDep.X, coordCaseDep.Y, tcoinxy, tcx);
-                ctx.drawImage(imgPion, pionxy[0] * echelle, pionxy[1] * echelle, pionw * echelle, pionh * echelle);
+                ctx.drawImage(imgPion[i], pionxy[0] * echelle, pionxy[1] * echelle, pionw * echelle, pionh * echelle);
                 fnPivotePlateau(decx, decy, -anglePion * 3);
 
                 break;
@@ -227,7 +160,7 @@ function fnAffichePions() {
             case (jCaseAct >= 18 && jCaseAct < 24):
 
                 pionxy = fnGetCoordonnees(joueurs[i].emplacementCase, jCaseAct, 18, coordCaseDep.X, coordCaseDep.Y, tcoinxy, tcx);
-                ctx.drawImage(imgPion, pionxy[0] * echelle, pionxy[1] * echelle, pionw * echelle, pionh * echelle);
+                ctx.drawImage(imgPion[i], pionxy[0] * echelle, pionxy[1] * echelle, pionw * echelle, pionh * echelle);
 
                 break;
         }
@@ -246,7 +179,6 @@ param caseW: Largeur en pixel d'une case standard
 
 return pionxy: Tableau contenant les coordonnées X et Y du pion
 */
-
 function fnGetCoordonnees(jEmplacementCase, jCaseActuelle, facteurSoustraction, caseDepartX, caseDepartY, caseCoinW, caseW) {
 
     jCaseActuelle -= facteurSoustraction;

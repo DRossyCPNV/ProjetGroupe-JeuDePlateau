@@ -43,3 +43,13 @@ var coordCaseDep = {X: 15,Y: 710};
 var tabNombres = new Array(); // tableau qui contient les nombres générés aléatoirement
 var nbFacesAffichees = 0; // compte le nombre de fois qu'une face de dé est affichée
 var resultatDe = 0; // stocke la dernière valeur affichée par le dé, utilisée pour le déplacement des pions.
+
+//Paramètre des pions
+const couleursPions = ["rouge", "bleuClair", "bleuFonce", "orange", "violet", "vert"];
+var imgPion = [];
+
+for (var i = 0; i < nbJoueursMax; i++){
+    imgPion[i] = new Image();
+    imgPion[i].src = "images/pions/" + couleursPions[i] + ".png";
+}
+
