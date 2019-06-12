@@ -123,7 +123,7 @@ function fnExecuteChance(){
                     fnAffichePions();
 
                     //vérifier les actions que le joueur doit effectuer
-                    actionCase(joueurs[joueurId]);
+                    actionCase(joueurs[joueurActuel]);
                     break;
                 case 1:
                     tourJoueur(joueurActuel);
