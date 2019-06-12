@@ -37,7 +37,7 @@ function gameloop(nbJoueurs) {
         //désactive le bouton lancer le dé le temps que la fonction n'est pas terminé;
         $("#btn-lancerDe").attr('disabled', 'disabled');
         console.log("je disable le bouton");
-
+        console.log("joueur actuel gameloop: " +jActuel);
 
         tourJoueur(jActuel);
         if (jActuel < nbJoueurJouant - 1) {
@@ -100,7 +100,7 @@ function actionCase(joueurActuel) {
         case (typeDeCase === "chance"):
             console.log(typeDeCase);
             //case chance
-            fnAfficheChance(joueurActuel);
+            fnAfficheChance(joueurActuel.id);
             break;
         case (typeDeCase === "cfc"):
             console.log(typeDeCase);

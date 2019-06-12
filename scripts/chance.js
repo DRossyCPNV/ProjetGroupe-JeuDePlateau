@@ -5,8 +5,8 @@
 var achance = [];
 var nbchance;
 var nbaleat;
-var joueurActuel = 2;
-var nbJoueurs = $("#nbJoueurs").val();
+var joueurActuel = 0;
+var nbJoueurs =  document.getElementById("nbJoueurs").value;//$("#nbJoueurs").val();
 //La carte est masquée au début du jeu
 $('#carte_chance').css('display','none');
 
@@ -18,7 +18,7 @@ $.getJSON('donnees/chances.json', function(data) {
 });
 
 function fnAfficheChance(IDjoueur) {
-    console.log("Joueur "+IDjoueur);
+    console.log("Joueur ID "+IDjoueur);
     //Affichage de la div
     $('body').css('background-color','rgba(0,0,0,.9)');
     $('#plateau_jeu').css('display','none');
@@ -27,12 +27,12 @@ function fnAfficheChance(IDjoueur) {
 
     //Génération d'un nombre aléatoire
     nbaleat = Math.floor(Math.random() * nbchance);
-    console.log(nbaleat);
 
     //Affichage de la carte chance
     $('#titre_chance').html(achance[nbaleat].titre);
     $('#txt_chance').html(achance[nbaleat].texte);
     joueurActuel = IDjoueur;
+
 }
 
 function fnEffaceChance(){
@@ -43,7 +43,8 @@ function fnEffaceChance(){
 }
 
 function fnExecuteChance(){
-
+    console.log("nombre de joueurs: " +nbJoueurs);
+    console.log("Joueur Actuel : " +joueurActuel);
     var nomJoueurs = "";
     switch(achance[nbaleat].effet){
         case 'POINTS':
@@ -52,9 +53,10 @@ function fnExecuteChance(){
                     //Si donner argent autre joueur
                     $('#choix_cible').css('display', 'block');
                     $('#titre_cible').html("Choisissez un joueur cible:");
+
                     for(var i = 0; i < nbJoueurs; i++){
-                        if(joueurs[i] != joueurs[joueurActuel]) {
-                            nomJoueurs += "<input type='radio' name='joueur' value='" + joueurs[i].nom + "'> <label>" + joueurs[i].nom + "</label><br>";
+                        if(joueurs[i] !== joueurs[joueurActuel]) {
+                            nomJoueurs += "<input type='radio' name='joueur' value='" + joueurs[i].id + "'> <label>" + joueurs[i].nom + "</label><br>";
                         }
                     }
                     nomJoueurs += "<br><br><input type=\"button\" value=\"Dessiner Chance\" onclick=\"fnEffaceChoix();\">"
@@ -83,12 +85,15 @@ function fnExecuteChance(){
 
                         $('#choix_cible').css('display', 'block');
                         $('#titre_cible').html("Choisissez un joueur cible:");
+
                         for(var i = 0; i < nbJoueurs; i++){
-                            if(joueurs[i] != joueurs[joueurActuel]) {
-                                nomJoueurs += "<input type='radio' name='joueur' value='"+ joueurs[i].nom +"'> <label>" + joueurs[i].nom + "</label><br>";
+                            if(joueurs[i] !== joueurs[joueurActuel]) {
+                                nomJoueurs += "<input type='radio' name='joueur' value='"+ joueurs[i].id +"'> <label>" + joueurs[i].nom + "</label><br>";
                             }
                         }
-                        nomJoueurs += "<br><br><input type=\"button\" value=\"Dessiner Chance\" onclick=\"fnEffaceChoix();\">"
+
+                        nomJoueurs += "<br><br><input type=\"button\" value=\"Séléctionner\" onclick=\"fnEffaceChoix();\">"
+
                         $('#form_cibles').html(nomJoueurs);
                     }
                     break;
@@ -110,7 +115,7 @@ function fnExecuteChance(){
 function fnEffaceChoix() {
     $('#choix_cible').css('display', 'none');
     for(var i = 0; i < nbJoueurs; i++){
-        if(joueurs[i].nom = document.querySelector('input[name="joueur"]:checked').value){
+        if(joueurs[i].id == document.querySelector('input[name="joueur"]:checked').value){
             if(joueurs[i].argent<=achance[nbaleat].valeur_2){
                 joueurs[i].argent = 0;
             }
