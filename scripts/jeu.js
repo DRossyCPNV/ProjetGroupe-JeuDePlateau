@@ -39,39 +39,7 @@ function fnDraw(img, p1, p2, p3, p4, p5, p6, p7, p8)
 }
 
 // Dessine le plateau de jeu entier et place les pions en fonction du nombre de joueurs
-function fnJeu(nbJoueurs) {
-    nbJoueurJouant = nbJoueurs;
 
-    //L'origine est placée en decx, decy
-    ctx.translate(decx, decy);
-
-    //Dessin du carré (plateau)
-    // fnRect(30 - decx, 30 - decy, 2 * tcy + ncartes * tcx +1, 2 * tcy + ncartes * tcx + 1, "black", "black");
-    ctx.strokeWidth = 10;
-
-    // Couleur du trait
-    ctx.strokeStyle = "black";
-    ctx.strokeRect(16 - decx, 16 - decy, 768, 768);
-    ctx.drawImage(img_plateau, 18 - decx, 18 - decy, 765 * echelle, 765 * echelle);
-    ctx.drawImage(img_plateau, 18 - decx, 18 - decy, 765 * echelle, 765 * echelle);
-
-    //L'origine est placée en decx, decy
-    ctx.translate(-decx, -decy);
-
-    //Crée les joueurs en fonction de leur nombre selectionné dans le menu
-    joueurs = maker(nbJoueurs);
-
-    for (var i = 0; i < nbJoueurs; i++) {
-        // pour test
-        console.log("joueur : " + i + ", Nom: " + joueurs[i].nom + ", Couleur: " + joueurs[i].couleur + ", Section: " + joueurs[i].section + ", id: " + joueurs[i].id + ", emplacement: " + joueurs[i].emplacementCase + ", case actuel: " + joueurs[i].caseActuelle);
-    }
-
-    for (i = 0; i < nbJoueurs; i++) {
-        joueurs[i].placerPionCaseDepart();
-    }
-
-
-}
 
 function fnLancerDe() {
 	//Cette fonction va tirer 6 nombres au hasard
