@@ -7,8 +7,8 @@ var img_fond = new Image();
 img_fond.src = ".\\images\\plateau\\Fond.svg";
 var img_plateau = new Image();
 img_plateau.src = "images/plateau/Plateau_avec_WIDTH-HEIGHT.svg";
-var img = new Image();
-img.src = "images/six-faces-de.jpg";
+var img_de = new Image();
+img_de.src = "images/six-faces-de.jpg";
 /////////////
 
 
@@ -16,13 +16,6 @@ img.src = "images/six-faces-de.jpg";
 //Initialisation du canvas
 var c = document.getElementById("plateau_jeu");
 var ctx = c.getContext("2d");
-
-
-
-
-// Le reste du script ici....
-var img = new Image();
-img.src = "images/six-faces-de.jpg";
 
 //paramètre de dessin
 var echelle = 1; //pour pouvoir zoomer

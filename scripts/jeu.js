@@ -53,6 +53,7 @@ function fnJeu(nbJoueurs) {
     ctx.strokeStyle = "black";
     ctx.strokeRect(16 - decx, 16 - decy, 768, 768);
     ctx.drawImage(img_plateau, 18 - decx, 18 - decy, 765 * echelle, 765 * echelle);
+    ctx.drawImage(img_plateau, 18 - decx, 18 - decy, 765 * echelle, 765 * echelle);
 
     //L'origine est placée en decx, decy
     ctx.translate(-decx, -decy);
@@ -99,7 +100,7 @@ function fnAfficheFaceDe() {
 	var faceDe= Math.floor(randomNumber/10); //génère un nombre aléatoire entre 0 et 5
 
 			//Appelle la fonction qui dessine la face du dé intelligemment, à l'échelle.
-			fnDraw(img, 796-(156.2*faceDe), 15, 141, 140, 550, 23, 58, 58);
+			fnDraw(img_de, 796-(156.2*faceDe), 15, 141, 140, 550, 23, 58, 58);
 
 	nbFacesAffichees++;
 
