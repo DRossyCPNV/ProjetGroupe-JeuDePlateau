@@ -35,11 +35,15 @@ function gameloop(nbJoueurs) {
 
     $("#btn-lancerDe").click(function () { // https://css-tricks.com/snippets/jquery/click-once-and-unbind/
         //désactive le bouton lancer le dé le temps que la fonction n'est pas terminé;
-        $("#btn-lancerDe").attr('disabled', 'disabled');
-        console.log("je disable le bouton");
-        console.log("joueur actuel gameloop: " +jActuel);
+        if(joueurs[jActuel].passeTour === 0){
+            $("#btn-lancerDe").attr('disabled', 'disabled');
+            console.log("je disable le bouton");
 
-        tourJoueur(jActuel);
+            tourJoueur(jActuel);
+        }
+        else{
+            joueurs[jActuel].passeTour = 0;
+        }
         if (jActuel < nbJoueurJouant - 1) {
             jActuel++;
         } else {

@@ -66,11 +66,16 @@ function fnExecuteChance(){
                 default:
                     //Si recevoir argent
                     if(achance[nbaleat].valeur_2 === 0){
-                        if(achance[nbaleat].valeur_1<0 && joueurs[joueurActuel].argent <= Math.abs(achance[nbaleat].valeur_1)){
-                            joueurs[joueurActuel].argent = 0;
+                        if(joueurs[joueurActuel].protection == 1 && achance[nbaleat].valeur_1 < 0){
+                            joueurs[joueurActuel].protection = 0;
                         }
-                        else{
-                            joueurs[joueurActuel].argent += achance[nbaleat].valeur_1;
+                        else {
+                            if (achance[nbaleat].valeur_1 < 0 && joueurs[joueurActuel].argent <= Math.abs(achance[nbaleat].valeur_1)) {
+                                joueurs[joueurActuel].argent = 0;
+                            }
+                            else {
+                                joueurs[joueurActuel].argent += achance[nbaleat].valeur_1;
+                            }
                         }
                         console.log("Argent du " +joueurs[joueurActuel].nom +" "+joueurs[joueurActuel].argent);
                     }
@@ -100,10 +105,43 @@ function fnExecuteChance(){
             }
             break;
         case 'TOURS':
+            switch(achance[nbaleat].valeur_1){
+                case 1:
+                    joueurs[joueurActuel].passeTour = 1;
+                    break;
+                default:
+                    break;
+            }
             break;
         case 'DEPLACEMENT':
+            switch(achance[nbaleat].valeur_1){
+                case 0:
+                    joueurs[joueurActuel].deplacerPion(achance[nbaleat].valeur_2);
+                    ctx.drawImage(img_plateau, 18, 18, 765 * echelle, 765 * echelle);
+
+                    //redéssiner les pions
+                    fnAffichePions();
+
+                    //vérifier les actions que le joueur doit effectuer
+                    actionCase(joueurs[joueurId]);
+                    break;
+                case 1:
+                    tourJoueur(joueurActuel);
+                    break;
+                case 2:
+                    break;
+                default:
+                    break;
+            }
             break;
         case 'PROTECTION':
+            switch(achance[nbaleat].valeur_1){
+                case 1:
+                    joueurs[joueurActuel].protection = 1;
+                    break;
+                default:
+                    break;
+            }
             break;
         case 'QCM':
             break;
@@ -116,13 +154,17 @@ function fnEffaceChoix() {
     $('#choix_cible').css('display', 'none');
     for(var i = 0; i < nbJoueurs; i++){
         if(joueurs[i].id == document.querySelector('input[name="joueur"]:checked').value){
-            if(joueurs[i].argent<=achance[nbaleat].valeur_2){
-                joueurs[i].argent = 0;
+            if(joueurs[i].protection == 1 && achance[nbaleat].valeur_1 < 0){
+                joueurs[i].protection = 0;
             }
-            else{
-                joueurs[i].argent += achance[nbaleat].valeur_2;
+            else {
+                if (joueurs[i].argent <= achance[nbaleat].valeur_2) {
+                    joueurs[i].argent = 0;
+                }
+                else {
+                    joueurs[i].argent += achance[nbaleat].valeur_2;
+                }
             }
-
             console.log(joueurs[i].nom+" a "+joueurs[i].argent);
         }
 
