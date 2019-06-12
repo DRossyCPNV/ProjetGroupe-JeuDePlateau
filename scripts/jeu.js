@@ -83,7 +83,7 @@ function fnAffichePions() {
         //Paramètres pions
         var pionxy = [];
         var anglePion = Math.PI/2;
-        var jCaseAct = joueurs[i].caseActuelle;
+        var jCaseAct = joueurs[i].positionActuelle;
 
         //On recherche comment et où positionner les pions sur le plateau
         switch (true) {

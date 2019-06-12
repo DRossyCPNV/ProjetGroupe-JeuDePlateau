@@ -56,11 +56,6 @@ function tourJoueur(joueurId) {
     //Deplacer le pion en fonction du résultat du dé
     joueurs[joueurId].deplacerPion(resultatDe);
 
-    //redéssiner le plateau de jeu
-    ctx.drawImage(img_plateau, tbplateau, tbplateau, tplateauxy, tplateauxy);
-
-    //redéssiner les pions
-    fnAffichePions();
 
     //vérifier les actions que le joueur doit effectuer
     actionCase(joueurs[joueurId]);

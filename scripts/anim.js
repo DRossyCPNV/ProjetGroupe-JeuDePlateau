@@ -1,5 +1,5 @@
 function draw(){
-    ctx.drawImage(img_plateau, 10, 10, 770 * echelle, 770 * echelle);
+    ctx.drawImage(img_plateau, tbplateau, tbplateau, tplateauxy, tplateauxy);
     fnAffichePions();
     requestAnimationFrame(draw);
 }
