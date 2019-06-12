@@ -1,5 +1,5 @@
 /*todo
-*  - Attendre que le dé soit lancé
+*  - Attendre que le dé soit lancé.
 *  - Actualiser l'affichage des éléments sur le plateau
 *  - Regarder l'effet qu'a la case sur la quel le joueur se trouve actuellement
 *  - appliquer l'effet
