@@ -27,10 +27,10 @@ function gameloop(nbJoueurs) {
         joueurs[i].placerPionCaseDepart();
     }
 
-    //L'origine est placée en decx, decy
+    //L'origine est placée en decx, decys
     //ctx.translate(decx, decy);
 
-    ctx.drawImage(img_plateau, 10, 10, 770 * echelle, 770 * echelle);
+    ctx.drawImage(img_plateau, tbplateau, tbplateau, tplateauxy, tplateauxy);
     fnAffichePions();
 
     $("#btn-lancerDe").click(function () { // https://css-tricks.com/snippets/jquery/click-once-and-unbind/
@@ -57,7 +57,7 @@ function tourJoueur(joueurId) {
     joueurs[joueurId].deplacerPion(resultatDe);
 
     //redéssiner le plateau de jeu
-    ctx.drawImage(img_plateau, 10, 10, 770 * echelle, 770 * echelle);
+    ctx.drawImage(img_plateau, tbplateau, tbplateau, tplateauxy, tplateauxy);
 
     //redéssiner les pions
     fnAffichePions();

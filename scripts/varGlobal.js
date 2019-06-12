@@ -9,28 +9,30 @@ var img_plateau = new Image();
 img_plateau.src = "images/plateau/Plateau_avec_WIDTH-HEIGHT.svg";
 var img_de = new Image();
 img_de.src = "images/six-faces-de.jpg";
-/////////////
-
-
 
 //Initialisation du canvas
 var c = document.getElementById("plateau_jeu");
 var ctx = c.getContext("2d");
 
 //paramètre de dessin
-var echelle = 1; //pour pouvoir zoomer
+var echelle = 1.3; //pour pouvoir zoomer
 var angle = 0;// pour pouvoir tourner
-var decx = 397.5 * echelle;
-var decy = 397.5 * echelle; //origine au milieu du plateau de jeu
-var tcx = 75;//taille petite case en x
-var tcy = 94.5;
-var tcoinxy = 192; //Taille case coin (carré)
-var tcfcxy = 189; //Taille case cfc (carré)
 const ncartes = 5;//nombre de carte par cot� (sans compter les coins)
 var joueurs; //tableau des joueurs
 const nbJoueursMax = 6;
 var acartes = []; //tableau des cartes
-var coordCaseDep = {X: 30,Y: 710};
+
+
+//Paramètre du plateau
+var tcx = 60 * echelle;
+var tcy = 75 * echelle; //taille petite case en x et y
+var tcoinxy = 150 * echelle; //Taille case coin (carré)
+var tcfcxy = 150 * echelle; //Taille case cfc (carré)
+var tplateauxy = 600 * echelle; //Taille du plateau (carré)
+var tbplateau = 10; //Espacement bord plateau - Canevas
+var decx = tbplateau + (300 * echelle);
+var decy = tbplateau + (300 * echelle); //origine au milieu du plateau de jeu
+var coordCaseDep = {X: 12 * echelle + tbplateau, Y: 546 * echelle + tbplateau};
 
 // Parametres du dé
 var tabNombres = new Array(); // tableau qui contient les nombres générés aléatoirement
@@ -38,6 +40,8 @@ var nbFacesAffichees = 0; // compte le nombre de fois qu'une face de dé est aff
 var resultatDe = 0; // stocke la dernière valeur affichée par le dé, utilisée pour le déplacement des pions.
 
 //Paramètre des pions
+var pionw = 12 * echelle;
+var pionh = 20 * echelle; //Taille des pions
 const couleursPions = ["rouge", "bleuClair", "bleuFonce", "orange", "violet", "vert"];
 var imgPion = [];
 

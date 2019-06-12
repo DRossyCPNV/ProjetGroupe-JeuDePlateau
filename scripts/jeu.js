@@ -91,8 +91,6 @@ function fnAffichePions() {
 
         //Paramètres pions
         var pionxy = [];
-        var pionw = 15.5;
-        var pionh = 22.5;
         var anglePion = Math.PI/2;
         var jCaseAct = joueurs[i].caseActuelle;
 
@@ -103,7 +101,7 @@ function fnAffichePions() {
 
                 fnPivotePlateau(decx, decy, anglePion); //On déplace l'origine au centre du plateau et on le pivote
                 pionxy = fnGetCoordonnees(joueurs[i].emplacementCase, jCaseAct, 0, coordCaseDep.X, coordCaseDep.Y, tcoinxy, tcx); //On récupère les coordonnées d'affichage du pion
-                ctx.drawImage(imgPion[i], pionxy[0] * echelle, pionxy[1] * echelle, pionw * echelle, pionh * echelle); //On dessine le pion
+                ctx.drawImage(imgPion[i], pionxy[0], pionxy[1], pionw, pionh); //On dessine le pion
                 fnPivotePlateau(decx, decy, -anglePion); //On repivote le plateau et on remet l'origine en haut à gauche
 
                 break;
@@ -112,7 +110,7 @@ function fnAffichePions() {
 
                 fnPivotePlateau(decx, decy, anglePion * 2);
                 pionxy = fnGetCoordonnees(joueurs[i].emplacementCase, jCaseAct, 6, coordCaseDep.X, coordCaseDep.Y, tcoinxy, tcx);
-                ctx.drawImage(imgPion[i], pionxy[0] * echelle, pionxy[1] * echelle, pionw * echelle, pionh * echelle);
+                ctx.drawImage(imgPion[i], pionxy[0], pionxy[1], pionw, pionh);
                 fnPivotePlateau(decx, decy, -anglePion * 2);
 
                 break;
@@ -121,7 +119,7 @@ function fnAffichePions() {
 
                 fnPivotePlateau(decx, decy, anglePion * 3);
                 pionxy = fnGetCoordonnees(joueurs[i].emplacementCase, jCaseAct, 12, coordCaseDep.X, coordCaseDep.Y, tcoinxy, tcx);
-                ctx.drawImage(imgPion[i], pionxy[0] * echelle, pionxy[1] * echelle, pionw * echelle, pionh * echelle);
+                ctx.drawImage(imgPion[i], pionxy[0], pionxy[1], pionw, pionh);
                 fnPivotePlateau(decx, decy, -anglePion * 3);
 
                 break;
@@ -129,7 +127,7 @@ function fnAffichePions() {
             case (jCaseAct >= 18 && jCaseAct < 24):
 
                 pionxy = fnGetCoordonnees(joueurs[i].emplacementCase, jCaseAct, 18, coordCaseDep.X, coordCaseDep.Y, tcoinxy, tcx);
-                ctx.drawImage(imgPion[i], pionxy[0] * echelle, pionxy[1] * echelle, pionw * echelle, pionh * echelle);
+                ctx.drawImage(imgPion[i], pionxy[0], pionxy[1], pionw, pionh);
 
                 break;
         }
@@ -152,14 +150,14 @@ function fnGetCoordonnees(jEmplacementCase, jCaseActuelle, facteurSoustraction, 
 
     jCaseActuelle -= facteurSoustraction;
 
-    var decj = jEmplacementCase * 20; //Décalage joueur. Cette variable décale les pions afin qu'ils ne se superposent pas sur une même case
+    var decj = jEmplacementCase * pionw; //Décalage joueur. Cette variable décale les pions afin qu'ils ne se superposent pas sur une même case
     var coordxy = [0, 0];
 
     //S'il y a plus de trois pions aligné, on crée une deuxième rangée de pions.
     if (jEmplacementCase > 2){
-        decj = (jEmplacementCase - 3) * 20;
+        decj = (jEmplacementCase - 3) * pionw;
         coordxy[0] = caseDepartX + (1 * caseCoinW) + (5 * caseW) + decj - (jCaseActuelle * caseW);
-        coordxy[1] = caseDepartY + 25;
+        coordxy[1] = caseDepartY + pionh;
     }
     else{
         coordxy[0] = caseDepartX + (1 * caseCoinW) + (5 * caseW) + decj - (jCaseActuelle * caseW);
