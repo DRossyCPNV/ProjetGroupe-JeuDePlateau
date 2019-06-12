@@ -30,64 +30,55 @@ function fnText(t, x, y, c) {
     ctx.fillText(t, echelle * x, echelle * y);
 }
 
-function fnDraw(img, p1, p2, p3, p4, p5, p6, p7, p8)
-{	//Dessine une image intelligente, à l'échelle, avec :
-    // (1) la source, (2,3) les coordonnées x et y du coin haut-gauche, (4,5) la largeur et hauteur,
-    // (6,7) les coordonnées x et y du coin haut-gauche où dessiner l'image sur le canvas,
-    // (8,9) la largeur et hauteur voulue.
-    ctx.drawImage(img, p1, p2, p3, p4, p5 * echelle, p6 * echelle, p7 * echelle, p8 * echelle);
-}
-
-// Dessine le plateau de jeu entier et place les pions en fonction du nombre de joueurs
-
-
 function fnLancerDe() {
-	//Cette fonction va tirer 6 nombres au hasard
+    //Cette fonction va tirer 6 nombres au hasard
 
-	//Crée un tableau pour stocker les nombres
-	var nbAffiche = 0;
+    //Crée un tableau pour stocker les nombres
+    var nbAffiche = 0;
 
-	//Stocke des entiers aléatoires entre une valeur min (incluse)
-	//et une valeur max (incluse) dans le tableau
-	var min = 0;
-	var max = 59;
+    //Stocke des entiers aléatoires entre une valeur min (incluse)
+    //et une valeur max (incluse) dans le tableau
+    var min = 0;
+    var max = 59;
 
-	for(var i=0; i<6; i++) {
-		tabNombres[i] = Math.floor(Math.random() * (max - min +1)) + min;
-	}
+    for (var i = 0; i < 6; i++) {
+        tabNombres[i] = Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
-	// timer qui appelle la fonction toutes les 120 milli-secondes, pour l'animation du dé.
-	tmrAffiche = setInterval(fnAfficheFaceDe, 120);
+    // timer qui appelle la fonction toutes les 120 milli-secondes, pour l'animation du dé.
+    tmrAffiche = setInterval(fnAfficheFaceDe, 120);
 
-	return nbAffiche;
+    return nbAffiche;
 }
 
 function fnAfficheFaceDe() {
-	//Cette fonction va afficher une des 6 faces du dé, selon les nombres du tableau choisis au hasard
-	randomNumber = tabNombres[nbFacesAffichees];
-	var faceDe= Math.floor(randomNumber/10); //génère un nombre aléatoire entre 0 et 5
+    //Cette fonction va afficher une des 6 faces du dé, selon les nombres du tableau choisis au hasard
+    randomNumber = tabNombres[nbFacesAffichees];
+    var faceDe = Math.floor(randomNumber / 10); //génère un nombre aléatoire entre 0 et 5
 
-			//Appelle la fonction qui dessine la face du dé intelligemment, à l'échelle.
-			fnDraw(img_de, 796-(156.2*faceDe), 15, 141, 140, 550, 23, 58, 58);
+    // (1) la source, (2,3) les coordonnées x et y du coin haut-gauche, (4,5) la largeur et hauteur,
+    // (6,7) les coordonnées x et y du coin haut-gauche où dessiner l'image sur le canvas,
+    // (8,9) la largeur et hauteur voulue.
+    ctx.drawImage(img_de, 1100 - (156.2 * faceDe), 15, 141, 140, 550 * echelle, 23 * echelle, 58 * echelle, 58 * echelle);
 
-	nbFacesAffichees++;
+    nbFacesAffichees++;
 
-		if (nbFacesAffichees >= 6)
-		{
-			ctx.font = 6 * echelle + "pt Arial";
-			resultatDe = faceDe+1;
-			fnText("Vous avez fait "+resultatDe+".", 580, 100, "chocolate");
+    if (nbFacesAffichees >= 6) {
+        ctx.font = 6 * echelle + "pt Arial";
+        resultatDe = faceDe + 1;
+        fnText("Vous avez fait " + resultatDe + ".", 580, 100, "chocolate");
 
-			//Remise à zéro du compteur
-			nbFacesAffichees = 0;
-			clearInterval(tmrAffiche);
-		}
+        //Remise à zéro du compteur
+        nbFacesAffichees = 0;
+        clearInterval(tmrAffiche);
+    }
 
 }
+
 //Cette fonction réaffiche les pions sur le canvas
 function fnAffichePions() {
 
-    for (var i = 0; i < joueurs.length; i++ ) {
+    for (var i = 0; i < joueurs.length; i++) {
 
         //Paramètres pions
         var pionxy = [];
