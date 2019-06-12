@@ -36,6 +36,8 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     this.deplacerPion = function (de) {
         var depart = that.caseActuelle;
         var arrive = that.caseActuelle + de;
+        var deplacement = 0.1; //deplacement en pourcent d'une case: 1 = 100% 0 = 0%
+        var tempsInterval = 5; //temps en miliseconde entre chaque deplacement
 
 
         that.emplacementCase = -1;
@@ -43,23 +45,28 @@ function Joueur(id, nom, couleur, argent_depart, section) {
         //condition pour que les pions s'arrêtent à chaques coins
         if ((that.caseActuelle + de) > 6 && that.caseActuelle < 6) {
             that.caseActuelle = 6;
+            fnDeplacerPionFluidement(depart, arrive, deplacement, that.id, tempsInterval);
             that.positionActuelle = that.caseActuelle;
         } else if ((that.caseActuelle + de) > 12 && that.caseActuelle < 12) {
             that.caseActuelle = 12;
+            fnDeplacerPionFluidement(depart, arrive, deplacement, that.id, tempsInterval);
             that.positionActuelle = that.caseActuelle;
         } else if ((that.caseActuelle + de) > 18 && that.caseActuelle < 18) {
             that.caseActuelle = 18;
+            fnDeplacerPionFluidement(depart, arrive, deplacement, that.id, tempsInterval);
             that.positionActuelle = that.caseActuelle;
         } else if ((that.caseActuelle + de) >= 24 && that.caseActuelle < 24) {
             //quand le pion arrive à la derniere case, caseActuel est remis à zero
             that.caseActuelle = 0;
+            fnDeplacerPionFluidement(depart, arrive, deplacement, that.id, tempsInterval);
             that.positionActuelle = that.caseActuelle;
         } else {
             that.caseActuelle += de;
 
-            //fnDeplacerPionFluidement(depart, arrive, 1, that.id, 50);
+            fnDeplacerPionFluidement(depart, arrive, deplacement, that.id, tempsInterval);
 
             that.positionActuelle = that.caseActuelle;
+
         }
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
 
@@ -108,15 +115,19 @@ function emplacementVideCase(caseID) {
         }
     }
 }
-function fnDeplacerPionFluidement(depart, arrive, vitesse, idJoueur, temps){
+
+function fnDeplacerPionFluidement(depart, arrive, vitesse, idJoueur, temps) {
     vitesse /= 5;
 
-    for(var i = depart; i < arrive; i + vitesse){
-        setTimeout(function(){
-            console.log("coucou");
-            joueurs[idJoueur].positionActuelle = i;
-        }, temps);
+    var mouvement = depart;
 
-    }
+    var interval = setInterval(function () {
+        if(mouvement > arrive){
+            clearInterval(interval);
+        }else{
+            mouvement += vitesse;
+            joueurs[idJoueur].positionActuelle = mouvement;
+        }
+    }, temps);
 
 }
