@@ -126,7 +126,7 @@ Guilain Mbayo, David Rossy & Luca Coduri - SI-CA1a - mai 2019
 <input type="button" value="Déplacer" onclick="fnAffichePions();">
 
 <!-- Affiche une carte chance -->
-<input type="button" value="Dessiner Chance" onclick="fnAfficheChance();">
+<input type="button" value="Dessiner Chance" onclick="fnAfficheChance(1);">
 <br>
 
 <canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid gray; background-color:midnightblue">
@@ -160,6 +160,14 @@ Guilain Mbayo, David Rossy & Luca Coduri - SI-CA1a - mai 2019
     <p><strong id="titre_chance"></strong></p>
     <br>
     <p id="txt_chance"></p>
+</div>
+<div id="choix_cible">
+    <p><strong id="titre_cible"></strong></p>
+    <br>
+    <form id="form_cibles">
+
+    </form>
+
 </div>
 
 <script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>

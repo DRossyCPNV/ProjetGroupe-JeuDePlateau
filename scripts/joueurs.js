@@ -23,6 +23,8 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     this.emplacementCase = id; //emplacement sera différent car l'id est différent
     this.nbTestReussi = 0;
     this.positionActuelle = this.caseActuelle;
+    this.passeTour = 0;
+    this.protection = 0;
 
 
     //méthode pour placer le pion du joueur sur la case départ

@@ -31,11 +31,15 @@ function gameloop(nbJoueurs) {
 
     $("#btn-lancerDe").click(function () { // https://css-tricks.com/snippets/jquery/click-once-and-unbind/
         //désactive le bouton lancer le dé le temps que la fonction n'est pas terminé;
-        $("#btn-lancerDe").attr('disabled', 'disabled');
-        console.log("je disable le bouton");
+        if(joueurs[jActuel].passeTour === 0){
+            $("#btn-lancerDe").attr('disabled', 'disabled');
+            console.log("je disable le bouton");
 
-
-        tourJoueur(jActuel);
+            tourJoueur(jActuel);
+        }
+        else{
+            joueurs[jActuel].passeTour = 0;
+        }
         if (jActuel < nbJoueurJouant - 1) {
             jActuel++;
         } else {
@@ -49,7 +53,7 @@ function gameloop(nbJoueurs) {
 function tourJoueur(joueurId) {
     //crée un nombre aléatoire
     fnLancerDe();
-    //Dlplacer le pion en fonction du résultat du dé
+    //Deplacer le pion en fonction du résultat du dé
     joueurs[joueurId].deplacerPion(resultatDe);
 
     //vérifier les actions que le joueur doit effectuer
@@ -90,6 +94,7 @@ function actionCase(joueurActuel) {
         case (typeDeCase === "chance"):
             console.log(typeDeCase);
             //case chance
+            fnAfficheChance(joueurActuel.id);
             break;
         case (typeDeCase === "cfc"):
             console.log(typeDeCase);
