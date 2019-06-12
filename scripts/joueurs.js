@@ -22,34 +22,44 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     this.caseActuelle = 0; //permettra de savoir quel action effectuer grace à l'id des cases, la case 0 est la case départ
     this.emplacementCase = id; //emplacement sera différent car l'id est différent
     this.nbTestReussi = 0;
-
-
-    var imgPion = new Image();
-    imgPion.src = "images/pions/" + couleur + ".png";
+    this.positionActuelle = this.caseActuelle;
 
 
     //méthode pour placer le pion du joueur sur la case départ
     this.placerPionCaseDepart = function () {
         that.caseActuelle = 0;
+        that.positionActuelle = that.caseActuelle;
         that.emplacementCase = -1;
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
     };
     //methode qui déplace le pion d'un nombre de case en fonction du dé
     this.deplacerPion = function (de) {
+        var depart = that.caseActuelle;
+        var arrive = that.caseActuelle + de;
+
+
         that.emplacementCase = -1;
 
         //condition pour que les pions s'arrêtent à chaques coins
         if ((that.caseActuelle + de) > 6 && that.caseActuelle < 6) {
             that.caseActuelle = 6;
+            that.positionActuelle = that.caseActuelle;
         } else if ((that.caseActuelle + de) > 12 && that.caseActuelle < 12) {
             that.caseActuelle = 12;
+            that.positionActuelle = that.caseActuelle;
         } else if ((that.caseActuelle + de) > 18 && that.caseActuelle < 18) {
             that.caseActuelle = 18;
+            that.positionActuelle = that.caseActuelle;
         } else if ((that.caseActuelle + de) >= 24 && that.caseActuelle < 24) {
             //quand le pion arrive à la derniere case, caseActuel est remis à zero
             that.caseActuelle = 0;
+            that.positionActuelle = that.caseActuelle;
         } else {
             that.caseActuelle += de;
+
+            //fnDeplacerPionFluidement(depart, arrive, 1, that.id, 50);
+
+            that.positionActuelle = that.caseActuelle;
         }
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
 
@@ -97,4 +107,16 @@ function emplacementVideCase(caseID) {
             return emplacement;
         }
     }
+}
+function fnDeplacerPionFluidement(depart, arrive, vitesse, idJoueur, temps){
+    vitesse /= 5;
+
+    for(var i = depart; i < arrive; i + vitesse){
+        setTimeout(function(){
+            console.log("coucou");
+            joueurs[idJoueur].positionActuelle = i;
+        }, temps);
+
+    }
+
 }

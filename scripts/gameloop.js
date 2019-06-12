@@ -27,11 +27,7 @@ function gameloop(nbJoueurs) {
         joueurs[i].placerPionCaseDepart();
     }
 
-    //L'origine est placée en decx, decy
-    //ctx.translate(decx, decy);
-
-    ctx.drawImage(img_plateau, 10, 10, 770 * echelle, 770 * echelle);
-    fnAffichePions();
+    draw();
 
     $("#btn-lancerDe").click(function () { // https://css-tricks.com/snippets/jquery/click-once-and-unbind/
         //désactive le bouton lancer le dé le temps que la fonction n'est pas terminé;
@@ -55,12 +51,6 @@ function tourJoueur(joueurId) {
     fnLancerDe();
     //Dlplacer le pion en fonction du résultat du dé
     joueurs[joueurId].deplacerPion(resultatDe);
-
-    //redéssiner le plateau de jeu
-    ctx.drawImage(img_plateau, 10, 10, 770 * echelle, 770 * echelle);
-
-    //redéssiner les pions
-    fnAffichePions();
 
     //vérifier les actions que le joueur doit effectuer
     actionCase(joueurs[joueurId]);
