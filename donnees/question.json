@@ -1,0 +1,380 @@
+[
+   {
+      "id":0,
+      "question":"Combien de sièges le Conseil fédéral a-t-il ?",
+      "r1":"246",
+      "r2":"200",
+      "r3":"46",
+      "r4":"7",
+      "br":"r4"
+   },
+   {
+      "id":1,
+      "question":"Que signifie 'prosélytisme' ?",
+      "r1":"Fait pour un homme de pouvoir se marier avec plusieurs femmes.",
+      "r2":"Zèle ardent pour recruter des adeptes, pour tenter d'imposer ses idées.",
+      "r3":"Opinion contraire aux vues communément admises.",
+      "r4":"Haine féroce pour toutes les innovations.",
+      "br":"r2"
+   },
+   {
+      "id":2,
+      "question":"La Suisse étant un pays néolibéral, dans quel domaine politique a-t-elle une attitude très réglementaire et interventionniste ?",
+      "r1":"L'agriculture",
+      "r2":"L'économie des finances et de l'industrie",
+      "r3":"La santé",
+      "r4":"La défense",
+      "br":"r1"
+   },
+   {
+      "id":3,
+      "question":"Quel est le dernier canton suisse, créé en 1979 ?",
+      "r1":"Tessin",
+      "r2":"Obwald",
+      "r3":"Shwytz",
+      "r4":"Jura",
+      "br":"r4"
+   },
+   {
+      "id":4,
+      "question":"Qui a écrit « Le dernier jour d’un condamné ?",
+      "r1":"Guy de Maupassant",
+      "r2":"simone de Beauvoir",
+      "r3":"Jean-Paul Sartre",
+      "r4":"Victor Hugo",
+      "br":"r4"
+   },
+   {
+      "id":5,
+      "question":"En trigonométrie, comment sont appelé les côtés d’un triangle rectangle ?",
+      "r1":"L’adjacent, l’opposé, et l’hypoméduse",
+      "r2":"L’adjacent, l’opposé et l’hypothénuse",
+      "r3":"Les cathètes et l’hypothénuse",
+      "r4":"L’à côté, l’éloigné, et la diagonale",
+      "br":"r2"
+   },
+   {
+      "id":6,
+      "question":" Quelle est la superficie de la suisse?",
+      "r1":"45'500 km carré",
+      "r2":"38.750 km carré",
+      "r3":"41'277 km carré",
+      "r4":"50'258 km carré",
+      "br":"r3"
+   },
+   {
+      "id":7,
+      "question":"Lequel de ces régimes matrimoniaux est attribué de base lors d’un mariage en Suisse ?",
+      "r1":"La communauté des biens",
+      "r2":"La participation aux acquêts",
+      "r3":"La séparation des biens",
+      "r4":"La participation aux biens",
+      "br":"r2"
+   },
+   {
+      "id":8,
+      "question":"Quel nom donne-t-on au deuxième élément d’une division ?",
+      "r1":"Le diviseur",
+      "r2":"Le quotient",
+      "r3":"le deuxième terme",
+      "r4":"le dividende",
+      "br":"r1"
+   },
+   {
+      "id":9,
+      "question":"Dans quel ordre se déroulent les épreuves du triathlon ?",
+      "r1":"Le cyclisme, la natation, la course à pied",
+      "r2":"La natation, le cyclisme, la course à pied",
+      "r3":"La course à pied, le cyclisme, la natation",
+      "r4":"La natation, le course à pied, le cyclisme",
+      "br":"r2"
+   },
+   {
+      "id":10,
+      "question":"Quel est le plus haut sommet de Suisse ?",
+      "r1":"le Cervin",
+      "r2":"Le Moléson",
+      "r3":"la point Dufour",
+      "r4":"la Jungfrau",
+      "br":"r3"
+   },
+   {
+      "id":11,
+      "question":"Honolulu est la capitale de quel pays?",
+      "r1":"Hawaï",
+      "r2":"Australie",
+      "r3":"Inde",
+      "r4":"Togo",
+      "br":"r1"
+   },
+   {
+      "id":12,
+      "question":"Quelle est la capitale de l'Australie?",
+      "r1":"Sidney",
+      "r2":"Melbourne",
+      "r3":"Adelaïde",
+      "r4":"Canberra",
+      "br":"r4"
+   },
+   {
+      "id":13,
+      "question":"Quel est la langue la plus parlée au monde ?",
+      "r1":"Espagnole",
+      "r2":"Anglais",
+      "r3":"Chinois",
+      "r4":"Arabe",
+      "br":"r3"
+   },
+   {
+      "id":14,
+      "question":"Quel est le nom du deuxième homme à avoir marché sur la lune en 1969 ?",
+      "r1":"Neil Amstrong",
+      "r2":"Buzz Aldrin",
+      "r3":"Alan Bean",
+      "r4":"David Scott",
+      "br":"r2"
+   },
+   {
+      "id":15,
+      "question":" Qui est le president du conseil fédéral en 2019 ?",
+      "r1":"Ueli Maurer",
+      "r2":"Ignazio Cassis",
+      "r3":"Alain Berset",
+      "r4":"Simonetta Sommaruga",
+      "br":"r1"
+   },
+   {
+      "id":16,
+      "question":" Combien de temps a règné Louis XVI sur la France ?",
+      "r1":"20 ans et 1 mois",
+      "r2":"25 ans et 2 mois",
+      "r3":"18 ans et 3 mois",
+      "r4":"10 ans et 4 mois",
+      "br":"r3"
+   },
+   {
+      "id":17,
+      "question":"Quelle est la hauteur de la tour Bourj Khalifa  ?",
+      "r1":"828 m",
+      "r2":"915 m",
+      "r3":"785",
+      "r4":"1000",
+      "br":"r1"
+   },
+   {
+      "id":18,
+      "question":"En quelle année a débuté la construction de la tour eiffel ?",
+      "r1":"1884",
+      "r2":"1885",
+      "r3":"1886",
+      "r4":"1887",
+      "br":"r4"
+   },
+   {
+      "id":19,
+      "question":"Quelle est l'année de lancement de Facebook ?",
+      "r1":"2002",
+      "r2":"2003",
+      "r3":"2004",
+      "r4":"2005",
+      "br":"r3"
+   },
+   {
+      "id":20,
+      "question":"Qui a invté le velcro ?",
+      "r1":"Claude Boucher",
+      "r2":"Geroges de mestral",
+      "r3":"Clement Ader",
+      "r4":" Emile Belot",
+      "br":"r2"
+   },
+   {
+      "id":21,
+      "question":"Qui a chanté le lundi au soleil ?",
+      "r1":"Gilbert Montagné",
+      "r2":"Freddie Mercury",
+      "r3":"Michel Fugain",
+      "r4":"Claude Francois",
+      "br":"r4"
+   },
+   {
+      "id":22,
+      "question":"Qui a dit 'I have a dream'?",
+      "r1":"Martin Luther King",
+      "r2":"Fidel Casrto",
+      "r3":"Nelson Mandela",
+      "r4":"John Fitzgerald Kennedy",
+      "br":"r1"
+   },
+   {
+      "id":23,
+      "question":"Qui a dit 'ich bin ein Berliner' ?",
+      "r1":"Adolf Hitler",
+      "r2":"Staline",
+      "r3":"Charles de Gaule",
+      "r4":"John Fitzgerald Kennedy",
+      "br":"r4"
+   },
+   {
+      "id":24,
+      "question":"En quelle année Christophe Colomb a découvert l'Amérique ?",
+      "r1":"1325",
+      "r2":"1475",
+      "r3":"1492",
+      "r4":"1399",
+      "br":"r3"
+   },
+   {
+      "id":25,
+      "question":"combien de temps a duré le guerre de 100 ans ?",
+      "r1":"116 ans ",
+      "r2":"100 ans",
+      "r3":"110",
+      "r4":"120",
+      "br":"r1"
+   },
+   {
+      "id":26,
+      "question":"Qui était le roi soleil?",
+      "r1":"Louis XI",
+      "r2":"Louis XIV",
+      "r3":"Louis XVI",
+      "r4":"Louis XVII",
+      "br":"r2"
+   },
+   {
+      "id":27,
+      "question":"Qu'es que l'émétophobie  ?",
+      "r1":"La peur de se blesser",
+      "r2":"La peur d'avoir peur",
+      "r3":"La peur de vomir",
+      "r4":"La peur du sang",
+      "br":"r3"
+   },
+   {
+      "id":28,
+      "question":" Quelle est la superficie de un hectar ?",
+      "r1":"10'000 m2",
+      "r2":"1'000 m2",
+      "r3":"5'000 m2",
+      "r4":"100 m2",
+      "br":"r1"
+   },
+   {
+      "id":29,
+      "question":" Quelle est la superficie de un hectar ?",
+      "r1":"10'000 m2",
+      "r2":"1'000 m2",
+      "r3":"5'000 m2",
+      "r4":"100 m2",
+      "br":"r4"
+   },
+   {
+      "id":30,
+      "question":"le subjonctif present du verbre feindre à la deuxieme prersonne du singulier ?",
+      "r1":"Que tu faignasses",
+      "r2":"Que tu faignassi",
+      "r3":"Que tu feint",
+      "r4":"Que tu feignes",
+      "br":"r4"
+   },
+   {
+      "id":31,
+      "question":"'Le radeau de la méduse' est un tableau de ?",
+      "r1":"Picasso",
+      "r2":"Rembrandt",
+      "r3":"Gericault",
+      "r4":"Lacroix",
+      "br":"r3"
+   },
+   {
+      "id":32,
+      "question":"Quelle est la température en degrés celsius du zero absolu",
+      "r1":"0",
+      "r2":"-273",
+      "r3":"-100",
+      "r4":"-195",
+      "br":"r2"
+   },
+   {
+      "id":33,
+      "question":"Combien de pays sont menbre de l'ONU",
+      "r1":"172",
+      "r2":"215",
+      "r3":"245",
+      "r4":"193",
+      "br":"r4"
+   },
+   {
+      "id":34,
+      "question":"Quelle est la date de la prise de la Bastille",
+      "r1":"14 juillet 1789",
+      "r2":"6 juin 1740",
+      "r3":"1 mai 1746",
+      "r4":"11 novembre 1745",
+      "br":"r1"
+   },
+   {
+      "id":35,
+      "question":"Depuis quelle année les femmes Suisses ont le droit de vote ?",
+      "r1":"1985",
+      "r2":"1975",
+      "r3":"1968",
+      "r4":"1971",
+      "br":"r4"
+   },
+   {
+      "id":36,
+      "question":"La bon la brute et le truand est un film de ?",
+      "r1":" Steven Spielberg",
+      "r2":"Segio Leone",
+      "r3":"Quentin Tarantino",
+      "r4":"Clint Eastwood",
+      "br":"r2"
+   },
+   {
+      "id":37,
+      "question":"En quelle année Christophe Colomb a découvert l'Amérique ?",
+      "r1":"1325",
+      "r2":"1475",
+      "r3":"1492",
+      "r4":"1399",
+      "br":"r3"
+   },
+   {
+      "id":38,
+      "question":"Comment était appelé Paris au temps des romains ?",
+      "r1":"Paris",
+      "r2":"Lutèce",
+      "r3":"Rodium",
+      "r4":"Péplum",
+      "br":"r2"
+   },
+   {
+      "id":39,
+      "question":"Hauteur des chutes du Niagara ?",
+      "r1":"33 m",
+      "r2":"48 m",
+      "r3":"57 m",
+      "r4":"65 m",
+      "br":"r3"
+   },
+   {
+      "id":40,
+      "question":"Hauteur du mont Everest ?",
+      "r1":"8848 m",
+      "r2":"8756 m",
+      "r3":"8932 m",
+      "r4":"8546 m",
+      "br":"r1"
+   },
+   {
+      "id":41,
+      "question":"Profondeur de la fosse des Mariannes ?",
+      "r1":"-8848 m",
+      "r2":"-9458 m",
+      "r3":"-10 971 m",
+      "r4":"-11 456 m",
+      "br":"r3"
+   }
+]

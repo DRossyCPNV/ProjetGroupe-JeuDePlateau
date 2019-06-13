@@ -38,9 +38,8 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     this.deplacerPion = function (de) {
         var caseDepart = that.caseActuelle;
         var caseArrive = that.caseActuelle + de;
-        var deplacement = 0.1; //deplacement en pourcent d'une case: 1 = 100% 0 = 0%
+        var deplacement = vitesseAnimSlider.value / 100; //deplacement en pourcent d'une case: 1 = 100% 0 = 0%, la vitesse peut-être modifié à l'aide d'un slider
         var tempsInterval = 5; //temps en miliseconde entre chaque deplacement
-
 
         that.emplacementCase = -1;
 
@@ -117,7 +116,7 @@ function emplacementVideCase(caseID) {
         }
     }
 }
-
+//cette fonction déplace le pion petit à petit jusqu'à la case d'arrivée
 function fnDeplacerPionFluidement(caseDepart, caseArrive, vitesse, idJoueur, temps) {
     vitesse /= 5;
 
@@ -133,6 +132,7 @@ function fnDeplacerPionFluidement(caseDepart, caseArrive, vitesse, idJoueur, tem
     }, temps);
 
 }
+//cette fonction déplace le pion petit à petit jusqu'à l'emplacement d'arrivée
 function fnEmplacementFluide(emplacementDepart, emplacementArrive, vitesse, idJoueur, temps){
     vitesse /= 10;
 

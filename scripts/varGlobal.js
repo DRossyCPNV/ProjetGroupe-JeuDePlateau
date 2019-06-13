@@ -50,3 +50,5 @@ for (var i = 0; i < nbJoueursMax; i++){
     imgPion[i].src = "images/pions/" + couleursPions[i] + ".png";
 }
 
+//html
+var vitesseAnimSlider = document.getElementById('vitesseAnimSlider');
