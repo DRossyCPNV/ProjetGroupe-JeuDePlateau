@@ -78,7 +78,7 @@
     "indication": "Effet immédiat",
     "effet": "DEPLACEMENT",
     "valeur_1": 0,
-    "valeur_2": 0
+    "valeur_2": 6
   },
   {
     "id": 102,
@@ -86,7 +86,7 @@
     "texte": "Renvoyez le joueur de votre choix sur la case \"Go\"",
     "indication": "Effet immédiat",
     "effet": "DEPLACEMENT",
-    "valeur_1": 0,
+    "valeur_1": 2,
     "valeur_2": 0
   },
   {

@@ -1,6 +1,4 @@
 //todo Ajouter les méthodes tirer une carte chance et réussir un exam
-//les couleurs de pions disponibles
-const couleursPions = ["rouge", "bleuClair", "bleuFonce", "orange", "violet", "vert"];
 
 //Fonction pour créer un tableau objet joueur, n étant le nombre de joueurs
 function maker(n) {
@@ -23,34 +21,54 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     this.section = section;
     this.caseActuelle = 0; //permettra de savoir quel action effectuer grace à l'id des cases, la case 0 est la case départ
     this.emplacementCase = id; //emplacement sera différent car l'id est différent
-
-
-    var imgPion = new Image();
-    imgPion.src = "images/pions/" + couleur + ".png";
+    this.nbTestReussi = 0;
+    this.positionActuelle = this.caseActuelle;
+    this.passeTour = 0;
+    this.protection = 0;
 
 
     //méthode pour placer le pion du joueur sur la case départ
     this.placerPionCaseDepart = function () {
         that.caseActuelle = 0;
+        that.positionActuelle = that.caseActuelle;
         that.emplacementCase = -1;
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
     };
     //methode qui déplace le pion d'un nombre de case en fonction du dé
     this.deplacerPion = function (de) {
+        var caseDepart = that.caseActuelle;
+        var caseArrive = that.caseActuelle + de;
+        var deplacement = 0.1; //deplacement en pourcent d'une case: 1 = 100% 0 = 0%
+        var tempsInterval = 5; //temps en miliseconde entre chaque deplacement
+
+
         that.emplacementCase = -1;
 
         //condition pour que les pions s'arrêtent à chaques coins
         if ((that.caseActuelle + de) > 6 && that.caseActuelle < 6) {
             that.caseActuelle = 6;
+            fnDeplacerPionFluidement(caseDepart, 6, deplacement, that.id, tempsInterval);
+            that.positionActuelle = that.caseActuelle;
         } else if ((that.caseActuelle + de) > 12 && that.caseActuelle < 12) {
             that.caseActuelle = 12;
+            fnDeplacerPionFluidement(caseDepart, 12, deplacement, that.id, tempsInterval);
+            that.positionActuelle = that.caseActuelle;
         } else if ((that.caseActuelle + de) > 18 && that.caseActuelle < 18) {
             that.caseActuelle = 18;
+            fnDeplacerPionFluidement(caseDepart, 18, deplacement, that.id, tempsInterval);
+            that.positionActuelle = that.caseActuelle;
         } else if ((that.caseActuelle + de) >= 24 && that.caseActuelle < 24) {
             //quand le pion arrive à la derniere case, caseActuel est remis à zero
             that.caseActuelle = 0;
+            fnDeplacerPionFluidement(caseDepart, 23.9, deplacement, that.id, tempsInterval);
+            that.positionActuelle = that.caseActuelle;
         } else {
             that.caseActuelle += de;
+
+            fnDeplacerPionFluidement(caseDepart, caseArrive, deplacement, that.id, tempsInterval);
+
+            that.positionActuelle = that.caseActuelle;
+
         }
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
 
@@ -98,4 +116,34 @@ function emplacementVideCase(caseID) {
             return emplacement;
         }
     }
+}
+
+function fnDeplacerPionFluidement(caseDepart, caseArrive, vitesse, idJoueur, temps) {
+    vitesse /= 5;
+
+    var mouvement = caseDepart;
+
+    var interval = setInterval(function () {
+        if(mouvement > caseArrive){
+            clearInterval(interval);
+        }else{
+            mouvement += vitesse;
+            joueurs[idJoueur].positionActuelle = mouvement;
+        }
+    }, temps);
+
+}
+function fnEmplacementFluide(emplacementDepart, emplacementArrive, vitesse, idJoueur, temps){
+    vitesse /= 10;
+
+    var mouvement = emplacementDepart;
+
+    var interval = setInterval(function () {
+        if(mouvement > arrive){
+            clearInterval(interval);
+        }else{
+            mouvement += vitesse;
+            joueurs[idJoueur].emplacementCase = mouvement;
+        }
+    }, temps);
 }

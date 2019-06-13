@@ -1,142 +1,177 @@
 [
    {
+      "id": 0,
+      "titre":"Question",
+      "texte":"Géométrie",
+      "couleur":"blue",
+      "type": "question"
+   },
+   {
+      "id": 1,
       "titre":"Maths",
       "texte":"Géométrie",
       "couleur":"blue",
-      "cote":1,
-      "ordre":1
+      "type": "normal"
    },
    {
+      "id": 2,
       "titre":"Maths",
       "texte":"Algèbre",
       "couleur":"blue",
-      "cote":1,
-      "ordre":2
+      "type": "normal"
    },
    {
+      "id": 3,
       "titre":"Chance",
       "texte":"",
       "couleur":"white",
-      "cote":1,
-      "ordre":3
+      "type": "chance"
    },
    {
+      "id": 4,
       "titre":"Info",
       "texte":"Système",
       "couleur":"red",
-      "cote":1,
-      "ordre":4
+      "type": "normal"
    },
    {
+      "id": 5,
       "titre":"Info",
       "texte":"Développement",
       "couleur":"red",
-      "cote":1,
-      "ordre":5
+      "type": "normal"
    },
    {
+      "id": 6,
+      "titre":"Question",
+      "texte":"Géométrie",
+      "couleur":"blue",
+      "type": "question"
+   },
+   {
+      "id": 7,
       "titre":"Français",
       "texte":"Rédaction",
       "couleur":"purple",
-      "cote":2,
-      "ordre":1
+      "type": "normal"
    },
    {
+      "id": 8,
       "titre":"Français",
       "texte":"Littérature",
       "couleur":"purple",
-      "cote":2,
-      "ordre":2
+      "type": "normal"
    },
    {
+      "id": 9,
       "titre":"Chance",
       "texte":"",
       "couleur":"white",
-      "cote":2,
-      "ordre":3
+      "type": "chance"
    },
    {
+      "id": 10,
       "titre":"Méca",
       "texte":"Matériaux",
       "couleur":"green",
-      "cote":2,
-      "ordre":4
+      "type": "normal"
    },
    {
+      "id": 11,
       "titre":"Méca",
       "texte":"Usinage",
       "couleur":"green",
-      "cote":2,
-      "ordre":5
+      "type": "normal"
    },
    {
+      "id": 12,
+      "titre":"Question",
+      "texte":"Géométrie",
+      "couleur":"blue",
+      "type": "question"
+   },
+   {
+      "id": 13,
       "titre":"Langues",
       "texte":"Allemand",
       "couleur":"yellow",
-      "cote":3,
-      "ordre":1
+      "type": "normal"
    },
    {
+      "id": 14,
       "titre":"Langues",
       "texte":"Anglais",
       "couleur":"yellow",
-      "cote":3,
-      "ordre":2
+      "type": "normal"
    },
    {
+      "id": 15,
       "titre":"Chance",
       "texte":"",
       "couleur":"white",
-      "cote":3,
-      "ordre":3
+      "type": "chance"
    },
    {
+      "id": 16,
       "titre":"Média",
       "texte":"Multimédia",
       "couleur":"orange",
-      "cote":3,
-      "ordre":4
+      "type": "normal"
    },
    {
+      "id": 17,
       "titre":"Média",
       "texte":"Web",
       "couleur":"orange",
-      "cote":3,
-      "ordre":5
+      "type": "normal"
    },
    {
+      "id": 18,
+      "titre":"Question",
+      "texte":"Géométrie",
+      "couleur":"blue",
+      "type": "question"
+   },
+   {
+      "id": 19,
       "titre":"ECG",
       "texte":"Economie",
       "couleur":"pink",
-      "cote":4,
-      "ordre":1
+      "type": "normal"
    },
    {
+      "id": 20,
       "titre":"ECG",
       "texte":"Droit",
       "couleur":"pink",
-      "cote":4,
-      "ordre":2
+      "type": "normal"
    },
    {
+      "id": 21,
       "titre":"Chance",
       "texte":"",
       "couleur":"white",
-      "cote":4,
-      "ordre":3
+      "type": "chance"
    },
    {
+      "id": 22,
       "titre":"Sport",
       "texte":"Foot",
       "couleur":"cyan",
-      "cote":4,
-      "ordre":4
+      "type": "normal"
    },
    {
+      "id": 23,
       "titre":"Sport",
       "texte":"Basket",
       "couleur":"cyan",
-      "cote":4,
-      "ordre":5
+      "type": "normal"
+   },
+   {
+      "id": 24,
+      "titre":"CFC",
+      "texte":"Basket",
+      "couleur":"cyan",
+      "type": "cfc"
    }
 ]
