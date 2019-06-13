@@ -55,13 +55,14 @@ function fnExecuteChance(){
                     $('#titre_cible').html("Choisissez un joueur cible:");
 
                     for(var i = 0; i < nbJoueurs; i++){
+                        console.log("valeur de I: " +i);
                         if(joueurs[i] !== joueurs[joueurActuel]) {
                             nomJoueurs += "<input type='radio' name='joueur' value='" + joueurs[i].id + "'> <label>" + joueurs[i].nom + "</label><br>";
                         }
                     }
-                    nomJoueurs += "<br><br><input type=\"button\" value=\"Dessiner Chance\" onclick=\"fnEffaceChoix();\">"
+                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnEffaceChoix();\">"
                     $('#form_cibles').html(nomJoueurs);
-
+                    console.log("donne de l'argent");
                     break;
                 default:
                     //Si recevoir argent
@@ -77,6 +78,7 @@ function fnExecuteChance(){
                                 joueurs[joueurActuel].argent += achance[nbaleat].valeur_1;
                             }
                         }
+                        console.log("recevoire de l'argent");
                         console.log("Argent du " +joueurs[joueurActuel].nom +" "+joueurs[joueurActuel].argent);
                     }
                     else{
@@ -100,6 +102,8 @@ function fnExecuteChance(){
                         nomJoueurs += "<br><br><input type=\"button\" value=\"Séléctionner\" onclick=\"fnEffaceChoix();\">"
 
                         $('#form_cibles').html(nomJoueurs);
+                        console.log("recevoire et donner de l'argent");
+                        console.log("Argent du " +joueurs[joueurActuel].nom +" "+joueurs[joueurActuel].argent);
                     }
                     break;
             }
@@ -107,7 +111,9 @@ function fnExecuteChance(){
         case 'TOURS':
             switch(achance[nbaleat].valeur_1){
                 case 1:
+                    console.log("passe tour avant: " +joueurs[joueurActuel].passeTour );
                     joueurs[joueurActuel].passeTour = 1;
+                    console.log("passe tour après: " +joueurs[joueurActuel].passeTour );
                     break;
                 default:
                     break;
@@ -116,19 +122,29 @@ function fnExecuteChance(){
         case 'DEPLACEMENT':
             switch(achance[nbaleat].valeur_1){
                 case 0:
+                    //Déplace le joueur actuel
+                    //Deplacer le pion
                     joueurs[joueurActuel].deplacerPion(achance[nbaleat].valeur_2);
-                    ctx.drawImage(img_plateau, 18, 18, 765 * echelle, 765 * echelle);
-
-                    //redéssiner les pions
-                    fnAffichePions();
 
                     //vérifier les actions que le joueur doit effectuer
                     actionCase(joueurs[joueurActuel]);
                     break;
                 case 1:
+                    //relance le dé
                     tourJoueur(joueurActuel);
                     break;
                 case 2:
+                    //Déplace un joueur cible
+                    $('#choix_cible').css('display', 'block');
+                    $('#titre_cible').html("Choisissez un joueur cible:");
+                    for(var i = 0; i < nbJoueurs; i++){
+                        if(joueurs[i] !== joueurs[joueurActuel]) {
+                            nomJoueurs += "<input type='radio' name='joueur' value='" + joueurs[i].id + "'> <label>" + joueurs[i].nom + "</label><br>";
+                        }
+                    }
+                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnEffaceChoixDeplacement();\">"
+                    $('#form_cibles').html(nomJoueurs);
+                    
                     break;
                 default:
                     break;
@@ -158,7 +174,7 @@ function fnEffaceChoix() {
                 joueurs[i].protection = 0;
             }
             else {
-                if (joueurs[i].argent <= achance[nbaleat].valeur_2) {
+                if (achance[nbaleat].valeur_2 < 0 && joueurs[i].argent <= Math.abs(achance[nbaleat].valeur_2)) {
                     joueurs[i].argent = 0;
                 }
                 else {
@@ -170,4 +186,23 @@ function fnEffaceChoix() {
 
     }
 
+}
+
+function fnEffaceChoixDeplacement() {
+    $('#choix_cible').css('display', 'none');
+    for(var i = 0; i < nbJoueurs; i++){
+        if(joueurs[i].id == document.querySelector('input[name="joueur"]:checked').value){
+            //Deplacer le pion
+
+            if(achance[nbaleat].valeur_2 === 0){    //Si la destination est GO
+                joueurs[i].deplacerPion(-joueurs[i].caseActuelle);
+            }
+            else{                                   //Sinon
+                joueurs[i].deplacerPion(achance[nbaleat].valeur_2);
+            }
+
+
+        }
+
+    }
 }
