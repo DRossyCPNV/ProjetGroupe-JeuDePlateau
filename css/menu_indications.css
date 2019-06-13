@@ -61,8 +61,16 @@
     width: 100%;
 }
 
+.menu_indications_joueur_modules_affiches{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .menu_indications_joueur_pointsSavoir{
     width: 100%;
+    margin-top: 20px;
 }
 
 .menu_indications_joueur_boutons{

@@ -11,10 +11,12 @@ $("#btn-verif").click(function () {
     $(this).data('clicked', true);
 });
 
+//Sorti de la boucle pour accéder partout dans le script
+var jActuel = 0;
+
 //cette fonction sera la fonction principale qui liera toutes les autres pour rendre le jeu fonctionnel
 function gameloop(nbJoueurs) {
     var nbJoueurJouant = nbJoueurs;
-    var jActuel = 0;
     //crée les joueurs
     joueurs = maker(nbJoueurs);
     //message d'info dans la console

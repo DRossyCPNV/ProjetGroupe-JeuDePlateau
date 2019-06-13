@@ -25,6 +25,7 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     this.positionActuelle = this.caseActuelle;
     this.passeTour = 0;
     this.protection = 0;
+    this.modulesObtenus = new Array(amodules.length).fill(0); //1 = vrai / 0 = faux
 
 
     //méthode pour placer le pion du joueur sur la case départ
