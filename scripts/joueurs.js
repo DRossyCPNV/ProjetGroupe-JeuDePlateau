@@ -6,7 +6,7 @@ function maker(n) {
     for (i = 0; i < n; i++) {
         var nomJoueur = $("#nomJ" + i).val();
         var sectionJoueur = $("#sectionJ" + i).val();
-        arr.push(new Joueur(i, nomJoueur, couleursPions[i], 500, sectionJoueur));
+        arr.push(new Joueur(i, nomJoueur, couleursPions[i], 1500, sectionJoueur));
     }
     return arr;
 }

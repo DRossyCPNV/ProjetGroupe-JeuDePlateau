@@ -159,6 +159,7 @@ Guilain Mbayo, David Rossy & Luca Coduri - SI-CA1a - mai 2019
     <input id="btn-verif" type="button" value="Réponse" onclick="fnVerifReponseQuestion(); return false;">
 </div>
 
+<!-- Carte chance ici -->
 <div id="carte_chance">
     <img src="images/chance/close.png" width="20px" align="right" onclick="fnEffaceChance()"/>
     <p><strong id="titre_chance"></strong></p>
@@ -169,19 +170,28 @@ Guilain Mbayo, David Rossy & Luca Coduri - SI-CA1a - mai 2019
     <p><strong id="titre_cible"></strong></p>
     <br>
     <form id="form_cibles">
-
     </form>
-
 </div>
+<!-- Fin Carte chance -->
+
+<!-- Carte module ici -->
+<div id="carte_module">
+    <p><strong id="titre_module"></strong></p>
+    <br>
+    <p id="txt_module"></p>
+    <div>
+        <input type="button" value="Acheter" onclick="fnClickAcheterModule();">
+        <input type="button" value="Terminer" onclick="fnEffacerModule();">
+    </div>
+</div>
+<!-- Fin Carte module -->
 
 <!-- Menu des indications ici -->
-
 <div id="menu_indications">
     <div id="menu_indications_titre">SCORES</div>
     <div id="menu_indications_tours"></div>
     <div id="menu_indications_joueurs"></div>
 </div>
-
 <!-- Fin menu des indications -->
 
 <script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>
@@ -194,6 +204,7 @@ Guilain Mbayo, David Rossy & Luca Coduri - SI-CA1a - mai 2019
 <script type="text/javascript" src="scripts/chance.js"></script>
 <script type="text/javascript" src="scripts/gameloop.js"></script>
 <script type="text/javascript" src="scripts/menu_indications.js"></script>
+<script type="text/javascript" src="scripts/obtention_module.js"></script>
 </body>
 </html>
 

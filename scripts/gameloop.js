@@ -76,8 +76,8 @@ function actionCase(joueurActuel) {
     switch (true) {
         //case coin
         case (typeDeCase === "normal"):
-            console.log(typeDeCase);
-            //demander si le joueur veut acheter la case
+            //case module
+            fnAcheterModule(joueurActuel.id, acartes[caseToCheck].id);
             break;
 
         case (typeDeCase === "question"):

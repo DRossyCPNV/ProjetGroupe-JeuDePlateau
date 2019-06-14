@@ -1,177 +1,202 @@
 [
    {
       "id": 0,
-      "titre":"Question",
-      "texte":"Géométrie",
-      "couleur":"blue",
-      "type": "question"
+      "titre": "Question",
+      "texte": "Question",
+      "couleur": "blue",
+      "type": "question",
+      "prix": 0
    },
    {
       "id": 1,
-      "titre":"Maths",
-      "texte":"Géométrie",
-      "couleur":"blue",
-      "type": "normal"
+      "titre": "Français",
+      "texte": "Rédaction",
+      "couleur": "black",
+      "type": "normal",
+      "prix": 1000
    },
    {
       "id": 2,
-      "titre":"Maths",
-      "texte":"Algèbre",
-      "couleur":"blue",
-      "type": "normal"
-   },
-   {
-      "id": 3,
-      "titre":"Chance",
-      "texte":"",
-      "couleur":"white",
-      "type": "chance"
+      "titre": "Français",
+      "texte": "Littérature",
+      "couleur": "black",
+      "type": "normal",
+      "prix": 1000
    },
    {
       "id": 4,
-      "titre":"Info",
-      "texte":"Système",
-      "couleur":"red",
-      "type": "normal"
+      "titre": "Chance",
+      "texte": "Chance",
+      "couleur": "white",
+      "type": "chance",
+      "prix": 0
    },
    {
       "id": 5,
-      "titre":"Info",
-      "texte":"Développement",
-      "couleur":"red",
-      "type": "normal"
+      "titre": "Méca",
+      "texte": "Matériaux",
+      "couleur": "black",
+      "type": "normal",
+      "prix": 1000
    },
    {
       "id": 6,
-      "titre":"Question",
-      "texte":"Géométrie",
-      "couleur":"blue",
-      "type": "question"
+      "titre": "Méca",
+      "texte": "Usinage",
+      "couleur": "black",
+      "type": "normal",
+      "prix": 1000
    },
    {
       "id": 7,
-      "titre":"Français",
-      "texte":"Rédaction",
-      "couleur":"purple",
-      "type": "normal"
+      "titre": "Question",
+      "texte": "Question",
+      "couleur": "blue",
+      "type": "question",
+      "prix": 0
    },
    {
       "id": 8,
-      "titre":"Français",
-      "texte":"Littérature",
-      "couleur":"purple",
-      "type": "normal"
+      "titre": "Langues",
+      "texte": "Allemand",
+      "couleur": "black",
+      "type": "normal",
+      "prix": 1000
    },
    {
       "id": 9,
-      "titre":"Chance",
-      "texte":"",
-      "couleur":"white",
-      "type": "chance"
+      "titre": "Langues",
+      "texte": "Anglais",
+      "couleur": "black",
+      "type": "normal",
+      "prix": 1000
    },
    {
       "id": 10,
-      "titre":"Méca",
-      "texte":"Matériaux",
-      "couleur":"green",
-      "type": "normal"
+      "titre": "Chance",
+      "texte": "Chance",
+      "couleur": "white",
+      "type": "chance",
+      "prix": 0
    },
    {
       "id": 11,
-      "titre":"Méca",
-      "texte":"Usinage",
-      "couleur":"green",
-      "type": "normal"
+      "titre": "Média",
+      "texte": "Multimédia",
+      "couleur": "black",
+      "type": "normal",
+      "prix": 1000
    },
    {
       "id": 12,
-      "titre":"Question",
-      "texte":"Géométrie",
-      "couleur":"blue",
-      "type": "question"
+      "titre": "Média",
+      "texte": "Web",
+      "couleur": "black",
+      "type": "normal",
+      "prix": 1000
    },
    {
       "id": 13,
-      "titre":"Langues",
-      "texte":"Allemand",
-      "couleur":"yellow",
-      "type": "normal"
+      "titre": "Question",
+      "texte": "Question",
+      "couleur": "blue",
+      "type": "question",
+      "prix": 0
    },
    {
       "id": 14,
-      "titre":"Langues",
-      "texte":"Anglais",
-      "couleur":"yellow",
-      "type": "normal"
+      "titre": "ECG",
+      "texte": "Economie",
+      "couleur": "black",
+      "type": "normal",
+      "prix": 1000
    },
    {
       "id": 15,
-      "titre":"Chance",
-      "texte":"",
-      "couleur":"white",
-      "type": "chance"
+      "titre": "ECG",
+      "texte": "Droit",
+      "couleur": "black",
+      "type": "normal",
+      "prix": 1000
    },
    {
       "id": 16,
-      "titre":"Média",
-      "texte":"Multimédia",
-      "couleur":"orange",
-      "type": "normal"
+      "titre": "Chance",
+      "texte": "Chance",
+      "couleur": "white",
+      "type": "chance",
+      "prix": 0
    },
    {
       "id": 17,
-      "titre":"Média",
-      "texte":"Web",
-      "couleur":"orange",
-      "type": "normal"
+      "titre": "Sport",
+      "texte": "Football",
+      "couleur": "black",
+      "type": "normal",
+      "prix": 1000
    },
    {
       "id": 18,
-      "titre":"Question",
-      "texte":"Géométrie",
-      "couleur":"blue",
-      "type": "question"
+      "titre": "Sport",
+      "texte": "Basketball",
+      "couleur": "black",
+      "type": "normal",
+      "prix": 1000
    },
    {
       "id": 19,
-      "titre":"ECG",
-      "texte":"Economie",
-      "couleur":"pink",
-      "type": "normal"
+      "titre": "Question",
+      "texte": "Question",
+      "couleur": "blue",
+      "type": "question",
+      "prix": 0
    },
    {
       "id": 20,
-      "titre":"ECG",
-      "texte":"Droit",
-      "couleur":"pink",
-      "type": "normal"
+      "titre": "Maths",
+      "texte": "Géométrie",
+      "couleur": "black",
+      "type": "normal",
+      "prix": 1000
    },
    {
       "id": 21,
-      "titre":"Chance",
-      "texte":"",
-      "couleur":"white",
-      "type": "chance"
+      "titre": "Maths",
+      "texte": "Algèbre",
+      "couleur": "black",
+      "type": "normal",
+      "prix": 1000
    },
    {
       "id": 22,
-      "titre":"Sport",
-      "texte":"Foot",
-      "couleur":"cyan",
-      "type": "normal"
+      "titre": "Chance",
+      "texte": "Chance",
+      "couleur": "white",
+      "type": "chance",
+      "prix": 0
    },
    {
       "id": 23,
-      "titre":"Sport",
-      "texte":"Basket",
-      "couleur":"cyan",
-      "type": "normal"
+      "titre": "Info",
+      "texte": "Système",
+      "couleur": "black",
+      "type": "normal",
+      "prix": 1000
    },
    {
       "id": 24,
-      "titre":"CFC",
-      "texte":"Basket",
-      "couleur":"cyan",
-      "type": "cfc"
+      "titre": "Info",
+      "texte": "Développement",
+      "couleur": "black",
+      "type": "normal",
+      "prix": 1000
+   },
+   {
+      "id": 25,
+      "titre": "CFC",
+      "texte": "CFC",
+      "couleur": "cyan",
+      "type": "cfc",
+      "prix": 0
    }
 ]
