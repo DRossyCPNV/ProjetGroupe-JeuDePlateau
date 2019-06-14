@@ -21,6 +21,7 @@ function fnAfficheChance(IDjoueur) {
     console.log("Joueur ID "+IDjoueur);
     //Affichage de la div
     $('body').css('background-color','rgba(0,0,0,.9)');
+    document.getElementById('btn-lancerDe').style.display = 'none';
     $('#plateau_jeu').css('display','none');
     $('#carte_chance').css('display', 'block');
 
@@ -39,6 +40,7 @@ function fnEffaceChance(){
     $('#carte_chance').css('display', 'none');
     $('#plateau_jeu').css('display','block');
     $('body').css('background-color','purple');
+    document.getElementById('btn-lancerDe').style.display = 'inline';
     fnExecuteChance();
 }
 
@@ -168,41 +170,53 @@ function fnExecuteChance(){
 
 function fnEffaceChoix() {
     $('#choix_cible').css('display', 'none');
-    for(var i = 0; i < nbJoueurs; i++){
-        if(joueurs[i].id == document.querySelector('input[name="joueur"]:checked').value){
-            if(joueurs[i].protection == 1 && achance[nbaleat].valeur_1 < 0){
-                joueurs[i].protection = 0;
-            }
-            else {
-                if (achance[nbaleat].valeur_2 < 0 && joueurs[i].argent <= Math.abs(achance[nbaleat].valeur_2)) {
-                    joueurs[i].argent = 0;
+    if(document.querySelector('input[name="joueur"]:checked') === null){
+        console.log("Pas de choix sélectioné");
+        fnExecuteChance();
+    }
+    else{
+        for(var i = 0; i < nbJoueurs; i++){
+            if(joueurs[i].id == document.querySelector('input[name="joueur"]:checked').value){
+                if(joueurs[i].protection == 1 && achance[nbaleat].valeur_1 < 0){
+                    joueurs[i].protection = 0;
                 }
                 else {
-                    joueurs[i].argent += achance[nbaleat].valeur_2;
+                    if (achance[nbaleat].valeur_2 < 0 && joueurs[i].argent <= Math.abs(achance[nbaleat].valeur_2)) {
+                        joueurs[i].argent = 0;
+                    }
+                    else {
+                        joueurs[i].argent += achance[nbaleat].valeur_2;
+                    }
                 }
+                console.log(joueurs[i].nom+" a "+joueurs[i].argent);
             }
-            console.log(joueurs[i].nom+" a "+joueurs[i].argent);
+
         }
-
     }
-
 }
 
 function fnEffaceChoixDeplacement() {
     $('#choix_cible').css('display', 'none');
-    for(var i = 0; i < nbJoueurs; i++){
-        if(joueurs[i].id == document.querySelector('input[name="joueur"]:checked').value){
-            //Deplacer le pion
+    if(document.querySelector('input[name="joueur"]:checked') === null){
+        console.log("Pas de choix sélectioné");
+        fnExecuteChance();
+    }
+    else{
+        for(var i = 0; i < nbJoueurs; i++){
+            if(joueurs[i].id == document.querySelector('input[name="joueur"]:checked').value){
+                //Deplacer le pion
 
-            if(achance[nbaleat].valeur_2 === 0){    //Si la destination est GO
-                joueurs[i].deplacerPion(-joueurs[i].caseActuelle);
-            }
-            else{                                   //Sinon
-                joueurs[i].deplacerPion(achance[nbaleat].valeur_2);
-            }
+                if(achance[nbaleat].valeur_2 === 0){    //Si la destination est GO
+                    joueurs[i].deplacerPion(-joueurs[i].caseActuelle);
+                }
+                else{                                   //Sinon
+                    joueurs[i].deplacerPion(achance[nbaleat].valeur_2);
+                }
 
+
+            }
 
         }
-
     }
+
 }
