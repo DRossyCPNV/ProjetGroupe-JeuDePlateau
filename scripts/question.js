@@ -20,6 +20,9 @@ $.getJSON('donnees/questions.json', function(data) {
 function fnAfficheQuestion() {
 
     //Affichage de la div
+    $('body').css('background-color','rgba(0,0,0,.9)');
+    document.getElementById('btn-lancerDe').style.display = 'none';
+    $('#plateau_jeu').css('display','none');
     $('#carte_question').css('display', 'block');
 
     //Génération d'un nombre aléatoire
@@ -38,6 +41,11 @@ function fnAfficheQuestion() {
 }
 
 function fnVerifReponseQuestion() {
+    //On affiche le plateau de jeu
+    $('#carte_question').css('display', 'none');
+    $('#plateau_jeu').css('display','block');
+    $('body').css('background-color','purple');
+    document.getElementById('btn-lancerDe').style.display = 'inline';
 
     //On enregistre la réponse du joueur
     jreponse = $("input[name='reponse']:checked");
@@ -55,4 +63,5 @@ function fnVerifReponseQuestion() {
         jreponse.prop("checked", false);
         return false;
     }
+
 }

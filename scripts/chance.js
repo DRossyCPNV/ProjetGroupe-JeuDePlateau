@@ -37,6 +37,7 @@ function fnAfficheChance(IDjoueur) {
 }
 
 function fnEffaceChance(){
+    //efface la carte et réaffiche le plateau de jeu
     $('#carte_chance').css('display', 'none');
     $('#plateau_jeu').css('display','block');
     $('body').css('background-color','purple');
@@ -85,13 +86,14 @@ function fnExecuteChance(){
                     }
                     else{
                         //Si recevoir et donner argent
+                        //Recevoir
                         if(achance[nbaleat].valeur_1<0 && joueurs[joueurActuel].argent <= Math.abs(achance[nbaleat].valeur_1)){
                             joueurs[joueurActuel].argent = 0;
                         }
                         else{
                             joueurs[joueurActuel].argent += achance[nbaleat].valeur_1;
                         }
-
+                        //Choix de la cible
                         $('#choix_cible').css('display', 'block');
                         $('#titre_cible').html("Choisissez un joueur cible:");
 
@@ -113,6 +115,7 @@ function fnExecuteChance(){
         case 'TOURS':
             switch(achance[nbaleat].valeur_1){
                 case 1:
+                    //la prochaine fois que le joueur lance le dé, rien ne se passe et on passe au joueur suivant
                     console.log("passe tour avant: " +joueurs[joueurActuel].passeTour );
                     joueurs[joueurActuel].passeTour = 1;
                     console.log("passe tour après: " +joueurs[joueurActuel].passeTour );
@@ -126,17 +129,18 @@ function fnExecuteChance(){
                 case 0:
                     //Déplace le joueur actuel
                     //Deplacer le pion
-                    joueurs[joueurActuel].deplacerPion(achance[nbaleat].valeur_2);
+                    joueurs[joueurActuel].deplacerPion((-joueurs[joueurActuel].caseActuelle+achance[nbaleat].valeur_2));
 
                     //vérifier les actions que le joueur doit effectuer
                     actionCase(joueurs[joueurActuel]);
                     break;
                 case 1:
-                    //relance le dé
+                    //relance le dé automatiquement
                     tourJoueur(joueurActuel);
                     break;
                 case 2:
                     //Déplace un joueur cible
+                    //Séléction du joueur cible
                     $('#choix_cible').css('display', 'block');
                     $('#titre_cible').html("Choisissez un joueur cible:");
                     for(var i = 0; i < nbJoueurs; i++){
@@ -155,6 +159,7 @@ function fnExecuteChance(){
         case 'PROTECTION':
             switch(achance[nbaleat].valeur_1){
                 case 1:
+                    //on enclanche la protection du joueur pour la prochaine attaque dont il est la cible
                     joueurs[joueurActuel].protection = 1;
                     break;
                 default:
@@ -162,6 +167,8 @@ function fnExecuteChance(){
             }
             break;
         case 'QCM':
+            //poser une question
+            fnAfficheQuestion();
             break;
         default:
             break;
@@ -169,12 +176,14 @@ function fnExecuteChance(){
 }
 
 function fnEffaceChoix() {
+    //Efface la div de choix de cible
     $('#choix_cible').css('display', 'none');
+    //Réaffiche la div de choix de cible si aucune cible n'a été sélectionnée
     if(document.querySelector('input[name="joueur"]:checked') === null){
         console.log("Pas de choix sélectioné");
         fnExecuteChance();
     }
-    else{
+    else{   //Applique l'effet à la cible
         for(var i = 0; i < nbJoueurs; i++){
             if(joueurs[i].id == document.querySelector('input[name="joueur"]:checked').value){
                 if(joueurs[i].protection == 1 && achance[nbaleat].valeur_1 < 0){
@@ -196,7 +205,9 @@ function fnEffaceChoix() {
 }
 
 function fnEffaceChoixDeplacement() {
+    //efface la div de choix de cible
     $('#choix_cible').css('display', 'none');
+    //applique l'effet au joueur ciblé
     if(document.querySelector('input[name="joueur"]:checked') === null){
         console.log("Pas de choix sélectioné");
         fnExecuteChance();
@@ -210,7 +221,7 @@ function fnEffaceChoixDeplacement() {
                     joueurs[i].deplacerPion(-joueurs[i].caseActuelle);
                 }
                 else{                                   //Sinon
-                    joueurs[i].deplacerPion(achance[nbaleat].valeur_2);
+                    joueurs[i].deplacerPion((-joueurs[i].caseActuelle+achance[nbaleat].valeur_2));
                 }
 
 
