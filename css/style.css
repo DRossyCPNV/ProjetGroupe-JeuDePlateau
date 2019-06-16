@@ -23,6 +23,12 @@ body {
     background-image: url("../images/chance/fond.png");
     color: black;
 }
+
+#rdb_question {
+    text-align: left;
+    margin-left: 20px;
+}
+
 #carte_chance{
     display: none;
     margin: auto;

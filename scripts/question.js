@@ -15,7 +15,6 @@ $.getJSON('donnees/questions.json', function(data) {
     acquestion = data;
 
     nbcquestion = acquestion.length; //Le nombre de cartes questions
-
 });
 
 function fnAfficheQuestion(IDjoueur) {
