@@ -6,6 +6,7 @@ var acquestion = []; //array carte questions
 var jreponse; //La réponse de l'utilisateur
 var breponse; //La bonne réponse
 var nbcquestion; //nb cartes questions
+var ptsbr = 500; //Points attribué pour une bonne réponse
 
 //La carte est masquée au début du jeu
 $('#carte_question').css('display','none');
@@ -17,7 +18,7 @@ $.getJSON('donnees/questions.json', function(data) {
 
 });
 
-function fnAfficheQuestion() {
+function fnAfficheQuestion(IDjoueur) {
 
     //Affichage de la div
     $('body').css('background-color','rgba(0,0,0,.9)');
@@ -51,8 +52,12 @@ function fnVerifReponseQuestion() {
     jreponse = $("input[name='reponse']:checked");
 
     //Vérification de la réponse donnée par le joueur
-    if (breponse == jreponse.val()) {
+    if (breponse === jreponse.val()) {
         alert("Bravo ! Vous avez trouvé la bonne réponse");
+
+        joueurs[joueurActuel].argent += ptsbr;
+        console.log(joueurs[joueurActuel].argent);
+
         $('#carte_question').css('display','none');
         jreponse.prop("checked", false);
         return true;

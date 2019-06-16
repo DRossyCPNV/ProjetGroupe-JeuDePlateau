@@ -79,16 +79,20 @@ function actionCase(joueurActuel) {
             break;
 
         case (typeDeCase === "question"):
-            /*console.log(typeDeCase);
+            console.log(typeDeCase);
+            console.log(joueurActuel.id);
             //poser une question
-            fnAfficheQuestion();
-            //on attend que la réponse soit validée
-            while($("#btn-verif").data('clicked')){}
-            if (fnVerifReponseQuestion() === true) {
-                joueurActuel.nbTestReussi++;
-                console.log("Voici mes point" + joueurActuel.nbTestReussi);
-                $("#id").data('clicked', false);
-            }*/
+            fnAfficheQuestion(joueurActuel.id);
+
+            // //on attend que la réponse soit validée
+            // while($("#btn-verif").data('clicked')){
+            //     fnAfficheQuestion(joueurActuel.id);
+            // }
+            // if (fnVerifReponseQuestion() === true) {
+            //     joueurActuel.nbTestReussi++;
+            //     console.log("Voici mes point" + joueurActuel.nbTestReussi);
+            //     $("#id").data('clicked', false);
+            // }
 
 
             break;
