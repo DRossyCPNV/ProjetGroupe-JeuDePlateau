@@ -1,8 +1,7 @@
-//todo ajouter une fonction qui s'occupera juste d'afficher les élément dans le canvas. Toute les position sont calculées ailleurs.
 // **************************************************************
 // Modulopoly - Gameloop
-// JCY, Laurent Barraud, Bastian Chollet, Guillaume Duvoisin,
-// Guilain Mbayo, David Rossy & Luca Coduri - SI-CA1a - mai 2019
+// JCY, Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
 // **************************************************************
 
 
@@ -38,7 +37,7 @@ function fnLancerDe() {
 
     //Stocke des entiers aléatoires entre une valeur min (incluse)
     //et une valeur max (incluse) dans le tableau
-    var min = 0;
+    var min = 1;
     var max = 59;
 
     for (var i = 0; i < 6; i++) {
@@ -56,17 +55,20 @@ function fnAfficheFaceDe() {
     randomNumber = tabNombres[nbFacesAffichees];
     var faceDe = Math.floor(randomNumber / 10); //génère un nombre aléatoire entre 0 et 5
 
-    // (1) la source, (2,3) les coordonnées x et y du coin haut-gauche, (4,5) la largeur et hauteur,
-    // (6,7) les coordonnées x et y du coin haut-gauche où dessiner l'image sur le canvas,
-    // (8,9) la largeur et hauteur voulue.
-    ctx.drawImage(img_de, 1100 - (156.2 * faceDe), 15, 141, 140, 550 * echelle, 23 * echelle, 58 * echelle, 58 * echelle);
+    // Cette fonction va afficher une image sur le canvas.
+    // param img (1): la source
+    // param sx, sy (2,3): les coordonnées x et y du coin haut-gauche à extraire
+    // param swidth, sheight (4,5): la largeur et hauteur à extraire
+    // param x, y (6,7): les coordonnées x et y du coin haut-gauche où dessiner l'image sur le canvas
+    // param width, height (8,9): la largeur et hauteur voulue (agrandit ou réduit l'image)
+    ctx.drawImage(img_de, 945 - (155 * faceDe), 15, 141, 140, 720 * echelle, 23 * echelle, 90 * echelle, 90 * echelle);
 
     nbFacesAffichees++;
 
     if (nbFacesAffichees >= 6) {
-        ctx.font = 6 * echelle + "pt Arial";
+        ctx.font = 10 * echelle + "pt Arial";
         resultatDe = faceDe + 1;
-        fnText("Vous avez fait " + resultatDe + ".", 580, 100, "chocolate");
+        fnText("Vous avez fait " + resultatDe + ".", 717, 135, "chocolate");
 
         //Remise à zéro du compteur
         nbFacesAffichees = 0;
@@ -92,7 +94,12 @@ function fnAffichePions() {
 
                 fnPivotePlateau(decx, decy, anglePion); //On déplace l'origine au centre du plateau et on le pivote
                 pionxy = fnGetCoordonnees(joueurs[i].emplacementCase, jCaseAct, 0, coordCaseDep.X, coordCaseDep.Y, tcoinxy, tcx); //On récupère les coordonnées d'affichage du pion
-                ctx.drawImage(imgPion[i], pionxy[0], pionxy[1], pionw, pionh); //On dessine le pion
+                // On dessine le pion sur le canvas
+                // param img (1): la source
+                // param x, y (2,3): les coordonnées x et y du coin haut-gauche où dessiner le pion sur le canvas
+                // param width, height (4,5): la largeur et hauteur voulue (agrandit ou réduit le pion)
+                ctx.drawImage(imgPion[i], pionxy[0], pionxy[1], pionw, pionh);
+
                 fnPivotePlateau(decx, decy, -anglePion); //On repivote le plateau et on remet l'origine en haut à gauche
 
                 break;
