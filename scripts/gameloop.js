@@ -35,7 +35,13 @@ function gameloop(nbJoueurs) {
             $("#btn-lancerDe").attr('disabled', 'disabled');
             console.log("je disable le bouton");
 
-            tourJoueur(jActuel);
+            //crée un nombre aléatoire
+            fnLancerDe();
+
+            //attendre que le dé a finit de tourner
+            sleep(1000).then(() => {
+                tourJoueur(jActuel);
+            });
         }
         else{
             joueurs[jActuel].passeTour = 0;
@@ -51,11 +57,10 @@ function gameloop(nbJoueurs) {
 
 //fonction qui représente le tour d'un joueur
 function tourJoueur(joueurId) {
-    //crée un nombre aléatoire
-    fnLancerDe();
+
     //Deplacer le pion en fonction du résultat du dé
     joueurs[joueurId].deplacerPion(resultatDe);
-
+    console.log("je met déplace de: " + resultatDe);
 
     //vérifier les actions que le joueur doit effectuer
     actionCase(joueurs[joueurId]);
@@ -102,4 +107,8 @@ function actionCase(joueurActuel) {
             //case CFC
             break;
     }
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }

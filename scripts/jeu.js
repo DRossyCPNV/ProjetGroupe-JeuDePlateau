@@ -47,8 +47,6 @@ function fnLancerDe() {
 
     // timer qui appelle la fonction toutes les 120 milli-secondes, pour l'animation du dé.
     tmrAffiche = setInterval(fnAfficheFaceDe, 120);
-
-    return nbAffiche;
 }
 
 function fnAfficheFaceDe() {
@@ -59,14 +57,13 @@ function fnAfficheFaceDe() {
     // (1) la source, (2,3) les coordonnées x et y du coin haut-gauche, (4,5) la largeur et hauteur,
     // (6,7) les coordonnées x et y du coin haut-gauche où dessiner l'image sur le canvas,
     // (8,9) la largeur et hauteur voulue.
-    ctx.drawImage(img_de, 1100 - (156.2 * faceDe), 15, 141, 140, 550 * echelle, 23 * echelle, 58 * echelle, 58 * echelle);
+    ctx.drawImage(img_de, 1100 - (156.2 * faceDe), 15, 141, 140, 650 * echelle, 23 * echelle, 58 * echelle, 58 * echelle);
 
     nbFacesAffichees++;
 
     if (nbFacesAffichees >= 6) {
         ctx.font = 6 * echelle + "pt Arial";
         resultatDe = faceDe + 1;
-        fnText("Vous avez fait " + resultatDe + ".", 580, 100, "chocolate");
 
         //Remise à zéro du compteur
         nbFacesAffichees = 0;
