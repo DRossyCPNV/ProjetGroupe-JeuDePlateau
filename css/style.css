@@ -10,15 +10,25 @@ body {
 }
 
 #carte_question {
-    display: inline-block;
-    border: solid;
-    border-width: thin;
-    vertical-align: top;
-    padding-top: 200px;
-    padding-bottom: 200px;
-    padding-left: 300px;
-    padding-right: 300px;
+    display: none;
+    margin: auto;
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    width: 461px;
+    height: 271px;
+    border-radius: 9%;
+    padding: 20px;
+    text-align: center;
+    background-image: url("../images/chance/fond.png");
+    color: black;
 }
+
+#rdb_question {
+    text-align: left;
+    margin-left: 20px;
+}
+
 #carte_chance{
     display: none;
     margin: auto;

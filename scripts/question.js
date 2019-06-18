@@ -6,6 +6,7 @@ var acquestion = []; //array carte questions
 var jreponse; //La réponse de l'utilisateur
 var breponse; //La bonne réponse
 var nbcquestion; //nb cartes questions
+var ptsbr = 500; //Points attribué pour une bonne réponse
 
 //La carte est masquée au début du jeu
 $('#carte_question').css('display','none');
@@ -14,12 +15,14 @@ $.getJSON('donnees/questions.json', function(data) {
     acquestion = data;
 
     nbcquestion = acquestion.length; //Le nombre de cartes questions
-
 });
 
-function fnAfficheQuestion() {
+function fnAfficheQuestion(IDjoueur) {
 
     //Affichage de la div
+    $('body').css('background-color','rgba(0,0,0,.9)');
+    document.getElementById('btn-lancerDe').style.display = 'none';
+    $('#plateau_jeu').css('display','none');
     $('#carte_question').css('display', 'block');
 
     //Génération d'un nombre aléatoire
@@ -38,13 +41,22 @@ function fnAfficheQuestion() {
 }
 
 function fnVerifReponseQuestion() {
+    //On affiche le plateau de jeu
+    $('#carte_question').css('display', 'none');
+    $('#plateau_jeu').css('display','block');
+    $('body').css('background-color','purple');
+    document.getElementById('btn-lancerDe').style.display = 'inline';
 
     //On enregistre la réponse du joueur
     jreponse = $("input[name='reponse']:checked");
 
     //Vérification de la réponse donnée par le joueur
-    if (breponse == jreponse.val()) {
+    if (breponse === jreponse.val()) {
         alert("Bravo ! Vous avez trouvé la bonne réponse");
+
+        joueurs[joueurActuel].argent += ptsbr;
+        console.log(joueurs[joueurActuel].argent);
+
         $('#carte_question').css('display','none');
         jreponse.prop("checked", false);
         return true;
@@ -55,4 +67,5 @@ function fnVerifReponseQuestion() {
         jreponse.prop("checked", false);
         return false;
     }
+
 }
