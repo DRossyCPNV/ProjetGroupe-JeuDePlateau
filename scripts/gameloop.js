@@ -63,6 +63,7 @@ function tourJoueur(joueurId) {
     console.log("je met déplace de: " + resultatDe);
 
     //vérifier les actions que le joueur doit effectuer
+    console.log("le déplacement prend " + dureeDeplacementMS + "ms");
     actionCase(joueurs[joueurId]);
 
     //appliquer les effet s'il y en a
@@ -79,36 +80,47 @@ function actionCase(joueurActuel) {
     switch (true) {
         //case coin
         case (typeDeCase === "normal"):
-            console.log(typeDeCase);
-            //demander si le joueur veut acheter la case
+            sleep(dureeDeplacementMS + 1000).then(() => {
+                console.log(typeDeCase);
+                //demander si le joueur veut acheter la case
+            });
+
             break;
 
         case (typeDeCase === "question"):
-            console.log(typeDeCase);
-            console.log(joueurActuel.id);
-            //poser une question
-            fnAfficheQuestion(joueurActuel.id);
 
-            // //on attend que la réponse soit validée
-            // while($("#btn-verif").data('clicked')){
-            //     fnAfficheQuestion(joueurActuel.id);
-            // }
-            // if (fnVerifReponseQuestion() === true) {
-            //     joueurActuel.nbTestReussi++;
-            //     console.log("Voici mes point" + joueurActuel.nbTestReussi);
-            //     $("#id").data('clicked', false);
-            // }
+            sleep(dureeDeplacementMS + 1000).then(() => {
+                console.log(typeDeCase);
+                console.log(joueurActuel.id);
+                //poser une question
+                fnAfficheQuestion(joueurActuel.id);
 
+                // //on attend que la réponse soit validée
+                // while($("#btn-verif").data('clicked')){
+                //     fnAfficheQuestion(joueurActuel.id);
+                // }
+                // if (fnVerifReponseQuestion() === true) {
+                //     joueurActuel.nbTestReussi++;
+                //     console.log("Voici mes point" + joueurActuel.nbTestReussi);
+                //     $("#id").data('clicked', false);
+                // }
+            });
 
             break;
         case (typeDeCase === "chance"):
             console.log(typeDeCase);
             //case chance
-            fnAfficheChance(joueurActuel.id);
+            sleep(dureeDeplacementMS + 1000).then(() => {
+                fnAfficheChance(joueurActuel.id);
+            });
+
             break;
         case (typeDeCase === "cfc"):
-            console.log(typeDeCase);
-            //case CFC
+            sleep(dureeDeplacementMS + 1000).then(() => {
+                console.log(typeDeCase);
+                //case CFC
+            });
+
             break;
     }
 }

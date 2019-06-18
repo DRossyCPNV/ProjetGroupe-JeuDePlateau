@@ -40,7 +40,7 @@ function Joueur(id, nom, couleur, argent_depart, section) {
         var caseArrive = that.caseActuelle + de;
         var deplacement = vitesseAnimSlider.value / 100; //deplacement en pourcent d'une case: 1 = 100% 0 = 0%, la vitesse peut-être modifié à l'aide d'un slider
         var tempsInterval = 5; //temps en miliseconde entre chaque deplacement
-
+        dureeDeplacementMS  = (caseArrive-caseDepart)/deplacement*tempsInterval;
         that.emplacementCase = -1;
 
         //condition pour que les pions s'arrêtent à chaques coins
@@ -121,6 +121,8 @@ function fnDeplacerPionFluidement(caseDepart, caseArrive, vitesse, idJoueur, tem
     vitesse /= 5;
 
     var mouvement = caseDepart;
+
+
 
     var interval = setInterval(function () {
         if(mouvement > caseArrive){

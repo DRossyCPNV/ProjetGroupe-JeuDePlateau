@@ -52,3 +52,4 @@ for (var i = 0; i < nbJoueursMax; i++){
 
 //html
 var vitesseAnimSlider = document.getElementById('vitesseAnimSlider');
+var dureeDeplacementMS;
