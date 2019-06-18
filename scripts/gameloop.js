@@ -77,7 +77,7 @@ function actionCase(joueurActuel) {
         //case coin
         case (typeDeCase === "normal"):
             //case module
-            fnAcheterModule(joueurActuel.id, acartes[caseToCheck].id);
+            fnAcheterModule(joueurActuel.id, caseToCheck);
             break;
 
         case (typeDeCase === "question"):
