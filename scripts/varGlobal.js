@@ -8,7 +8,7 @@ img_fond.src = ".\\images\\plateau\\Fond.svg";
 var img_plateau = new Image();
 img_plateau.src = "images/plateau/Plateau_avec_WIDTH-HEIGHT.svg";
 var img_de = new Image();
-img_de.src = "images/six-faces-de.jpg";
+img_de.src = "images/six-faces-de.png";
 
 //Initialisation du canvas
 var c = document.getElementById("plateau_jeu");
