@@ -12,10 +12,14 @@ Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
     <title>Modulopoly</title>
     <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu_indications.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <!-- Menu qui permet de choisir le nombre de joueurs, le nom de chaque joueur ainsi que leur section-->
+<body>
+<!-- Menu qui permet de choisir le nombre de joueur, le nom de chaque joueur ainsi que leur section-->
 <div id="menu">
 
     <div id="div-nbJoueurs">
@@ -112,7 +116,7 @@ Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
     </div>
 
     <!-- Lance le jeu -->
-    <button id="btnPlay" name="play" value="play">Jouer</button>
+    <button id="btnPlay" name="play" value="play" onclick="afficherMenuIndications();">Jouer</button>
 </div>
 <br>
 
@@ -172,6 +176,16 @@ Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
 
 </div>
 
+<!-- Menu des indications ici -->
+
+<div id="menu_indications">
+    <div id="menu_indications_titre">SCORES</div>
+    <div id="menu_indications_tours"></div>
+    <div id="menu_indications_joueurs"></div>
+</div>
+
+<!-- Fin menu des indications -->
+
 <script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="scripts/varGlobal.js"></script>
 <script type="text/javascript" src="scripts/anim.js"></script>
@@ -181,6 +195,7 @@ Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
 <script type="text/javascript" src="scripts/question.js"></script>
 <script type="text/javascript" src="scripts/chance.js"></script>
 <script type="text/javascript" src="scripts/gameloop.js"></script>
+<script type="text/javascript" src="scripts/menu_indications.js"></script>
 </body>
 </html>
 
