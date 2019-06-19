@@ -13,10 +13,10 @@ $("#btn-verif").click(function () {
 
 //Sorti de la boucle pour accéder partout dans le script
 var jActuel = 0;
-
+var nbJoueurJouant = nbJoueurs;
 //cette fonction sera la fonction principale qui liera toutes les autres pour rendre le jeu fonctionnel
 function gameloop(nbJoueurs) {
-    var nbJoueurJouant = nbJoueurs;
+
     //crée les joueurs
     joueurs = maker(nbJoueurs);
     //message d'info dans la console
@@ -30,38 +30,40 @@ function gameloop(nbJoueurs) {
     }
 
     draw();
+}
+//Cette fonction est appelée à chaque fois que l'on appuise sur lancer le dé
+function tourSuivant(){
 
-    $("#btn-lancerDe").click(function () { // https://css-tricks.com/snippets/jquery/click-once-and-unbind/
-        //désactive le bouton lancer le dé le temps que la fonction n'est pas terminé;
+// $("#btn-lancerDe").click(function () { // https://css-tricks.com/snippets/jquery/click-once-and-unbind/
+    //désactive le bouton lancer le dé le temps que la fonction n'est pas terminé;
+    if(joueurs[jActuel].passeTour === 0){
+        $("#btn-lancerDe").attr('disabled', 'disabled');
+        console.log("je disable le bouton");
 
-        if(joueurs[jActuel].passeTour === 0){
-            $("#btn-lancerDe").attr('disabled', 'disabled');
-            console.log("je disable le bouton");
+        //crée un nombre aléatoire
+        fnLancerDe();
 
-            //crée un nombre aléatoire
-            fnLancerDe();
-
-            //attendre que le dé a finit de tourner
-            sleep(1000).then(() => {
-                tourJoueur(jActuel);
-                if (jActuel < nbJoueurJouant - 1) {
-                    jActuel++;
-                } else {
-                    jActuel = 0;
-                }
-            });
-
-        }
-        else{
-            joueurs[jActuel].passeTour = 0;
+        //attendre que le dé a finit de tourner
+        sleep(1000).then(() => {
+            tourJoueur(jActuel);
             if (jActuel < nbJoueurJouant - 1) {
                 jActuel++;
             } else {
                 jActuel = 0;
             }
+        });
+    }
+    else{
+        joueurs[jActuel].passeTour = 0;
+        if (jActuel < nbJoueurJouant - 1) {
+            jActuel++;
+        } else {
+            jActuel = 0;
         }
+    }
 
-    });
+
+// });
 }
 
 //fonction qui représente le tour d'un joueur
