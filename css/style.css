@@ -17,10 +17,10 @@ body {
     left: 35%;
     width: 461px;
     height: 271px;
-    border-radius: 9%;
+    border-radius: 5%;
     padding: 20px;
     text-align: center;
-    background-image: url("../images/chance/fond.png");
+    background-image: url("../images/question/fond.png");
     color: black;
 }
 

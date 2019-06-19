@@ -20,7 +20,9 @@ function fnAcheterModule(idAcheteur, idCase) {
 function fnAfficheAchatModule(idAcheteur, idCase) {
     //Affichage de la div
     $('body').css('background-color','rgba(0,0,0,.9)');
+    document.getElementById('btn-lancerDe').style.display = 'none';
     $('#plateau_jeu').css('display','none');
+    $('#menu_indications').css('display', 'none');
     $('#carte_module').css('display', 'block');
 
     //Affichage de la carte module
@@ -38,8 +40,10 @@ function fnAfficheAchatModule(idAcheteur, idCase) {
 }
 
 function fnEffacerModule(){
+    document.getElementById('btn-lancerDe').style.display = 'inline';
     $('#carte_module').css('display', 'none');
     $('#plateau_jeu').css('display','block');
+    $('#menu_indications').css('display', 'block');
     $('body').css('background-color','purple');
 }
 
