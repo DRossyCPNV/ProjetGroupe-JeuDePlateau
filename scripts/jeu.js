@@ -127,6 +127,8 @@ function fnAffichePions() {
                 ctx.drawImage(imgPion[i], pionxy[0], pionxy[1], pionw, pionh);
 
                 break;
+            case (jCaseAct == 24):
+                break;
         }
     }
 }

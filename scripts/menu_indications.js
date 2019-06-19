@@ -14,7 +14,7 @@ function afficherMenuIndications(){
 }
 
 function creerDivJoueurs(nbJoueurs) {
-    setInterval(function(){
+    creerDiv = setInterval(function(){
 
     var boutonAffiche = "";
     
@@ -41,8 +41,14 @@ function creerDivJoueurs(nbJoueurs) {
         //Affiche les boutons dans la div du joueur actuel
         if (i == jActuel){
             boutonAffiche =   '<div class="menu_indications_joueur_boutons">' + '\n'
-                            + '<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourSuivant()">' + '\n'
-                            + '</div>' + '\n';
+                            + '<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourSuivant()">' + '\n';
+                            // + '</div>' + '\n';
+            if(conditionCFC){
+                boutonAffiche += '<input type="button" value="Passer CFC" class="btn_cfc menu_indications_bouton_lancer" onclick="fnPasserCFC(jActuel)">' +'\n' + '</div>' + '\n';
+            }
+            else{
+                boutonAffiche+= '</div>' + '\n';
+            }
         }
         else {
             boutonAffiche = "";

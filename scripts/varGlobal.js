@@ -53,3 +53,9 @@ for (var i = 0; i < nbJoueursMax; i++){
 //html
 var vitesseAnimSlider = document.getElementById('vitesseAnimSlider');
 var dureeDeplacementMS;
+
+//Pts cfc
+const ptsCFC = 1000;
+var conditionCFC = false;
+
+var creerDiv;

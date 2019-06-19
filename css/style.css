@@ -72,3 +72,8 @@ body {
     background-image: url("../images/modules/fond.svg");
     color: black;
 }
+
+.btn_cfc{
+    display: inline;
+
+}

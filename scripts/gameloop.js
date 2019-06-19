@@ -33,7 +33,6 @@ function gameloop(nbJoueurs) {
 }
 //Cette fonction est appelée à chaque fois que l'on appuise sur lancer le dé
 function tourSuivant(){
-
 // $("#btn-lancerDe").click(function () { // https://css-tricks.com/snippets/jquery/click-once-and-unbind/
     //désactive le bouton lancer le dé le temps que la fonction n'est pas terminé;
     if(joueurs[jActuel].passeTour === 0){
@@ -46,6 +45,7 @@ function tourSuivant(){
         //attendre que le dé a finit de tourner
         sleep(1000).then(() => {
             tourJoueur(jActuel);
+            console.log('le problème est la');
             if (jActuel < nbJoueurJouant - 1) {
                 jActuel++;
             } else {
@@ -68,11 +68,35 @@ function tourSuivant(){
 
 //fonction qui représente le tour d'un joueur
 function tourJoueur(joueurId) {
+    var nbCarteObtenue = 0;
+    for(var i = 0; i <=joueurs[joueurId].modulesObtenus.length; i++){   //condition 5 cartes modules
+        if(joueurs[joueurId].modulesObtenus[i] === 1){
+            nbCarteObtenue++;
+        }
+    }
+    var section = false;
+    for(var i = 0; i < joueurs[joueurId].modulesObtenus.length; i++){   //condition carte section
+        if(joueurs[joueurId].modulesObtenus[i].Theme === joueurs[joueurId].section){
+            section = true;
+        }
+    }
 
-    //Deplacer le pion en fonction du résultat du dé
-    joueurs[joueurId].deplacerPion(resultatDe);
-    console.log("je met déplace de: " + resultatDe);
+     nbCarteObtenue = 5;
+     section = true;
 
+    if(nbCarteObtenue >=5 && section ===true && joueurs[joueurId].argent >= ptsCFC){    //Si conditions pour cfc sont remplies
+        conditionCFC = true;
+        console.log(joueurs[joueurId].nom + ": " + joueurs[joueurId].argent + " = " + ptsCFC);
+        joueurs[joueurId].deplacerPion(resultatDe);
+        console.log("je met déplace de: " + resultatDe);
+    }
+    else {
+        conditionCFC = false;
+        $('.menu_indications_joueur_boutons').html('<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourSuivant()">');
+        //Deplacer le pion en fonction du résultat du dé
+        joueurs[joueurId].deplacerPion(resultatDe);
+        console.log("je met déplace de: " + resultatDe);
+    }
     //vérifier les actions que le joueur doit effectuer
     console.log("le déplacement prend " + dureeDeplacementMS + "ms");
     actionCase(joueurs[joueurId]);
@@ -81,6 +105,7 @@ function tourJoueur(joueurId) {
 
     //réactiver le bouton à la fin du tour;
     $("#btn-lancerDe").removeAttr('disabled');
+
 }
 
 function actionCase(joueurActuel) {
@@ -128,10 +153,6 @@ function actionCase(joueurActuel) {
 
             break;
         case (typeDeCase === "cfc"):
-            sleep(dureeDeplacementMS + 1000).then(() => {
-                console.log(typeDeCase);
-                //case CFC
-            });
 
             break;
     }
@@ -139,4 +160,27 @@ function actionCase(joueurActuel) {
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function  fnPasserCFC(joueurId) {
+    console.log("passe ton cfc " +joueurId);
+    joueurs[joueurId].caseActuelle = 24;
+
+    //case CFC
+    fnLancerDe();
+    sleep(2000).then(() => {
+        if(resultatDe >= 4){
+            console.log("Gagné PD!!!");
+            // window.location = "victoire.html";
+            clearInterval(creerDiv);
+            $("body").load("victoire.html");
+        }
+        else{
+            console.log("t'as raté ton cfc connard!");
+            joueurs[joueurId].deplacerPion(-joueurs[joueurId].caseActuelle);
+            joueurs[joueurId].argent -= 1000;
+        }
+    });
+
+
 }

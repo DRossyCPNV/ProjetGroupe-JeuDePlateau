@@ -31,7 +31,6 @@ function fnAfficheQuestion(IDjoueur) {
 
     //Affichage de la div
     $('body').css('background-color','rgba(0,0,0,.9)');
-    document.getElementById('btn-lancerDe').style.display = 'none';
     $('#plateau_jeu').css('display','none');
     $('#menu_indications').css('display', 'none');
     $('#carte_question').css('display', 'block');
@@ -60,7 +59,6 @@ function fnVerifReponseQuestion() {
     $('#plateau_jeu').css('display','block');
     $('#menu_indications').css('display', 'block');
     $('body').css('background-color','purple');
-    document.getElementById('btn-lancerDe').style.display = 'inline';
 
     //On enregistre la réponse du joueur
     jreponse = $("input[name='reponse']:checked");
