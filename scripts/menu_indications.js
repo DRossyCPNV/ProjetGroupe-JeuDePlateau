@@ -41,7 +41,7 @@ function creerDivJoueurs(nbJoueurs) {
         //Affiche les boutons dans la div du joueur actuel
         if (i == jActuel){
             boutonAffiche =   '<div class="menu_indications_joueur_boutons">' + '\n'
-                            + '<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer">' + '\n'
+                            + '<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourSuivant()">' + '\n'
                             + '</div>' + '\n';
         }
         else {
