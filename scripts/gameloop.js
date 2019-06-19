@@ -43,16 +43,22 @@ function gameloop(nbJoueurs) {
             //attendre que le dé a finit de tourner
             sleep(1000).then(() => {
                 tourJoueur(jActuel);
+                if (jActuel < nbJoueurJouant - 1) {
+                    jActuel++;
+                } else {
+                    jActuel = 0;
+                }
             });
         }
         else{
             joueurs[jActuel].passeTour = 0;
+            if (jActuel < nbJoueurJouant - 1) {
+                jActuel++;
+            } else {
+                jActuel = 0;
+            }
         }
-        if (jActuel < nbJoueurJouant - 1) {
-            jActuel++;
-        } else {
-            jActuel = 0;
-        }
+
 
     });
 }
