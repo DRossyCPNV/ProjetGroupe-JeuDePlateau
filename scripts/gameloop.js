@@ -84,6 +84,7 @@ function actionCase(joueurActuel) {
         case (typeDeCase === "normal"):
             sleep(dureeDeplacementMS + 1000).then(() => {
                 console.log(typeDeCase);
+                fnAcheterModule(joueurActuel.id, caseToCheck);
                 //demander si le joueur veut acheter la case
             });
 

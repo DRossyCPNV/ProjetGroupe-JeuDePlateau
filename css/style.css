@@ -57,3 +57,18 @@ body {
     color: black;
     background-color: white;
 }
+
+#carte_module{
+    display: none;
+    margin: auto;
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    width: 461px;
+    height: 271px;
+    border-radius: 9%;
+    padding: 20px;
+    text-align: center;
+    background-image: url("../images/modules/fond.svg");
+    color: black;
+}
