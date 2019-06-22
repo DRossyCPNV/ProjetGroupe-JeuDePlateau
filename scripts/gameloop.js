@@ -33,7 +33,7 @@ function gameloop(nbJoueurs) {
 }
 //Cette fonction est appelée à chaque fois que l'on appuise sur lancer le dé
 function tourSuivant(){
-// $("#btn-lancerDe").click(function () { // https://css-tricks.com/snippets/jquery/click-once-and-unbind/
+//$("#btn_cfc").click(function () { // https://css-tricks.com/snippets/jquery/click-once-and-unbind/
     //désactive le bouton lancer le dé le temps que la fonction n'est pas terminé;
     if(joueurs[jActuel].passeTour === 0){
         $("#btn-lancerDe").attr('disabled', 'disabled');
@@ -80,13 +80,13 @@ function tourJoueur(joueurId) {
             section = true;
         }
     }
-
-     nbCarteObtenue = 5;
-     section = true;
-
+    //code de triche
+    //  nbCarteObtenue = 5;
+    //  section = true;
+    ///////////////////
     if(nbCarteObtenue >=5 && section ===true && joueurs[joueurId].argent >= ptsCFC){    //Si conditions pour cfc sont remplies
         conditionCFC = true;
-        console.log(joueurs[joueurId].nom + ": " + joueurs[joueurId].argent + " = " + ptsCFC);
+        console.log(joueurs[joueurId].nom + ": " + joueurs[joueurId].argent + " / " + ptsCFC);
         joueurs[joueurId].deplacerPion(resultatDe);
         console.log("je met déplace de: " + resultatDe);
     }
@@ -179,6 +179,8 @@ function  fnPasserCFC(joueurId) {
             console.log("t'as raté ton cfc connard!");
             joueurs[joueurId].deplacerPion(-joueurs[joueurId].caseActuelle);
             joueurs[joueurId].argent -= 1000;
+            //passer au joueur suivant
+            jActuel++;
         }
     });
 
