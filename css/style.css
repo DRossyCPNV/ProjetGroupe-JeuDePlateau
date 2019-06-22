@@ -3,12 +3,15 @@ body {
     background-color: purple;
     font-family: "Avenir LT Std 45 Book";
     color: white;
+    overflow-x: hidden;
 }
 
 #menu {
-    border-style: solid;
+    /*border-style: solid;*/
 }
-
+#game{
+    display: none;
+}
 #carte_question {
     display: none;
     margin: auto;

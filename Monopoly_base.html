@@ -13,6 +13,8 @@ Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
     <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/menu_indications.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/menu.css">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -21,171 +23,199 @@ Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
 <body>
 <!-- Menu qui permet de choisir le nombre de joueur, le nom de chaque joueur ainsi que leur section-->
 <div id="menu">
+    <div id="cfg-bg">
+        <div id="game-config">
+            <div id="cfg-title">Configurer la partie</div>
+            <div id="croix">
+                <span class="croix" id="line1"></span>
+                <span class="croix" id="line2"></span>
+            </div>
+            <!-- Menu qui permet de choisir le nombre de joueur, le nom de chaque joueur ainsi que leur section-->
+            <div id="menu">
+                <div id="div-nbJoueurs">
+                    <label for="nbJoueurs">Nombre de joueurs:</label>
+                    <select name="nbJoueurs" id="nbJoueurs" class="">
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6" selected>6</option>
+                    </select>
+                </div>
+                <div id="options-joueurs">
+                    <table>
+                        <tr id="options-joueur0">
+                            <td><label>Nom:</label></td>
+                            <td><input type="text" name="nomJ0" id="nomJ0" value="Joueur1" class=""></td>
+                            <td><label>Section:</label></td>
+                            <td>
+                                <select name="sectionJ0" id="sectionJ0">
+                                    <option value="Informatique" selected>Informatique</option>
+                                    <option value="Polyméchanique">Polyméchanique</option>
+                                    <option value="Médiamaticien">Médiamaticien</option>
+                                </select>
+                            </td>
 
-    <div id="div-nbJoueurs">
-        <label for="nbJoueurs">Nombre de joueurs:</label>
-            <select name="nbJoueurs" id="nbJoueurs">
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6" selected>6</option>
-            </select>
+                        </tr>
+                        <tr id="options-joueur1">
+                            <td><label>Nom:</label></td>
+                            <td><input type="text" name="nomJ1" id="nomJ1" value="Joueur2"></td>
+                            <td><label>Section:</label></td>
+                            <td>
+                                <select name="sectionJ1" id="sectionJ1">
+                                    <option value="Informatique" selected>Informatique</option>
+                                    <option value="Polyméchanique">Polyméchanique</option>
+                                    <option value="Médiamaticien">Médiamaticien</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id="options-joueur2">
+                            <td><label>Nom:</label></td>
+                            <td><input type="text" name="nomJ2" id="nomJ2" value="Joueur3"></td>
+                            <td><label>Section:</label></td>
+                            <td>
+                                <select name="sectionJ2" id="sectionJ2">
+                                    <option value="Informatique" selected>Informatique</option>
+                                    <option value="Polyméchanique">Polyméchanique</option>
+                                    <option value="Médiamaticien">Médiamaticien</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id="options-joueur3">
+                            <td><label>Nom:</label></td>
+                            <td><input type="text" name="nomJ3" id="nomJ3" value="Joueur4"></td>
+                            <td><label>Section:</label></td>
+                            <td>
+                                <select name="sectionJ3" id="sectionJ3">
+                                    <option value="Informatique" selected>Informatique</option>
+                                    <option value="Polyméchanique">Polyméchanique</option>
+                                    <option value="Médiamaticien">Médiamaticien</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id="options-joueur4">
+                            <td><label>Nom:</label></td>
+                            <td><input type="text" name="nomJ4" id="nomJ4" value="Joueur5"></td>
+                            <td><label>Section:</label></td>
+                            <td>
+                                <select name="sectionJ4" id="sectionJ4">
+                                    <option value="Informatique" selected>Informatique</option>
+                                    <option value="Polyméchanique">Polyméchanique</option>
+                                    <option value="Médiamaticien">Médiamaticien</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id="options-joueur5">
+                            <td><label>Nom:</label></td>
+                            <td><input type="text" name="nomJ5" id="nomJ5" value="Joueur6"></td>
+                            <td><label>Section:</label></td>
+                            <td>
+                                <select name="sectionJ5" id="sectionJ5">
+                                    <option value="Informatique" selected>Informatique</option>
+                                    <option value="Polyméchanique">Polyméchanique</option>
+                                    <option value="Médiamaticien">Médiamaticien</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <button id="btnPlay" class="flat-button" name="play" value="play" onclick="afficherMenuIndications();">
+                    jouer
+                </button>
+            </div>
+        </div>
     </div>
 
-    <div id="options-joueurs">
-        <table>
-            <tr id="options-joueur0">
-                <td><label>Nom:</label></td>
-                <td><input type="text" name="nomJ0" id="nomJ0" value="Joueur1"></td>
-                <td><label>Section:</label></td>
-                <td>
-                    <select name="sectionJ0" id="sectionJ0">
-                        <option value="Informatique" selected>Informatique</option>
-                        <option value="Polyméchanique">Polyméchanique</option>
-                        <option value="Médiamaticien">Médiamaticien</option>
-                    </select>
-                </td>
-            </tr>
-
-            <tr id="options-joueur1">
-                <td><label>Nom:</label></td>
-                <td><input type="text" name="nomJ1" id="nomJ1" value="Joueur2"></td>
-                <td><label>Section:</label></td>
-                <td>
-                    <select name="sectionJ1" id="sectionJ1">
-                        <option value="Informatique" selected>Informatique</option>
-                        <option value="Polyméchanique">Polyméchanique</option>
-                        <option value="Médiamaticien">Médiamaticien</option>
-                    </select>
-                </td>
-            </tr>
-
-            <tr id="options-joueur2">
-                <td><label>Nom:</label></td>
-                <td><input type="text" name="nomJ2" id="nomJ2" value="Joueur3"></td>
-                <td><label>Section:</label></td>
-                <td>
-                    <select name="sectionJ2" id="sectionJ2">
-                        <option value="Informatique" selected>Informatique</option>
-                        <option value="Polyméchanique">Polyméchanique</option>
-                        <option value="Médiamaticien">Médiamaticien</option>
-                    </select>
-                </td>
-            </tr>
-
-            <tr id="options-joueur3">
-                <td><label>Nom:</label></td>
-                <td><input type="text" name="nomJ3" id="nomJ3" value="Joueur4"></td>
-                <td><label>Section:</label></td>
-                <td>
-                    <select name="sectionJ3" id="sectionJ3">
-                        <option value="Informatique" selected>Informatique</option>
-                        <option value="Polyméchanique">Polyméchanique</option>
-                        <option value="Médiamaticien">Médiamaticien</option>
-                    </select>
-                </td>
-            </tr>
-
-            <tr id="options-joueur4">
-                <td><label>Nom:</label></td>
-                <td><input type="text" name="nomJ4" id="nomJ4" value="Joueur5"></td>
-                <td><label>Section:</label></td>
-                <td>
-                    <select name="sectionJ4" id="sectionJ4">
-                        <option value="Informatique" selected>Informatique</option>
-                        <option value="Polyméchanique">Polyméchanique</option>
-                        <option value="Médiamaticien">Médiamaticien</option>
-                    </select>
-                </td>
-            </tr>
-
-            <tr id="options-joueur5">
-                <td><label>Nom:</label></td>
-                <td><input type="text" name="nomJ5" id="nomJ5" value="Joueur6"></td>
-                <td><label>Section:</label></td>
-                <td>
-                    <select name="sectionJ5" id="sectionJ5">
-                        <option value="Informatique" selected>Informatique</option>
-                        <option value="Polyméchanique">Polyméchanique</option>
-                        <option value="Médiamaticien">Médiamaticien</option>
-                    </select>
-                </td>
-            </tr>
-        </table>
+    <div id="background">
+        <div id="content">
+            <header>
+                <div id="hamburger-menu">
+                    <span id="top-line" class="line"></span>
+                    <span id="middle-line" class="line"></span>
+                    <span id="bottom-line" class="line"></span>
+                </div>
+                <!--                <nav> contiendra une liste pour le menu hamburger </nav> -->
+            </header>
+            <div id="text">
+                <span id="title" class="titles">Modulopoly</span>
+                <span id="under-title" class="titles">CPNV - 2019</span>
+                <br>
+                <br>
+                <div id="btn-start" class='flat-button'>Start</div>
+                <div id="btn-howto" class='flat-button'>Comment jouer</div>
+            </div>
+        </div>
     </div>
-
-    <!-- Lance le jeu -->
-    <button id="btnPlay" name="play" value="play" onclick="afficherMenuIndications();">Jouer</button>
 </div>
 <br>
+<div id="game">
+    <!-- Afficher un slider pour choisir la vitesse des animations -->
+    <input type="range" min="5" max="20" value="50" class="slider" id="vitesseAnimSlider">
+    <br>
 
-<!-- Afficher un slider pour choisir la vitesse des animations -->
-<input type="range" min="5" max="20" value="50" class="slider" id="vitesseAnimSlider">
-<br>
+    <canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid gray; background-color:midnightblue">
+        Texte alternatif pour les navigateurs ne supportant pas Canvas.
+    </canvas>
 
-<canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid gray; background-color:midnightblue">
-    Texte alternatif pour les navigateurs ne supportant pas Canvas.
-</canvas>
-
-<!-- Menu des indications ici -->
-<div id="menu_indications">
-    <div id="menu_indications_titre">SCORES</div>
-    <div id="menu_indications_tours"></div>
-    <div id="menu_indications_joueurs"></div>
-</div>
-<!-- Fin menu des indications -->
-<!-- Boutons radios de réponses à la carte question -->
-<div id="carte_question">
-    <p id="txt_question"></p>
-    <div id="rdb_question">
-        <input type="radio" name="reponse" value="r1">
-        <label id="r1" for="r1"></label>
-        <br>
-
-        <input type="radio" name="reponse" value="r2">
-        <label id="r2" for="r2"></label>
-        <br>
-
-        <input type="radio" name="reponse" value="r3">
-        <label id="r3" for="r3"></label>
-        <br>
-
-        <input type="radio" name="reponse" value="r4">
-        <label id="r4" for="r4"></label>
-        <br>
+    <!-- Menu des indications ici -->
+    <div id="menu_indications">
+        <div id="menu_indications_titre">SCORES</div>
+        <div id="menu_indications_tours"></div>
+        <div id="menu_indications_joueurs"></div>
     </div>
-    <br>
-    <input id="btn-verif" type="button" value="Réponse" onclick="fnVerifReponseQuestion(); return false;">
-</div>
+    <!-- Fin menu des indications -->
+    <!-- Boutons radios de réponses à la carte question -->
+    <div id="carte_question">
+        <p id="txt_question"></p>
+        <div id="rdb_question">
+            <input type="radio" name="reponse" value="r1">
+            <label id="r1" for="r1"></label>
+            <br>
 
-<!-- Carte chance ici -->
-<div id="carte_chance">
-    <img src="images/chance/close.png" width="20px" align="right" onclick="fnEffaceChance()"/>
-    <p><strong id="titre_chance"></strong></p>
-    <br>
-    <p id="txt_chance"></p>
-</div>
-<div id="choix_cible">
-    <p><strong id="titre_cible"></strong></p>
-    <br>
-    <form id="form_cibles">
-    </form>
-</div>
-<!-- Fin Carte chance -->
+            <input type="radio" name="reponse" value="r2">
+            <label id="r2" for="r2"></label>
+            <br>
 
-<!-- Carte module ici -->
-<div id="carte_module">
-    <p><strong id="titre_module"></strong></p>
-    <br>
-    <p id="txt_module"></p>
-    <div>
-        <input id="acheterModule" type="button" value="Acheter" onclick="fnClickAcheterModule(joueurAchetant, caseAchetee);">
-        <input id="passerModule" type="button" value="Terminer" onclick="fnEffacerModule();">
+            <input type="radio" name="reponse" value="r3">
+            <label id="r3" for="r3"></label>
+            <br>
+
+            <input type="radio" name="reponse" value="r4">
+            <label id="r4" for="r4"></label>
+            <br>
+        </div>
+        <br>
+        <input id="btn-verif" type="button" value="Réponse" onclick="fnVerifReponseQuestion(); return false;">
     </div>
-</div>
-<!-- Fin Carte module -->
 
+    <!-- Carte chance ici -->
+    <div id="carte_chance">
+        <img src="images/chance/close.png" width="20px" align="right" onclick="fnEffaceChance()"/>
+        <p><strong id="titre_chance"></strong></p>
+        <br>
+        <p id="txt_chance"></p>
+    </div>
+    <div id="choix_cible">
+        <p><strong id="titre_cible"></strong></p>
+        <br>
+        <form id="form_cibles">
+        </form>
+    </div>
+    <!-- Fin Carte chance -->
+
+    <!-- Carte module ici -->
+    <div id="carte_module">
+        <p><strong id="titre_module"></strong></p>
+        <br>
+        <p id="txt_module"></p>
+        <div>
+            <input id="acheterModule" type="button" value="Acheter"
+                   onclick="fnClickAcheterModule(joueurAchetant, caseAchetee);">
+            <input id="passerModule" type="button" value="Terminer" onclick="fnEffacerModule();">
+        </div>
+    </div>
+    <!-- Fin Carte module -->
+</div>
 
 
 <script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>
@@ -199,6 +229,8 @@ Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
 <script type="text/javascript" src="scripts/gameloop.js"></script>
 <script type="text/javascript" src="scripts/menu_indications.js"></script>
 <script type="text/javascript" src="scripts/obtention_module.js"></script>
+<script type="text/javascript" src="scripts/menu.js"></script>
+
 </body>
 </html>
 

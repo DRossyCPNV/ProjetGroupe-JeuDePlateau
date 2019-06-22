@@ -6,6 +6,7 @@ $.getJSON('donnees/modules.json', function(data) {
 });
 
 function afficherMenuIndications(){
+    $('#game').css('display', 'block');
     //Récupère le nombre de joueurs
     var nbJoueurs = document.getElementById('nbJoueurs').value;
     
