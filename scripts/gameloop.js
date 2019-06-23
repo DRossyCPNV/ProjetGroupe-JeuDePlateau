@@ -20,14 +20,6 @@
 // SI-CA1a - juin 2019 - CPNV
 // *****************************************************************************
 
-/*todo
-*  - Attendre que le dé soit lancé.
-*  - Actualiser l'affichage des éléments sur le plateau
-*  - Regarder l'effet qu'a la case sur la quel le joueur se trouve actuellement
-*  - appliquer l'effet
-*  - joueur suivant
-*  - Recommencer
-* */
 //permet de vérifier si la réponse à la question à été validée
 $("#btn-verif").click(function () {
     $(this).data('clicked', true);

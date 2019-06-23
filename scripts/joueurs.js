@@ -21,8 +21,6 @@
 // SI-CA1a - juin 2019 - CPNV
 // *****************************************************************************
 
-//todo Ajouter les méthodes tirer une carte chance et réussir un exam
-
 //Fonction pour créer un tableau objet joueur, n étant le nombre de joueurs
 function maker(n) {
     var arr = [];
