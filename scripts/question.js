@@ -22,6 +22,7 @@ var acquestion = []; //array carte questions
 var defausse = [];
 var jreponse; //La réponse de l'utilisateur
 var breponse; //La bonne réponse
+var txtbreponse; //Le texte de la bonne réponse
 var nbcquestion; //nb cartes questions
 var ptsbr = 500; //Points attribué pour une bonne réponse
 
@@ -37,7 +38,7 @@ $.getJSON('donnees/questions.json', function(data) {
 function fnAfficheQuestion(IDjoueur) {
 
     //Si la défausse est pleine, on la remet en entier dans le tas, et on remet la défausse à 0
-    if (acquestion.length == 0) {
+    if (acquestion.length === 0) {
         console.log('Remise défausse dans pioche.');
         for(var i = 0; i < defausse.length; i++) {
             acquestion.push(defausse[i]);
@@ -64,6 +65,9 @@ function fnAfficheQuestion(IDjoueur) {
 
     //On enregistre la bonne réponse dans une variable
     breponse = acquestion[nbaleat].br;
+    txtbreponse = acquestion[nbaleat][breponse];
+
+
 
     defausse.push(acquestion[nbaleat]); //On met la carte piochée dans la défausse
     acquestion.splice(nbaleat, 1); //On retire la carte piochée du tas
@@ -91,7 +95,7 @@ function fnVerifReponseQuestion() {
         return true;
     }
     else {
-        alert("Mauvaise réponse !");
+        alert("Mauvaise réponse ! La bonne réponse était: " + txtbreponse);
         $('#carte_question').css('display','none');
         jreponse.prop("checked", false);
         return false;
