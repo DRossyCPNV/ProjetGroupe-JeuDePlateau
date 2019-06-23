@@ -4,11 +4,11 @@
     justify-content: center;
     flex-direction: column;
     position: absolute;
-    left: 1220px;
-    top: 10px;
-    width: 450px;
+    left: 850px;
+    top: 200px;
+    width: 300px;
     box-sizing: border-box;
-    border: 5px solid #330968;
+    border: 2px solid #330968;
     border-radius: 25px;
     background-color: #38196A;
 }
@@ -25,12 +25,12 @@
 }
 
 .menu_indications_joueur{
-    width: 400px;
-    margin: 10px 0px 10px 0px;
-    padding: 10px;
+    width: 300px;
+    margin: 1px 0px 1px 0px;
+    padding: 5px;
     box-sizing: border-box;
     border: 5px solid #41A46B;
-    border-radius: 15px;
+    border-radius: 5px;
     background-color: #73C69C;
     font-family: 'Baloo Bhai', cursive;
     font-size: 1em;
@@ -39,7 +39,7 @@
 
 .menu_indications_joueur_informations{
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 1px;
     display: flex;
     justify-content: space-around;
     box-sizing: border-box;
@@ -70,12 +70,12 @@
 
 .menu_indications_joueur_pointsSavoir{
     width: 100%;
-    margin-top: 20px;
+    margin-top: 1px;
 }
 
 .menu_indications_joueur_boutons{
     width: 100%;
-    margin-top: 20px;
+    margin-top: 1px;
     display: flex;
     justify-content: center;
 }
@@ -88,9 +88,9 @@
     background-image: -ms-linear-gradient(top, #ec594c, #f75810);
     background-image: -o-linear-gradient(top, #ec594c, #f75810);
     background-image: linear-gradient(to bottom, #ec594c, #f75810);
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 5px;
     text-shadow: 2px -2px 0px #73c69c;
     font-family: 'Baloo Bhai', cursive;
     color: white;

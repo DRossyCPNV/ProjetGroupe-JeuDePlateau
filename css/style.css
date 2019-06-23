@@ -6,6 +6,11 @@ body {
     overflow-x: hidden;
 }
 
+#vitesseAnims {
+    color:whitesmoke;
+    font-size: 1em;
+}
+
 #menu {
     /*border-style: solid;*/
 }

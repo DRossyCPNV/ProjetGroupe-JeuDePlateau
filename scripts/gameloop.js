@@ -1,3 +1,25 @@
+//******************************************************************************
+// Gameloop
+//******************************************************************************
+//              * event JQuery du clic sur le bouton-verif : vérification si la réponse à la question a été validée
+//              - fonction principale qui liera toutes les autres (gameloop)
+//              - fonction qui gère le tour d'un joueur et prend un ID de joueur en argument
+//              - fonction qui gère l'action définie à une case où s'est arrêté l'ID de joueur passé en argument
+//                    switch :
+//                          -> normal (= cartes) - demande si le joueur veut acheter la case
+//                          -> questions - on attend que la réponse soit validée, si oui on incrémente les points
+//                          -> chance - on attend une seconde de plus que la durée normale de déplacement
+//                                      avant d'afficher la carte
+//                          -> CFC - <à définir>
+//
+//              - fonction sleep qui attend la fin d'exécution du setTimeOut avant de poursuivre celle passée en paramètre
+//
+// Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// Un projet mandaté par M. Chavey.
+// SI-CA1a - juin 2019 - CPNV
+// *****************************************************************************
+
 /*todo
 *  - Attendre que le dé soit lancé.
 *  - Actualiser l'affichage des éléments sur le plateau

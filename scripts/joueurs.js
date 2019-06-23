@@ -1,3 +1,26 @@
+// ********************************************************************************
+// Création des joueurs, attribution de leurs paramètres et déplacements des pions
+// ********************************************************************************
+// Ce script a pour but de créer des objets joueur, leur attribuer des paramètres,
+// et gérer le déplacement des pions en les animant à la vitesse définie par le slider sur Monopoly_base.html.
+//
+//              - fonction pour créer un tableau objet joueur
+//              - attribution des paramètres à l'objet joueur
+//              -> méthode pour placer un pion sur la case départ
+//              -> méthode pour un déplacement du pion en fonction du résultat du dé
+//              -> méthode pour placer le pion sur la case CFC
+//              - fonction qui donne le nombre de joueur se trouvant sur la case passée en paramètre
+//              - fonction qui retourne l'emplacement vide d'une case du plateau
+//              - fonction qui déplace le pion fluidement
+//              [A vérifier si pas inutilisée ?] :
+//              - fonction qui déplace le pion fluidement jusqu'à un emplacement vide d'une case
+//
+// Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// Un projet mandaté par M. Chavey.
+// SI-CA1a - juin 2019 - CPNV
+// *****************************************************************************
+
 //todo Ajouter les méthodes tirer une carte chance et réussir un exam
 
 //Fonction pour créer un tableau objet joueur, n étant le nombre de joueurs
@@ -82,7 +105,7 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     };
 }
 
-//fonctions qui donne le nombre de joueur se trouvent sur la case demandé
+//fonction qui donne le nombre de joueur se trouvant sur la case passée en paramètre
 function nbJoueursCase(caseID) {
     nombreJoueurs = 0;
     for (var i = 0; i < joueurs.length; i++) {

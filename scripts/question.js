@@ -1,5 +1,21 @@
-//Ce programme dessine une carte contenant des questions contenue dans un fichier JSON
-//Il vérifie également la réponse sélectionner
+// **************************************************************************************
+// Code d'affichage d'une carte question
+// **************************************************************************************
+// Ce script dessine à l'écran une carte avec une question, contenue dans un fichier JSON
+// Il vérifie également la réponse sélectionnée.
+//
+//              * paramètres des cartes questions
+//              * carte masquée au début du jeu
+//              * acquisition des données Json
+//              - fonction d'affichage d'une question au joueur passé en paramètre
+//              - fonction de vérification de la réponse
+//
+// Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// Un projet mandaté par M. Chavey.
+// SI-CA1a - juin 2019 - CPNV
+// **************************************************************************************
+
 
 //Paramètres des cartes questions
 var acquestion = []; //array carte questions

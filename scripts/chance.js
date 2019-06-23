@@ -1,5 +1,20 @@
-//Ce programme a pour but de sélectionner et d'afficher une carte chance dans le fichier json "chances.json"
-//Il a aussi pour but d'appliquer les effets de ces cartes chances sur le ou les joueurs.
+// *****************************************************************************
+// Paramètres des cartes questions
+// *****************************************************************************
+// Ce script a pour but de sélectionner et d'afficher une carte chance depuis le fichier Json "chances.json"
+// Il a aussi pour but d'appliquer les effets de ces cartes chances sur le ou les joueurs.
+//
+//              - affichage d'une carte chance à un joueur
+//              - effacement de la carte chance et réaffichage du plateau de jeu
+//              - exécution de l'effet de la carte chance
+//              - effacer le choix
+//              - effacer le choix avec déplacement
+//
+// Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// Un projet mandaté par M. Chavey.
+// SI-CA1a - juin 2019 - CPNV
+// *****************************************************************************
 
 //Paramètres des cartes questions
 var achance = [];

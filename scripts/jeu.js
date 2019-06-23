@@ -1,8 +1,21 @@
-// **************************************************************
-// Modulopoly - Gameloop
-// JCY, Laurent Barraud, Bastian Chollet, Luca Coduri,
-// Guillaume Duvoisin, Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
-// **************************************************************
+// *****************************************************************************
+// Fonctions de jeu courantes
+// *****************************************************************************
+//              - lancement de la fonction principale du jeu, dans gameloop.js,
+//                avec un nombre de joueurs en argument
+//              - chargement des données depuis cases.json
+//              - effacement de tout le canvas
+//              - écriture de texte avancée
+//              - lancer de dé, tirage de 6 nombres au hasard
+//              - animations des pions
+//              - affichage de texte amélioré
+//              - affichage d'une des 6 faces du dé
+
+// Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// Un projet mandaté par M. Chavey.
+// SI-CA1a - juin 2019 - CPNV
+// *****************************************************************************
 
 
 //Elements html
@@ -61,7 +74,7 @@ function fnAfficheFaceDe() {
     // param swidth, sheight (4,5): la largeur et hauteur à extraire
     // param x, y (6,7): les coordonnées x et y du coin haut-gauche où dessiner l'image sur le canvas
     // param width, height (8,9): la largeur et hauteur voulue (agrandit ou réduit l'image)
-    ctx.drawImage(img_de, 945 - (155 * (faceDe + 1)), 15, 141, 140, 720 * echelle, 23 * echelle, 90 * echelle, 90 * echelle);
+    ctx.drawImage(img_de, 945 - (155 * (faceDe + 1)), 15, 141, 140, 720 * echelle, 8 * echelle, 90 * echelle, 90 * echelle);
 
     nbFacesAffichees++;
 

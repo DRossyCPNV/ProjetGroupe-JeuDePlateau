@@ -1,3 +1,22 @@
+// **************************************************************************************
+// Obtention d'un module
+// **************************************************************************************
+// Ce script permet d'acheter une carte module en dépensant des points de savoir.
+//
+//              - Fonction d'achat de module
+//              - Fonction d'affichage de la fenêtre achat de module
+//              - Fonction effacer fenêtre achat de module
+//              - Fonction de clic sur "Acheter module"
+//
+//
+// Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// Un projet mandaté par M. Chavey.
+// SI-CA1a - juin 2019 - CPNV
+// **************************************************************************************
+
+
+
 //La carte est masquée au début du jeu
 $('#carte_module').css('display','none');
 var joueurAchetant;

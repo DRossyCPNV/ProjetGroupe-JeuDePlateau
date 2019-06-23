@@ -1,3 +1,23 @@
+// ************************************************************************************************
+// Indications du menu
+// ************************************************************************************************
+// Ce script a pour but de créer un tableau de référence des modules et d'afficher pendant le jeu
+// la section des joueurs, le nombre de modules en leur possession et leurs points de savoir.
+//
+//              - crée le tableau de référence des modules
+//              - affiche et actualise les indications des joueurs (scores)
+//              - création des Div des joueurs
+//                  -> affiche les boutons dans la Div du joueur actuel
+//                  -> affiche les modules détenus dans la Div du joueur actuel
+//                  -> div affichant ou pas le bouton lancer le dé (quand c'est le tour du joueur)
+//                  -> insère les Div dans le code Html
+//
+// Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// Un projet mandaté par M. Chavey.
+// SI-CA1a - juin 2019 - CPNV
+// ************************************************************************************************
+
 /*eslint-env browser*/
 //Créer le tableau de référence des modules
 var amodules = [];
@@ -59,7 +79,7 @@ function creerDivJoueurs(nbJoueurs) {
         var modulesAffiches = "";
         for(var j = 0; j < amodules.length; ++j){
             if(joueurs[i].modulesObtenus[j] == 1){
-                modulesAffiches += '<img src="images/modules/' + amodules[j].Nom + '.svg" style="margin: 5px;">' + '\n';
+                modulesAffiches += '<img src="images/modules/' + amodules[j].Nom + '.svg" style="margin: 2px;">' + '\n';
             }
         }
 
