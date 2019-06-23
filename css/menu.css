@@ -66,9 +66,10 @@
     font-family: "Avenir LT Std 95 Black", serif;
     text-align: center;
     font-size: 20pt;
+    color: black;
 }
 #game-config{
-
+    color: black;
     font-family: "Avenir LT Std 45 Book", Serif;
     background-color: white;
     height: 500px;
