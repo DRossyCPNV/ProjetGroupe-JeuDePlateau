@@ -1,5 +1,5 @@
 // *****************************************************************************
-// Fonctions de jeu courantes
+// Fonctions d'affichage du jeu courantes
 // *****************************************************************************
 //              - lancement de la fonction principale du jeu, dans gameloop.js,
 //                avec un nombre de joueurs en argument

@@ -12,7 +12,6 @@
 //              - fonction qui donne le nombre de joueur se trouvant sur la case passée en paramètre
 //              - fonction qui retourne l'emplacement vide d'une case du plateau
 //              - fonction qui déplace le pion fluidement
-//              [A vérifier si pas inutilisée ?] :
 //              - fonction qui déplace le pion fluidement jusqu'à un emplacement vide d'une case
 //
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
@@ -27,7 +26,7 @@ function maker(n) {
     for (i = 0; i < n; i++) {
         var nomJoueur = $("#nomJ" + i).val();
         var sectionJoueur = $("#sectionJ" + i).val();
-        arr.push(new Joueur(i, nomJoueur, couleursPions[i], 1500, sectionJoueur));
+        arr.push(new Joueur(i, nomJoueur, couleursPions[i], 500, sectionJoueur));
     }
     return arr;
 }

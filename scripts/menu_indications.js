@@ -1,24 +1,26 @@
-// ************************************************************************************************
-// Indications du menu
-// ************************************************************************************************
-// Ce script a pour but de créer un tableau de référence des modules et d'afficher pendant le jeu
-// la section des joueurs, le nombre de modules en leur possession et leurs points de savoir.
+// *****************************************************************************************************
+// Code du panneau latéral d'indication des joueurs
+// *****************************************************************************************************
+// Ce script a pour but d'afficher un panneau latéral sur la droite du plateau
+// avec le nom du joueur, sa section, les modules obtenus, ses points de savoir et un emplacement
+// pour le bouton "Lancer le dé".
 //
 //              - crée le tableau de référence des modules
-//              - affiche et actualise les indications des joueurs (scores)
-//              - création des Div des joueurs
-//                  -> affiche les boutons dans la Div du joueur actuel
-//                  -> affiche les modules détenus dans la Div du joueur actuel
-//                  -> div affichant ou pas le bouton lancer le dé (quand c'est le tour du joueur)
-//                  -> insère les Div dans le code Html
+//              - affiche le menu des indications
+//              - crée les Div des joueurs
+//                  - affiche le nombre de joueurs
+//                  - définit la section du joueur i
+//                  - affiche les boutons dans la section du joueur actuel
+//                  - affiche les modules détenus par le joueur
+//                  - construction des Div des joueurs
+//                  - injection des divs joueurs dans le code HTML
 //
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
 // SI-CA1a - juin 2019 - CPNV
-// ************************************************************************************************
+// **************************************************************************************
 
-/*eslint-env browser*/
 //Créer le tableau de référence des modules
 var amodules = [];
 $.getJSON('donnees/modules.json', function(data) {
@@ -39,10 +41,10 @@ function creerDivJoueurs(nbJoueurs) {
 
     var boutonAffiche = "";
     
-    //Afficher le nombre de joueurs dans la menu des indications
+    //Afficher le nombre de joueurs dans le menu des indications
     document.getElementById('menu_indications_tours').innerHTML = 'Nombres de joueurs : ' + nbJoueurs;
 
-    //Créer le divs en fonction du nombre de joueurs
+    //Créer les divs en fonction du nombre de joueurs
     var divJoueurs = '';
     for (var i = 0; i < nbJoueurs; ++i){
 
@@ -83,6 +85,12 @@ function creerDivJoueurs(nbJoueurs) {
             }
         }
 
+        //Affiche le pion de chaque joueur
+        var pionsAffiches = "";
+        pionsAffiches += '<img src="images/pions/' + couleursPions[i] + '.png"; style="margin: 2px;" width="20" height="30">' + '\n';
+
+
+        // Construction des Div des joueurs
         divJoueurs +=   //Div du joueur
                         '<div id="menu_indications_nomJ' + i + '" class="menu_indications_joueur">' + '\n'
 
@@ -108,9 +116,10 @@ function creerDivJoueurs(nbJoueurs) {
                                 + '</div>' + '\n'
                             + '</div>' + '\n'
 
-                            //Div affichant les points de savoir du joueur
-                            + '<div class="menu_indications_joueur_pointsSavoir">' + '\n'
-                            + 'Points de savoir : ' + joueurs[i].argent + '\n'
+                            //Div affichant les points de savoir du joueur et son pion
+                            + '<div class="menu_indications_joueur_pointsSavoir">'
+                            + 'Points de savoir : ' + joueurs[i].argent
+                            + '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' + pionsAffiches
                             + '</div>' + '\n'
 
                             //Div affichant (ou pas) le bouton pour lancer le dé
@@ -118,7 +127,7 @@ function creerDivJoueurs(nbJoueurs) {
                         + '</div>' + '\n';
     }
 
-    //Insérer des divs joueurs dans le code HTML
+    //Injection des divs joueurs dans le code HTML
     document.getElementById('menu_indications_joueurs').innerHTML = divJoueurs;
     }, 1000);
 }

@@ -1,6 +1,6 @@
-//******************************************************************************
+//********************************************************************************************************************
 // Gameloop
-//******************************************************************************
+//********************************************************************************************************************
 //              * event JQuery du clic sur le bouton-verif : vérification si la réponse à la question a été validée
 //              - fonction principale qui liera toutes les autres (gameloop)
 //              - fonction qui gère le tour d'un joueur et prend un ID de joueur en argument
@@ -18,14 +18,14 @@
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
 // SI-CA1a - juin 2019 - CPNV
-// *****************************************************************************
+// ********************************************************************************************************************
 
 //permet de vérifier si la réponse à la question à été validée
 $("#btn-verif").click(function () {
     $(this).data('clicked', true);
 });
 
-//Sorti de la boucle pour accéder partout dans le script
+//Sortie de la boucle pour accéder partout dans le script
 var jActuel = 0;
 var nbJoueurJouant = nbJoueurs;
 //cette fonction sera la fonction principale qui liera toutes les autres pour rendre le jeu fonctionnel
@@ -94,28 +94,28 @@ function tourJoueur(joueurId) {
             section = true;
         }
     }
-    //code de triche
-    //  nbCarteObtenue = 5;
-    //  section = true;
+    // code de triche
+    // nbCarteObtenue = 5;
+    // section = true;
     ///////////////////
     if(nbCarteObtenue >=5 && section ===true && joueurs[joueurId].argent >= ptsCFC){    //Si conditions pour cfc sont remplies
         conditionCFC = true;
         console.log(joueurs[joueurId].nom + ": " + joueurs[joueurId].argent + " / " + ptsCFC);
         joueurs[joueurId].deplacerPion(resultatDe);
-        console.log("je met déplace de: " + resultatDe);
+        console.log("je me déplace de: " + resultatDe);
     }
     else {
         conditionCFC = false;
         $('.menu_indications_joueur_boutons').html('<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourSuivant()">');
         //Deplacer le pion en fonction du résultat du dé
         joueurs[joueurId].deplacerPion(resultatDe);
-        console.log("je met déplace de: " + resultatDe);
+        console.log("je me déplace de: " + resultatDe);
     }
     //vérifier les actions que le joueur doit effectuer
     console.log("le déplacement prend " + dureeDeplacementMS + "ms");
     actionCase(joueurs[joueurId]);
 
-    //appliquer les effet s'il y en a
+    //appliquer les effets s'il y en a
 
     //réactiver le bouton à la fin du tour;
     $("#btn-lancerDe").removeAttr('disabled');
@@ -166,9 +166,6 @@ function actionCase(joueurActuel) {
             });
 
             break;
-        case (typeDeCase === "cfc"):
-
-            break;
     }
 }
 
@@ -184,13 +181,13 @@ function  fnPasserCFC(joueurId) {
     fnLancerDe();
     sleep(2000).then(() => {
         if(resultatDe >= 4){
-            console.log("Gagné PD!!!");
+            console.log("Gagné !!!");
             // window.location = "victoire.html";
             clearInterval(creerDiv);
             $("body").load("victoire.html");
         }
         else{
-            console.log("t'as raté ton cfc connard!");
+            console.log("T'as raté ton CFC pas de bol!");
             joueurs[joueurId].deplacerPion(-joueurs[joueurId].caseActuelle);
             joueurs[joueurId].argent -= 1000;
             //passer au joueur suivant
