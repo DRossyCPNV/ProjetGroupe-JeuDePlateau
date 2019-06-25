@@ -60,7 +60,7 @@ function tourSuivant(){
         sleep(1000).then(() => {
             tourJoueur(jActuel);
             console.log('le problème est la');
-            if (jActuel < nbJoueurJouant - 1) {
+            if (jActuel < document.getElementById('nbJoueurs').value - 1) {
                 jActuel++;
             } else {
                 jActuel = 0;
@@ -69,7 +69,7 @@ function tourSuivant(){
     }
     else{
         joueurs[jActuel].passeTour = 0;
-        if (jActuel < nbJoueurJouant - 1) {
+        if (jActuel < document.getElementById('nbJoueurs').value - 1) {
             jActuel++;
         } else {
             jActuel = 0;
