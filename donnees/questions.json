@@ -55,7 +55,7 @@
    },
    {
       "id":6,
-      "question":" Quelle est la superficie de la suisse?",
+      "question":" Quelle est la superficie de la Suisse?",
       "r1":"45'500 km carré",
       "r2":"38.750 km carré",
       "r3":"41'277 km carré",
@@ -163,7 +163,7 @@
    },
    {
       "id":18,
-      "question":"En quelle année a débuté la construction de la tour eiffel ?",
+      "question":"En quelle année a débuté la construction de la tour Eiffel ?",
       "r1":"1884",
       "r2":"1885",
       "r3":"1886",
@@ -181,7 +181,7 @@
    },
    {
       "id":20,
-      "question":"Qui a invté le velcro ?",
+      "question":"Qui a inventé le velcro ?",
       "r1":"Claude Boucher",
       "r2":"Geroges de mestral",
       "r3":"Clement Ader",
@@ -190,7 +190,7 @@
    },
    {
       "id":21,
-      "question":"Qui a chanté le lundi au soleil ?",
+      "question":"Qui a chanté 'Le lundi au soleil' ?",
       "r1":"Gilbert Montagné",
       "r2":"Freddie Mercury",
       "r3":"Michel Fugain",
@@ -208,7 +208,7 @@
    },
    {
       "id":23,
-      "question":"Qui a dit 'ich bin ein Berliner' ?",
+      "question":"Qui a dit 'Ich bin ein Berliner' ?",
       "r1":"Adolf Hitler",
       "r2":"Staline",
       "r3":"Charles de Gaule",
@@ -226,7 +226,7 @@
    },
    {
       "id":25,
-      "question":"combien de temps a duré le guerre de 100 ans ?",
+      "question":"Combien de temps a duré la guerre de 100 ans ?",
       "r1":"116 ans ",
       "r2":"100 ans",
       "r3":"110",
@@ -244,7 +244,7 @@
    },
    {
       "id":27,
-      "question":"Qu'es que l'émétophobie  ?",
+      "question":"Qu'est-ce que l'émétophobie  ?",
       "r1":"La peur de se blesser",
       "r2":"La peur d'avoir peur",
       "r3":"La peur de vomir",
@@ -253,25 +253,25 @@
    },
    {
       "id":28,
-      "question":" Quelle est la superficie de un hectar ?",
+      "question":" Quelle est la superficie d'un hectare ?",
       "r1":"10'000 m2",
-      "r2":"1'000 m2",
-      "r3":"5'000 m2",
+      "r2":"5'000 m2",
+      "r3":"1'000 m2",
       "r4":"100 m2",
       "br":"r1"
    },
    {
       "id":29,
-      "question":" Quelle est la superficie de un hectar ?",
-      "r1":"10'000 m2",
+      "question":" Combien de mètres carrés font un hectare ?",
+      "r1":"100 m2",
       "r2":"1'000 m2",
       "r3":"5'000 m2",
-      "r4":"100 m2",
+      "r4":"10'000 m2",
       "br":"r4"
    },
    {
       "id":30,
-      "question":"le subjonctif present du verbre feindre à la deuxieme prersonne du singulier ?",
+      "question":"Quel est le subjonctif present du verbe feindre, à la deuxieme prersonne du singulier ?",
       "r1":"Que tu faignasses",
       "r2":"Que tu faignassi",
       "r3":"Que tu feint",
@@ -289,7 +289,7 @@
    },
    {
       "id":32,
-      "question":"Quelle est la température en degrés celsius du zero absolu",
+      "question":"Quelle est la température en degrés celsius du zero absolu ?",
       "r1":"0",
       "r2":"-273",
       "r3":"-100",
@@ -298,7 +298,7 @@
    },
    {
       "id":33,
-      "question":"Combien de pays sont menbre de l'ONU",
+      "question":"Combien de pays sont menbres de l'ONU",
       "r1":"172",
       "r2":"215",
       "r3":"245",
@@ -325,8 +325,8 @@
    },
    {
       "id":36,
-      "question":"La bon la brute et le truand est un film de ?",
-      "r1":" Steven Spielberg",
+      "question":"'Le bon la brute et le truand' est un film de ?",
+      "r1":"Steven Spielberg",
       "r2":"Segio Leone",
       "r3":"Quentin Tarantino",
       "r4":"Clint Eastwood",
@@ -334,7 +334,7 @@
    },
    {
       "id":37,
-      "question":"En quelle année Christophe Colomb a découvert l'Amérique ?",
+      "question":"En quelle année Christophe Colomb a-t-il découvert l'Amérique ?",
       "r1":"1325",
       "r2":"1475",
       "r3":"1492",
@@ -343,7 +343,7 @@
    },
    {
       "id":38,
-      "question":"Comment était appelé Paris au temps des romains ?",
+      "question":"Comment était appelée Paris au temps des romains ?",
       "r1":"Paris",
       "r2":"Lutèce",
       "r3":"Rodium",

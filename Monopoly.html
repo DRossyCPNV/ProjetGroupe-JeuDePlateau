@@ -149,8 +149,9 @@ Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
 <div id="game">
 
     <!-- Afficher un slider pour choisir la vitesse des animations -->
-    <span id="vitesseAnims">Vitesse des animations</span>
-    <input type="range" min="1" max="40" value="20" class="slider" id="vitesseAnimSlider">
+    <span id="vitesseAnims">Vitesse des animations
+        <input type="range" min="1" max="40" value="20" class="slider" id="vitesseAnimSlider">
+    </span>
     <br>
     <canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid gray; background-color:midnightblue">
         Texte alternatif pour les navigateurs ne supportant pas Canvas.
@@ -211,7 +212,7 @@ Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
         <div>
             <input id="acheterModule" type="button" value="Acheter"
                    onclick="fnClickAcheterModule(joueurAchetant, caseAchetee);">
-            <input id="passerModule" type="button" value="Terminer" onclick="fnEffacerModule();">
+            <input id="passerModule" type="button" value="Non merci" onclick="fnEffacerModule();">
         </div>
     </div>
     <!-- Fin Carte module -->

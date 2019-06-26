@@ -50,13 +50,15 @@ function fnAfficheQuestion(IDjoueur) {
     $('body').css('background-color','rgba(0,0,0,.9)');
     $('#plateau_jeu').css('display','none');
     $('#menu_indications').css('display', 'none');
+    $('#vitesseAnims').css('display', 'none');
+    $('#vitesseAnimSlider').css('display', 'none');
     $('#carte_question').css('display', 'block');
 
     //Génération d'un nombre aléatoire
     var nbaleat = Math.floor(Math.random() * acquestion.length); // compris entre 0 et index max
     console.log(nbaleat);
 
-    //Affichage de la carte question
+    //Affichage de la carte question et masquage du plateau, du menu latéral et du slider
     $('#txt_question').html(acquestion[nbaleat].question);
     $('#r1').html(acquestion[nbaleat].r1);
     $('#r2').html(acquestion[nbaleat].r2);
@@ -75,10 +77,12 @@ function fnAfficheQuestion(IDjoueur) {
 }
 
 function fnVerifReponseQuestion() {
-    //On affiche le plateau de jeu
+    //On affiche le plateau de jeu, le menu latéral et le slider
     $('#carte_question').css('display', 'none');
     $('#plateau_jeu').css('display','block');
     $('#menu_indications').css('display', 'block');
+    $('#vitesseAnims').css('display', 'block');
+    $('#vitesseAnimSlider').css('display', 'block');
     $('body').css('background-color','purple');
 
     //On enregistre la réponse du joueur
