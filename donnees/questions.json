@@ -229,8 +229,8 @@
       "question":"combien de temps a duré le guerre de 100 ans ?",
       "r1":"116 ans ",
       "r2":"100 ans",
-      "r3":"110",
-      "r4":"120",
+      "r3":"110 ans",
+      "r4":"120 ans",
       "br":"r1"
    },
    {
@@ -376,5 +376,339 @@
       "r3":"-10 971 m",
       "r4":"-11 456 m",
       "br":"r3"
+   },
+   {
+      "id":42,
+      "question":"Qu’a inventé Alfred Nobel, en plus du prix du même nom ?",
+      "r1":"La dynamite",
+      "r2":"L’automobile",
+      "r3":"La calculatrice",
+      "r4":"Le magnétoscope",
+      "br":"r1"
+   },
+   {
+      "id":43,
+      "question":"Avec les oeufs de quel poisson fait-on du caviar ?",
+      "r1":"Le saumon",
+      "r2":"Le thon rouge",
+      "r3":"L’esturgeon",
+      "r4":"Le brochet",
+      "br":"r3"
+   },
+   {
+      "id":44,
+      "question":"Dans quel sport le but fait-il 1.22 mètre de haut ?",
+      "r1":"Au Football",
+      "r2":"Au Hockey sur glace",
+      "r3":"Au Handball",
+      "r4":"Au Water Polo",
+      "br":"r2"
+   },
+   {
+      "id":45,
+      "question":"Quel était le prénom du fondateur de la marque Ferrari ?",
+      "r1":"Flavio",
+      "r2":"Enrico",
+      "r3":"Fabrizio",
+      "r4":"Enzo",
+      "br":"r4"
+   },
+   {
+      "id":46,
+      "question":"Quel est la monnaie du Vietnam ?",
+      "r1":"Le bông",
+      "r2":"Le công",
+      "r3":"Le dông",
+      "r4":"Le gông",
+      "br":"r3"
+   },
+   {
+      "id":47,
+      "question":"Quel est le poids moyen d’un cerveau humain ?",
+      "r1":"800 g",
+      "r2":"1 kg",
+      "r3":"1,2 kg",
+      "r4":"1,4 kg",
+      "br":"r4"
+   },
+   {
+      "id":48,
+      "question":"Quel est le point culminant du massif du Jura ?",
+      "r1":"Le Crêt de la Neige",
+      "r2":"Le mont Tendre",
+      "r3":"Le mont Joli",
+      "r4":"La Dôle",
+      "br":"r1"
+   },
+   {
+      "id":49,
+      "question":"En quelle année le mur de Berlin a été construit ?",
+      "r1":"1960",
+      "r2":"1961",
+      "r3":"1962",
+      "r4":"1963",
+      "br":"r2"
+   },
+   {
+      "id":50,
+      "question":"Quelle utilisation fait-on de la fourrure des martres ?",
+      "r1":"Des manteaux",
+      "r2":"Des semelles de chaussures",
+      "r3":"Des pinceaux",
+      "r4":"De l’isolation de toiture",
+      "br":"r3"
+   },
+   {
+      "id":51,
+      "question":"Quelle a été la première femme élue à la présidence de la Confédération helvétique ?",
+      "r1":"Ruth Dreifuss",
+      "r2":"Eveline Widmer-Schlumpf",
+      "r3":"Doris Leuthard",
+      "r4":"Micheline Calmy-Rey",
+      "br":"r1"
+   },
+   {
+      "id":52,
+      "question":"Quel évènement de 1602 est fêté chaque année à Genève ?",
+      "r1":"Les fêtes de Genève",
+      "r2":"L’Escalade",
+      "r3":"La Fête Nationale",
+      "r4":"L’Épiphanie",
+      "br":"r2"
+   },
+   {
+      "id":53,
+      "question":"Quel alcool produit-on à partir de la canne à sucre ?",
+      "r1":"La Vodka",
+      "r2":"La Bière",
+      "r3":"Le Pastis",
+      "r4":"Le Rhum",
+      "br":"r4"
+   },
+   {
+      "id":54,
+      "question":"Où mange-t-on la longeole ?",
+      "r1":"À Genève",
+      "r2":"À Fribourg",
+      "r3":"À Lausanne",
+      "r4":"À Sion",
+      "br":"r1"
+   },
+   {
+      "id":55,
+      "question":"Combien de convives y avait-il lors de la Cène ?",
+      "r1":"12",
+      "r2":"13",
+      "r3":"14",
+      "r4":"15",
+      "br":"r2"
+   },
+   {
+      "id":56,
+      "question":"Comment s’appelle le serpent du Livre de la Jungle ?",
+      "r1":"Kâh",
+      "r2":"Cas",
+      "r3":"Kaa",
+      "r4":"Jean-Patrick Serpentin",
+      "br":"r3"
+   },
+   {
+      "id":57,
+      "question":"Lequel de ces monument ne fait pas parti des 7 merveilles du monde ?",
+      "r1":"Les jardin suspendus de Babylone",
+      "r2":"Les Pyramides de Gizeh",
+      "r3":"Le Phare d’Alexandrie",
+      "r4":"La Tour Eiffel",
+      "br":"r4"
+   },
+   {
+      "id":58,
+      "question":"Quel est le plus grand poisson connu ?",
+      "r1":"Le requin blanc",
+      "r2":"Le thon rouge",
+      "r3":"Le requin baleine",
+      "r4":"L’espadon",
+      "br":"r3"
+   },
+   {
+      "id":59,
+      "question":"Depuis quand l’école est-elle obligatoire en Suisse ?",
+      "r1":"1674",
+      "r2":"1774",
+      "r3":"1874",
+      "r4":"1974",
+      "br":"r3"
+   },
+   {
+      "id":60,
+      "question":"Le corail est...",
+      "r1":"Un minéral",
+      "r2":"Un végétal",
+      "r3":"Un animal",
+      "r4":"Aucun des trois",
+      "br":"r3"
+   },
+   {
+      "id":61,
+      "question":"Quand l’homme a-t-il domestiqué le chien ?",
+      "r1":"Il y a 140 ans",
+      "r2":"Il y a 1’400 ans",
+      "r3":"Il y a 14’000 ans",
+      "r4":"Il y a 140’000 ans",
+      "br":"r3"
+   },
+   {
+      "id":62,
+      "question":"Qu’est-ce qu’un dragon volant ?",
+      "r1":"Un animal imaginaire",
+      "r2":"Un lézard",
+      "r3":"Un écureuil",
+      "r4":"Un dinosaure",
+      "br":"r2"
+   },
+   {
+      "id":63,
+      "question":"L’air qu’on respire est majoritairement composé de quel gaz ?",
+      "r1":"D’azote",
+      "r2":"D’oxygène",
+      "r3":"D’argon",
+      "r4":"De dioxyde de carbone (CO2)",
+      "br":"r1"
+   },
+   {
+      "id":64,
+      "question":"Quelle unité utilise-t-on pour mesurer une différence de potentiel électrique ?",
+      "r1":"L’ampère",
+      "r2":"Le farrad",
+      "r3":"L’ohm",
+      "r4":"Le volt",
+      "br":"r4"
+   },
+   {
+      "id":65,
+      "question":"De quoi ont peur les brontophobes ?",
+      "r1":"Du tonnerre",
+      "r2":"Des herbivores",
+      "r3":"Des grenouilles",
+      "r4":"Des dinosaures",
+      "br":"r1"
+   },
+   {
+      "id":66,
+      "question":"Quelle station de ski organise le Xtreme snowboard contest ?",
+      "r1":"Saas-Fee",
+      "r2":"Verbier",
+      "r3":"Leysin",
+      "r4":"Crans-Montana",
+      "br":"r2"
+   },
+   {
+      "id":67,
+      "question":"Quel était le surnom injuste des rois mérovingiens ?",
+      "r1":"Les rois illégitimes",
+      "r2":"Les rois maudits",
+      "r3":"Les rois minus",
+      "r4":"Les rois fainéants",
+      "br":"r4"
+   },
+   {
+      "id":68,
+      "question":"Qu’est-ce que le K2 ?",
+      "r1":"Une montagne",
+      "r2":"Un anorak",
+      "r3":"Une planche à voile",
+      "r4":"Une vallée d’Amérique Latine",
+      "br":"r1"
+   },
+   {
+      "id":69,
+      "question":"Quels instruments de musique pouvant peser plusieurs tonnes fabrique-t-on dans la fonderie de la Sarraz ?",
+      "r1":"Des orgues",
+      "r2":"Des cors de chasse en plomb",
+      "r3":"Des clavecin",
+      "r4":"Des cloches",
+      "br":"r4"
+   },
+   {
+      "id":70,
+      "question":"Quel animal brame ?",
+      "r1":"Le cerf",
+      "r2":"Le zèbre",
+      "r3":"L’okapi",
+      "r4":"Le gnou",
+      "br":"r1"
+   },
+   {
+      "id":71,
+      "question":"Que valent deux noires en solfège ?",
+      "r1":"Une ronde",
+      "r2":"Une croche",
+      "r3":"Une blanche",
+      "r4":"Une double croche",
+      "br":"r3"
+   },
+   {
+      "id": 72,
+      "question": "Qu’est-ce que Chaplin appelait “ma dignité” ?",
+      "r1": "Son chapeau",
+      "r2": "Sa moustache",
+      "r3": "Sa canne",
+      "r4": "Sa voiture",
+      "br": "r3"
+   },
+   {
+      "id": 73,
+      "question": "Quel canton inspira les paysages de Heidi ?",
+      "r1": "Tessin",
+      "r2": "Grison",
+      "r3": "Appenzell",
+      "r4": "Bâle-campagne",
+      "br": "r2"
+   },
+   {
+      "id": 74,
+      "question": "Quel est le premier être vivant à avoir voyager dans l'espace ?",
+      "r1": "Un chat ",
+      "r2": "Un être humain",
+      "r3": "Un chien",
+      "r4": "Un rat",
+      "br": "r2"
+   },
+   {
+      "id": 75,
+      "question": "Avec quel fruit fabrique-t-on le cidre ?",
+      "r1": "Pommes",
+      "r2": "Poires",
+      "r3": "Cerises",
+      "r4": "Fraises",
+      "br": "r1"
+   },
+   {
+      "id": 76,
+      "question": "Dans Pim, Pam, Poum qui est Pim ?",
+      "r1": "Le frère",
+      "r2": "La soeur",
+      "r3": "La mère",
+      "r4": "La tante",
+      "br": "r4"
+   },
+   {
+      "id": 77,
+      "question": "Qu’est-ce que le futsal ?",
+      "r1": "Un vent du nord",
+      "r2": "Du football en salle",
+      "r3": "Un poisson",
+      "r4": "Une rivière",
+      "br": "r2"
+   },
+   {
+      "id": 78,
+      "question": "quel est le seul mammifère qui vole",
+      "r1": "Le pélican",
+      "r2": "Le pigeon",
+      "r3": "Le corbeau",
+      "r4": "La chauve-souris",
+      "br": "r4"
    }
+
 ]
