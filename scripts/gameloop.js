@@ -67,6 +67,7 @@ function tourSuivant(){
         sleep(1000).then(() => {
             tourJoueur(jActuel);
 
+            // changement du joueur actuel
             if (jActuel < document.getElementById('nbJoueurs').value - 1) {
                 jActuel++;
 
@@ -109,19 +110,18 @@ function tourJoueur(joueurId) {
     //  nbCarteObtenue = 5;
     //  section = true;
     ///////////////////
+
     if(nbCarteObtenue >=5 && section ===true && joueurs[joueurId].argent >= ptsCFC){    //si les conditions pour le cfc sont remplies
         conditionCFC = true;
         console.log(joueurs[joueurId].nom + ": " + joueurs[joueurId].argent + " / " + ptsCFC);
-        joueurs[joueurId].deplacerPion(resultatDe);
-        console.log("je me déplace de: " + resultatDe);
     }
     else {
         conditionCFC = false;
-        // Déplacer le pion avec la fonction codée dans joueurs.js, en lui passant en paramètre le résultat du dé
-        joueurs[joueurId].deplacerPion(resultatDe);
-        console.log("je me déplace de: " + resultatDe);
     }
 
+    // Déplacer le pion avec la fonction codée dans joueurs.js, en lui passant en paramètre le résultat du dé
+    joueurs[joueurId].deplacerPion(resultatDe);
+    console.log("je me déplace de: " + resultatDe);
     // vérification du temps que prend le déplacement
     console.log("le déplacement prend " + dureeDeplacementMS + "ms");
     // vérifier les actions que le joueur doit effectuer
@@ -174,7 +174,7 @@ function actionCase(jActuel) {
 
             break;
         case (typeDeCase === "cfc"):
-
+            // ne rien faire, code géré plus bas par la fonction fnPasserCFC(joueurId) {
             break;
     }
 
