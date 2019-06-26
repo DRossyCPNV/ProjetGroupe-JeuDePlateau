@@ -35,7 +35,7 @@ $.getJSON('donnees/questions.json', function(data) {
     nbcquestion = acquestion.length; //Le nombre de cartes questions
 });
 
-function fnAfficheQuestion(IDjoueur) {
+function fnAfficheQuestion() {
 
     //Si la défausse est pleine, on la remet en entier dans le tas, et on remet la défausse à 0
     if (acquestion.length === 0) {
@@ -92,15 +92,15 @@ function fnVerifReponseQuestion() {
     if (breponse === jreponse.val()) {
         alert("Bravo ! Vous avez trouvé la bonne réponse");
 
-        joueurs[joueurActuel].argent += ptsbr;
-        console.log(joueurs[joueurActuel].argent);
+        joueurs[jActuel].argent += ptsbr;
+        console.log(joueurs[jActuel].argent);
 
         $('#carte_question').css('display','none');
         jreponse.prop("checked", false);
         return true;
     }
     else {
-        alert("Mauvaise réponse ! La bonne réponse était: " + txtbreponse);
+        alert("Mauvaise réponse ! La bonne réponse était : " + txtbreponse);
         $('#carte_question').css('display','none');
         jreponse.prop("checked", false);
         return false;

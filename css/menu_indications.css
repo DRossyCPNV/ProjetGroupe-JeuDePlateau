@@ -88,9 +88,10 @@
     background-image: -ms-linear-gradient(top, #ec594c, #f75810);
     background-image: -o-linear-gradient(top, #ec594c, #f75810);
     background-image: linear-gradient(to bottom, #ec594c, #f75810);
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
     border-radius: 5px;
+    padding: 3px 8px 3px 8px;
     text-shadow: 2px -2px 0 #73c69c;
     font-family: 'Baloo Bhai', cursive;
     color: white;

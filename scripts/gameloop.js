@@ -25,9 +25,9 @@ $("#btn-verif").click(function () {
     $(this).data('clicked', true);
 });
 
-//sorties de la boucle pour y accéder partout dans le script
+//sortie de la boucle pour y accéder partout dans le script
 var jActuel = 0;
-
+var nbJoueurJouant = nbJoueurs;
 //cette fonction sera la fonction principale qui liera toutes les autres pour rendre le jeu fonctionnel
 function gameloop(nbJoueurs) {
 
@@ -136,9 +136,9 @@ function tourJoueur(joueurId) {
 //    (pose une question au joueur actuel)
 //  - si la case est une case chance : appel de la fonction fnAfficheChance
 //  - si la case est la case CFC : on ne fait rien (code de cette case écrit dans la fonction fnPasserCFC)
-function actionCase(joueurActuel) {
+function actionCase(jActuel) {
 
-    var caseToCheck = joueurActuel.caseActuelle;
+    var caseToCheck = jActuel.caseActuelle;
     var typeDeCase = acartes[caseToCheck].type;
 
     switch (true) {
@@ -148,7 +148,7 @@ function actionCase(joueurActuel) {
                 console.log(typeDeCase);
 
                 //demande si le joueur veut acheter la case
-                fnAcheterModule(joueurActuel.id, caseToCheck);
+                fnAcheterModule(jActuel.id, caseToCheck);
             });
 
             break;
@@ -157,20 +157,11 @@ function actionCase(joueurActuel) {
 
             sleep(dureeDeplacementMS + 1000).then(() => {
                 console.log(typeDeCase);
-                console.log(joueurActuel.id);
+                console.log(jActuel.id);
 
                 //poser une question
-                fnAfficheQuestion(joueurActuel.id);
+                fnAfficheQuestion(jActuel.id);
 
-                // on attend que la réponse soit validée
-                // while($("#btn-verif").data('clicked')){
-                //     fnAfficheQuestion(joueurActuel.id);
-                // }
-                // if (fnVerifReponseQuestion() === true) {
-                //     joueurActuel.nbTestReussi++;
-                //     console.log("Voici mes points" + joueurActuel.nbTestReussi);
-                //     $("#id").data('clicked', false);
-                // }
             });
 
             break;
@@ -178,7 +169,7 @@ function actionCase(joueurActuel) {
             console.log(typeDeCase);
             sleep(dureeDeplacementMS + 1000).then(() => {
 
-                fnAfficheChance(joueurActuel.id);
+                fnAfficheChance(jActuel.id);
             });
 
             break;

@@ -41,7 +41,6 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     this.section = section;
     this.caseActuelle = 0;   // permettra de savoir quel action effectuer grace à l'id des cases, la case 0 est la case départ
     this.emplacementCase = id; // l'emplacement sera différent car l'id est différent
-    this.nbTestReussi = 0;
     this.positionActuelle = this.caseActuelle;
     this.passeTour = 0;
     this.protection = 0;
