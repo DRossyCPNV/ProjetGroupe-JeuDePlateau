@@ -57,7 +57,7 @@ function tourSuivant(){
     //désactive le bouton lancer le dé tant que la fonction n'est pas terminée;
     // source: https://css-tricks.com/snippets/jquery/click-once-and-unbind/
     if(joueurs[jActuel].passeTour === 0){
-        //$('.menu_indications_bouton_lancer').prop('disabled', true);
+        $(".menu_indications_bouton_lancer").hide();
         console.log("je disable le bouton");
 
         //crée un nombre aléatoire
@@ -69,6 +69,7 @@ function tourSuivant(){
 
             if (jActuel < document.getElementById('nbJoueurs').value - 1) {
                 jActuel++;
+
             } else {
                 jActuel = 0;
             }
@@ -78,6 +79,7 @@ function tourSuivant(){
         joueurs[jActuel].passeTour = 0;
         if (jActuel < document.getElementById('nbJoueurs').value - 1) {
             jActuel++;
+
         } else {
             jActuel = 0;
         }
@@ -98,8 +100,8 @@ function tourJoueur(joueurId) {
         }
     }
     var section = false;
-    for(var i = 0; i < joueurs[joueurId].modulesObtenus.length; i++){   //condition carte section obtenue
-        if(joueurs[joueurId].modulesObtenus[i].Theme === joueurs[joueurId].section){
+    for(var j = 0; j < joueurs[joueurId].modulesObtenus.length; j++){   //condition carte section obtenue
+        if(joueurs[joueurId].modulesObtenus[j].Theme === joueurs[joueurId].section){
             section = true;
         }
     }
@@ -116,7 +118,7 @@ function tourJoueur(joueurId) {
     else {
         conditionCFC = false;
         $('.menu_indications_joueur_boutons').html('<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourSuivant()">');
-        //Déplacer le pion en fonction du résultat du dé
+        // Déplacer le pion avec la fonction codée dans joueurs.js, en lui passant en paramètre le résultat du dé
         joueurs[joueurId].deplacerPion(resultatDe);
         console.log("je me déplace de: " + resultatDe);
     }
@@ -124,8 +126,6 @@ function tourJoueur(joueurId) {
     console.log("le déplacement prend " + dureeDeplacementMS + "ms");
     actionCase(joueurs[joueurId]);
 
-    //réactiver le bouton lancer dé à la fin du tour;
-    //$('.menu_indications_bouton_lancer').prop('disabled', false);
 }
 
 //Fonction qui vérifie les actions que le joueur doit effectuer
@@ -185,6 +185,7 @@ function actionCase(joueurActuel) {
 
             break;
     }
+
 }
 
 function sleep(ms) {

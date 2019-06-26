@@ -144,7 +144,7 @@ function fnExecuteChance(){
                             }
                         }
 
-                        nomJoueurs += "<br><br><input type=\"button\" value=\"Séléctionner\" onclick=\"fnEffaceChoix();\">"
+                        nomJoueurs += "<br><br><input type=\"button\" value=\"Sélectionner\" onclick=\"fnEffaceChoix();\">"
 
                         $('#form_cibles').html(nomJoueurs);
                         console.log("recevoire et donner de l'argent");

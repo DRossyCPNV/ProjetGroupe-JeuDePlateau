@@ -43,18 +43,13 @@ function fnText(t, x, y, c) {
 }
 
 function fnLancerDe() {
-    //Cette fonction va tirer 6 nombres au hasard
-
-    //Crée un tableau pour stocker les nombres
-    tabNombres[6];
-
-    //Stocke des entiers aléatoires entre une valeur min (incluse)
-    //et une valeur max (incluse) dans le tableau
-    var min = 0;
-    var max = 59;
+    //Cette fonction va tirer 6 nombres au hasard entre une valeur min (incluse)
+    //et une valeur max (incluse) et les stocker dans un tableau
+    var minRandom = 0;
+    var maxRandom = 59;
 
     for (var i = 0; i < 6; i++) {
-        tabNombres[i] = Math.floor(Math.random() * (max - min + 1)) + min;
+        tabNombres[i] = Math.floor(Math.random() * (maxRandom - minRandom + 1)) + minRandom;
     }
 
     // timer qui appelle la fonction toutes les 120 milli-secondes, pour l'animation du dé.
@@ -139,7 +134,7 @@ function fnAffichePions() {
                 ctx.drawImage(imgPion[i], pionxy[0], pionxy[1], pionw, pionh);
 
                 break;
-            case (jCaseAct == 24):
+            case (jCaseAct === 24):
                 break;
         }
     }

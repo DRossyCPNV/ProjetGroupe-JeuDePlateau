@@ -62,7 +62,7 @@ function creerDivJoueurs(nbJoueurs) {
         }
         
         //Affiche les boutons dans la div du joueur actuel
-        if (i == jActuel){
+        if (i === jActuel){
             boutonAffiche =   '<div class="menu_indications_joueur_boutons">' + '\n'
                             + '<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourSuivant()">' + '\n';
                             // + '</div>' + '\n';
@@ -80,14 +80,14 @@ function creerDivJoueurs(nbJoueurs) {
         //Affiche les modules détenus par le joueur
         var modulesAffiches = "";
         for(var j = 0; j < amodules.length; ++j){
-            if(joueurs[i].modulesObtenus[j] == 1){
-                modulesAffiches += '<img src="images/modules/' + amodules[j].Nom + '.svg" style="margin: 2px;">' + '\n';
+            if(joueurs[i].modulesObtenus[j] === 1){
+                modulesAffiches += '<img src="images/modules/' + amodules[j].Nom + '.svg" style="margin: 2px;" alt="modules détenus">' + '\n';
             }
         }
 
         //Affiche le pion de chaque joueur
         var pionsAffiches = "";
-        pionsAffiches += '<img src="images/pions/' + couleursPions[i] + '.png"; style="margin: 2px;" width="20" height="30">' + '\n';
+        pionsAffiches += '<img src="images/pions/' + couleursPions[i] + '.png" style="margin: 2px;" width="20" height="30" alt="rappel du pion de chaque joueur">' + '\n';
 
 
         // Construction des Div des joueurs
