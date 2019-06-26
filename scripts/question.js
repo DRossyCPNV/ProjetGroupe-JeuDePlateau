@@ -76,8 +76,8 @@ function fnAfficheQuestion(IDjoueur) {
 function fnVerifReponseQuestion() {
     //On affiche le plateau de jeu
     $('#carte_question').css('display', 'none');
-    $('#plateau_jeu').css('display','block');
-    $('#menu_indications').css('display', 'block');
+    $('#plateau_jeu').css('display','inline');
+    $('#menu_indications').css('display', 'flex');
     $('body').css('background-color','purple');
 
     //On enregistre la réponse du joueur

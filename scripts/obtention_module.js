@@ -59,8 +59,8 @@ function fnAfficheAchatModule(idAcheteur, idCase) {
 
 function fnEffacerModule(){
     $('#carte_module').css('display', 'none');
-    $('#plateau_jeu').css('display','block');
-    $('#menu_indications').css('display', 'block');
+    $('#plateau_jeu').css('display','inline');
+    $('#menu_indications').css('display', 'flex');
     $('body').css('background-color','purple');
 }
 
