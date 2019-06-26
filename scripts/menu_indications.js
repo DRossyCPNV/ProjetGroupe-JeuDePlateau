@@ -46,6 +46,8 @@ function creerDivJoueurs(nbJoueurs) {
 
     //Créer les divs en fonction du nombre de joueurs
     var divJoueurs = '';
+
+    //Boucle parcourant tous les joueurs
     for (var i = 0; i < nbJoueurs; ++i){
 
         //Définit la section du joueur i
@@ -79,8 +81,10 @@ function creerDivJoueurs(nbJoueurs) {
 
         //Affiche les modules détenus par le joueur
         var modulesAffiches = "";
-        for(var i = 0; i < amodules.length; ++i){
-            if(joueurs[i].modulesObtenus[i] === 1){
+
+        //Boucle parcourant tous les modules détenus
+        for(var j = 0; j < amodules.length; ++j){
+            if(joueurs[i].modulesObtenus[j] === 1){
                 modulesAffiches += '<img src="images/modules/' + amodules[j].Nom + '.svg" style="margin: 2px;" alt="modules détenus">' + '\n';
             }
         }

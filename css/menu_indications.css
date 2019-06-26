@@ -26,7 +26,7 @@
 
 .menu_indications_joueur{
     width: 300px;
-    margin: 1px 0px 1px 0px;
+    margin: 1px 0 1px 0;
     padding: 5px;
     box-sizing: border-box;
     border: 5px solid #41A46B;
@@ -80,9 +80,9 @@
     justify-content: center;
 }
 
-/* CSS bouton */
+/* CSS bouton lancer dé */
 .menu_indications_bouton_lancer {
-    background: #ec594c;
+    background: #191970;
     background-image: -webkit-linear-gradient(top, #ec594c, #f75810);
     background-image: -moz-linear-gradient(top, #ec594c, #f75810);
     background-image: -ms-linear-gradient(top, #ec594c, #f75810);
@@ -91,7 +91,7 @@
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 5px;
-    text-shadow: 2px -2px 0px #73c69c;
+    text-shadow: 2px -2px 0 #73c69c;
     font-family: 'Baloo Bhai', cursive;
     color: white;
     border: none;
@@ -99,7 +99,7 @@
 }
 
 .menu_indications_bouton_lancer:hover {
-    background: #f13210;
+    background: midnightblue;
     border: none;
 }
 
