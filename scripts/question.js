@@ -18,13 +18,13 @@
 
 
 //Paramètres des cartes questions
-var acquestion = []; //array carte questions
-var defausse = [];
-var jreponse; //La réponse de l'utilisateur
-var breponse; //La bonne réponse
-var txtbreponse; //Le texte de la bonne réponse
-var nbcquestion; //nb cartes questions
-var ptsbr = 500; //Points attribué pour une bonne réponse
+var acquestion = []; // array carte questions
+var defausse = [];  // fait de se débarrasser d'une carte inutile
+var jreponse; // la réponse de l'utilisateur
+var breponse; // la bonne réponse
+var txtbreponse; // le texte de la bonne réponse
+var nbcquestion; // nombre de cartes questions
+var ptsbr = 500; // points attribué pour une bonne réponse
 
 //La carte est masquée au début du jeu
 $('#carte_question').css('display','none');
@@ -67,10 +67,11 @@ function fnAfficheQuestion(IDjoueur) {
     breponse = acquestion[nbaleat].br;
     txtbreponse = acquestion[nbaleat][breponse];
 
+    //On met la carte piochée dans la défausse
+    defausse.push(acquestion[nbaleat]);
 
-
-    defausse.push(acquestion[nbaleat]); //On met la carte piochée dans la défausse
-    acquestion.splice(nbaleat, 1); //On retire la carte piochée du tas
+    //On retire la carte piochée du tas (array)
+    acquestion.splice(nbaleat, 1);
 }
 
 function fnVerifReponseQuestion() {

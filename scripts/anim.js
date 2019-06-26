@@ -1,10 +1,10 @@
 // *****************************************************************************
-// Fonction d'animation
+// Fonction d'affichage du plateau
 // *****************************************************************************
-//              - dessine dans le canvas une image fournie en argument,
-//				depuis un coin haut-gauche X et Y, dans une largeur X et hauteur Y.
-//				Puis appelle la fonction qui affiche les pions et
-//				elle-même de façon récursive (fonction encore en beta, requestAnimationFrame)
+//              -  dessine le plateau dans le canvas avec, comme paramètres,
+//                l'image du plateau, l'espacement bord-plateau et la taille du plateau dans le canevas (carré).
+//				Puis on appelle la fonction qui affiche les pions, ensuite elle-même de façon récursive.
+//
 //
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy

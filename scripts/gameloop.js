@@ -20,15 +20,15 @@
 // SI-CA1a - juin 2019 - CPNV
 // ********************************************************************************************************************
 
-//permet de vérifier si la réponse à la question à été validée
+//permet de vérifier si la réponse à la question a été validée
 $("#btn-verif").click(function () {
     $(this).data('clicked', true);
 });
 
-//Sortie de la boucle pour accéder partout dans le script
+//sorties de la boucle pour y accéder partout dans le script
 var jActuel = 0;
 var nbJoueurJouant = nbJoueurs;
-//cette fonction sera la fonction principale qui liera toutes les autres pour rendre le jeu fonctionnel
+//cette fonction est la principale qui lie toutes les autres pour rendre le jeu fonctionnel
 function gameloop(nbJoueurs) {
 
     //crée les joueurs
@@ -38,17 +38,17 @@ function gameloop(nbJoueurs) {
         // pour test
         console.log("joueur : " + i + ", Nom: " + joueurs[i].nom + ", Couleur: " + joueurs[i].couleur + ", Section: " + joueurs[i].section + ", id: " + joueurs[i].id + ", emplacement: " + joueurs[i].emplacementCase + ", case actuel: " + joueurs[i].caseActuelle);
     }
-    //placer tout les joueur sur la case départ
+    //placer tous les joueurs sur la case départ
     for (i = 0; i < nbJoueurs; i++) {
         joueurs[i].placerPionCaseDepart();
     }
 
     draw();
 }
-//Cette fonction est appelée à chaque fois que l'on appuise sur lancer le dé
+//Cette fonction est appelée à chaque fois que l'on appuie sur lancer le dé
 function tourSuivant(){
 //$("#btn_cfc").click(function () { // https://css-tricks.com/snippets/jquery/click-once-and-unbind/
-    //désactive le bouton lancer le dé le temps que la fonction n'est pas terminé;
+    //désactive le bouton lancer le dé tant que la fonction n'est pas terminée;
     if(joueurs[jActuel].passeTour === 0){
         $("#btn-lancerDe").attr('disabled', 'disabled');
         console.log("je disable le bouton");
@@ -56,7 +56,7 @@ function tourSuivant(){
         //crée un nombre aléatoire
         fnLancerDe();
 
-        //attendre que le dé a finit de tourner
+        //attendre que le dé aie fini de tourner
         sleep(1000).then(() => {
             tourJoueur(jActuel);
             console.log('le problème est la');
@@ -98,7 +98,7 @@ function tourJoueur(joueurId) {
     // nbCarteObtenue = 5;
     // section = true;
     ///////////////////
-    if(nbCarteObtenue >=5 && section ===true && joueurs[joueurId].argent >= ptsCFC){    //Si conditions pour cfc sont remplies
+    if(nbCarteObtenue >=5 && section ===true && joueurs[joueurId].argent >= ptsCFC){    //Si les conditions pour le cfc sont remplies
         conditionCFC = true;
         console.log(joueurs[joueurId].nom + ": " + joueurs[joueurId].argent + " / " + ptsCFC);
         joueurs[joueurId].deplacerPion(resultatDe);
@@ -107,15 +107,13 @@ function tourJoueur(joueurId) {
     else {
         conditionCFC = false;
         $('.menu_indications_joueur_boutons').html('<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourSuivant()">');
-        //Deplacer le pion en fonction du résultat du dé
+        //Déplacer le pion en fonction du résultat du dé
         joueurs[joueurId].deplacerPion(resultatDe);
         console.log("je me déplace de: " + resultatDe);
     }
     //vérifier les actions que le joueur doit effectuer
     console.log("le déplacement prend " + dureeDeplacementMS + "ms");
     actionCase(joueurs[joueurId]);
-
-    //appliquer les effets s'il y en a
 
     //réactiver le bouton à la fin du tour;
     $("#btn-lancerDe").removeAttr('disabled');
@@ -146,13 +144,13 @@ function actionCase(joueurActuel) {
                 //poser une question
                 fnAfficheQuestion(joueurActuel.id);
 
-                // //on attend que la réponse soit validée
+                // on attend que la réponse soit validée
                 // while($("#btn-verif").data('clicked')){
                 //     fnAfficheQuestion(joueurActuel.id);
                 // }
                 // if (fnVerifReponseQuestion() === true) {
                 //     joueurActuel.nbTestReussi++;
-                //     console.log("Voici mes point" + joueurActuel.nbTestReussi);
+                //     console.log("Voici mes points" + joueurActuel.nbTestReussi);
                 //     $("#id").data('clicked', false);
                 // }
             });
