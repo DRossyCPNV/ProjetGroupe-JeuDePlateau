@@ -41,10 +41,9 @@ Plusieurs pions peuvent se trouver sur une même case au même moment.
 En fonction de la case sur laquelle vous êtes arrivé, vous pouvez effectuer l'une des opérations suivantes:
 
 - acheter un module
-- répondre à une question
+- répondre à une question, pour tenter de gagner des points
 - tirer une carte chance
 - passer l'examen final, pour gagner le jeu
-- recevoir 200 points
 
 Quand vous avez terminé votre tour, ce sera au joueur situé à votre gauche de jouer.
 
@@ -61,8 +60,7 @@ Vous pourrez ou devrez appliquer ce qu'elle vous indique.
 
 ### Arrêt sur une case Question:
 Quand vous vous trouvez sur cette case, le joueur de droite doit tirer une carte question et vous la lire à haute voix, ainsi que les réponses possibles si vous le souhaitez. 
-Si vous répondez juste et sans aide, vous recevrez 500 points.
-En revanche, si vous avez demandé de l'aide, vous ne recevrez que 250 points.
+Si vous répondez juste, vous recevrez 500 points.
 
 ### Passer l'examen:
 Pour passer l'examen, vous devez avoir obtenu une case module de chaque couleur (rouge, bleu, vert et jaune). 

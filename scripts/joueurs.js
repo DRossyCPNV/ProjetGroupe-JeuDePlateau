@@ -39,8 +39,8 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     this.couleur = couleur;
     this.argent = argent_depart;
     this.section = section;
-    this.caseActuelle = 0; //permettra de savoir quel action effectuer grace à l'id des cases, la case 0 est la case départ
-    this.emplacementCase = id; //emplacement sera différent car l'id est différent
+    this.caseActuelle = 0;   // permettra de savoir quel action effectuer grace à l'id des cases, la case 0 est la case départ
+    this.emplacementCase = id; // l'emplacement sera différent car l'id est différent
     this.nbTestReussi = 0;
     this.positionActuelle = this.caseActuelle;
     this.passeTour = 0;
@@ -48,14 +48,14 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     this.modulesObtenus = new Array(amodules.length).fill(0); //1 = vrai / 0 = faux
 
 
-    //méthode pour placer le pion du joueur sur la case départ
+    // méthode pour placer le pion du joueur sur la case départ
     this.placerPionCaseDepart = function () {
         that.caseActuelle = 0;
         that.positionActuelle = that.caseActuelle;
         that.emplacementCase = -1;
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
     };
-    //methode qui déplace le pion d'un nombre de case en fonction du dé
+    // methode qui déplace le pion d'un nombre de case en fonction du dé
     this.deplacerPion = function (de) {
         var caseDepart = that.caseActuelle;
         var caseArrive = that.caseActuelle + de;
@@ -64,7 +64,7 @@ function Joueur(id, nom, couleur, argent_depart, section) {
         dureeDeplacementMS  = (caseArrive-caseDepart)/deplacement*tempsInterval;
         that.emplacementCase = -1;
 
-        //condition pour que les pions s'arrêtent à chaques coins
+        // condition pour que les pions s'arrêtent à chaques coins
         if ((that.caseActuelle + de) > 6 && that.caseActuelle < 6) {
             that.caseActuelle = 6;
             fnDeplacerPionFluidement(caseDepart, 6, deplacement, that.id, tempsInterval);
@@ -78,7 +78,7 @@ function Joueur(id, nom, couleur, argent_depart, section) {
             fnDeplacerPionFluidement(caseDepart, 18, deplacement, that.id, tempsInterval);
             that.positionActuelle = that.caseActuelle;
         } else if ((that.caseActuelle + de) >= 24 && that.caseActuelle < 24) {
-            //quand le pion arrive à la derniere case, caseActuel est remis à zero
+            // quand le pion arrive à la derniere case, caseActuelle est remise à zero
             that.caseActuelle = 0;
             fnDeplacerPionFluidement(caseDepart, 23.9, deplacement, that.id, tempsInterval);
             that.positionActuelle = that.caseActuelle;
@@ -94,7 +94,7 @@ function Joueur(id, nom, couleur, argent_depart, section) {
 
 
     };
-    //methode pour placer le pion sur la case CFC
+    // methode pour placer le pion sur la case CFC
     this.placerCaseCFC = function () {
         that.caseActuelle = -10;
         that.emplacementCase = -1;
@@ -102,7 +102,7 @@ function Joueur(id, nom, couleur, argent_depart, section) {
     };
 }
 
-//fonction qui donne le nombre de joueur se trouvant sur la case passée en paramètre
+// fonction qui donne le nombre de joueur se trouvant sur la case passée en paramètre
 function nbJoueursCase(caseID) {
     nombreJoueurs = 0;
     for (var i = 0; i < joueurs.length; i++) {
@@ -113,7 +113,7 @@ function nbJoueursCase(caseID) {
     return nombreJoueurs;
 }
 
-//fonction qui retourne l'emplacement vide d'une case du plateau
+// fonction qui retourne l'emplacement vide d'une case du plateau
 function emplacementVideCase(caseID) {
 
     // Crée un nouveau tableau de la taille de joueurs validés.
@@ -132,12 +132,12 @@ function emplacementVideCase(caseID) {
     }
     // Quitte la boucle et renvoie le premier emplacement disponible.
     for (var emplacement = 0; emplacement < nbJoueursCase(caseID); emplacement++) {
-        if (tabEmplacement[emplacement] != true) {
+        if (tabEmplacement[emplacement] !== true) {
             return emplacement;
         }
     }
 }
-//cette fonction déplace le pion petit à petit jusqu'à la case d'arrivée
+// Cette fonction déplace le pion petit à petit jusqu'à la case d'arrivée
 function fnDeplacerPionFluidement(caseDepart, caseArrive, vitesse, idJoueur, temps) {
     vitesse /= 5;
 
@@ -154,19 +154,4 @@ function fnDeplacerPionFluidement(caseDepart, caseArrive, vitesse, idJoueur, tem
         }
     }, temps);
 
-}
-//cette fonction déplace le pion petit à petit jusqu'à l'emplacement d'arrivée
-function fnEmplacementFluide(emplacementDepart, emplacementArrive, vitesse, idJoueur, temps){
-    vitesse /= 10;
-
-    var mouvement = emplacementDepart;
-
-    var interval = setInterval(function () {
-        if(mouvement > arrive){
-            clearInterval(interval);
-        }else{
-            mouvement += vitesse;
-            joueurs[idJoueur].emplacementCase = mouvement;
-        }
-    }, temps);
 }

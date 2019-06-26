@@ -94,7 +94,7 @@
       "question":"Quel est le plus haut sommet de Suisse ?",
       "r1":"le Cervin",
       "r2":"Le Moléson",
-      "r3":"la point Dufour",
+      "r3":"la pointe Dufour",
       "r4":"la Jungfrau",
       "br":"r3"
    },
@@ -273,7 +273,7 @@
       "id":30,
       "question":"Quel est le subjonctif present du verbe feindre, à la deuxieme prersonne du singulier ?",
       "r1":"Que tu faignasses",
-      "r2":"Que tu faignassi",
+      "r2":"Que tu feignasses",
       "r3":"Que tu feint",
       "r4":"Que tu feignes",
       "br":"r4"
@@ -327,7 +327,7 @@
       "id":36,
       "question":"'Le bon la brute et le truand' est un film de ?",
       "r1":"Steven Spielberg",
-      "r2":"Segio Leone",
+      "r2":"Sergio Leone",
       "r3":"Quentin Tarantino",
       "r4":"Clint Eastwood",
       "br":"r2"

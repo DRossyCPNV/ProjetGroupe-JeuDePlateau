@@ -28,7 +28,7 @@ $("#btn-verif").click(function () {
 //sorties de la boucle pour y accéder partout dans le script
 var jActuel = 0;
 
-//cette fonction est la principale qui lie toutes les autres pour rendre le jeu fonctionnel
+//cette fonction sera la fonction principale qui liera toutes les autres pour rendre le jeu fonctionnel
 function gameloop(nbJoueurs) {
 
     //crée les joueurs
