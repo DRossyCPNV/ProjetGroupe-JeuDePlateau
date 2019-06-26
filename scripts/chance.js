@@ -130,7 +130,7 @@ function fnExecuteChance(){
                         else{
                             joueurs[joueurActuel].argent += achance[nbaleat].valeur_1;
                         }
-                        // Choix de la cible à qui donner
+                        //Choix de la cible
                         $('#choix_cible').css('display', 'block');
                         $('#titre_cible').html("Choisissez un joueur cible:");
 

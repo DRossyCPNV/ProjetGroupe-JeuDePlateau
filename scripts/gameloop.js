@@ -27,7 +27,6 @@ $("#btn-verif").click(function () {
 
 //sorties de la boucle pour y accéder partout dans le script
 var jActuel = 0;
-var nbJoueurJouant = nbJoueurs;
 //cette fonction est la principale qui lie toutes les autres pour rendre le jeu fonctionnel
 function gameloop(nbJoueurs) {
 
@@ -59,7 +58,7 @@ function tourSuivant(){
         //attendre que le dé aie fini de tourner
         sleep(1000).then(() => {
             tourJoueur(jActuel);
-            console.log('le problème est la');
+
             if (jActuel < document.getElementById('nbJoueurs').value - 1) {
                 jActuel++;
             } else {
@@ -94,9 +93,9 @@ function tourJoueur(joueurId) {
             section = true;
         }
     }
-    // code de triche
-    // nbCarteObtenue = 5;
-    // section = true;
+    //code de triche
+    //  nbCarteObtenue = 5;
+    //  section = true;
     ///////////////////
     if(nbCarteObtenue >=5 && section ===true && joueurs[joueurId].argent >= ptsCFC){    //Si les conditions pour le cfc sont remplies
         conditionCFC = true;
@@ -164,6 +163,9 @@ function actionCase(joueurActuel) {
             });
 
             break;
+        case (typeDeCase === "cfc"):
+
+            break;
     }
 }
 
@@ -172,7 +174,7 @@ function sleep(ms) {
 }
 
 function  fnPasserCFC(joueurId) {
-    console.log("passe ton cfc " +joueurId);
+    console.log("Passer ton cfc " +joueurId);
     joueurs[joueurId].caseActuelle = 24;
 
     //case CFC
