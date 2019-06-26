@@ -37,7 +37,7 @@ var ctx = c.getContext("2d");
 // Paramètres de dessin
 var echelle = 1.3; //pour pouvoir zoomer
 var angle = 0;// pour pouvoir tourner
-const ncartes = 5;//nombre de carte par cot� (sans compter les coins)
+const ncartes = 5;//nombre de carte par coté (sans compter les coins)
 var joueurs; //tableau des joueurs
 const nbJoueursMax = 6;
 var acartes = []; //tableau des cartes

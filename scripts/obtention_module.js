@@ -75,7 +75,8 @@ function fnClickAcheterModule(idAcheteur, idCase) {
     console.log("idCase" + idCase)
     var acheteur = joueurs[idAcheteur];
 
-    acheteur.argent -= acartes[idCase].prix;//acartes[joueurs[jActuel].caseActuelle]
+    // on déduit le prix de la carte module de l'argent du joueur
+    acheteur.argent -= acartes[idCase].prix;
     acheteur.modulesObtenus[getIndexOf(amodules, acartes[idCase].texte)] = 1;
     fnEffacerModule();
 }

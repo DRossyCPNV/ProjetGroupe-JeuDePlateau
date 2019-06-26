@@ -58,7 +58,7 @@ function tourSuivant(){
     // source: https://css-tricks.com/snippets/jquery/click-once-and-unbind/
     if(joueurs[jActuel].passeTour === 0){
         $(".menu_indications_bouton_lancer").hide();
-        console.log("je disable le bouton");
+        console.log("je disable le bouton lancer dé");
 
         //crée un nombre aléatoire
         fnLancerDe();
@@ -117,13 +117,14 @@ function tourJoueur(joueurId) {
     }
     else {
         conditionCFC = false;
-        $('.menu_indications_joueur_boutons').html('<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourSuivant()">');
         // Déplacer le pion avec la fonction codée dans joueurs.js, en lui passant en paramètre le résultat du dé
         joueurs[joueurId].deplacerPion(resultatDe);
         console.log("je me déplace de: " + resultatDe);
     }
-    //vérifier les actions que le joueur doit effectuer
+
+    // vérification du temps que prend le déplacement
     console.log("le déplacement prend " + dureeDeplacementMS + "ms");
+    // vérifier les actions que le joueur doit effectuer
     actionCase(joueurs[joueurId]);
 
 }
