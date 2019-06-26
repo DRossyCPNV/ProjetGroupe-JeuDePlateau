@@ -46,7 +46,7 @@ function fnLancerDe() {
     //Cette fonction va tirer 6 nombres au hasard
 
     //Crée un tableau pour stocker les nombres
-    var nbAffiche = 0;
+    tabNombres[6];
 
     //Stocke des entiers aléatoires entre une valeur min (incluse)
     //et une valeur max (incluse) dans le tableau
@@ -60,12 +60,11 @@ function fnLancerDe() {
     // timer qui appelle la fonction toutes les 120 milli-secondes, pour l'animation du dé.
     tmrAffiche = setInterval(fnAfficheFaceDe, 120);
 
-    return nbAffiche;
 }
 
 function fnAfficheFaceDe() {
     //Cette fonction va afficher une des 6 faces du dé, selon les nombres du tableau choisis au hasard
-    randomNumber = tabNombres[nbFacesAffichees];
+    var randomNumber = tabNombres[nbFacesAffichees];
     var faceDe = Math.floor(randomNumber / 10); //génère un nombre aléatoire entre 0 et 5
 
     // Cette fonction va afficher une image sur le canvas.

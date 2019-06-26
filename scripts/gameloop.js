@@ -27,6 +27,7 @@ $("#btn-verif").click(function () {
 
 //sorties de la boucle pour y accéder partout dans le script
 var jActuel = 0;
+
 //cette fonction est la principale qui lie toutes les autres pour rendre le jeu fonctionnel
 function gameloop(nbJoueurs) {
 
@@ -42,14 +43,21 @@ function gameloop(nbJoueurs) {
         joueurs[i].placerPionCaseDepart();
     }
 
+    //appel de la fonction écrite dans anim.js, pour afficher le plateau et animer les pions.
     draw();
 }
-//Cette fonction est appelée à chaque fois que l'on appuie sur lancer le dé
+
+// Fonction appelée à chaque fois que l'on appuie sur lancer le dé.
+//  - désactive le bouton lancer le dé tant que la fonction n'est pas terminée
+//  - appelle la fonction qui crée un nombre aléatoire
+//  - attend que le dé aie fini de tourner
+//  - appelle la fonction qui représente le tour d'un joueur
 function tourSuivant(){
-//$("#btn_cfc").click(function () { // https://css-tricks.com/snippets/jquery/click-once-and-unbind/
+
     //désactive le bouton lancer le dé tant que la fonction n'est pas terminée;
+    // source: https://css-tricks.com/snippets/jquery/click-once-and-unbind/
     if(joueurs[jActuel].passeTour === 0){
-        $("#btn-lancerDe").attr('disabled', 'disabled');
+        //$('.menu_indications_bouton_lancer').prop('disabled', true);
         console.log("je disable le bouton");
 
         //crée un nombre aléatoire
@@ -74,21 +82,23 @@ function tourSuivant(){
             jActuel = 0;
         }
     }
-
-
-// });
 }
 
-//fonction qui représente le tour d'un joueur
+// Fonction qui représente le tour d'un joueur.
+//  - vérifie quelles cartes modules ont été obtenues
+//  - teste si les conditions pour tenter le CFC sont remplies
+//  - appelle la fonction qui déplace le pion avec comme paramètre le résultat du dé
+//  - vérifie les actions que le joueur doit effectuer
+//  - réactive le bouton "lancer dé" à la fin du tour
 function tourJoueur(joueurId) {
     var nbCarteObtenue = 0;
-    for(var i = 0; i <=joueurs[joueurId].modulesObtenus.length; i++){   //condition 5 cartes modules
+    for(var i = 0; i <=joueurs[joueurId].modulesObtenus.length; i++){   //condition 5 cartes modules obtenues
         if(joueurs[joueurId].modulesObtenus[i] === 1){
             nbCarteObtenue++;
         }
     }
     var section = false;
-    for(var i = 0; i < joueurs[joueurId].modulesObtenus.length; i++){   //condition carte section
+    for(var i = 0; i < joueurs[joueurId].modulesObtenus.length; i++){   //condition carte section obtenue
         if(joueurs[joueurId].modulesObtenus[i].Theme === joueurs[joueurId].section){
             section = true;
         }
@@ -97,7 +107,7 @@ function tourJoueur(joueurId) {
     //  nbCarteObtenue = 5;
     //  section = true;
     ///////////////////
-    if(nbCarteObtenue >=5 && section ===true && joueurs[joueurId].argent >= ptsCFC){    //Si les conditions pour le cfc sont remplies
+    if(nbCarteObtenue >=5 && section ===true && joueurs[joueurId].argent >= ptsCFC){    //si les conditions pour le cfc sont remplies
         conditionCFC = true;
         console.log(joueurs[joueurId].nom + ": " + joueurs[joueurId].argent + " / " + ptsCFC);
         joueurs[joueurId].deplacerPion(resultatDe);
@@ -114,23 +124,30 @@ function tourJoueur(joueurId) {
     console.log("le déplacement prend " + dureeDeplacementMS + "ms");
     actionCase(joueurs[joueurId]);
 
-    //réactiver le bouton à la fin du tour;
-    $("#btn-lancerDe").removeAttr('disabled');
-
+    //réactiver le bouton lancer dé à la fin du tour;
+    //$('.menu_indications_bouton_lancer').prop('disabled', false);
 }
 
+//Fonction qui vérifie les actions que le joueur doit effectuer
+//  - si la case est une case normale : appel de la fonction fnAcheterModule
+//    (demande si le joueur veut acheter la case)
+//  - si la case est une case question : appel de la fonction fnAfficheQuestion
+//    (pose une question au joueur actuel)
+//  - si la case est une case chance : appel de la fonction fnAfficheChance
+//  - si la case est la case CFC : on ne fait rien (code de cette case écrit dans la fonction fnPasserCFC)
 function actionCase(joueurActuel) {
 
     var caseToCheck = joueurActuel.caseActuelle;
     var typeDeCase = acartes[caseToCheck].type;
 
     switch (true) {
-        //case coin
+
         case (typeDeCase === "normal"):
             sleep(dureeDeplacementMS + 1000).then(() => {
                 console.log(typeDeCase);
+
+                //demande si le joueur veut acheter la case
                 fnAcheterModule(joueurActuel.id, caseToCheck);
-                //demander si le joueur veut acheter la case
             });
 
             break;
@@ -140,6 +157,7 @@ function actionCase(joueurActuel) {
             sleep(dureeDeplacementMS + 1000).then(() => {
                 console.log(typeDeCase);
                 console.log(joueurActuel.id);
+
                 //poser une question
                 fnAfficheQuestion(joueurActuel.id);
 
@@ -157,8 +175,8 @@ function actionCase(joueurActuel) {
             break;
         case (typeDeCase === "chance"):
             console.log(typeDeCase);
-            //case chance
             sleep(dureeDeplacementMS + 1000).then(() => {
+
                 fnAfficheChance(joueurActuel.id);
             });
 

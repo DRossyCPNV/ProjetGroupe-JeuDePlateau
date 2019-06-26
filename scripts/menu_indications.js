@@ -9,7 +9,7 @@
 //              - affiche le menu des indications
 //              - crée les Div des joueurs
 //                  - affiche le nombre de joueurs
-//                  - définit la section du joueur i
+//                  - définit la section de chaque joueur
 //                  - affiche les boutons dans la section du joueur actuel
 //                  - affiche les modules détenus par le joueur
 //                  - construction des Div des joueurs
