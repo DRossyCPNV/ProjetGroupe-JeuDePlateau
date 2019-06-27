@@ -10,6 +10,12 @@
 //              - animations des pions
 //              - affichage de texte amélioré
 //              - affichage d'une des 6 faces du dé
+//              - réaffichage les pions sur le canvas
+//                    - pivot du plateau
+//                    - calcule des coordonnées de l'emplacement des pions, en prenant en compte la superposition
+//              - afficher/masquer l'overlay des règles du jeu
+//              - afficher/masquer l'overlay des règles du jeu
+//              - afficher/masquer l'overlay de victoire
 
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
@@ -141,7 +147,7 @@ function fnAffichePions() {
 }
 
 /*
-function: Cette fonction calcule les coordonnées de l'emplacement des pions en prenant en compte la superposition
+Cette fonction calcule les coordonnées de l'emplacement des pions, en prenant en compte la superposition
 param jCaseActuelle: Case sur laquelle se trouve le joueur actuel
 param facteurSoustraction: Soustraction au numéro de case actuelle pour afficher correctement les pions (et permettre à la fonction d'être réutilisable. ex: la 6ème, 12ème et 18ème cases redeviennent la case zéro).
 param jEmplacementCase: Emplacement occupé sur la case par le joueur actuel

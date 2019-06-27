@@ -60,6 +60,8 @@ Vous pourrez ou devrez appliquer ce qu'elle vous indique.
 
 ### Arrêt sur une case Question:
 Quand vous vous trouvez sur cette case, le joueur de droite doit tirer une carte question et vous la lire à haute voix, ainsi que les réponses possibles si vous le souhaitez. 
+Si vous répondez juste et sans aide, vous recevrez 500 points.
+En revanche, si vous avez demandé de l'aide, vous ne recevrez que 250 points.
 Si vous répondez juste, vous recevrez 500 points.
 
 ### Passer l'examen:

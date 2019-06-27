@@ -1,11 +1,30 @@
 <!-- ***************************************************************
-Modulopoly - fichier principal du jeu.
-Héberge le canvas et charge tous les fichiers scripts en mémoire.
+      Modulopoly - fichier principal du jeu.
+********************************************************************
+// - lancement de la fonction principale du jeu, dans gameloop.js,
+// - écran de lancement
+// - menu qui permet de configurer la partie
+// - menu qui permet de choisir le nombre de joueurs, le nom de chaque joueur ainsi que leur section
+// - bouton Start qui lance le menu de configuration de la partie
+// - bouton Comment jouer qui affiche l'écran des règles du jeu
+// - afficher un slider pour choisir la vitesse des animations
+// - affiche le canvas, où l'on dessine le plateau et les pions
+// - menu latéral des indications des joueurs
+// - boutons radios pour répondre aux cartes questions
+// - affichage des cartes chance
+// - affichage de l'écran achat d'une carte module
+// - écran des règles
+// - écran de victoire
+// - chargement de tous les fichiers scripts en mémoire
+
+
 Laurent Barraud, Bastian Chollet, Luca Coduri,
 Guillaume Duvoisin, Guilain Mbayo & David Rossy.
 Un projet mandaté par M. Chavey.
 SI-CA1a - juin 2019 - CPNV
 ******************************************************************** -->
+
+
 
 
 <!DOCTYPE html>
@@ -24,7 +43,7 @@ SI-CA1a - juin 2019 - CPNV
 </head>
 <body>
 
-<!-- Overlay de lancement --->
+<!-- Ecran de lancement (splash screen) --->
 <div class="overlaySplash-wrap">
     <div class="overlaySplash2">
         <div class="overlaySplash">
@@ -177,7 +196,7 @@ SI-CA1a - juin 2019 - CPNV
         Texte alternatif pour les navigateurs ne supportant pas Canvas.
     </canvas>
 
-    <!-- Menu des indications ici -->
+    <!-- Menu latéral des indications des joueurs -->
     <div id="menu_indications">
         <div id="menu_indications_titre">SCORES</div>
         <div id="menu_indications_tours"></div>
@@ -185,7 +204,7 @@ SI-CA1a - juin 2019 - CPNV
     </div>
     <!-- Fin menu des indications -->
 
-    <!-- Boutons radios de réponses à la carte question -->
+    <!-- Boutons radios pour répondre aux cartes questions -->
     <div id="carte_question">
         <p id="txt_question"></p>
         <div id="rdb_question">
@@ -209,7 +228,7 @@ SI-CA1a - juin 2019 - CPNV
         <input id="btn-verif" type="button" value="Réponse" onclick="fnVerifReponseQuestion(); return false;">
     </div>
 
-    <!-- Carte chance ici -->
+    <!-- Affichages des cartes chance -->
     <div id="carte_chance">
         <img src="images/chance/close.png" width="20px" align="right" onclick="fnEffaceChance()" alt="Faire disparaitre la carte chance."/>
         <p><strong id="titre_chance"></strong></p>
@@ -222,9 +241,9 @@ SI-CA1a - juin 2019 - CPNV
         <form id="form_cibles">
         </form>
     </div>
-    <!-- Fin Carte chance -->
+    <!-- Fin Cartes chance -->
 
-    <!-- Carte module ici -->
+    <!-- Affichage de l'écran achat d'une carte module -->
     <div id="carte_module">
         <p><strong id="titre_module"></strong></p>
         <br>
