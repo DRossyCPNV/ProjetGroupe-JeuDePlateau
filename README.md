@@ -1,9 +1,10 @@
-# Modulopoly
+# Modulopoly 
 
-## introduction
+## Introduction
 Dans le cadre du CPNV, nous avons comme but de réaliser un projet en groupe, avec une version boîte "physique" du jeu, ainsi qu'une version informatique, dont le code source doit être au besoin modulable.
 
-## Règles du jeu:
+## Règles du jeu pour la version boîte:
+
 ### But du jeu:
 Être le premier joueur à avoir son CFC.
 
