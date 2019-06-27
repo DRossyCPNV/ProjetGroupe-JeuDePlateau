@@ -31,7 +31,7 @@
       "question":"Quel est le dernier canton suisse, créé en 1979 ?",
       "r1":"Tessin",
       "r2":"Obwald",
-      "r3":"Shwytz",
+      "r3":"Schwytz",
       "r4":"Jura",
       "br":"r4"
    },
@@ -39,7 +39,7 @@
       "id":4,
       "question":"Qui a écrit « Le dernier jour d’un condamné ?",
       "r1":"Guy de Maupassant",
-      "r2":"simone de Beauvoir",
+      "r2":"Simone de Beauvoir",
       "r3":"Jean-Paul Sartre",
       "r4":"Victor Hugo",
       "br":"r4"
@@ -119,7 +119,7 @@
    {
       "id":13,
       "question":"Quel est la langue la plus parlée au monde ?",
-      "r1":"Espagnole",
+      "r1":"Espagnol",
       "r2":"Anglais",
       "r3":"Chinois",
       "r4":"Arabe",
@@ -183,7 +183,7 @@
       "id":20,
       "question":"Qui a inventé le velcro ?",
       "r1":"Claude Boucher",
-      "r2":"Geroges de mestral",
+      "r2":"Georges De Mestral",
       "r3":"Clement Ader",
       "r4":" Emile Belot",
       "br":"r2"

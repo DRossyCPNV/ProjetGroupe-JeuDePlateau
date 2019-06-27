@@ -187,3 +187,27 @@ function fnPivotePlateau(x, y, angle) {
 
 }
 
+// fonctions pour afficher/masquer l'overlay des règles du jeu
+function overlayReglesOn() {
+    document.getElementById("overlayRegles").style.display = "block";
+    document.getElementById("overlayReglesText").style.display = "block";
+}
+
+function overlayReglesOff() {
+    document.getElementById("overlayRegles").style.display = "none";
+    document.getElementById("overlayReglesText").style.display = "none";
+}
+
+// fonctions pour afficher/masquer l'overlay de victoire
+function overlayVictoireOn() {
+    document.getElementById("overlayVictoire").style.display = "block";
+    document.getElementById("overlayVictoireText").style.display = "block";
+    document.getElementById("img_diploma").style.display = "block";
+}
+
+function overlayVictoireOff() {
+    document.getElementById("overlayVictoire").style.display = "none";
+    document.getElementById("overlayVictoireText").style.display = "none";
+    document.getElementById("img_diploma").style.display = "none";
+    location.reload();
+}

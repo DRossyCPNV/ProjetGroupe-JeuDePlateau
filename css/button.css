@@ -37,6 +37,11 @@
     transition: transform .3s;
 }
 
+#vitesseAnims{
+    position: relative;
+    left: 1%;
+}
+
 #vitesseAnimSlider {
     position: relative;
     left: 1%;
@@ -70,3 +75,5 @@
     background: midnightblue;
     cursor: pointer;
 }
+
+

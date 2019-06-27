@@ -192,13 +192,13 @@ function  fnPasserCFC(joueurId) {
     fnLancerDe();
     sleep(2000).then(() => {
         if(resultatDe >= 4){
-            console.log("Gagné !!!");
-            // window.location = "victoire.html";
+            console.log("C'est gagné !!!");
             clearInterval(creerDiv);
-            $("body").load("victoire.html");
+            overlayVictoireOn()
         }
         else{
-            console.log("T'as raté ton CFC pas de bol!");
+            alert("CFC raté, pas de bol !");
+            console.log("CFC raté, pas de bol!");
             joueurs[joueurId].deplacerPion(-joueurs[joueurId].caseActuelle);
             joueurs[joueurId].argent -= 1000;
             //passer au joueur suivant
