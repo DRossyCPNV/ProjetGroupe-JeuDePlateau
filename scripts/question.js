@@ -87,8 +87,8 @@ function fnVerifReponseQuestion() {
     if (breponse === jreponse.val()) {
         alert("Bravo ! Vous avez trouvé la bonne réponse");
 
-        joueurs[joueurActuel].argent += ptsbr;
-        console.log(joueurs[joueurActuel].argent);
+        joueurs[jActuel-1].argent += ptsbr;
+        console.log(joueurs[jActuel].argent);
 
         $('#carte_question').css('display','none');
         jreponse.prop("checked", false);
