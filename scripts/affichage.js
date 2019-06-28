@@ -65,7 +65,7 @@ function fnLancerDe() {
 
 function fnAfficheFaceDe() {
     //Cette fonction va afficher une des 6 faces du dé, selon les nombres du tableau choisis au hasard
-    var randomNumber = tabNombres[nbFacesAffichees];
+    randomNumber = tabNombres[nbFacesAffichees];
     var faceDe = Math.floor(randomNumber / 10); //génère un nombre aléatoire entre 0 et 5
 
     // Cette fonction va afficher une image sur le canvas.
