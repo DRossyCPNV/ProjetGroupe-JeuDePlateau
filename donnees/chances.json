@@ -47,7 +47,7 @@
   {
     "id": 5,
     "titre": "Mauvaise ambiance",
-    "texte": "Lors d'un travail de groupe, vous vous retrouvez dans le même groupe qu'une personne que vous n'appréciez pas. Vous même et le joueur de votre choix perdez 250 ressources",
+    "texte": "Lors d'un travail de groupe, vous vous retrouvez dans le même groupe qu'une personne que vous n'appréciez pas. Vous-même et le joueur de votre choix perdez 250 ressources",
     "indication": "Effet immédiat",
     "effet": "POINTS",
     "valeur_1": -250,

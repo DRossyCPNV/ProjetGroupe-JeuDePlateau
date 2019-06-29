@@ -110,6 +110,7 @@ function fnExecuteChance(){
                     // Si l'on reçoit de l'argent
                     if(achance[nbaleat].valeur_2 === 0){
                         if(joueurs[jActuel].protection === 1 && achance[nbaleat].valeur_1 < 0){
+
                             joueurs[jActuel].protection = 0;
                         }
                         else {
@@ -120,7 +121,7 @@ function fnExecuteChance(){
                                 joueurs[jActuel].argent += achance[nbaleat].valeur_1;
                             }
                         }
-                        console.log("recevoire de l'argent");
+                        console.log("Recevoir de l'argent");
                         console.log("Argent du " +joueurs[jActuel].nom +" "+joueurs[jActuel].argent);
                     }
                     else{
@@ -145,7 +146,7 @@ function fnExecuteChance(){
                         nomJoueurs += "<br><br><input type=\"button\" value=\"Sélectionner\" onclick=\"fnEffaceChoix();\">";
 
                         $('#form_cibles').html(nomJoueurs);
-                        console.log("recevoire et donner de l'argent");
+                        console.log("Recevoir et donner de l'argent");
                         console.log("Argent du " +joueurs[jActuel].nom +" "+joueurs[jActuel].argent);
                     }
                     break;

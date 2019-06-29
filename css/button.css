@@ -17,7 +17,7 @@
     line-height: 30px;
     text-align: center;
     color: #fff;
-    font-family: "Avenir LT Std 45 Book", serif;
+    font-family: "Avenir LT Std 45 Book";
     text-transform: uppercase;
 }
 
@@ -48,7 +48,7 @@
     font-size: 85%;
     color: black;
     -webkit-appearance: none;
-    width: 8%;
+    width: 10%;
     height: 12px;
     border-radius: 5px;
     background: #d3d3d3;
@@ -61,7 +61,7 @@
 #vitesseAnimSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 12px;
+    width: 14px;
     height: 12px;
     border-radius: 50%;
     background: midnightblue;
@@ -69,7 +69,7 @@
 }
 
 #vitesseAnimSlider::-moz-range-thumb {
-    width: 12px;
+    width: 14px;
     height: 12px;
     border-radius: 50%;
     background: midnightblue;

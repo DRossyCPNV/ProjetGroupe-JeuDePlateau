@@ -30,6 +30,9 @@
     border: 5px solid #41A46B;
     border-radius: 15px;
     background-color: #73C69C;
+    border-radius: 15px;
+    /* Décommenter pour avoir des div remplies en vert fluo dans le menu d'indication
+    background-color: #73C69C; */
     font-family: 'Baloo Bhai', cursive;
     font-size: 1em;
     color: white;

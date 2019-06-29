@@ -178,6 +178,7 @@ function actionCase(jActuel) {
             break;
     }
 
+    jActuel++;
 }
 
 function sleep(ms) {
