@@ -2,7 +2,6 @@
       Modulopoly - fichier principal du jeu.
 ********************************************************************
 // - lancement de la fonction principale du jeu, dans gameloop.js,
-// - écran de lancement
 // - menu qui permet de configurer la partie
 // - menu qui permet de choisir le nombre de joueurs, le nom de chaque joueur ainsi que leur section
 // - bouton Start qui lance le menu de configuration de la partie
@@ -42,20 +41,6 @@ SI-CA1a - juin 2019 - CPNV
 
 </head>
 <body>
-
-<!-- Ecran de lancement (splash screen) --->
-<div class="overlaySplash-wrap">
-    <div class="overlaySplash2">
-        <div class="overlaySplash">
-            <div class="overlaySplash-inner">
-                <div class="logo">
-                    <img src=images/logo-Modulopoly.png alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 
 <!-- Menu qui permet de configurer la partie-->
@@ -157,7 +142,7 @@ SI-CA1a - juin 2019 - CPNV
                     </table>
                 </div>
                 <button id="btnPlay" class="flat-button" name="play" value="play" onclick="afficherMenuIndications();">
-                    jouer
+                    Jouer
                 </button>
             </div>
         </div>
@@ -175,7 +160,7 @@ SI-CA1a - juin 2019 - CPNV
             </header>
             <div id="text">
                 <span id="title" class="titles">Modulopoly</span>
-                <span id="under-title" class="titles">CPNV - 2019</span>
+                <span id="under-title" class="titles">CPNV - SI-CA1a - juin 2019</span>
                 <br>
                 <br>
                 <div id="btn-start" class='flat-button'>Start</div>
@@ -300,7 +285,7 @@ SI-CA1a - juin 2019 - CPNV
 <!-- Ecran de victoire -->
 <div id="overlayVictoire" onclick="overlayVictoireOff()">
     <div id="overlayVictoireText">Bravo, vous avez obtenu votre CFC !</div>
-    <img id="img_diploma" src="images/paper-scroll-diploma.png" alt="Diplôme obtenu">
+    <img id="img_diplome" src="images/diplome.png" alt="Diplôme obtenu">
 </div>
 
 
