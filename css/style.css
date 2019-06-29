@@ -7,9 +7,12 @@ body {
 }
 
 #vitesseAnims {
-    display: flex;
     color:whitesmoke;
     font-size: 1em;
+}
+
+#game {
+    display:none;
 }
 
 #carte_question {

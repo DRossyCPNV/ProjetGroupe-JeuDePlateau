@@ -1,5 +1,6 @@
 <!-- ***************************************************************
       Modulopoly - fichier principal du jeu.
+      Version release - juin 2019
 ********************************************************************
 // - lancement de la fonction principale du jeu, dans gameloop.js,
 // - menu qui permet de configurer la partie
@@ -160,7 +161,7 @@ SI-CA1a - juin 2019 - CPNV
             </header>
             <div id="text">
                 <span id="title" class="titles">Modulopoly</span>
-                <span id="under-title" class="titles">CPNV - SI-CA1a - juin 2019</span>
+                <span id="under-title" class="titles">Un projet mandaté par M. Chavey - classe SI-CA1a - juin 2019</span>
                 <br>
                 <br>
                 <div id="btn-start" class='flat-button'>Start</div>
@@ -179,7 +180,7 @@ SI-CA1a - juin 2019 - CPNV
         <input type="range" min="1" max="40" value="20" class="slider" id="vitesseAnimSlider">
     </span>
     <br>
-    <canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid gray; background-color:midnightblue">
+    <canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid #330968; background-color:#38196A">
         Texte alternatif pour les navigateurs ne supportant pas Canvas.
     </canvas>
 
@@ -191,24 +192,24 @@ SI-CA1a - juin 2019 - CPNV
     </div>
     <!-- Fin menu des indications -->
 
-    <!-- Boutons radios pour répondre aux cartes questions -->
+    <!-- Affichage des cartes questions avec boutons radios pour répondre -->
     <div id="carte_question">
         <p id="txt_question"></p>
         <div id="rdb_question">
-            <input type="radio" name="reponse" value="r1">
-            <label id="r1" for="r1"></label>
+            <input type="radio" name="reponse" value="r1" ondblclick="fnVerifReponseQuestion();">
+            <label id="r1" for="r1" ondblclick="fnVerifReponseQuestion();"></label>
             <br>
 
-            <input type="radio" name="reponse" value="r2">
-            <label id="r2" for="r2"></label>
+            <input type="radio" name="reponse" value="r2" ondblclick="fnVerifReponseQuestion();">
+            <label id="r2" for="r2" ondblclick="fnVerifReponseQuestion();"></label>
             <br>
 
-            <input type="radio" name="reponse" value="r3">
-            <label id="r3" for="r3"></label>
+            <input type="radio" name="reponse" value="r3" ondblclick="fnVerifReponseQuestion();">
+            <label id="r3" for="r3" ondblclick="fnVerifReponseQuestion();"></label>
             <br>
 
-            <input type="radio" name="reponse" value="r4">
-            <label id="r4" for="r4"></label>
+            <input type="radio" name="reponse" value="r4" ondblclick="fnVerifReponseQuestion();">
+            <label id="r4" for="r4" ondblclick="fnVerifReponseQuestion();"></label>
             <br>
         </div>
         <br>
@@ -216,8 +217,8 @@ SI-CA1a - juin 2019 - CPNV
     </div>
 
     <!-- Affichages des cartes chance -->
-    <div id="carte_chance">
-        <img src="images/chance/close.png" width="20px" align="right" onclick="fnEffaceChance()" alt="Faire disparaitre la carte chance."/>
+    <div id="carte_chance" onclick="fnEffaceChance();">
+        <img src="images/chance/close.png" width="20" align="right" onclick="fnEffaceChance()" alt="Faire disparaitre la carte chance."/>
         <p><strong id="titre_chance"></strong></p>
         <br>
         <p id="txt_chance"></p>
@@ -230,8 +231,8 @@ SI-CA1a - juin 2019 - CPNV
     </div>
     <!-- Fin Cartes chance -->
 
-    <!-- Affichage de l'écran achat d'une carte module -->
-    <div id="carte_module">
+    <!-- Affichage de l'écran d'achat d'une carte module -->
+    <div id="carte_module" ondblclick="fnEffacerModule();">
         <p><strong id="titre_module"></strong></p>
         <br>
         <p id="txt_module"></p>
@@ -241,7 +242,7 @@ SI-CA1a - juin 2019 - CPNV
             <input id="passerModule" type="button" value="Non merci" onclick="fnEffacerModule();">
         </div>
     </div>
-    <!-- Fin Carte module -->
+    <!-- Fin carte module -->
 </div>
 
 
@@ -279,7 +280,7 @@ SI-CA1a - juin 2019 - CPNV
         <br>
         <p>Le premier joueur à obtenir son CFC gagne la partie.</p>
         <br>
-        <p style="color:forestgreen">Cliquez pour fermer.</p>
+        <p style="color:CadetBlue">Cliquez pour fermer.</p>
     </div>
 </div>
 
@@ -287,7 +288,7 @@ SI-CA1a - juin 2019 - CPNV
 <!-- Ecran de victoire -->
 <div id="overlayVictoire" onclick="overlayVictoireOff()">
     <div id="overlayVictoireText">Bravo, vous avez obtenu votre CFC !</div>
-    <img id="img_diplome" src="images/diplome.png" alt="Diplôme obtenu">
+    <img id="img_diploma" src="images/diplome.png" alt="Diplôme obtenu">
 </div>
 
 

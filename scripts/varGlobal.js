@@ -34,7 +34,7 @@ img_de.src = "images/six-faces-de.png";
 var c = document.getElementById("plateau_jeu");
 var ctx = c.getContext("2d");
 
-// Paramètres de dessin
+// Paramètres de dessin, affichage et liste des joueurs
 var echelle = 1.3; //pour pouvoir zoomer
 var angle = 0;// pour pouvoir tourner
 const ncartes = 5;//nombre de carte par coté (sans compter les coins)

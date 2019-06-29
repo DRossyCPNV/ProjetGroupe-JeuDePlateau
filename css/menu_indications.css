@@ -1,10 +1,12 @@
 #menu_indications{
-    float:right;
+    float: right;
     display: flex;
-    flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    position: absolute;
+    left: 1220px;
+    top: 40px;
     width: 450px;
     box-sizing: border-box;
     border: 5px solid #330968;
@@ -30,7 +32,8 @@
     box-sizing: border-box;
     border: 5px solid #41A46B;
     border-radius: 15px;
-    /*background-color: #73C69C;*/
+    /* Décommenter pour avoir des div remplies en vert fluo dans le menu d'indication
+    background-color: #73C69C; */
     font-family: 'Baloo Bhai', cursive;
     font-size: 1em;
     color: white;
@@ -43,7 +46,6 @@
     justify-content: space-around;
     box-sizing: border-box;
 }
-
 
 .menu_indications_joueur_nom{
     width: 50%;
@@ -89,7 +91,6 @@
     margin-top: 5px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 /* CSS bouton lancer dé */

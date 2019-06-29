@@ -42,7 +42,7 @@ function creerDivJoueurs(nbJoueurs) {
     var boutonAffiche = "";
 
     //Afficher le nombre de joueurs dans le menu des indications
-    document.getElementById('menu_indications_tours').innerHTML = 'Nombres de joueurs : ' + nbJoueurs;
+    document.getElementById('menu_indications_tours').innerHTML = 'Nombre de joueurs : ' + nbJoueurs;
 
     //Créer les divs en fonction du nombre de joueurs
     var divJoueurs = '';
@@ -63,7 +63,7 @@ function creerDivJoueurs(nbJoueurs) {
                                    break;
         }
         
-        //Affiche le bouton lancer le dé dans la div du joueur actuel
+        //Affiche les boutons dans la div du joueur actuel
         if (i === jActuel){
             boutonAffiche =   '<div class="menu_indications_joueur_boutons">' + '\n'
                             + '<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourSuivant()">' + '\n';
@@ -84,7 +84,15 @@ function creerDivJoueurs(nbJoueurs) {
 
         //Affiche le pion duquel c'est le tour
         if (i === jActuel){
-            pionAffiche = '<img class="menu_indications_joueur_pion" src="images/pions/' + couleursPions[jActuel] + '.png" alt="rappel du pion du joueur actuel">' + '\n';
+
+            if (joueurs[jActuel].protection === 1) {
+                pionAffiche = '<img class="menu_indications_joueur_pion" src="images/pions/' + couleursPions[jActuel] + '_protection' + '.png" alt="rappel du pion du joueur actuel, avec protection">' + '\n';
+            }
+            else
+            {
+                pionAffiche = '<img class="menu_indications_joueur_pion" src="images/pions/' + couleursPions[jActuel] + '.png" alt="rappel du pion du joueur actuel">' + '\n';
+            }
+
         } else {
             pionAffiche = '\n';
         }
@@ -109,17 +117,18 @@ function creerDivJoueurs(nbJoueurs) {
 
                                 // Div contenant le nom du joueur
                                 + '<div class="menu_indications_joueur_nom">' + '\n'
-                                    + document.getElementById('nomJ' + i).value
+                                + document.getElementById('nomJ' + i).value
                                 + '</div>' + '\n'
 
                                 //Div affichant (ou pas) le pion du joueur actuel si c'est son tour de jouer
+                                // ainsi que la protection si elle a été activée
                                 + '<div class="menu_indications_joueur_pion">' + '\n'
                                 + pionAffiche + '\n'
                                 + '</div>' + '\n'
 
                                 // Div contenant la section du joueur
                                 + '<div class="menu_indications_joueur_section ' + couleur_section + '">' + '\n'
-                                    + document.getElementById('sectionJ' + i).value
+                                + document.getElementById('sectionJ' + i).value
                                 + '</div>' + '\n'
                             + '</div>' + '\n'
 
@@ -127,7 +136,7 @@ function creerDivJoueurs(nbJoueurs) {
                             + '<div class="menu_indications_joueur_modules">' + '\n'
                             + 'Modules' + '\n'
                                 + '<div class="menu_indications_joueur_modules_affiches">' + '\n'
-                                    + modulesAffiches
+                                + modulesAffiches
                                 + '</div>' + '\n'
                             + '</div>' + '\n'
 
@@ -137,11 +146,9 @@ function creerDivJoueurs(nbJoueurs) {
                             + '</div>' + '\n'
 
                             //Affichage du bouton pour lancer le dé et du bouton passer le CFC
-                            //si c'est son tour de jouer et que les conditions sont remplies
-                            + '<div class="menu_indications_joueur_boutons">' + '\n'
-                                + boutonAffiche + '\n'
-                            + '</div>' + '\n'
-                        + '</div>' + '\n'
+                            //si c'est son tour de jouer et que les conditions sont remp
+                            + boutonAffiche
+                        + '</div>' + '\n';
     }
 
     //Injection des divs joueurs dans le code HTML

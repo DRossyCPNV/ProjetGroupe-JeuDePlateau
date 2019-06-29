@@ -77,12 +77,12 @@ function fnAfficheQuestion() {
 }
 
 function fnVerifReponseQuestion() {
-    //On affiche le slider, le plateau de jeu et le menu latéral
+    //On affiche le plateau de jeu, le menu latéral et le slider
     $('#carte_question').css('display', 'none');
+    $('#plateau_jeu').css('display','inline');
+    $('#menu_indications').css('display', 'block');
     $('#vitesseAnims').css('display', 'block');
     $('#vitesseAnimSlider').css('display', 'block');
-    $('#plateau_jeu').css('display','block');
-    $('#menu_indications').css('display', 'flex');
     $('body').css('background-color','purple');
 
     //On enregistre la réponse du joueur
@@ -95,12 +95,14 @@ function fnVerifReponseQuestion() {
         joueurs[jActuel].argent += ptsbr;
         console.log(joueurs[jActuel].argent);
 
+        $('#carte_question').css('display','none');
         jreponse.prop("checked", false);
         joueurSuivant();
         return true;
     }
     else {
         alert("Mauvaise réponse ! La bonne réponse était : " + txtbreponse);
+        $('#carte_question').css('display','none');
         jreponse.prop("checked", false);
         joueurSuivant();
         return false;

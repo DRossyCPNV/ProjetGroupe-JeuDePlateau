@@ -27,7 +27,7 @@ function fnAcheterModule(idAcheteur, idCase) {
     caseAchetee = idCase;
 
     //Si le joueur ne possède pas le module
-    if(joueurs[idAcheteur].modulesObtenus[getIndexOf(amodules, acartes[idCase].texte)] == 0){
+    if(joueurs[idAcheteur].modulesObtenus[getIndexOf(amodules, acartes[idCase].texte)] === 0){
         //On vérifie s'il a assez de ressources pour l'acheter
         if(joueurs[idAcheteur].argent >= acartes[idCase].prix){
             //On affiche la div pour l'achat du module
@@ -51,16 +51,6 @@ function fnAfficheAchatModule(idAcheteur, idCase) {
 
 }
 
-function fnEffacerModule(){
-    //On affiche le slider, le plateau de jeu et le menu latéral
-    $('#carte_module').css('display', 'none');
-    $('#vitesseAnims').css('display', 'block');
-    $('#vitesseAnimSlider').css('display', 'block');
-    $('#plateau_jeu').css('display','block');
-    $('#menu_indications').css('display', 'flex');
-    $('body').css('background-color','purple');
-}
-
 function fnClickAcheterModule(idAcheteur, idCase) {
 
     console.log("idAcheteur" + idAcheteur);
@@ -71,6 +61,16 @@ function fnClickAcheterModule(idAcheteur, idCase) {
     acheteur.argent -= acartes[idCase].prix;
     acheteur.modulesObtenus[getIndexOf(amodules, acartes[idCase].texte)] = 1;
     fnEffacerModule();
+}
+
+function fnEffacerModule(){
+    //On affiche le plateau de jeu, le menu latéral et le slider
+    $('#carte_module').css('display', 'none');
+    $('#plateau_jeu').css('display','inline');
+    $('#menu_indications').css('display', 'block');
+    $('#vitesseAnims').css('display', 'block');
+    $('#vitesseAnimSlider').css('display', 'block');
+    $('body').css('background-color','purple');
 }
 
 //Code from Crayon Violent @ https://stackoverflow.com/questions/8313350/javascript-indexof-on-an-array-of-objects
