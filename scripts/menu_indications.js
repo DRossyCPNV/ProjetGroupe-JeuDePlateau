@@ -99,10 +99,6 @@ function creerDivJoueurs(nbJoueurs) {
             }
         }
 
-        //Affiche le pion du joueur actuel
-        var pionsAffiche = "";
-        pionsAffiche += '<img src="images/pions/' + couleursPions[jActuel] + '.png" style="margin: 2px;" width="20" height="30" alt="rappel du pion de chaque joueur">' + '\n';
-
 
         // Construction des Div des joueurs
         divJoueurs +=   //Div du joueur
@@ -114,6 +110,11 @@ function creerDivJoueurs(nbJoueurs) {
                                 // Div contenant le nom du joueur
                                 + '<div class="menu_indications_joueur_nom">' + '\n'
                                     + document.getElementById('nomJ' + i).value
+                                + '</div>' + '\n'
+
+                                //Div affichant (ou pas) le pion du joueur actuel si c'est son tour de jouer
+                                + '<div class="menu_indications_joueur_pion">' + '\n'
+                                + pionAffiche + '\n'
                                 + '</div>' + '\n'
 
                                 // Div contenant la section du joueur
@@ -132,12 +133,7 @@ function creerDivJoueurs(nbJoueurs) {
 
                             //Div affichant les points de savoir du joueur
                             + '<div class="menu_indications_joueur_points">' + '\n'
-                                 + 'Points de savoir : ' + joueurs[i].argent
-                            + '</div>' + '\n'
-
-                            //Div affichant (ou pas) le pion du joueur actuel si c'est son tour de jouer
-                            + '<div class="menu_indications_joueur_pion">' + '\n'
-                                + pionAffiche + '\n'
+                            + 'Points de savoir : ' + joueurs[i].argent
                             + '</div>' + '\n'
 
                             //Affichage du bouton pour lancer le dé et du bouton passer le CFC

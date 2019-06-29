@@ -7,6 +7,7 @@ body {
 }
 
 #vitesseAnims {
+    display: flex;
     color:whitesmoke;
     font-size: 1em;
 }

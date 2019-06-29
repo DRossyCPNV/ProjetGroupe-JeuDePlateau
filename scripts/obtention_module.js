@@ -49,23 +49,15 @@ function fnAfficheAchatModule(idAcheteur, idCase) {
     $('#titre_module').html("Achat d'un module " + acartes[idCase].titre);
     $('#txt_module').html("Voulez-vous acheter le module " + acartes[idCase].texte + " pour " + acartes[idCase].prix + " ?");
 
-    /*
-    $("#acheterModule").on("click", function () {
-        fnClickAcheterModule(idAcheteur, idCase);
-    })
-
-    $("#passerModule").on("click", function () {
-        fnEffacerModule();
-    })*/
 }
 
 function fnEffacerModule(){
-    //On affiche le plateau de jeu, le menu latéral et le slider
+    //On affiche le slider, le plateau de jeu et le menu latéral
     $('#carte_module').css('display', 'none');
-    $('#plateau_jeu').css('display','block');
-    $('#menu_indications').css('display', 'block');
     $('#vitesseAnims').css('display', 'block');
     $('#vitesseAnimSlider').css('display', 'block');
+    $('#plateau_jeu').css('display','block');
+    $('#menu_indications').css('display', 'flex');
     $('body').css('background-color','purple');
 }
 

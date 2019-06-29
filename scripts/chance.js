@@ -73,12 +73,12 @@ function fnAfficheChance() {
 }
 
 function fnEffaceChance(){
-    // Effacer la carte et réafficher le plateau de jeu, le menu latéral et le slider
+    // Effacer la carte et réafficher le slider, le plateau de jeu et le menu latéral
     $('#carte_chance').css('display', 'none');
-    $('#plateau_jeu').css('display','block');
-    $('#menu_indications').css('display', 'block');
     $('#vitesseAnims').css('display', 'block');
     $('#vitesseAnimSlider').css('display', 'block');
+    $('#plateau_jeu').css('display','block');
+    $('#menu_indications').css('display', 'flex');
     $('body').css('background-color','purple');
     fnExecuteChance();
 }
