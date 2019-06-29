@@ -89,10 +89,6 @@ function creerDivJoueurs(nbJoueurs) {
             }
         }
 
-        //Affiche le pion de chaque joueur
-        var pionsAffiches = "";
-        pionsAffiches += '<img src="images/pions/' + couleursPions[i] + '.png" style="margin: 2px;" width="20" height="30" alt="rappel du pion de chaque joueur">' + '\n';
-
 
         // Construction des Div des joueurs
         divJoueurs +=   //Div du joueur
@@ -120,11 +116,18 @@ function creerDivJoueurs(nbJoueurs) {
                                 + '</div>' + '\n'
                             + '</div>' + '\n'
 
-                            //Div affichant les points de savoir du joueur et son pion
-                            + '<div class="menu_indications_joueur_pointsSavoir">'
-                            + 'Points de savoir : ' + joueurs[i].argent
-                            + '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' + pionsAffiches
-                            + '</div>' + '\n'
+                            //Div contenant les points et le pion du joueur
+                            + '<div class="menu_indications_joueur_statut">' + '\n'
+
+                                //Div affichant les points de savoir du joueur
+                                + '<div class="menu_indications_joueur_points">' + '\n'
+                                + 'Points de savoir : ' + joueurs[i].argent
+                                + '</div>' + '\n'
+
+                                //Div affichant le pion du joueur
+                                + '<div class="menu_indications_joueur_pion">' + '\n'
+                                + pionsAffiches
+                                + '</div>' + '\n'
 
                             //Div affichant (ou pas) le bouton pour lancer le dé
                             + boutonAffiche
