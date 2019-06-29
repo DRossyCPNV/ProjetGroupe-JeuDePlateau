@@ -40,8 +40,8 @@ function creerDivJoueurs(nbJoueurs) {
     creerDiv = setInterval(function(){
 
     var boutonAffiche = "";
-    
-    //Afficher le nombre de joueurs dans le menu des indications
+
+        //Afficher le nombre de joueurs dans le menu des indications
     document.getElementById('menu_indications_tours').innerHTML = 'Nombres de joueurs : ' + nbJoueurs;
 
     //Créer les divs en fonction du nombre de joueurs
@@ -67,7 +67,7 @@ function creerDivJoueurs(nbJoueurs) {
         if (i === jActuel){
             boutonAffiche =   '<div class="menu_indications_joueur_boutons">' + '\n'
                             + '<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourSuivant()">' + '\n';
-                            // + '</div>' + '\n';
+
             if(conditionCFC){
                 boutonAffiche += '<input type="button" value="Passer CFC" class="btn_cfc menu_indications_bouton_lancer" onclick="fnPasserCFC(jActuel)">' +'\n' + '</div>' + '\n';
             }
@@ -79,7 +79,15 @@ function creerDivJoueurs(nbJoueurs) {
             boutonAffiche = "";
         }
 
-        //Affiche les modules détenus par le joueur
+        var pionAffiche = '';
+        //Affiche le pion auquel c'est le tour
+        if (i === jActuel){
+            pionAffiche = '<img id="menu_indications_joueur_pion" src="images/pions/' + couleursPions[jActuel] + '.png" style="margin: 2px; width: 20px;" alt="rappel du pion de chaque joueur">' + '\n';
+        } else {
+            pionAffiche = '\n';
+        }
+
+            //Affiche les modules détenus par le joueur
         var modulesAffiches = "";
 
         //Boucle parcourant tous les modules détenus
@@ -88,7 +96,6 @@ function creerDivJoueurs(nbJoueurs) {
                 modulesAffiches += '<img src="images/modules/' + amodules[j].Nom + '.svg" style="margin: 2px;" alt="modules détenus">' + '\n';
             }
         }
-
 
         // Construction des Div des joueurs
         divJoueurs +=   //Div du joueur
@@ -117,17 +124,18 @@ function creerDivJoueurs(nbJoueurs) {
                             + '</div>' + '\n'
 
                             //Div contenant les points et le pion du joueur
-                            + '<div class="menu_indications_joueur_statut">' + '\n'
+                            + '<div class="menu_indications_joueur_statut">'
 
                                 //Div affichant les points de savoir du joueur
                                 + '<div class="menu_indications_joueur_points">' + '\n'
                                 + 'Points de savoir : ' + joueurs[i].argent
                                 + '</div>' + '\n'
 
-                                //Div affichant le pion du joueur
+                                //Div affichant le pion du joueur, si c'est son tour de jouer, sinon rien.
                                 + '<div class="menu_indications_joueur_pion">' + '\n'
-                                + pionsAffiches
+                                + pionAffiche + '\n'
                                 + '</div>' + '\n'
+                            + '</div>' + '\n'
 
                             //Div affichant (ou pas) le bouton pour lancer le dé
                             + boutonAffiche
