@@ -82,7 +82,7 @@ function creerDivJoueurs(nbJoueurs) {
         var pionAffiche = '';
         //Affiche le pion auquel c'est le tour
         if (i === jActuel){
-            pionAffiche = '<img id="menu_indications_joueur_pion" src="images/pions/' + couleursPions[jActuel] + '.png" style="margin: 2px; width: 20px;" alt="rappel du pion de chaque joueur">' + '\n';
+            pionAffiche = '<img class="menu_indications_pion_joueur_actuel" src="images/pions/' + couleursPions[jActuel] + '.png" alt="rappel du pion de chaque joueur">' + '\n';
         } else {
             pionAffiche = '\n';
         }

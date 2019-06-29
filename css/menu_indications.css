@@ -80,9 +80,16 @@
     display: flex;
 }
 
+.menu_indications_pion_joueur_actuel{
+    display: flex;
+    justify-content: center;         /* centrer horizontalement */
+    align-items: center;            /* centrer verticalement */
+    width: 30%;                     /* taille d'affichage du pion */
+}
+
 .menu_indications_joueur_boutons{
     width: 100%;
-    margin-top: 1px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
 }
