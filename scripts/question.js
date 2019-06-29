@@ -79,7 +79,7 @@ function fnAfficheQuestion() {
 function fnVerifReponseQuestion() {
     //On affiche le plateau de jeu, le menu latéral et le slider
     $('#carte_question').css('display', 'none');
-    $('#plateau_jeu').css('display','block');
+    $('#plateau_jeu').css('display','inline');
     $('#menu_indications').css('display', 'block');
     $('#vitesseAnims').css('display', 'block');
     $('#vitesseAnimSlider').css('display', 'block');
