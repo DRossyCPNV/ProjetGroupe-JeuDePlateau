@@ -66,18 +66,9 @@
     flex-wrap: wrap;
 }
 
-.menu_indications_joueur_statut{
-    width: 100%;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-around;
-    box-sizing: border-box;
-}
-
-.menu_indications_joueur_points{
+.menu_indications_joueur_pointsSavoir{
     width: 100%;
     margin-top: 20px;
-    display: flex;
 }
 
 .menu_indications_joueur_boutons{
