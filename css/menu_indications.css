@@ -4,6 +4,9 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    position: absolute;
+    left: 1220px;
+    top: 40px;
     width: 450px;
     box-sizing: border-box;
     border: 5px solid #330968;
@@ -29,8 +32,6 @@
     box-sizing: border-box;
     border: 5px solid #41A46B;
     border-radius: 15px;
-    background-color: #73C69C;
-    border-radius: 15px;
     /* Décommenter pour avoir des div remplies en vert fluo dans le menu d'indication
     background-color: #73C69C; */
     font-family: 'Baloo Bhai', cursive;
@@ -40,7 +41,7 @@
 
 .menu_indications_joueur_informations{
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-around;
     box-sizing: border-box;
@@ -69,22 +70,25 @@
     flex-wrap: wrap;
 }
 
-.menu_indications_joueur_pointsSavoir{
+.menu_indications_joueur_points{
     width: 100%;
-    margin-top: 20px;
-    display: flex;
+    margin-top: 10px;
 }
 
-.menu_indications_pion_joueur_actuel{
+.menu_indications_joueur_pion{
+    width: 35%;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
-    justify-content: center;         /* centrer horizontalement */
-    align-items: center;            /* centrer verticalement */
-    width: 30%;                     /* taille d'affichage du pion */
+    justify-content: center;
+    align-items: center;
 }
 
 .menu_indications_joueur_boutons{
     width: 100%;
-    margin-top: 20px;
+    margin-top: 5px;
     display: flex;
     justify-content: center;
 }

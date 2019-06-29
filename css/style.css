@@ -1,7 +1,7 @@
 
 body {
     background-color: purple;
-    font-family: "Avenir LT Std 45 Book";
+    font-family: "Avenir LT Std 45 Book", Arial;
     color: white;
     overflow-x: hidden;
 }
