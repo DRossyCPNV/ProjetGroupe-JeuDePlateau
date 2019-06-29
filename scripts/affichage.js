@@ -10,7 +10,7 @@
 //              - animations des pions
 //              - affichage de texte amélioré
 //              - affichage d'une des 6 faces du dé
-//              - réaffichage des pions sur le canvas
+//              - réaffichage les pions sur le canvas
 //                    - pivot du plateau
 //                    - calcule des coordonnées de l'emplacement des pions, en prenant en compte la superposition
 //              - afficher/masquer l'overlay des règles du jeu
@@ -65,7 +65,7 @@ function fnLancerDe() {
 
 function fnAfficheFaceDe() {
     //Cette fonction va afficher une des 6 faces du dé, selon les nombres du tableau choisis au hasard
-    randomNumber = tabNombres[nbFacesAffichees];
+    var randomNumber = tabNombres[nbFacesAffichees];
     var faceDe = Math.floor(randomNumber / 10); //génère un nombre aléatoire entre 0 et 5
 
     // Cette fonction va afficher une image sur le canvas.
@@ -107,7 +107,7 @@ function fnAffichePions() {
                 fnPivotePlateau(decx, decy, anglePion); //On déplace l'origine au centre du plateau et on le pivote
                 pionxy = fnGetCoordonnees(joueurs[i].emplacementCase, jCaseAct, 0, coordCaseDep.X, coordCaseDep.Y, tcoinxy, tcx); //On récupère les coordonnées d'affichage du pion
                 // On dessine le pion sur le canvas
-                // param img (1): la source, ici imgPion défini dans varGlobal.js
+                // param img (1): la source
                 // param x, y (2,3): les coordonnées x et y du coin haut-gauche où dessiner le pion sur le canvas
                 // param width, height (4,5): la largeur et hauteur voulue (agrandit ou réduit le pion)
                 ctx.drawImage(imgPion[i], pionxy[0], pionxy[1], pionw, pionh);
