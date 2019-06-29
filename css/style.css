@@ -12,12 +12,6 @@ body {
     font-size: 1em;
 }
 
-#menu {
-    /*border-style: solid;*/
-}
-#game{
-    display: none;
-}
 #carte_question {
     display: none;
     margin: auto;

@@ -1,11 +1,11 @@
 #menu_indications{
-    float: right;
+    float:right;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 400px;
+    width: 450px;
     box-sizing: border-box;
     border: 5px solid #330968;
     border-radius: 25px;
@@ -24,7 +24,7 @@
 }
 
 .menu_indications_joueur{
-    width: 380px;
+    width: 400px;
     margin: 10px 0px 10px 0px;
     padding: 10px;
     box-sizing: border-box;
