@@ -108,6 +108,33 @@ function creerDivJoueurs(nbJoueurs) {
         }
 
         //Affiche les modules détenus par le joueur
+        var pionAffiche = '';
+        //Affiche le pion auquel c'est le tour
+        if (i === jActuel){
+            pionAffiche = '<img class="menu_indications_pion_joueur_actuel" src="images/pions/' + couleursPions[jActuel] + '.png" alt="rappel du pion de chaque joueur">' + '\n';
+        } else {
+            pionAffiche = '\n';
+        }
+
+            //Affiche les modules détenus par le joueur
+        var pionAffiche = '';
+
+        //Affiche le pion duquel c'est le tour
+        if (i === jActuel){
+
+            if (joueurs[jActuel].protection === 1) {
+                pionAffiche = '<img class="menu_indications_joueur_pion" src="images/pions/' + couleursPions[jActuel] + '_protection' + '.png" alt="rappel du pion du joueur actuel, avec protection">' + '\n';
+            }
+            else
+            {
+                pionAffiche = '<img class="menu_indications_joueur_pion" src="images/pions/' + couleursPions[jActuel] + '.png" alt="rappel du pion du joueur actuel">' + '\n';
+            }
+
+        } else {
+            pionAffiche = '\n';
+        }
+
+        //Affiche les modules détenus par le joueur
         var modulesAffiches = "";
 
         //Boucle parcourant tous les modules détenus
@@ -116,7 +143,6 @@ function creerDivJoueurs(nbJoueurs) {
                 modulesAffiches += '<img src="images/modules/' + amodules[j].Nom + '.svg" style="margin: 2px;" alt="modules détenus">' + '\n';
             }
         }
-
 
         // Construction des Div des joueurs
         divJoueurs +=   //Div du joueur
@@ -128,6 +154,12 @@ function creerDivJoueurs(nbJoueurs) {
                                 // Div contenant le nom du joueur
                                 + '<div class="menu_indications_joueur_nom">' + '\n'
                                 + document.getElementById('nomJ' + i).value
+                                + '</div>' + '\n'
+
+                                //Div affichant (ou pas) le pion du joueur actuel si c'est son tour de jouer
+                                // ainsi que la protection si elle a été activée
+                                + '<div class="menu_indications_joueur_pion">' + '\n'
+                                + pionAffiche + '\n'
                                 + '</div>' + '\n'
 
                                 //Div affichant (ou pas) le pion du joueur actuel si c'est son tour de jouer
@@ -153,6 +185,9 @@ function creerDivJoueurs(nbJoueurs) {
                             //Div affichant les points de savoir du joueur
                             + '<div class="menu_indications_joueur_points">' + '\n'
                             + 'Points de savoir : ' + joueurs[i].argent
+                            //Div affichant les points de savoir du joueur
+                            + '<div class="menu_indications_joueur_points">' + '\n'
+                            + 'Points de savoir : ' + joueurs[i].argent
                             //Div contenant les points et le pion du joueur
                             + '<div class="menu_indications_joueur_statut">'
 
@@ -165,6 +200,7 @@ function creerDivJoueurs(nbJoueurs) {
                                 + '<div class="menu_indications_joueur_pion">' + '\n'
                                 + pionAffiche + '\n'
                                 + '</div>' + '\n'
+                            + '</div>' + '\n'
                             + '</div>' + '\n'
 
                             //Affichage du bouton pour lancer le dé et du bouton passer le CFC

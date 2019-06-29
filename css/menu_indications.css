@@ -72,6 +72,7 @@
 .menu_indications_joueur_pointsSavoir{
     width: 100%;
     margin-top: 20px;
+    display: flex;
 }
 
 .menu_indications_pion_joueur_actuel{
