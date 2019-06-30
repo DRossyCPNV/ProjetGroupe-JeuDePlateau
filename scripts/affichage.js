@@ -24,7 +24,7 @@
 // *****************************************************************************
 
 
-//Elements html
+//Eléments html
 $("#btnPlay").click(function () {
     var nbJoueurs = $("#nbJoueurs").val();
     console.log("Il y a " + nbJoueurs + " Joueurs");

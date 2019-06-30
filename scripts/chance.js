@@ -38,10 +38,11 @@
 // **************************************************************************************
 
 // Paramètres des cartes chance
-var achance = [];
-var nbchance;
-var nbaleat;
+var achance = [];                                   // stocke l'array des cartes
+var nbchance;                                       // stocke le nombre de cartes
+var nbaleat;                                        // stocke la carte qui sera tirée au hasard
 var nbJoueurs =  document.getElementById("nbJoueurs").value;//$("#nbJoueurs").val();
+
 // La carte est masquée au début du jeu
 $('#carte_chance').css('display','none');
 
@@ -93,7 +94,7 @@ function fnExecuteChance(){
             switch(achance[nbaleat].valeur_1){
                 case 0:
                     // Si l'on donne de l'argent à un autre joueur
-                    $('#choix_cible').css('display', 'block');
+                    $('#choix_cible').css('display', 'block');                  // style de la carte défini dans style.css
                     $('#titre_cible').html("Choisissez un joueur cible:");
 
                     for(var i = 0; i < nbJoueurs; i++){
@@ -225,7 +226,7 @@ function fnEffaceChoix() {
     }
     else{   //Applique l'effet à la cible
         for(var i = 0; i < nbJoueurs; i++){
-            if(joueurs[i].id === document.querySelector('input[name="joueur"]:checked').value){
+            if(joueurs[i].id === document.querySelector('input[name="joueur"]:checked'.value)){
                 if(joueurs[i].protection === 1 && achance[nbaleat].valeur_1 < 0){
                     joueurs[i].protection = 0;
                 }

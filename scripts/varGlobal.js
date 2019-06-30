@@ -70,12 +70,10 @@ for (var i = 0; i < nbJoueursMax; i++){
     imgPion[i].src = "images/pions/" + couleursPions[i] + ".png";
 }
 
-// Html
-var vitesseAnimSlider = document.getElementById('vitesseAnimSlider');
-var dureeDeplacementMS;
+// Paramètres du jeu
+const ptsCFC = 1000;                                                                // points requis pour tenter d'obtenir le cfc
+var conditionCFC = false;                                                           // gère l'affichage ou non du bouton "Passer le cfc"
+var creerDiv;                                                                       // stocke le menu d'indication des joueurs
+var vitesseAnimSlider = document.getElementById('vitesseAnimSlider');     // stocke la vitesse d'animation réglée sur le slider
+var dureeDeplacementMS;                                                             // stocke la vitesse d'animation en micro-secondes
 
-// Paramètres des points requis pour tenter d'obtenir le cfc
-const ptsCFC = 1000;
-var conditionCFC = false;
-
-var creerDiv;
