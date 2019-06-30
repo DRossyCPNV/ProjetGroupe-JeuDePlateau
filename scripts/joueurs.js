@@ -11,8 +11,8 @@
 //              -> méthode pour placer le pion sur la case CFC
 //              - fonction qui donne le nombre de joueur se trouvant sur la case passée en paramètre
 //              - fonction qui retourne l'emplacement vide d'une case du plateau
+//              - fonction qui change le joueur actuel
 //              - fonction qui déplace le pion fluidement
-//              - fonction qui déplace le pion fluidement jusqu'à un emplacement vide d'une case
 //
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy

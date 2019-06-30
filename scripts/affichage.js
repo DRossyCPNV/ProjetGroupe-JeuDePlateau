@@ -24,7 +24,7 @@
 // *****************************************************************************
 
 
-//Eléments html
+// Eléments Html
 $("#btnPlay").click(function () {
     var nbJoueurs = $("#nbJoueurs").val();
     console.log("Il y a " + nbJoueurs + " Joueurs");
@@ -37,20 +37,20 @@ $.getJSON('donnees/cases.json', function (data) {
 });
 
 
-//Effacement de tout le canvas
+// Effacement de tout le canvas
 function fnEfface() {
     ctx.clearRect(0, 0, c.width, c.height);
 }
 
 function fnText(t, x, y, c) {
-    //Dessine un texte intelligent, dans une couleur donnée et en tenant compte de l'echelle
+    // Dessine un texte intelligent, dans une couleur donnée et en tenant compte de l'echelle
     ctx.fillStyle = c;
     ctx.fillText(t, echelle * x, echelle * y);
 }
 
 function fnLancerDe() {
-    //Cette fonction va tirer 6 nombres au hasard entre une valeur min (incluse)
-    //et une valeur max (incluse) et les stocker dans un tableau
+    // Tire 6 nombres au hasard entre une valeur min (incluse)
+    // et une valeur max (incluse) et les stocke dans un tableau
     var minRandom = 0;
     var maxRandom = 59;
 
@@ -63,8 +63,9 @@ function fnLancerDe() {
 
 }
 
+// Affiche une des 6 faces du dé, selon les nombres du tableau choisis au hasard
 function fnAfficheFaceDe() {
-    //Cette fonction va afficher une des 6 faces du dé, selon les nombres du tableau choisis au hasard
+
     var randomNumber = tabNombres[nbFacesAffichees];
     var faceDe = Math.floor(randomNumber / 10); //génère un nombre aléatoire entre 0 et 5
 
@@ -89,7 +90,7 @@ function fnAfficheFaceDe() {
 
 }
 
-//Cette fonction réaffiche les pions sur le canvas
+// Réaffiche les pions sur le canvas
 function fnAffichePions() {
 
     for (var i = 0; i < joueurs.length; i++) {
@@ -179,16 +180,16 @@ function fnGetCoordonnees(jEmplacementCase, jCaseActuelle, facteurSoustraction, 
     return coordxy;
 }
 
-//Cette fonction pivote le canvas au coordonnées x;y d'un certain angle
+// Pivote le canvas au coordonnées x;y d'un certain angle
 function fnPivotePlateau(x, y, angle) {
 
-    //On met l'origine au milieu du plateau
+    // On met l'origine au milieu du plateau
     ctx.translate(x, y);
 
-    //On fait une rotation
+    // On fait une rotation
     ctx.rotate(angle);
 
-    //On remet l'origine en haut à gauche
+    // On remet l'origine en haut à gauche
     ctx.translate(-x, -y);
 
 }

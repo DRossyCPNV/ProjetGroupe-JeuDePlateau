@@ -255,7 +255,7 @@ function fnEffaceChoixDeplacement() {
     }
     else{
         for(var i = 0; i < nbJoueurs; i++){
-            if(joueurs[i].id === document.querySelector('input[name="joueur"]:checked').value){
+            if(joueurs[i].id === document.querySelector('input[name="joueur"]:checked'.value)){
                 //Deplacer le pion
 
                 if(achance[nbaleat].valeur_2 === 0){    //Si la destination est GO

@@ -71,8 +71,12 @@ for (var i = 0; i < nbJoueursMax; i++){
 }
 
 // Paramètres du jeu
-const ptsCFC = 1000;                                                                // points requis pour tenter d'obtenir le cfc
-var conditionCFC = false;                                                           // gère l'affichage ou non du bouton "Passer le cfc"
+const ptsCFC = 1000;                                                                // points requis pour tenter d'obtenir le CFC
+var conditionCFC = false;                                                           // détermine si les conditions pour obtenir le CFC sont remplies
+                                                                                    // cela va afficher ou non le bouton "Passer le cfc", selon le code de menu_indications.js
+var jActuel = 0;                                                                    // le joueur dont c'est le tour
+var tourFini = true;                                                                // détermine si le tour du joueur actuel est fini
+                                                                                    // (initialisée à true, pour pouvoir commencer le premier tour)
 var creerDiv;                                                                       // stocke le menu d'indication des joueurs
 var vitesseAnimSlider = document.getElementById('vitesseAnimSlider');     // stocke la vitesse d'animation réglée sur le slider
 var dureeDeplacementMS;                                                             // stocke la vitesse d'animation en micro-secondes

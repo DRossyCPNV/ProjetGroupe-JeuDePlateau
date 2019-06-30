@@ -32,7 +32,7 @@ function afficherMenuIndications(){
     //Récupère le nombre de joueurs
     var nbJoueurs = document.getElementById('nbJoueurs').value;
     
-    //Affiche et actualise les scores toutes les 500 milisecondes
+    //Affiche et actualise les scores toutes les secondes
     creerDivJoueurs(nbJoueurs);
 }
 
@@ -63,10 +63,10 @@ function creerDivJoueurs(nbJoueurs) {
                                    break;
         }
         
-        //Affiche les boutons dans la div du joueur actuel
-        if (i === jActuel){
+        //Affiche les boutons dans la div du joueur actuel, s'il n'a pas encore cliqué dessus.
+        if (i === jActuel && tourFini === true){
             boutonAffiche =   '<div class="menu_indications_joueur_boutons">' + '\n'
-                            + '<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourSuivant()">' + '\n';
+                            + '<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourFini = false; $(this).hide(); tourSuivant();">' + '\n';
 
             //Si les conditions sont remplies, affiche le bouton "Passer le CFC"
             if(conditionCFC){
@@ -77,6 +77,7 @@ function creerDivJoueurs(nbJoueurs) {
             }
         }
         else {
+            // désactive les deux boutons "lancer le dé" et "Passer le CFC"
             boutonAffiche = "";
         }
 
@@ -106,6 +107,8 @@ function creerDivJoueurs(nbJoueurs) {
                 modulesAffiches += '<img src="images/modules/' + amodules[j].Nom + '.svg" style="margin: 2px;" alt="modules détenus">' + '\n';
             }
         }
+
+
 
 
         // Construction des Div des joueurs
