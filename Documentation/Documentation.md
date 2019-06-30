@@ -9,7 +9,7 @@
 
 ----
 ## Impressions
-###Plateau et Boîte
+### Plateau et Boîte
 Les documents d'impressions sont prévus pour du format A3 (le plateau s'imprimant en deux parties)
 
 ### Cartes questions
