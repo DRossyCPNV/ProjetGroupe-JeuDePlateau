@@ -66,7 +66,7 @@ function creerDivJoueurs(nbJoueurs) {
         //Affiche les boutons dans la div du joueur actuel, s'il n'a pas encore cliqué dessus.
         if (i === jActuel && tourFini === true){
             boutonAffiche =   '<div class="menu_indications_joueur_boutons">' + '\n'
-                            + '<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourFini = false; $(this).hide(); tourSuivant();">' + '\n';
+                            + '<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourFini = false; $(this).hide();">' + '\n';
 
             //Si les conditions sont remplies, affiche le bouton "Passer le CFC"
             if(conditionCFC){

@@ -97,14 +97,12 @@ function fnVerifReponseQuestion() {
 
         $('#carte_question').css('display','none');
         jreponse.prop("checked", false);
-        joueurSuivant();
         return true;
     }
     else {
         alert("Mauvaise réponse ! La bonne réponse était : " + txtbreponse);
         $('#carte_question').css('display','none');
         jreponse.prop("checked", false);
-        joueurSuivant();
         return false;
     }
 

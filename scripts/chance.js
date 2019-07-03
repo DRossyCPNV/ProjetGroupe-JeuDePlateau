@@ -53,8 +53,8 @@ $.getJSON('donnees/chances.json', function(data) {
 
 });
 
-function fnAfficheChance(IDjoueur) {
-    console.log("Joueur ID "+IDjoueur);
+function fnAfficheChance() {
+    console.log("Joueur ID :"+jActuel);
     // Affichage de la div et masquage du plateau, du menu latéral et du slider
     $('body').css('background-color','rgba(0,0,0,.9)');
     $('#plateau_jeu').css('display','none');

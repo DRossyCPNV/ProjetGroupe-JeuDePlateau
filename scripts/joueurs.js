@@ -150,7 +150,7 @@ function joueurSuivant() {
 }
 
 // Cette fonction déplace le pion petit à petit jusqu'à la case d'arrivée
-function fnDeplacerPionFluidement(caseDepart, caseArrive, vitesse, idJoueur, temps) {
+function fnDeplacerPionFluidement(caseDepart, caseArrive, vitesse, jActuel, temps) {
     vitesse /= 5;
 
     var mouvement = caseDepart;
@@ -162,7 +162,7 @@ function fnDeplacerPionFluidement(caseDepart, caseArrive, vitesse, idJoueur, tem
             clearInterval(interval);
         }else{
             mouvement += vitesse;
-            joueurs[idJoueur].positionActuelle = mouvement;
+            joueurs[jActuel].positionActuelle = mouvement;
         }
     }, temps);
 

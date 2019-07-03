@@ -69,11 +69,12 @@ function tourSuivant(){
         fnLancerDe();
 
         // attendre que le dé aie fini de tourner
-        sleep(1000).then(() => {
+        sleep(3500).then(() => {
             tourJoueur();})
     }
     else{
         joueurs[jActuel].passeTour = 0;
+        joueurSuivant();
     }
 }
 
@@ -112,21 +113,13 @@ function tourJoueur() {
         conditionCFC = false;
     }
 
-    // Appelle la fonction de joueur.js qui déplace le pion, en lui passant en paramètre le résultat du dé
-    joueurs[jActuel].deplacerPion(resultatDe);
-    console.log("je me déplace de: " + resultatDe);
+    // Appelle la fonction de joueur.js qui déplace le pion, en lui passant en paramètre le résultat du dé,
+    // puis vérifie que le joueur a effectué toutes les actions liées à la case
+    sleep( joueurs[jActuel].deplacerPion(resultatDe)).then(() => {
+        actionCase();
+    });
 
-    // Vérification du temps que prend le déplacement
-    console.log("le déplacement prend " + dureeDeplacementMS + "ms");
-
-    // Vérifie que le joueur a effectué toutes les actions liées à la case, puis passe au tour suivant
-    actionCase(joueurs[jActuel]);
-
-    if (tourFini) {                     // variable globale qui prend false lorsqu'on appelle tourSuivant() (début du tour)
-                                        // elle passe à true à la fin de actionCase() (fin du tour)
-        console.log("Tour suivant");
-        joueurSuivant();                // fonction définie dans joueur.js
-    }
+    console.log("je me suis déplacé de: " + resultatDe + " cases en " + dureeDeplacementMS + "ms");
 }
 
 // Fonction qui vérifie les actions que le joueur doit effectuer
@@ -137,9 +130,9 @@ function tourJoueur() {
 //  -> si la case est une case chance : appel de la fonction fnAfficheChance
 //  -> si la case est la case CFC : on ne fait rien (code de cette case écrit dans la fonction fnPasserCFC)
 // Puis on termine le tour de jeu.
-function actionCase(jActuel) {
+function actionCase() {
 
-    var caseToCheck = jActuel.caseActuelle;
+    var caseToCheck = joueurs[jActuel].caseActuelle;
     var typeDeCase = acartes[caseToCheck].type;
 
     switch (true) {
@@ -149,7 +142,7 @@ function actionCase(jActuel) {
                 console.log(typeDeCase);
 
                 //demande si le joueur veut acheter la case
-                fnAcheterModule(jActuel.id, caseToCheck);
+                fnAcheterModule(caseToCheck);
             });
 
             break;
@@ -158,10 +151,10 @@ function actionCase(jActuel) {
 
             sleep(dureeDeplacementMS + 1000).then(() => {
                 console.log(typeDeCase);
-                console.log(jActuel.id);
+                console.log(joueurs[jActuel]);
 
                 //poser une question
-                fnAfficheQuestion(jActuel.id);
+                fnAfficheQuestion();
 
             });
 
@@ -170,7 +163,7 @@ function actionCase(jActuel) {
             console.log(typeDeCase);
             sleep(dureeDeplacementMS + 1000).then(() => {
 
-                fnAfficheChance(jActuel.id);
+                fnAfficheChance();
             });
 
             break;
@@ -180,6 +173,9 @@ function actionCase(jActuel) {
     }
 
     tourFini = true;                     // variable globale
+    console.log("Tour suivant");
+    joueurSuivant();                    // fonction définie dans joueur.js
+
 }
 
 function sleep(ms) {
@@ -204,7 +200,8 @@ function  fnPasserCFC(jActuel) {
             joueurs[jActuel].deplacerPion(-joueurs[jActuel].caseActuelle);
             joueurs[jActuel].argent -= 1000;
             //passer au joueur suivant
-            jActuel++;
+            console.log("Tour suivant");
+            joueurSuivant();
         }
     });
 

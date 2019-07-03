@@ -19,17 +19,15 @@
 
 //La carte est masquée au début du jeu
 $('#carte_module').css('display','none');
-var joueurAchetant;
 var caseAchetee;
 
-function fnAcheterModule(idAcheteur, idCase) {
-    joueurAchetant = idAcheteur;
+function fnAcheterModule(idCase) {
     caseAchetee = idCase;
 
     //Si le joueur ne possède pas le module
-    if(joueurs[idAcheteur].modulesObtenus[getIndexOf(amodules, acartes[idCase].texte)] === 0){
+    if(joueurs[jActuel].modulesObtenus[getIndexOf(amodules, acartes[idCase].texte)] === 0){
         //On vérifie s'il a assez de ressources pour l'acheter
-        if(joueurs[idAcheteur].argent >= acartes[idCase].prix){
+        if(joueurs[jActuel].argent >= acartes[idCase].prix){
             //On affiche la div pour l'achat du module
             fnAfficheAchatModule(idAcheteur, idCase);
         }
