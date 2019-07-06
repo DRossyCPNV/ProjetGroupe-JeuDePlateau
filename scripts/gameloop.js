@@ -1,10 +1,12 @@
 //********************************************************************************************************************
 // Gameloop - fonctions principales du jeu qui lient toutes les autres
 //********************************************************************************************************************
+//
 //              * event JQuery du clic sur le bouton-verif : vérification si la réponse à la question a été validée
-//              - fonction principale qui rend le jeu fonctionnel
-//              - fonction appelée à chaque fois que l'on appuie sur le bouton lancer le dé
-//                  -> désactive le bouton
+//              [] variables globales
+//              - fonction principale qui rend le jeu fonctionnel (gameloop)
+//              * event JQuery du clic sur le bouton "lancer le dé"
+//                  -> masque le bouton
 //                  -> appelle la fonction qui crée un nombre aléatoire
 //                  -> attend que le dé aie fini de tourner
 //                  -> appelle la fonction qui représente le tour d'un joueur
@@ -37,7 +39,13 @@ $("#btn-verif").click(function () {
     $(this).data('clicked', true);
 });
 
-// fonction principale qui rend le jeu fonctionnel
+// Sortie de la boucle pour accéder partout dans le script (globale)
+var jActuel = 0;                                                // le joueur dont c'est le tour
+
+
+
+
+//cette fonction sera la fonction principale qui liera toutes les autres pour rendre le jeu fonctionnel
 function gameloop(nbJoueurs) {
 
     //crée les joueurs
@@ -69,11 +77,13 @@ function tourSuivant(){
         fnLancerDe();
 
         // attendre que le dé aie fini de tourner
-        sleep(3500).then(() => {
+        sleep(2500).then(() => {
             tourJoueur();})
     }
     else{
         joueurs[jActuel].passeTour = 0;
+        tourFini == true;
+        console.log("Le joueur de couleur " + joueurs[i].couleur + " passe son tour !");
         joueurSuivant();
     }
 }
@@ -113,9 +123,12 @@ function tourJoueur() {
         conditionCFC = false;
     }
 
-    // Appelle la fonction de joueur.js qui déplace le pion, en lui passant en paramètre le résultat du dé,
-    // puis vérifie que le joueur a effectué toutes les actions liées à la case
-    sleep( joueurs[jActuel].deplacerPion(resultatDe)).then(() => {
+    // On déplace le pion du résultat du dé avec cette fonction définie dans joueurs.js
+    joueurs[jActuel].deplacerPion(resultatDe)
+
+    // On attend que le pion arrive sur la case,
+    // puis on appelle la fonction qui effectue au joueur les actions liées à la case
+    sleep(dureeDeplacementMS + 1000).then(() => {
         actionCase();
     });
 

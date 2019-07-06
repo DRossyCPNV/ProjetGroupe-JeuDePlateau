@@ -54,12 +54,14 @@ function Joueur(id, nom, couleur, argent_depart, section) {
         that.emplacementCase = -1;
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
     };
-    // methode qui déplace le pion d'un nombre de case en fonction du dé
+    // méthode qui déplace le pion d'un nombre de cases en fonction du dé
     this.deplacerPion = function (de) {
         var caseDepart = that.caseActuelle;
         var caseArrive = that.caseActuelle + de;
-        var deplacement = vitesseAnimSlider.value / 100; //deplacement en pourcent d'une case: 1 = 100% 0 = 0%, la vitesse peut-être modifié à l'aide d'un slider
-        var tempsInterval = 5; //temps en miliseconde entre chaque deplacement
+        var deplacement = vitesseAnimSlider.value / 100; // déplacement en pourcents d'une case: 1 = 100% 0 = 0%,
+                                                        // la vitesse peut-être modifiée à l'aide d'un slider
+
+        var tempsInterval = 5;                          // temps en millisecondes entre chaque déplacement
         dureeDeplacementMS  = (caseArrive-caseDepart)/deplacement*tempsInterval;
         that.emplacementCase = -1;
 
@@ -136,7 +138,7 @@ function emplacementVideCase(caseID) {
     }
 }
 
-// changement du joueur actuel
+// Changement du joueur actuel, avec retour au premier si on arrive au dernier
 function joueurSuivant() {
 
     if (jActuel < document.getElementById('nbJoueurs').value - 1)
@@ -149,7 +151,8 @@ function joueurSuivant() {
 
 }
 
-// Cette fonction déplace le pion petit à petit jusqu'à la case d'arrivée
+// Cette fonction déplace le pion petit à petit jusqu'à la case d'arrivée.
+// La vitesse qui lui est passée
 function fnDeplacerPionFluidement(caseDepart, caseArrive, vitesse, jActuel, temps) {
     vitesse /= 5;
 

@@ -88,22 +88,23 @@
 
 .menu_indications_joueur_boutons{
     width: 100%;
-    margin-top: 5px;
+    margin: 5px 5px;
     display: flex;
     justify-content: center;
 }
 
 /* CSS bouton lancer dé */
-.menu_indications_bouton_lancer {
+.menu_indications_joueur_boutons_lancer {
     background: #191970;
     background-image: -webkit-linear-gradient(top, #ec594c, #f75810);
     background-image: -moz-linear-gradient(top, #ec594c, #f75810);
     background-image: -ms-linear-gradient(top, #ec594c, #f75810);
     background-image: -o-linear-gradient(top, #ec594c, #f75810);
     background-image: linear-gradient(to bottom, #ec594c, #f75810);
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 8px 8px 12px 12px;
     text-shadow: 2px -2px 0px #73c69c;
     font-family: 'Baloo Bhai', cursive;
     color: white;
@@ -111,7 +112,7 @@
     font-size: 1em;
 }
 
-.menu_indications_bouton_lancer:hover {
+.menu_indications_joueur_boutons_lancer:hover {
     background: midnightblue;
     border: none;
 }
