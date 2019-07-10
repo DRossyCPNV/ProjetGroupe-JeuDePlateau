@@ -38,18 +38,19 @@
 }
 
 #vitesseAnims{
+    display: inline-block;
+    color:whitesmoke;
+    font-size: 0.8em;
     position: relative;
     left: 1%;
 }
 
 #vitesseAnimSlider {
+    display: inline-block;
     position: relative;
     left: 1%;
-    font-size: 85%;
-    color: black;
-    -webkit-appearance: none;
-    width: 10%;
-    height: 12px;
+    width: 40%;
+    height: 10px;
     border-radius: 5px;
     background: #d3d3d3;
     outline: none;
@@ -61,17 +62,17 @@
 #vitesseAnimSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
+    width: 14px;
     height: 14px;
-    border-radius: 50%;
+    border-radius: 40%;
     background: midnightblue;
     cursor: pointer;
 }
 
 #vitesseAnimSlider::-moz-range-thumb {
-    width: 20px;
+    width: 14px;
     height: 14px;
-    border-radius: 50%;
+    border-radius: 40%;
     background: midnightblue;
     cursor: pointer;
 }

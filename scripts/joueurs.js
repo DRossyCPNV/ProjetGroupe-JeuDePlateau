@@ -17,7 +17,7 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA1a - juin 2019 - CPNV
+// SI-CA1a - juillet 2019 - CPNV
 // *****************************************************************************
 
 //Fonction pour créer un tableau objet joueur, n étant le nombre de joueurs
@@ -140,6 +140,9 @@ function emplacementVideCase(caseID) {
 
 // Changement du joueur actuel, avec retour au premier si on arrive au dernier
 function joueurSuivant() {
+
+    tourFini = true;                     // variable globale
+    console.log("Au tour du joueur suivant");
 
     if (jActuel < document.getElementById('nbJoueurs').value - 1)
     {

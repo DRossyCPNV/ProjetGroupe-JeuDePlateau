@@ -1,6 +1,6 @@
 <!-- ***************************************************************
       Modulopoly - fichier principal du jeu.
-      Version release - juin 2019
+      Version release - juillet 2019
 ********************************************************************
 // - lancement de la fonction principale du jeu, dans gameloop.js,
 // - menu qui permet de configurer la partie
@@ -21,7 +21,7 @@
 Laurent Barraud, Bastian Chollet, Luca Coduri,
 Guillaume Duvoisin, Guilain Mbayo & David Rossy.
 Un projet mandaté par M. Chavey.
-SI-CA1a - juin 2019 - CPNV
+SI-CA1a - juillet 2019 - CPNV
 ******************************************************************** -->
 
 
@@ -162,7 +162,7 @@ SI-CA1a - juin 2019 - CPNV
             <div id="text">
                 <span id="title" class="titles">Modulopoly</span>
                 <span id="under-title" class="titles">Un projet mandaté par M. Chavey</span>
-                <span id="under-title" class="titles">Classe SI-CA1a - juin 2019</span>
+                <span id="under-title" class="titles">Classe SI-CA1a - juillet 2019</span>
                 <br>
                 <br>
                 <div id="btn-start" class='flat-button'>Start</div>
@@ -176,8 +176,8 @@ SI-CA1a - juin 2019 - CPNV
 <!-- Div qui contient toute la fenêtre -->
 <div id="game">
 
-    <!-- Affiche un slider pour choisir la vitesse des animations -->
-    <span id="vitesseAnims">Vitesse des animations
+    <!-- Affiche un slider pour choisir la vitesse d'animation des pions -->
+    <span id="vitesseAnims">Vitesse des pions
         <input type="range" min="1" max="40" value="20" class="slider" id="vitesseAnimSlider">
     </span>
     <br>
@@ -198,23 +198,23 @@ SI-CA1a - juin 2019 - CPNV
         <p id="txt_question"></p>
         <div id="rdb_question">
             <input type="radio" name="reponse" value="r1" ondblclick="fnVerifReponseQuestion();">
-            <label id="r1" for="r1" ondblclick="fnVerifReponseQuestion();"></label>
+            <label id="r1" for="r1"></label>
             <br>
 
             <input type="radio" name="reponse" value="r2" ondblclick="fnVerifReponseQuestion();">
-            <label id="r2" for="r2" ondblclick="fnVerifReponseQuestion();"></label>
+            <label id="r2" for="r2"></label>
             <br>
 
             <input type="radio" name="reponse" value="r3" ondblclick="fnVerifReponseQuestion();">
-            <label id="r3" for="r3" ondblclick="fnVerifReponseQuestion();"></label>
+            <label id="r3" for="r3"></label>
             <br>
 
             <input type="radio" name="reponse" value="r4" ondblclick="fnVerifReponseQuestion();">
-            <label id="r4" for="r4" ondblclick="fnVerifReponseQuestion();"></label>
+            <label id="r4" for="r4"></label>
             <br>
         </div>
         <br>
-        <input id="btn-verif" type="button" value="Réponse" onclick="fnVerifReponseQuestion(); return false;">
+        <input id="btn-verif" type="button" value="Réponse" width="200" onclick="fnVerifReponseQuestion(); return false;">
     </div>
 
     <!-- Affichages des cartes chance -->
@@ -239,7 +239,7 @@ SI-CA1a - juin 2019 - CPNV
         <p id="txt_module"></p>
         <div>
             <input id="acheterModule" type="button" value="Acheter"
-                   onclick="fnClickAcheterModule(joueurs[jActuel], caseAchetee);">
+                   onclick="fnClickAcheterModule(caseAchetee);">
             <input id="passerModule" type="button" value="Non merci" onclick="fnEffacerModule();">
         </div>
     </div>
@@ -276,8 +276,7 @@ SI-CA1a - juin 2019 - CPNV
         <p>A ce moment, lors de votre tour de jeu, un bouton supplémentaire apparaîtra pour vous déplacer sur la case au centre du plateau.</p>
         <br>
         <p>Pour recevoir votre CFC et gagner la partie, il vous faudra obtenir un 4, 5 ou 6 au dé.</p>
-        <p>Si vous faites moins, c'est échoué.</p>
-        <p>Vos points sont perdus, mais pas vos cartes modules et le jeu continue.</p>
+        <p>Si vous faites moins, c'est échoué. Vos points sont perdus, mais pas vos cartes modules et le jeu continue.</p>
         <br>
         <p>Le premier joueur à obtenir son CFC gagne la partie.</p>
         <br>

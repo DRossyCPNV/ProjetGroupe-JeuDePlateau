@@ -121,7 +121,7 @@
       "question":"Quel est la langue la plus parlée au monde ?",
       "r1":"Espagnol",
       "r2":"Anglais",
-      "r3":"Chinois",
+      "r3":"Mandarin (Chinois)",
       "r4":"Arabe",
       "br":"r3"
    },
@@ -155,10 +155,10 @@
    {
       "id":17,
       "question":"Quelle est la hauteur de la tour Bourj Khalifa  ?",
-      "r1":"828 m",
-      "r2":"915 m",
-      "r3":"785",
-      "r4":"1000",
+      "r1":"828 m.",
+      "r2":"915 m.",
+      "r3":"785 m.",
+      "r4":"1000 m.",
       "br":"r1"
    },
    {
@@ -435,8 +435,8 @@
       "id":48,
       "question":"Quel est le point culminant du massif du Jura ?",
       "r1":"La Dôle",
-      "r2":"Le mont Tendre",
-      "r3":"Le mont Joli",
+      "r2":"Le Mont Tendre",
+      "r3":"Le Mont Joli",
       "r4":"Le Crêt de la Neige",
       "br":"r4"
    },

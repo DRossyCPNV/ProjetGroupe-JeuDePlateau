@@ -18,7 +18,7 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA1a - juin 2019 - CPNV
+// SI-CA1a - juillet 2019 - CPNV
 // **************************************************************************************
 
 //Créer le tableau de référence des modules
@@ -87,11 +87,11 @@ function creerDivJoueurs(nbJoueurs) {
         if (i === jActuel){
 
             if (joueurs[jActuel].protection === 1) {
-                pionAffiche = '<img class="menu_indications_joueur_pion" src="images/pions/' + couleursPions[jActuel] + '_protection' + '.png" alt="rappel du pion du joueur actuel, avec protection">' + '\n';
+                pionAffiche = '<img class="menu_indications_joueur_pion" src="images/pions/' + couleursPions[i] + '_protection' + '.png" alt="rappel du pion du joueur actuel, avec protection">' + '\n';
             }
             else
             {
-                pionAffiche = '<img class="menu_indications_joueur_pion" src="images/pions/' + couleursPions[jActuel] + '.png" alt="rappel du pion du joueur actuel">' + '\n';
+                pionAffiche = '<img class="menu_indications_joueur_pion" src="images/pions/' + couleursPions[i] + '.png" alt="rappel du pion du joueur actuel">' + '\n';
             }
 
         } else {
@@ -104,7 +104,7 @@ function creerDivJoueurs(nbJoueurs) {
         //Boucle parcourant tous les modules détenus
         for(var j = 0; j < amodules.length; ++j){
             if(joueurs[i].modulesObtenus[j] === 1){
-                modulesAffiches += '<img src="images/modules/' + amodules[j].Nom + '.svg" style="margin: 2px;" alt="modules détenus">' + '\n';
+                modulesAffiches += '<img src="images/modules/' + amodules[j].Nom + '.svg" style="margin: 2px; width: 5%" alt="modules détenus">' + '\n';
             }
         }
 

@@ -12,29 +12,39 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA1a - juin 2019 - CPNV
+// SI-CA1a - juillet 2019 - CPNV
 // **************************************************************************************
 
 
 
 //La carte est masquée au début du jeu
 $('#carte_module').css('display','none');
-var caseAchetee;
 
 function fnAcheterModule(idCase) {
-    caseAchetee = idCase;
+    caseAchetee = idCase;                   // variable globale, permet de passer l'id de la case en argument
+                                            // dans Monopoly.html, lorsqu'on clique sur le bouton "Acheter"
 
     //Si le joueur ne possède pas le module
     if(joueurs[jActuel].modulesObtenus[getIndexOf(amodules, acartes[idCase].texte)] === 0){
-        //On vérifie s'il a assez de ressources pour l'acheter
+
+        //Si le joueur a assez de ressources pour l'acheter
         if(joueurs[jActuel].argent >= acartes[idCase].prix){
+
             //On affiche la div pour l'achat du module
-            fnAfficheAchatModule(idAcheteur, idCase);
+            fnAfficheAchatModule(idCase);
+
+        //S'il n'a pas assez de ressources
+        } else {
+            joueurSuivant();
         }
+
+    //Si le joueur possède déjà le module
+    } else {
+        joueurSuivant();
     }
 }
 
-function fnAfficheAchatModule(idAcheteur, idCase) {
+function fnAfficheAchatModule(idCase) {
     //Affichage de la div et masquage du plateau, du menu latéral et du slider
     $('body').css('background-color','rgba(0,0,0,.9)');
     $('#plateau_jeu').css('display','none');
@@ -49,16 +59,16 @@ function fnAfficheAchatModule(idAcheteur, idCase) {
 
 }
 
-function fnClickAcheterModule(idAcheteur, idCase) {
+function fnClickAcheterModule(idCase) {
 
-    console.log("idAcheteur" + idAcheteur);
+    console.log("idAcheteur" + jActuel);
     console.log("idCase" + idCase)
-    var acheteur = joueurs[idAcheteur];
 
     // on déduit le prix de la carte module de l'argent du joueur
-    acheteur.argent -= acartes[idCase].prix;
-    acheteur.modulesObtenus[getIndexOf(amodules, acartes[idCase].texte)] = 1;
+    joueurs[jActuel].argent -= acartes[idCase].prix;
+    joueurs[jActuel].modulesObtenus[getIndexOf(amodules, acartes[idCase].texte)] = 1;
     fnEffacerModule();
+
 }
 
 function fnEffacerModule(){
@@ -66,9 +76,12 @@ function fnEffacerModule(){
     $('#carte_module').css('display', 'none');
     $('#plateau_jeu').css('display','inline');
     $('#menu_indications').css('display', 'block');
-    $('#vitesseAnims').css('display', 'block');
-    $('#vitesseAnimSlider').css('display', 'block');
+    $('#vitesseAnims').css('display', 'inline-block');
+    $('#vitesseAnimSlider').css('display', 'inline-block');
     $('body').css('background-color','purple');
+
+    joueurSuivant();                    // fonction définie dans joueur.js
+
 }
 
 //Code from Crayon Violent @ https://stackoverflow.com/questions/8313350/javascript-indexof-on-an-array-of-objects

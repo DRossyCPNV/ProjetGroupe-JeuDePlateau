@@ -17,7 +17,12 @@
 #menu_indications_titre{
     font-family: 'Baloo Bhai', cursive;
     font-size: 2em;
+    text-align: center;
     color: white;
+}
+
+#menu_indications_tours{
+    text-align: center;
 }
 
 /* CSS des divs joueurs */
@@ -27,7 +32,7 @@
 
 .menu_indications_joueur{
     width: 400px;
-    margin: 10px 0px 10px 0px;
+    margin: 10px auto 10px auto;
     padding: 10px;
     box-sizing: border-box;
     border: 5px solid #41A46B;
@@ -76,8 +81,8 @@
 }
 
 .menu_indications_joueur_pion{
-    width: 35%;
-    margin-top: 5px;
+    width: 30%;
+    margin-top: 2px;
     margin-bottom: 2px;
     margin-left: auto;
     margin-right: auto;

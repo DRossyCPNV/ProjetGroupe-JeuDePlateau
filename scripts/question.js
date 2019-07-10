@@ -13,7 +13,7 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA1a - juin 2019 - CPNV
+// SI-CA1a - juillet 2019 - CPNV
 // **************************************************************************************
 
 
@@ -81,8 +81,8 @@ function fnVerifReponseQuestion() {
     $('#carte_question').css('display', 'none');
     $('#plateau_jeu').css('display','inline');
     $('#menu_indications').css('display', 'block');
-    $('#vitesseAnims').css('display', 'block');
-    $('#vitesseAnimSlider').css('display', 'block');
+    $('#vitesseAnims').css('display', 'inline-block');
+    $('#vitesseAnimSlider').css('display', 'inline-block');
     $('body').css('background-color','purple');
 
     //On enregistre la réponse du joueur
@@ -97,14 +97,15 @@ function fnVerifReponseQuestion() {
 
         $('#carte_question').css('display','none');
         jreponse.prop("checked", false);
-        return true;
+
     }
     else {
         alert("Mauvaise réponse ! La bonne réponse était : " + txtbreponse);
         $('#carte_question').css('display','none');
         jreponse.prop("checked", false);
-        return false;
     }
+
+    joueurSuivant();
 
 }
 

@@ -15,7 +15,7 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA1a - juin 2019 - CPNV
+// SI-CA1a - juillet 2019 - CPNV
 // *****************************************************************************
 
 // Chargement des fichiers
@@ -74,7 +74,8 @@ for (var i = 0; i < nbJoueursMax; i++){
 const ptsCFC = 1000;                                                                // points requis pour tenter d'obtenir le CFC
 var conditionCFC = false;                                                           // détermine si les conditions pour obtenir le CFC sont remplies
                                                                                     // cela va afficher ou non le bouton "Passer le cfc", selon le code de menu_indications.js
-
+var caseAchetee;                                                                    // stocke l'id de la case que le joueur actuel veut acheter
+var jActuel = 0;                                                                    // stocke l'id du joueur dont c'est le tour
 var tourFini = true;                                                                // détermine si le tour du joueur actuel est fini
                                                                                     // (initialisée à true, pour pouvoir commencer le premier tour)
 var creerDiv;                                                                       // stocke le menu d'indication des joueurs

@@ -3,7 +3,6 @@
 //********************************************************************************************************************
 //
 //              * event JQuery du clic sur le bouton-verif : vérification si la réponse à la question a été validée
-//              [] variables globales
 //              - fonction principale qui rend le jeu fonctionnel (gameloop)
 //              * event JQuery du clic sur le bouton "lancer le dé"
 //                  -> masque le bouton
@@ -27,23 +26,18 @@
 //                          -> CFC - ne fait rien, code géré plus bas par la fonction fnPasserCFC(jActuel)
 //
 //              - fonction sleep qui attend la fin d'exécution du setTimeOut, avant de poursuivre celle passée en paramètre
+//              - fonction pour tenter de passer le CFC et gagner la partie si un 4 ou plus sort au dé
 //
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA1a - juin 2019 - CPNV
+// SI-CA1a - juillet 2019 - CPNV
 // ********************************************************************************************************************
 
 // permet de vérifier si la réponse à la question a été validée
 $("#btn-verif").click(function () {
     $(this).data('clicked', true);
 });
-
-// Sortie de la boucle pour accéder partout dans le script (globale)
-var jActuel = 0;                                                // le joueur dont c'est le tour
-
-
-
 
 //cette fonction sera la fonction principale qui liera toutes les autres pour rendre le jeu fonctionnel
 function gameloop(nbJoueurs) {
@@ -77,12 +71,11 @@ function tourSuivant(){
         fnLancerDe();
 
         // attendre que le dé aie fini de tourner
-        sleep(2500).then(() => {
+        sleep(2000).then(() => {
             tourJoueur();})
     }
     else{
         joueurs[jActuel].passeTour = 0;
-        tourFini == true;
         console.log("Le joueur de couleur " + joueurs[i].couleur + " passe son tour !");
         joueurSuivant();
     }
@@ -125,6 +118,7 @@ function tourJoueur() {
 
     // On déplace le pion du résultat du dé avec cette fonction définie dans joueurs.js
     joueurs[jActuel].deplacerPion(resultatDe)
+    console.log("je me déplace de: " + resultatDe + " cases en " + dureeDeplacementMS + "ms");
 
     // On attend que le pion arrive sur la case,
     // puis on appelle la fonction qui effectue au joueur les actions liées à la case
@@ -132,7 +126,6 @@ function tourJoueur() {
         actionCase();
     });
 
-    console.log("je me suis déplacé de: " + resultatDe + " cases en " + dureeDeplacementMS + "ms");
 }
 
 // Fonction qui vérifie les actions que le joueur doit effectuer
@@ -154,7 +147,7 @@ function actionCase() {
             sleep(dureeDeplacementMS + 1000).then(() => {
                 console.log(typeDeCase);
 
-                //demande si le joueur veut acheter la case
+                //demande si le joueur veut acheter la case. Fonction définie dans obtention_module.js.
                 fnAcheterModule(caseToCheck);
             });
 
@@ -185,10 +178,6 @@ function actionCase() {
             break;
     }
 
-    tourFini = true;                     // variable globale
-    console.log("Tour suivant");
-    joueurSuivant();                    // fonction définie dans joueur.js
-
 }
 
 function sleep(ms) {
@@ -199,7 +188,7 @@ function  fnPasserCFC(jActuel) {
     console.log("Passer ton cfc " + jActuel);
     joueurs[jActuel].caseActuelle = 24;
 
-    //case CFC
+    //lorsqu'on est sur la case CFC
     fnLancerDe();
     sleep(2000).then(() => {
         if(resultatDe >= 4){

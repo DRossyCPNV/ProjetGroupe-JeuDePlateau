@@ -11,7 +11,7 @@
   {
     "id": 1,
     "titre": "Trafic",
-    "texte": "Le train pour STE-Croix a eu du retard et vous avez manqué le premier cours, vous perdez 250 ressources",
+    "texte": "Le train pour Ste-Croix a eu du retard et vous avez manqué le premier cours, vous perdez 250 ressources",
     "indication": "Effet immédiat",
     "effet": "POINTS",
     "valeur_1": -250,
@@ -101,7 +101,7 @@
   {
     "id": 150,
     "titre": "Entraide",
-    "texte": "Vous recevez de information d'un camarade. Annule les pertes de ressources infligées par d'autres joueurs. Cette carte peut être conservée jusque à son utilisation",
+    "texte": "Vous recevez des informations d'un camarade. Cette carte protégera votre pion, jusqu'à son utilisation, en annulant les pertes de ressources infligées par d'autres joueurs.",
     "indication": "Effet Unique",
     "effet": "PROTECTION",
     "valeur_1": 1,

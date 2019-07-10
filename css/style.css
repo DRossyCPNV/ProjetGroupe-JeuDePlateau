@@ -6,11 +6,6 @@ body {
     overflow-x: hidden;
 }
 
-#vitesseAnims {
-    color:whitesmoke;
-    font-size: 1em;
-}
-
 #game {
     display:none;
 }
