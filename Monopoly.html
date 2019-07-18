@@ -35,7 +35,7 @@ SI-CA1a - juillet 2019 - CPNV
     <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/menu_indications.css">
-    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/boutons.css">
     <link rel="stylesheet" href="css/menu.css">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
 
@@ -176,10 +176,10 @@ SI-CA1a - juillet 2019 - CPNV
 <!-- Div qui contient toute la fenêtre -->
 <div id="game">
 
-    <!-- Affiche un slider pour choisir la vitesse d'animation des pions, avec une graduation de 2
-     et appelle la fonction qui affiche sa valeur, lorsqu'on le modifie-->
+    <!-- Affiche un slider pour choisir la vitesse d'animation des pions
+     et appelle la fonction qui affiche sa valeur, lorsqu'on le modifie -->
     <label for="vitesseAnimSlider">Vitesse des pions</label>
-    <input id="vitesseAnimSlider" type="range" min="4" max="28" value="12" oninput="fnAfficherValeurSlider(this.value)">
+    <input id="vitesseAnimSlider" type="range" min='4' max='28' value='16' oninput="fnAfficherValeurSlider(this.value);">
     <output id="vitesseAnimSliderValue" name="vitesseAnimSliderValue" for="vitesseAnimSlider"></output>
     <br>
     <canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid #330968; background-color:#38196A">

@@ -47,9 +47,9 @@
    {
       "id":5,
       "question":"En trigonométrie, comment sont appelé les côtés d’un triangle rectangle ?",
-      "r1":"L’adjacent, l’opposé et l’hypoméduse.",
+      "r1":"L’adjuvent, l’opposé et l’hypothénuse.",
       "r2":"L’adjacent, l’opposé et l’hypothénuse.",
-      "r3":"Les cathètes et l’hypothénuse.",
+      "r3":"Les catèles et l’hypothénuse.",
       "r4":"L’à-côté, l’éloigné et la diagonale.",
       "br":"r2"
    },

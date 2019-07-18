@@ -282,6 +282,7 @@ function fnAfficherValeurSlider (valSlider) {
     document.getElementById('vitesseAnimSliderValue').style.opacity = 1;
 }
 
+
 // Fonctions pour afficher/masquer l'overlay des règles du jeu
 function overlayReglesOn() {
     document.getElementById("overlayRegles").style.display = "block";

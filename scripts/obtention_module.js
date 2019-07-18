@@ -71,6 +71,7 @@ function fnAfficheAchatModule(idCase) {
     $('#plateau_jeu').css('display','none');
     $('#menu_indications').css('display', 'none');
     $('label[for="vitesseAnimSliderValue"]').css('display', 'none');
+    $('label[for="vitesseAnimSlider"]').css('display', 'none');
     $('#vitesseAnimSlider').css('display', 'none');
     $('#carte_module').css('display', 'block');
 

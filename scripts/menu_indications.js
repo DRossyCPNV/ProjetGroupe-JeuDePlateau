@@ -182,6 +182,7 @@ function fnCreerDivJoueurs(nbJoueurs) {
                             // si c'est son tour de jouer et que les conditions sont remplies.
                             + boutonAffiche
                         + '</div>' + '\n';
+
     }
 
     // Injection des divs joueurs dans le code HTML

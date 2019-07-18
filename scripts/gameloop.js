@@ -101,7 +101,7 @@ function fnTourJoueur() {
 
     // On attend que le pion arrive sur la case,
     // puis on appelle la fonction qui effectue les actions liées à la case au joueur
-    fnSleep(dureeDeplacementMS + 1000).then(() => {
+    fnSleep(dureeDeplacementMS + 500).then(() => {
         fnActionCase();
     });
 

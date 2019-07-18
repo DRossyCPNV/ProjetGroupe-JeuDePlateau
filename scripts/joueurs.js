@@ -159,8 +159,8 @@ function fnJoueurSuivant() {
         joueurs[jActuel].passeTour = 0;
 
         // Passe au joueur suivant, avec retour au premier si c'est le dernier joueur de la liste
-        alert("Le joueur de couleur " + joueurs[i].couleur + " passe son tour !");
-        console.log("Le joueur de couleur " + joueurs[i].couleur + " passe son tour !");
+        alert("Le joueur de couleur " + joueurs[jActuel].couleur + " passe son tour !");
+        console.log("Le joueur de couleur " + joueurs[jActuel].couleur + " passe son tour !");
 
         if (jActuel < document.getElementById('nbJoueurs').value - 1) {
             jActuel++;

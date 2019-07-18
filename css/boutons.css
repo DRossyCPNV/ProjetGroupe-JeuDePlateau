@@ -43,7 +43,7 @@
     left: 10px;
     width: 7%;
     height: 10px;
-    border-radius: 2px;
+    border-radius: 3px;
     background: #d3d3d3;
     outline: none;
     opacity: 0.5;               /* affiche le slider légèrement transparent */
@@ -111,7 +111,5 @@ label[for="vitesseAnimSlider"] {
     margin-left: 4px;
 }
 
-::-moz-range-track {
-    background: #d3d3d3;
-    border: 0;
-}
+
+

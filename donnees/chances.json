@@ -56,7 +56,7 @@
   {
     "id": 50,
     "titre": "Au tricheur!",
-    "texte": "Vous vous êtes fait prendre à tricher pendant un examen, passez votre prochain tour",
+    "texte": "Vous vous êtes fait prendre à tricher pendant un examen ! Passez votre prochain tour.",
     "indication": "Effet immédiat",
     "effet": "TOURS",
     "valeur_1": 1,
@@ -65,7 +65,7 @@
   {
     "id": 100,
     "titre": "Expérience",
-    "texte": "Grâce à votre bagage personnel, vous avez plus de facilité en mathematique, relancez le dé",
+    "texte": "Grâce à votre bagage personnel, vous avez plus de facilité en mathematique. Relancez le dé.",
     "indication": "Effet immédiat",
     "effet": "DEPLACEMENT",
     "valeur_1": 1,
