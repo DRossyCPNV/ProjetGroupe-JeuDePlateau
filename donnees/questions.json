@@ -47,10 +47,10 @@
    {
       "id":5,
       "question":"En trigonométrie, comment sont appelé les côtés d’un triangle rectangle ?",
-      "r1":"L’adjacent, l’opposé, et l’hypoméduse",
-      "r2":"L’adjacent, l’opposé et l’hypothénuse",
-      "r3":"Les cathètes et l’hypothénuse",
-      "r4":"L’à côté, l’éloigné, et la diagonale",
+      "r1":"L’adjacent, l’opposé et l’hypoméduse.",
+      "r2":"L’adjacent, l’opposé et l’hypothénuse.",
+      "r3":"Les cathètes et l’hypothénuse.",
+      "r4":"L’à-côté, l’éloigné et la diagonale.",
       "br":"r2"
    },
    {
@@ -127,7 +127,7 @@
    },
    {
       "id":14,
-      "question":"Quel est le nom du deuxième homme à avoir marché sur la lune en 1969 ?",
+      "question":"Quel est le nom du deuxième homme a avoir marché sur la lune en 1969 ?",
       "r1":"Neil Amstrong",
       "r2":"Buzz Aldrin",
       "r3":"Alan Bean",
@@ -244,11 +244,11 @@
    },
    {
       "id":27,
-      "question":"Qu'est-ce que l'émétophobie  ?",
-      "r1":"La peur de se blesser",
-      "r2":"La peur d'avoir peur",
-      "r3":"La peur de vomir",
-      "r4":"La peur du sang",
+      "question":"Qu'est-ce que l'émétophobie ?",
+      "r1":"La peur de se blesser.",
+      "r2":"La peur d'avoir peur.",
+      "r3":"La peur de vomir.",
+      "r4":"La peur du sang.",
       "br":"r3"
    },
    {

@@ -1,35 +1,41 @@
 // **************************************************************************************
-// Code d'affichage d'une carte chance
-// **************************************************************************************
-// Ce script dessine à l'écran une carte chance, contenue dans un fichier JSON.
-// Il applique également les effets décrits sur la carte.
+// Code d'affichage des cartes chance et application de leurs effets
+// **************************************************************************************//
 //
-//              * paramètres des cartes chance
-//              * carte masquée au début du jeu
-//              * acquisition des données Json
-//              - fonction d'affichage d'une carte chance au joueur passé en paramètre
-//                  - affichage de la Div
-//                  - génération d'un nombre aléatoire
-//                  - affichage de la carte chance
-//              - fonction de vérification de la réponse
-//              - effacer la carte et réafficher le plateau de jeu
-//              - exécute les effets de la carte
-//                - effet POINTS
-//                  - si l'on donne de l'argent à un autre joueur
-//                  - si l'on reçoit de l'argent
-//                  - si l'on reçoit et donne de l'argent
-//                      - recevoir
-//                      - choix de la cible à qui donner
-//                - effet TOURS
-//                    - la prochaine fois que le joueur lance le dé, rien ne se passe et on passe au joueur suivant
-//                - effet DEPLACEMENT
-//                  - déplacer le joueur actuel et vérifier les actions qu'il doit effectuer
-//                  - relance le dé automatiquement
-//                  - déplace un joueur cible
-//                - effet PROTECTION
-//                  - enclencher la protection du joueur pour la prochaine attaque dont il est la cible
-//                - effet QCM
-//                  - pose une question au joueur
+//              * Paramètres des cartes chance
+//              * Carte masquée au début du jeu
+//              * Acquisition des données Json
+//
+//              - Fonction d'affichage d'une carte chance au joueur passé en paramètre
+//                  -> affichage de la Div
+//                  -> génération d'un nombre aléatoire
+//                  -> affichage de la carte chance
+//              - Fonction qui efface la carte chance et réaffiche le plateau de jeu
+//              - Fonction qui efface la carte de choix d'une cible et exécute les effets de la carte
+//                  switch sur l'effet, codé dans chances.json :
+//
+//                      -> POINTS
+//                          -> Si l'on donne de l'argent à un autre joueur
+//                          -> Si l'on reçoit de l'argent
+//                          -> Si l'on reçoit et donne de l'argent
+//                              -> Recevoir
+//                              -> Choix de la cible à qui donner
+//
+//                      -> TOURS
+//                          -> La prochaine fois que le joueur lance le dé, rien ne se passe et on passe au joueur suivant
+//
+//                      -> DEPLACEMENT
+//                          -> Déplacer le joueur actuel et vérifier les actions qu'il doit effectuer
+//                          -> Relance le dé automatiquement
+//                          -> Déplace un joueur cible
+//
+//                      -> PROTECTION
+//                          -> Enclencher la protection du joueur pour la prochaine attaque dont il est la cible
+//
+//                      -> QCM
+//                          -> Pose une question au joueur
+//
+//
 //
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
@@ -49,18 +55,21 @@ $('#carte_chance').css('display','none');
 $.getJSON('donnees/chances.json', function(data) {
     achance = data;
 
-    nbchance = achance.length; //Le nombre de carte chance
+    // Le nombre de cartes chance disponibles
+    nbchance = achance.length;
 
 });
 
 function fnAfficheChance() {
     console.log("Joueur ID :"+jActuel);
-    // Affichage de la div et masquage du plateau, du menu latéral et du slider
+    // Affichage de la div contenant la question chance et
+    // masquage du plateau, du menu latéral et des éléments du slider.
     $('body').css('background-color','rgba(0,0,0,.9)');
     $('#plateau_jeu').css('display','none');
     $('#menu_indications').css('display', 'none');
-    $('#vitesseAnims').css('display', 'none');
+    $('label[for="vitesseAnimSlider"]').css('display', 'none');
     $('#vitesseAnimSlider').css('display', 'none');
+    $('#vitesseAnimSliderValue').css('display', 'none');
     $('#carte_chance').css('display', 'block');
 
 
@@ -74,20 +83,21 @@ function fnAfficheChance() {
 }
 
 function fnEffaceChance(){
-    // Effacer la carte et réafficher le plateau de jeu, le menu latéral et le slider
+    // Efface la carte chance et réaffiche le plateau de jeu, le menu latéral et les éléments du slider.
     $('#carte_chance').css('display', 'none');
-    $('#plateau_jeu').css('display','inline');
+    $('#plateau_jeu').css('display', 'inline');
     $('#menu_indications').css('display', 'block');
-    $('#vitesseAnims').css('display', 'inline-block');
+    $('label[for="vitesseAnimSlider"]').css('display', 'inline-block');
     $('#vitesseAnimSlider').css('display', 'inline-block');
     $('body').css('background-color','purple');
     fnExecuteChance();
 }
 
+
 // Exécute les effets de la carte
 function fnExecuteChance(){
     console.log("Nombre de joueurs : " +nbJoueurs);
-    console.log("Joueur actuel : " +jActuel);
+    console.log("Joueur actuel, le " + joueurs.couleur + "id : " + jActuel);
     var nomJoueurs = "";
 
     switch(achance[nbaleat].effet){
@@ -96,7 +106,8 @@ function fnExecuteChance(){
 
             case 0:
                 // Si l'on donne de l'argent à un autre joueur
-                $('#choix_cible').css('display', 'block');                  // style de la carte défini dans style.css
+                // (style de la carte défini dans style.css)
+                $('#choix_cible').css('display', 'block');
                 $('#titre_cible').html("Choisissez un joueur cible:");
 
                     for(i = 0; i < nbJoueurs; i++){
@@ -105,7 +116,7 @@ function fnExecuteChance(){
                             nomJoueurs += "<input type='radio' name='joueur' value='" + joueurs[i].id + "'> <label>" + joueurs[i].nom + "</label><br>";
                         }
                     }
-                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnEffaceChoix();\">";
+                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnExecuteChoixArgent();\">";
                     $('#form_cibles').html(nomJoueurs);
                     console.log("A donné de l'argent");
             break;
@@ -117,6 +128,11 @@ function fnExecuteChance(){
                     if(joueurs[jActuel].protection === 1 && achance[nbaleat].valeur_1 < 0){
 
                         joueurs[jActuel].protection = 0;
+                        alert("La protection du joueur " + joueurs[jActuel].couleur + "a été utilisée.");
+
+                        // Remise de l'image par défaut du pion
+                        imgPion[jActuel].src = "images/pions/" + couleursPions[jActuel] + ".png";
+
                     }
                     else {
 
@@ -130,7 +146,7 @@ function fnExecuteChance(){
 
                     console.log("Reçu l'argent du joueur " +joueurs[jActuel].nom +" "+joueurs[jActuel].argent);
 
-                    joueurSuivant();
+                    fnJoueurSuivant();
                 }
                 else{
                 // Si l'on reçoit et donne de l'argent
@@ -146,13 +162,13 @@ function fnExecuteChance(){
                     $('#choix_cible').css('display', 'block');
                     $('#titre_cible').html("Choisissez un joueur cible:");
 
-                        for(var i = 0; i < nbJoueurs; i++){
+                        for(i = 0; i < nbJoueurs; i++){
                             if(joueurs[i] !== joueurs[jActuel]) {
                                 nomJoueurs += "<input type='radio' name='joueur' value='"+ joueurs[i].id +"'> <label>" + joueurs[i].nom + "</label><br>";
                             }
                         }
 
-                    nomJoueurs += "<br><br><input type=\"button\" value=\"Sélectionner\" onclick=\"fnEffaceChoix();\">";
+                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnExecuteChoixArgent();\">";
 
                     $('#form_cibles').html(nomJoueurs);
                     console.log("Recevoir et donner de l'argent");
@@ -166,7 +182,7 @@ function fnExecuteChance(){
         case 'TOURS':
             switch(achance[nbaleat].valeur_1){
                 case 1:
-                    //la prochaine fois que le joueur lance le dé, rien ne se passe et on passe au joueur suivant
+                    // La prochaine fois que le joueur lance le dé, rien ne se passe et on passe au joueur suivant.
                     console.log("passe tour avant : " +joueurs[jActuel].passeTour );
                     joueurs[jActuel].passeTour = 1;
                     console.log("passe tour après : " +joueurs[jActuel].passeTour );
@@ -174,24 +190,23 @@ function fnExecuteChance(){
                 default:
                     break;
             }
-        joueurSuivant();
+        fnJoueurSuivant();
         break;
         case 'DEPLACEMENT':
             switch(achance[nbaleat].valeur_1){
                 case 0:
-                    //Déplace le joueur actuel
-                    //Deplacer le pion
+                    // Déplace le pion du joueur actuel
                     joueurs[jActuel].deplacerPion((-joueurs[jActuel].caseActuelle+achance[nbaleat].valeur_2));
 
-                    //Vérifier les actions que le joueur doit effectuer
-                    actionCase(joueurs[jActuel]);
+                    // Vérifier les actions que le joueur doit effectuer
+                    fnActionCase(joueurs[jActuel]);
                     break;
                 case 1:
-                    //Relance le dé automatiquement
-                    tourSuivant();
+                    // Relance le dé automatiquement
+                    fnLancerDe();
                     break;
                 case 2:
-                    //Sélection du joueur cible à déplacer
+                    // Sélection du joueur cible à déplacer
                     $('#choix_cible').css('display', 'block');
                     $('#titre_cible').html("Choisissez un joueur cible :");
                     for(var i = 0; i < nbJoueurs; i++){
@@ -199,7 +214,8 @@ function fnExecuteChance(){
                             nomJoueurs += "<input type='radio' name='joueur' value='" + joueurs[i].id + "'> <label>" + joueurs[i].nom + "</label><br>";
                         }
                     }
-                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnEffaceChoixDeplacement();\">";
+                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"" +
+                        "fnExecuteChoixDeplacement();\">";
                     $('#form_cibles').html(nomJoueurs);
                     
                     break;
@@ -210,17 +226,21 @@ function fnExecuteChance(){
         case 'PROTECTION':
             switch(achance[nbaleat].valeur_1){
                 case 1:
-                    //on enclenche la protection du joueur pour la prochaine attaque dont il est la cible
+                    // On enclenche la protection du joueur pour la prochaine attaque dont il est la cible
                     joueurs[jActuel].protection = 1;
+
+                    // L'image du pion du joueur actuel est maintenant celle où il est protégé par un casque
+                    imgPion[jActuel].src = "images/pions/" + couleursPions[jActuel] + "_protection" + ".png";
+
+                    fnJoueurSuivant();
                     break;
                 default:
                     break;
             }
 
-        joueurSuivant();
         break;
         case 'QCM':
-            //poser une question
+            // Poser une question
             fnAfficheQuestion();
             break;
         default:
@@ -229,16 +249,17 @@ function fnExecuteChance(){
 
 }
 
-function fnEffaceChoix() {
-    //Efface la div de choix de cible
+
+function fnExecuteChoixArgent () {
+    // Efface la div de choix de cible
     $('#choix_cible').css('display', 'none');
 
-    //Réaffiche la div de choix de cible si aucune cible n'a été sélectionnée
+    // Réaffiche la div de choix de cible, si aucune cible n'a été sélectionnée
     if(document.querySelector('input[name="joueur"]:checked') === null){
         console.log("Pas de choix sélectionné");
         fnExecuteChance();
     }
-    //Applique l'effet à la cible
+    // Applique l'effet à la cible
     else{
         for(var i = 0; i < nbJoueurs; i++){
             if(joueurs[i].id === document.querySelector('input[name="joueur"]:checked').value){
@@ -259,15 +280,17 @@ function fnEffaceChoix() {
 
         }
 
-    joueurSuivant();                    // fonction définie dans joueur.js
+    // fonction définie dans joueur.js
+    fnJoueurSuivant();
 
     }
 }
 
-function fnEffaceChoixDeplacement() {
-    //Efface la div de choix de cible
+function fnExecuteChoixDeplacement() {
+    // Efface la div de choix de cible
     $('#choix_cible').css('display', 'none');
-    //Applique l'effet au joueur ciblé
+
+    // Applique l'effet au joueur ciblé
     if(document.querySelector('input[name="joueur"]:checked') === null){
         console.log("Pas de choix sélectioné");
         fnExecuteChance();
@@ -276,11 +299,13 @@ function fnEffaceChoixDeplacement() {
         for(var i = 0; i < nbJoueurs; i++){
             if(joueurs[i].id === document.querySelector('input[name="joueur"]:checked').value){
 
-                //Déplacer le pion
-                if(achance[nbaleat].valeur_2 === 0){    //Si la destination est GO
+                // Déplacer le pion
+                // Si la destination est GO
+                if(achance[nbaleat].valeur_2 === 0){
                     joueurs[i].deplacerPion(-joueurs[i].caseActuelle);
                 }
-                else{                                   //Sinon
+                // Sinon
+                else{
                     joueurs[i].deplacerPion((-joueurs[i].caseActuelle+achance[nbaleat].valeur_2));
                 }
 
@@ -289,7 +314,7 @@ function fnEffaceChoixDeplacement() {
 
         }
 
-    joueurSuivant();
+    fnJoueurSuivant();
 
     }
 

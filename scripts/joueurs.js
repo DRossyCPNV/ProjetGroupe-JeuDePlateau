@@ -6,13 +6,14 @@
 //
 //              - fonction pour créer un tableau objet joueur
 //              - attribution des paramètres à l'objet joueur
-//              -> méthode pour placer un pion sur la case départ
-//              -> méthode pour un déplacement du pion en fonction du résultat du dé
-//              -> méthode pour placer le pion sur la case CFC
+//                  -> méthode pour placer un pion sur la case départ
+//                  -> méthode pour un déplacement du pion en fonction du résultat du dé
+//                  -> méthode pour placer le pion sur la case CFC
 //              - fonction qui donne le nombre de joueur se trouvant sur la case passée en paramètre
 //              - fonction qui retourne l'emplacement vide d'une case du plateau
 //              - fonction qui change le joueur actuel
 //              - fonction qui déplace le pion fluidement
+//
 //
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
@@ -59,7 +60,7 @@ function Joueur(id, nom, couleur, argent_depart, section) {
         var caseDepart = that.caseActuelle;
         var caseArrive = that.caseActuelle + de;
         var deplacement = vitesseAnimSlider.value / 100; // déplacement en pourcents d'une case: 1 = 100% 0 = 0%,
-                                                        // la vitesse peut-être modifiée à l'aide d'un slider
+                                                        // la vitesse peut-être modifiée à l'aide du slider
 
         var tempsInterval = 5;                          // temps en millisecondes entre chaque déplacement
         dureeDeplacementMS  = (caseArrive-caseDepart)/deplacement*tempsInterval;
@@ -139,17 +140,34 @@ function emplacementVideCase(caseID) {
 }
 
 // Changement du joueur actuel, avec retour au premier si on arrive au dernier
-function joueurSuivant() {
+function fnJoueurSuivant() {
 
-    tourFini = true;                     // variable globale
+    // variable globale
+    tourFini = true;
+
+    // Passe au joueur suivant, avec retour au premier si c'est le dernier joueur de la liste
     console.log("Au tour du joueur suivant");
-
-    if (jActuel < document.getElementById('nbJoueurs').value - 1)
-    {
+    if (jActuel < document.getElementById('nbJoueurs').value - 1) {
         jActuel++;
 
     } else {
         jActuel = 0;
+    }
+
+    if(joueurs[jActuel].passeTour === 1) {
+
+        joueurs[jActuel].passeTour = 0;
+
+        // Passe au joueur suivant, avec retour au premier si c'est le dernier joueur de la liste
+        alert("Le joueur de couleur " + joueurs[i].couleur + " passe son tour !");
+        console.log("Le joueur de couleur " + joueurs[i].couleur + " passe son tour !");
+
+        if (jActuel < document.getElementById('nbJoueurs').value - 1) {
+            jActuel++;
+
+        } else {
+            jActuel = 0;
+        }
     }
 
 }

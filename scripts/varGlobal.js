@@ -5,12 +5,11 @@
 //
 //             * paths des fichiers
 //             * initialisation du canvas
-//             * paramètres de dessin
+//             * paramètres de dessin, affichage et liste des joueurs
 //             * paramètres du plateau
 //             * paramètres du dé
 //             * paramètres des pions
-//             * html
-//             * paramètres des points requis pour tenter d'obtenir le cfc
+//             * paramètres du jeu
 //
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
@@ -60,8 +59,8 @@ var nbFacesAffichees = 0; // compte le nombre de fois qu'une face de dé est aff
 var resultatDe = 0; // stocke la dernière valeur affichée par le dé, utilisée pour le déplacement des pions.
 
 //Paramètres des pions
-var pionw = 12 * echelle;
-var pionh = 20 * echelle; //Taille des pions
+var pionw = 12 * echelle;   // Largeur (width) des pions
+var pionh = 20 * echelle; // Hauteur (height) des pions
 const couleursPions = ["rouge", "bleuClair", "bleuFonce", "orange", "violet", "vert"];
 var imgPion = [];
 

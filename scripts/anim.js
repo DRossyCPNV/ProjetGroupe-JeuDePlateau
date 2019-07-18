@@ -1,9 +1,12 @@
 // *****************************************************************************
-// Fonction d'affichage du plateau
+// Fonction d'animation des pions et d'affichage du plateau
 // *****************************************************************************
-//              -  dessine le plateau dans le canvas avec, comme paramètres,
-//                l'image du plateau, l'espacement bord-plateau et la taille du plateau dans le canevas (carré).
-//				Puis on appelle la fonction qui affiche les pions, ensuite elle-même de façon récursive.
+//              -   dessine le plateau dans le canvas avec, comme paramètres :
+//                  (1) l'image du plateau
+//                  (2) l'espacement bord-plateau
+//                  (3) la taille du plateau dans le canevas (carré).
+//				    Puis on appelle la fonction qui affiche les pions, définie dans affichage.js.
+//	                Ensuite la fonction s'appelle elle-même, de façon récursive.
 //
 //
 // Laurent Barraud, Bastian Chollet, Luca Coduri,

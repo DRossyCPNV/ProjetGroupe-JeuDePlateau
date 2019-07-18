@@ -2,7 +2,7 @@
       Modulopoly - fichier principal du jeu.
       Version release - juillet 2019
 ********************************************************************
-// - lancement de la fonction principale du jeu, dans gameloop.js,
+// - lancement de la fonction principale du jeu, dans gameloop.js
 // - menu qui permet de configurer la partie
 // - menu qui permet de choisir le nombre de joueurs, le nom de chaque joueur ainsi que leur section
 // - bouton Start qui lance le menu de configuration de la partie
@@ -142,7 +142,7 @@ SI-CA1a - juillet 2019 - CPNV
                         </tr>
                     </table>
                 </div>
-                <button id="btnPlay" class="flat-button" name="play" value="play" onclick="afficherMenuIndications();">
+                <button id="btnPlay" class="flat-button" name="play" value="play" onclick="fnAfficherMenuIndications();">
                     Jouer
                 </button>
             </div>
@@ -176,10 +176,11 @@ SI-CA1a - juillet 2019 - CPNV
 <!-- Div qui contient toute la fenêtre -->
 <div id="game">
 
-    <!-- Affiche un slider pour choisir la vitesse d'animation des pions -->
-    <span id="vitesseAnims">Vitesse des pions
-        <input type="range" min="1" max="40" value="20" class="slider" id="vitesseAnimSlider">
-    </span>
+    <!-- Affiche un slider pour choisir la vitesse d'animation des pions, avec une graduation de 2
+     et appelle la fonction qui affiche sa valeur, lorsqu'on le modifie-->
+    <label for="vitesseAnimSlider">Vitesse des pions</label>
+    <input id="vitesseAnimSlider" type="range" min="4" max="28" value="12" oninput="fnAfficherValeurSlider(this.value)">
+    <output id="vitesseAnimSliderValue" name="vitesseAnimSliderValue" for="vitesseAnimSlider"></output>
     <br>
     <canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid #330968; background-color:#38196A">
         Texte alternatif pour les navigateurs ne supportant pas Canvas.
@@ -300,7 +301,6 @@ SI-CA1a - juillet 2019 - CPNV
 
 <script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="scripts/varGlobal.js"></script>
-<script type="text/javascript" src="scripts/anim.js"></script>
 <script type="text/javascript" src="scripts/affichage.js"></script>
 <script type="text/javascript" src="scripts/joueurs.js"></script>
 <script type="text/javascript" src="scripts/jeu-html.js"></script>
@@ -309,7 +309,6 @@ SI-CA1a - juillet 2019 - CPNV
 <script type="text/javascript" src="scripts/gameloop.js"></script>
 <script type="text/javascript" src="scripts/menu_indications.js"></script>
 <script type="text/javascript" src="scripts/obtention_module.js"></script>
-<script type="text/javascript" src="scripts/menu.js"></script>
 
 </body>
 </html>

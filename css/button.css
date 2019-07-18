@@ -37,44 +37,81 @@
     transition: transform .3s;
 }
 
-#vitesseAnims{
-    display: inline-block;
-    color:whitesmoke;
-    font-size: 0.8em;
-    position: relative;
-    left: 1%;
-}
-
 #vitesseAnimSlider {
     display: inline-block;
     position: relative;
-    left: 1%;
-    width: 40%;
+    left: 10px;
+    width: 7%;
     height: 10px;
-    border-radius: 5px;
+    border-radius: 2px;
     background: #d3d3d3;
     outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
+    opacity: 0.5;               /* affiche le slider légèrement transparent */
+    -webkit-transition: .2s;    /* transition de 0.2 secondes (lors du survol) */
     transition: opacity .2s;
 }
 
+label[for="vitesseAnimSlider"] {
+    display: inline-block;
+    position: relative;
+    left: 5px;
+    opacity: 0.8;
+    font-family: 'Baloo Bhai', cursive;
+    color: whitesmoke;
+    font-size: 0.750em;
+}
+
+/* Effet de survol de la souris */
+#vitesseAnimSlider:hover{
+    /* le slider s'affiche complètement */
+    opacity: 1;
+}
+
 #vitesseAnimSlider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
     width: 14px;
     height: 14px;
     border-radius: 40%;
-    background: midnightblue;
+    background: #41a46b;                /* Change la couleur du bouton du slider (sous Chrome, Safari et Opéra) */
+    transition: background .2s ease-in-out;
     cursor: pointer;
+}
+
+#vitesseAnimSlider::-webkit-slider-thumb:hover {
+    background: midnightblue;         /* Change la couleur du bouton du slider lorsqu'on le survole (sous Chrome, Safari et Opéra) */
+}
+
+#vitesseAnimSlider:active::-webkit-slider-thumb {
+    background: midnightblue;        /* Change la couleur du bouton du slider lorsqu'il est actif (sous Chrome, Safari et Opéra)*/
+}
+
+#vitesseAnimSlider:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 3px #fff, 0 0 0 6px midnightblue;
 }
 
 #vitesseAnimSlider::-moz-range-thumb {
     width: 14px;
     height: 14px;
     border-radius: 40%;
-    background: midnightblue;
+    background: midnightblue;            /* Change la couleur du bouton du slider lorsqu'on le survole (sous Firefox) */
+    transition: background .15s ease-in-out;
     cursor: pointer;
 }
 
+#vitesseAnimSliderValue {
+    display: inline-block;
+    position: relative;
+    opacity: 0;                       /* masque la valeur du slider tant qu'on ne la modifie pas */
+    transition: opacity .2s ease-in-out;
+    width: 20px;
+    color: whitesmoke;
+    line-height: 0.750em;
+    text-align: center;
+    border-radius: 2px;
+    padding: 4px 2px;
+    margin-left: 4px;
+}
 
+::-moz-range-track {
+    background: #d3d3d3;
+    border: 0;
+}
