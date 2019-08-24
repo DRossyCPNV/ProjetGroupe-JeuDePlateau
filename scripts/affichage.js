@@ -10,10 +10,8 @@
 //                  (1) l'image du plateau
 //                  (2) l'espacement bord-plateau
 //                  (3) la taille du plateau dans le canevas (carré).
-//			        -> Puis on appelle la fonction qui affiche les pions, définie dans affichage.js.
+//			        -> Puis on appelle la fonction qui anime les pions, en les affichant plusieurs fois, définie dans affichage.js.
 //                  -> Ensuite la fonction s'appelle elle-même, de façon récursive.
-//              - Fonction d'affichage/animation des pions sur le canevas, exécutée en animationFrame
-//                dans la fonction draw().
 //
 //                  -> switch case actuelle du joueur : on recherche comment et où positionner les pions sur le plateau
 //                      -> si la case vaut entre 0 et 5 :
@@ -94,8 +92,8 @@ $.getJSON('donnees/cases.json', function (data) {
     acartes = data;
 });
 
-// Fonction qui dessine le plateau dans le canvas.
-// Puis on appelle la fonction qui affiche les pions, définie dans affichage.js.
+// Fonction d'affichage du plateau.
+// Puis on appelle la fonction qui anime les pions, en les affichant plusieurs fois, définie dans affichage.js.
 // Ensuite la fonction s'appelle elle-même, de façon récursive.
 function draw(){
     ctx.drawImage(img_plateau, tbplateau, tbplateau, tplateauxy, tplateauxy);

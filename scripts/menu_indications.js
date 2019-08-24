@@ -101,7 +101,7 @@ function fnCreerDivJoueurs(nbJoueurs) {
 
             // Si les conditions sont remplies, le bouton "Passer le CFC" s'affiche.
             if(conditionCFC){
-                boutonAffiche += '<input type="button" value="Passer le CFC" class="btn_cfc menu_indications_joueur_boutons_lancer" onclick="$(this).hide(); fnPasserCFC(jActuel);">' +'\n' + '</div>' + '\n';
+                boutonAffiche += '<input type="button" value="Passer le CFC" class="btn_cfc menu_indications_joueur_boutons_lancer" onclick="$(this).hide(); menu_indications_joueur_boutons_lancer.hide(); fnPasserCFC(jActuel);">' +'\n' + '</div>' + '\n';
             }
             else{
                 boutonAffiche+= '</div>' + '\n';
