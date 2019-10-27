@@ -144,10 +144,6 @@ function fnExecuteChance(){
                             joueurs[jActuel].argent += achance[nbaleat].valeur_1;
                         }
                     }
-
-                // Tour fini, au tour du joueur suivant
-                console.log("Tour suivant");
-                fnJoueurSuivant();
                 }
 
                 // Si l'on reçoit et donne de l'argent
@@ -176,6 +172,10 @@ function fnExecuteChance(){
                     console.log("Choix d'un joueur cible");
                     $('#form_cibles').html(nomJoueurs);
                 }
+
+            // Tour fini, au tour du joueur suivant
+            console.log("Tour suivant");
+            fnJoueurSuivant();
             break;
             }
         break;
@@ -222,7 +222,7 @@ function fnExecuteChance(){
                             nomJoueurs += "<input type='radio' name='joueur' value='" + joueurs[i].id + "'> <label>" + joueurs[i].nom + "</label><br>";
                         }
                     }
-                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnExecuteCibleDeplacement();\">";
+                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnExecuteCibleDeplacement();\">"
                     $('#form_cibles').html(nomJoueurs);
                     
                     break;
@@ -239,14 +239,14 @@ function fnExecuteChance(){
 
                     // L'image du pion du joueur actuel est maintenant celle où il est protégé par un casque
                     imgPion[jActuel].src = "images/pions/" + couleursPions[jActuel] + "_protection" + ".png";
-
-                    // Tour fini, au tour du joueur suivant
-                    console.log("Tour suivant");
-                    fnJoueurSuivant();
                     break;
                 default:
                     break;
             }
+
+        // Tour fini, au tour du joueur suivant
+        console.log("Tour suivant");
+        fnJoueurSuivant();
         break;
 
         case 'QCM':
@@ -275,7 +275,7 @@ function fnExecuteCibleArgent () {
 
         for(var i = 0; i < nbJoueurs; i++){
 
-            if(joueurs[i].id == document.querySelector('input[name="joueur"]:checked'.value)){
+            if(joueurs[i].id == document.querySelector('input[name="joueur"]:checked').value){
 
                 // Si le joueur a activé une protection
                 if(joueurs[i].protection === 1 && achance[nbaleat].valeur_1 < 0){
