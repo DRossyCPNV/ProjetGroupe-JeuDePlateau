@@ -40,14 +40,8 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA1a - juillet 2019 - CPNV
+// SI-CA2a - octobre 2019 - CPNV
 // **************************************************************************************
-
-// Paramètres des cartes chance
-var achance = [];                                   // stocke l'array des cartes
-var nbchance;                                       // stocke le nombre de cartes
-var nbaleat;                                        // stocke la carte qui sera tirée au hasard
-var nbJoueurs =  document.getElementById("nbJoueurs").value;
 
 // La carte est masquée au début du jeu
 $('#carte_chance').css('display','none');
@@ -57,12 +51,12 @@ $.getJSON('donnees/chances.json', function(data) {
 
     // Le nombre de cartes chance disponibles
     nbchance = achance.length;
-
 });
 
 function fnAfficheChance() {
-    console.log("Joueur ID :"+jActuel);
-    // Affichage de la div contenant la question chance et
+    console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" affiche une carte chance.");
+
+    // Affichage de la div contenant la question chance,
     // masquage du plateau, du menu latéral et des éléments du slider.
     $('body').css('background-color','rgba(0,0,0,.9)');
     $('#plateau_jeu').css('display','none');
@@ -72,24 +66,23 @@ function fnAfficheChance() {
     $('#vitesseAnimSliderValue').css('display', 'none');
     $('#carte_chance').css('display', 'block');
 
-
     // Génération d'un nombre aléatoire
     nbaleat = Math.floor(Math.random() * nbchance);
 
     // Affichage de la carte chance
     $('#titre_chance').html(achance[nbaleat].titre);
     $('#txt_chance').html(achance[nbaleat].texte);
-
 }
 
+// Efface la carte chance et réaffiche le plateau de jeu, le menu latéral et les éléments du slider.
 function fnEffaceChance(){
-    // Efface la carte chance et réaffiche le plateau de jeu, le menu latéral et les éléments du slider.
     $('#carte_chance').css('display', 'none');
     $('#plateau_jeu').css('display', 'inline');
     $('#menu_indications').css('display', 'block');
     $('label[for="vitesseAnimSlider"]').css('display', 'inline-block');
     $('#vitesseAnimSlider').css('display', 'inline-block');
     $('body').css('background-color','purple');
+
     fnExecuteChance();
 }
 
@@ -97,7 +90,7 @@ function fnEffaceChance(){
 // Exécute les effets de la carte
 function fnExecuteChance(){
     console.log("Nombre de joueurs : " +nbJoueurs);
-    console.log("Joueur actuel, le " + joueurs.couleur + "id : " + jActuel);
+    console.log("Le joueur de couleur " + joueurs[jActuel].couleur + " est le joueur actuel.");
     var nomJoueurs = "";
 
     switch(achance[nbaleat].effet){
@@ -105,8 +98,10 @@ function fnExecuteChance(){
         case 'POINTS':
 
             switch(achance[nbaleat].valeur_1){
+
+            // Si l'on donne de l'argent à un autre joueur
             case 0:
-                // Si l'on donne de l'argent à un autre joueur
+
                 // (style de la carte défini dans style.css)
                 $('#choix_cible').css('display', 'block');
                 $('#titre_cible').html("Choisissez un joueur cible:");
@@ -117,20 +112,22 @@ function fnExecuteChance(){
                             nomJoueurs += "<input type='radio' name='joueur' value='" + joueurs[i].id + "'> <label>" + joueurs[i].nom + "</label><br>";
                         }
                     }
-                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnExecuteChoixArgent();\">";
+                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnExecuteCibleArgent();\">";
                     $('#form_cibles').html(nomJoueurs);
-                    console.log(joueurs[jActuel].nom + " a donné de l'argent.");
+                    console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" a donné de l'argent.");
             break;
 
+            // Si l'on perd ou reçoit de l'argent
             default:
-                // Si l'on reçoit de l'argent
+
                 if(achance[nbaleat].valeur_2 === 0){
 
                     // Si le joueur a activé une protection
                     if(joueurs[jActuel].protection === 1 && achance[nbaleat].valeur_1 < 0){
 
+                        // La protection est utilisée
                         joueurs[jActuel].protection = 0;
-                        alert("La protection du joueur de couleur " + joueurs[jActuel].couleur + "a été utilisée.");
+                        alert("La protection du joueur de couleur " + joueurs[jActuel].couleur + " a été utilisée.");
 
                         // Remise de l'image par défaut du pion
                         imgPion[jActuel].src = "images/pions/" + couleursPions[jActuel] + ".png";
@@ -140,26 +137,25 @@ function fnExecuteChance(){
                     else {
 
                         if (achance[nbaleat].valeur_1 < 0 && joueurs[jActuel].argent <= Math.abs(achance[nbaleat].valeur_1)) {
-                            console.log("Le joueur " + joueurs[jActuel].nom + " est à sec !");
+                            console.log("Le joueur de couleur " + joueurs[jActuel].couleur + " est à sec !");
                             joueurs[jActuel].argent = 0;
                         }
                         else {
                             joueurs[jActuel].argent += achance[nbaleat].valeur_1;
-                            console.log("Reçu l'argent du joueur " +joueurs[jActuel].nom +" "+joueurs[jActuel].argent);
                         }
-
-
                     }
 
+                // Tour fini, au tour du joueur suivant
+                console.log("Tour suivant");
                 fnJoueurSuivant();
-
                 }
-                else{
-                // Si l'on reçoit et donne de l'argent
-                // partie où l'on reçoit
 
+                // Si l'on reçoit et donne de l'argent
+                else{
+
+                    // partie où l'on reçoit
                     if(achance[nbaleat].valeur_1<0 && joueurs[jActuel].argent <= Math.abs(achance[nbaleat].valeur_1)){
-                        console.log("Le joueur " + joueurs[jActuel].nom + " est à sec !");
+                        console.log("Le joueur de couleur " + joueurs[jActuel].couleur + " est à sec !");
                         joueurs[jActuel].argent = 0;
 
                     } else{
@@ -176,12 +172,10 @@ function fnExecuteChance(){
                             }
                         }
 
-                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnExecuteChoixArgent();\">";
-
+                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnExecuteCibleArgent();\">"
+                    console.log("Choix d'un joueur cible");
                     $('#form_cibles').html(nomJoueurs);
-                    console.log("Recevoir et donner de l'argent");
                 }
-
             break;
             }
         break;
@@ -191,10 +185,14 @@ function fnExecuteChance(){
                 case 1:
                     // La prochaine fois que le joueur lance le dé, rien ne se passe et on passe au joueur suivant.
                     joueurs[jActuel].passeTour = 1;
-                    console.log("Passe-tour activé pour le joueur " + joueurs[jActuel].nom);
+                    console.log("Passe-tour activé pour le joueur de couleur " + joueurs[jActuel].couleur);
+
+                    // Tour fini, au tour du joueur suivant
+                    console.log("Tour suivant");
                     fnJoueurSuivant();
                     break;
-                default:
+
+               default:
                     break;
             }
         break;
@@ -213,17 +211,18 @@ function fnExecuteChance(){
                     // et que le joueur actuel fasse un deuxième tour.
                     tourFini = true;
                     break;
+
                 case 2:
                     // Sélection du joueur cible à déplacer
                     $('#choix_cible').css('display', 'block');
                     $('#titre_cible').html("Choisissez un joueur cible :");
 
-                    for(var i = 0; i < nbJoueurs; i++){
+                    for(let i = 0; i < nbJoueurs; i++){
                         if(joueurs[i] !== joueurs[jActuel]) {
                             nomJoueurs += "<input type='radio' name='joueur' value='" + joueurs[i].id + "'> <label>" + joueurs[i].nom + "</label><br>";
                         }
                     }
-                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnExecuteChoixDeplacement();\">";
+                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnExecuteCibleDeplacement();\">";
                     $('#form_cibles').html(nomJoueurs);
                     
                     break;
@@ -241,12 +240,13 @@ function fnExecuteChance(){
                     // L'image du pion du joueur actuel est maintenant celle où il est protégé par un casque
                     imgPion[jActuel].src = "images/pions/" + couleursPions[jActuel] + "_protection" + ".png";
 
+                    // Tour fini, au tour du joueur suivant
+                    console.log("Tour suivant");
+                    fnJoueurSuivant();
                     break;
                 default:
                     break;
             }
-
-        fnJoueurSuivant();
         break;
 
         case 'QCM':
@@ -259,14 +259,15 @@ function fnExecuteChance(){
 
 }
 
-
-function fnExecuteChoixArgent () {
+function fnExecuteCibleArgent () {
     // Efface la div de choix de cible
     $('#choix_cible').css('display', 'none');
 
-    // Réaffiche la div de choix de cible, si aucune cible n'a été sélectionnée
+    // Si aucune cible n'a été sélectionnée
     if(document.querySelector('input[name="joueur"]:checked') === null){
         console.log("Pas de choix sélectionné");
+
+        // Réaffiche la div de choix de cible
         fnExecuteChance();
     }
     // Applique l'effet au joueur ciblé
@@ -278,7 +279,10 @@ function fnExecuteChoixArgent () {
 
                 // Si le joueur a activé une protection
                 if(joueurs[i].protection === 1 && achance[nbaleat].valeur_1 < 0){
+
+                    console.log("Le joueur de couleur " + joueurs[jActuel].couleur + " a utilisé sa protection.");
                     joueurs[i].protection = 0;
+
                 }
 
                 // Si le joueur n'a pas de protection activée
@@ -286,29 +290,29 @@ function fnExecuteChoixArgent () {
 
                     if (achance[nbaleat].valeur_2 < 0 && joueurs[i].argent <= Math.abs(achance[nbaleat].valeur_2)) {
                         joueurs[i].argent = 0;
-                        console.log("Le joueur " + joueurs[jActuel].nom + " est à sec !");
+                        console.log("Le joueur de couleur " + joueurs[jActuel].couleur + " est à sec !");
                     }
                     else {
                         joueurs[i].argent += achance[nbaleat].valeur_2;
                     }
+
+                    console.log("Le joueur de couleur "+joueurs[i].couleur+" possède maintenant "+joueurs[i].argent);
+
                 }
-
-            console.log(joueurs[i].nom+" possède maintenant "+joueurs[i].argent);
-
             }
-
         }
 
-    fnJoueurSuivant();
-
+        // Tour fini, au tour du joueur suivant
+        console.log("Tour suivant");
+        fnJoueurSuivant();
     }
 }
 
-function fnExecuteChoixDeplacement() {
+function fnExecuteCibleDeplacement() {
     // Efface la div de choix de cible
     $('#choix_cible').css('display', 'none');
 
-
+    // Si aucune cible n'a été sélectionnée
     if(document.querySelector('input[name="joueur"]:checked') === null){
         console.log("Pas de choix sélectioné");
         fnExecuteChance();
@@ -316,12 +320,11 @@ function fnExecuteChoixDeplacement() {
     // Applique l'effet au joueur ciblé
     else{
 
-        for(var i = 0; i < nbJoueurs; i++){
+        for(let i = 0; i < nbJoueurs; i++){
 
-            if(joueurs[i].id == document.querySelector('input[name="joueur"]:checked'.value)){
+            if(joueurs[i].id == document.querySelector('input[name="joueur"]:checked').value){
 
-                // Déplacer le pion
-                // Si la destination est GO
+                // Si la destination est la case GO, on déplace le pion dessus
                 if(achance[nbaleat].valeur_2 === 0){
                     joueurs[i].deplacerPion(-joueurs[i].caseActuelle);
                 }
@@ -329,12 +332,11 @@ function fnExecuteChoixDeplacement() {
                 else{
                     joueurs[i].deplacerPion((-joueurs[i].caseActuelle+achance[nbaleat].valeur_2));
                 }
-
             }
         }
 
-    fnJoueurSuivant();
-
+        // Tour fini, au tour du joueur suivant
+        console.log("Tour suivant");
+        fnJoueurSuivant();
     }
-
 }

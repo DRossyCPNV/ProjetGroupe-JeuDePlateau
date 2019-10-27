@@ -22,25 +22,15 @@
 //                  -> vérification de la réponse donnée par le joueur
 //                      -> si la réponse est correcte : le joueur actuel augmente ses ressources,
 //                         du montant de points défini dans la variable globale ptsbr
-//                      -> sinon, affichage en alert de la bonne réponse
-//                      -> appel de la fonction fnJoueurSuivant(), définie dans joueurs.js
+//                      -> sinon : affichage en alert de la bonne réponse
+//                          -> Le tour est fini, on passe au joueur suivant
 //
 //
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA1a - juillet 2019 - CPNV
+// SI-CA2a - octobre 2019 - CPNV
 // **************************************************************************************
-
-
-// Paramètres des cartes questions
-var acquestion = []; // array carte questions
-var defausse = [];  // fait de se débarrasser d'une carte inutile
-var jreponse; // la réponse de l'utilisateur
-var breponse; // la bonne réponse
-var txtbreponse; // le texte de la bonne réponse
-var nbcquestion; // nombre de cartes questions
-var ptsbr = 500; // points attribués pour une bonne réponse
 
 // La carte est masquée au début du jeu
 $('#carte_question').css('display','none');
@@ -83,8 +73,8 @@ function fnAfficheQuestion() {
     $('#r4').html(acquestion[nbaleat].r4);
 
     // On enregistre la bonne réponse dans une variable
-    breponse = acquestion[nbaleat].br;
-    txtbreponse = acquestion[nbaleat][breponse];
+    bonneReponse = acquestion[nbaleat].br;
+    txtBonneReponse = acquestion[nbaleat][bonneReponse];
 
     // On met la carte piochée dans la défausse
     defausse.push(acquestion[nbaleat]);
@@ -93,6 +83,7 @@ function fnAfficheQuestion() {
     acquestion.splice(nbaleat, 1);
 }
 
+// Fonction de vérification de la réponse
 function fnVerifReponseQuestion() {
     // On masque la div contenant la question, puis on réaffiche le plateau de jeu,
     // le menu latéral et les éléments du slider.
@@ -104,28 +95,34 @@ function fnVerifReponseQuestion() {
     $('body').css('background-color','purple');
 
     // On enregistre la réponse du joueur
-    jreponse = $("input[name='reponse']:checked");
+    jActuelReponse = $("input[name='reponse']:checked");
 
     // Vérification de la réponse donnée par le joueur
-    if (breponse === jreponse.val()) {
+    if (bonneReponse === jActuelReponse.val()) {
         alert("Bravo ! Vous avez trouvé la bonne réponse.");
 
         // Le joueur augmente ses ressources, du montant de points
         // défini dans la variable globale ptsbr (PointsBonneRéponse)
         joueurs[jActuel].argent += ptsbr;
-        console.log(joueurs[jActuel].argent);
+        console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" possède maintenant "+joueurs[jActuel].argent+" points.");
 
         $('#carte_question').css('display','none');
-        jreponse.prop("checked", false);
+        jActuelReponse.prop("checked", false);
+
+        // Tour fini, au tour du joueur suivant
+        console.log("Tour suivant");
+        fnJoueurSuivant();
 
     }
     else {
-        alert("Mauvaise réponse ! La bonne réponse était : " + txtbreponse);
+        alert("Mauvaise réponse ! La bonne réponse était : " + txtBonneReponse);
         $('#carte_question').css('display','none');
-        jreponse.prop("checked", false);
-    }
+        jActuelReponse.prop("checked", false);
 
-    fnJoueurSuivant();
+        // Tour fini, au tour du joueur suivant
+        console.log("Tour suivant");
+        fnJoueurSuivant();
+    }
 
 }
 

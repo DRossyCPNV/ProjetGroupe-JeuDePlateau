@@ -44,7 +44,7 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA1a - juillet 2019 - CPNV
+// SI-CA2a - octobre 2019 - CPNV
 // **************************************************************************************
 
 // Crée le tableau de référence des modules
@@ -62,8 +62,10 @@ function fnAfficherMenuIndications(){
     fnCreerDivJoueurs(nbJoueurs);
 }
 
-// Crée les Div des joueurs, affiche et actualise les scores toutes les secondes.
+// Crée les Div des joueurs
 function fnCreerDivJoueurs(nbJoueurs) {
+
+    // Affiche et actualise les scores toutes les secondes.
     creerDiv = setInterval(function(){
 
     var boutonAffiche = "";

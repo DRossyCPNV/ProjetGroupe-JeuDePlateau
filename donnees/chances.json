@@ -110,7 +110,7 @@
   {
     "id": 200,
     "titre": "Surprise!",
-    "texte": "Examen surprise! Si vous répondez correctement, vous gagnez 500 ressources, sinon, vous en perdez 250",
+    "texte": "Examen surprise! Si vous répondez correctement, vous gagnez 500 points.",
     "indication": "Effet immédiat",
     "effet": "QCM",
     "valeur_1": 500,

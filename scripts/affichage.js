@@ -66,7 +66,7 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA1a - juillet 2019 - CPNV
+// SI-CA2a - octobre 2019 - CPNV
 // *****************************************************************************
 
 

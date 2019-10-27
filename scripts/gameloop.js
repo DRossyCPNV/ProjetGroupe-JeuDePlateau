@@ -29,7 +29,7 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA1a - juillet 2019 - CPNV
+// SI-CA2a - octobre 2019 - CPNV
 // ********************************************************************************************************************
 
 // event JQuery du clic sur le bouton-verif : vérification si la réponse à la question a été validée
@@ -123,55 +123,71 @@ function fnActionCase() {
     switch (true) {
 
         case (typeDeCase === "normal"):
-            fnSleep(dureeDeplacementMS + 1000).then(() => {
-                console.log(typeDeCase);
 
-                //demande si le joueur veut acheter la case. Fonction définie dans obtention_module.js.
+            // Attend que le pion aie fini de se déplacer
+            fnSleep(dureeDeplacementMS + 1000).then(() => {
+                console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" est arrivé sur une case de type "+typeDeCase);
+
+                // Demande si le joueur actuel veut acheter la case. Fonction définie dans obtention_module.js.
                 fnAcheterModule(caseToCheck);
             });
 
-            break;
+        break;
 
         case (typeDeCase === "question"):
 
+            // Attend que le pion aie fini de se déplacer
             fnSleep(dureeDeplacementMS + 1000).then(() => {
-                console.log(typeDeCase);
-                console.log(joueurs[jActuel]);
+                console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" est arrivé sur une case de type "+typeDeCase);
 
-                //poser une question
+                // Affiche une carte question au joueur actuel. Fonction définie dans question.js
                 fnAfficheQuestion();
 
             });
 
             break;
         case (typeDeCase === "chance"):
-            console.log(typeDeCase);
+            // Attend que le pion aie fini de se déplacer
             fnSleep(dureeDeplacementMS + 1000).then(() => {
+                console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" est arrivé sur une case de type "+typeDeCase);
 
+                // Affiche une carte chance au joueur actuel. Fonction définie dans chance.js
                 fnAfficheChance();
             });
 
             break;
         case (typeDeCase === "cfc"):
             fnLancerDe();
+
+            // Attend que le pion aie fini de se déplacer
             fnSleep(2000).then(() => {
+                console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" est arrivé sur la case de type "+typeDeCase);
+
                 if(resultatDe >= 4){
                     console.log("C'est gagné !!!");
+
+                    // Stoppe le timer qui affiche et actualise les scores toutes les secondes.
                     clearInterval(creerDiv);
                     $('#plateau_jeu').css('display', 'none');
                     $('#menu_indications').css('display', 'none');
                     $('label[for="vitesseAnimSlider"]').css('display', 'none');
                     $('#vitesseAnimSlider').css('display', 'none');
                     $('body').css('background-color','black');
+
+                    // Affiche un overlay de victoire avec l'image du CFC
                     overlayVictoireOn()
                 }
                 else{
                     alert("CFC raté, pas de bol !");
                     console.log("CFC raté, pas de bol!");
+
+                    // Replace le pion sur la case d'où il était parti
                     joueurs[jActuel].deplacerPion(-joueurs[jActuel].caseActuelle);
+
+                    // Retire 1000 points pour le passage du CFC
                     joueurs[jActuel].argent -= 1000;
 
-                    // Passer au joueur suivant
+                    // Tour fini, au tour du joueur suivant
                     console.log("Tour suivant");
                     fnJoueurSuivant();
                 }

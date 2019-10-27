@@ -10,11 +10,13 @@
 //             * paramètres du dé
 //             * paramètres des pions
 //             * paramètres du jeu
+//             * paramètres des cartes questions
+//             * paramètres des cartes chances
 //
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA1a - juillet 2019 - CPNV
+// SI-CA2a - octobre 2019 - CPNV
 // *****************************************************************************
 
 // Chargement des fichiers
@@ -80,4 +82,20 @@ var tourFini = true;                                                            
 var creerDiv;                                                                       // stocke le menu d'indication des joueurs
 var vitesseAnimSlider = document.getElementById('vitesseAnimSlider');     // stocke la vitesse d'animation réglée sur le slider
 var dureeDeplacementMS;                                                             // stocke la vitesse d'animation en micro-secondes
+
+// Paramètres des cartes questions
+var acquestion = []; // array carte questions
+var defausse = [];  // fait de se débarrasser d'une carte inutile
+var jActuelReponse; // la réponse de l'utilisateur
+var bonneReponse; // la bonne réponse
+var txtBonneReponse; // le texte de la bonne réponse
+var nbcquestion; // nombre de cartes questions
+var ptsbr = 500; // points attribués pour une bonne réponse
+
+// Paramètres des cartes chance
+var achance = [];                                   // stocke l'array des cartes
+var nbchance;                                       // stocke le nombre de cartes
+var nbaleat;                                        // stocke la carte qui sera tirée au hasard
+var nbJoueurs =  document.getElementById("nbJoueurs").value;
+
 

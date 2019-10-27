@@ -1,6 +1,10 @@
 <!-- ***************************************************************
-      Modulopoly - fichier principal du jeu.
-      Version release - juillet 2019
+//  Modulopoly - fichier principal du jeu.
+// *****************************************************************
+// Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// Un projet mandaté par M. Chavey.
+// SI-CA2a - octobre 2019 - CPNV
 ********************************************************************
 // - lancement de la fonction principale du jeu, dans gameloop.js
 // - menu qui permet de configurer la partie
@@ -16,16 +20,12 @@
 // - écran des règles
 // - écran de victoire
 // - chargement de tous les fichiers scripts en mémoire
-
-
-Laurent Barraud, Bastian Chollet, Luca Coduri,
-Guillaume Duvoisin, Guilain Mbayo & David Rossy.
-Un projet mandaté par M. Chavey.
-SI-CA1a - juillet 2019 - CPNV
+//
+// Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy.
+// Un projet mandaté par M. Chavey.
+// SI-CA1a - juillet 2019 - CPNV
 ******************************************************************** -->
-
-
-
 
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -162,7 +162,7 @@ SI-CA1a - juillet 2019 - CPNV
             <div id="text">
                 <span id="title" class="titles">Modulopoly</span>
                 <span id="under-title" class="titles">Un projet mandaté par M. Chavey</span>
-                <span id="under-title" class="titles">Classe SI-CA1a - juillet 2019</span>
+                <span id="under-title" class="titles">Classe SI-CA2a - octobre 2019</span>
                 <br>
                 <br>
                 <div id="btn-start" class='flat-button'>Start</div>
@@ -172,81 +172,6 @@ SI-CA1a - juillet 2019 - CPNV
     </div>
 </div>
 <br>
-
-<!-- Div qui contient toute la fenêtre -->
-<div id="game">
-
-    <!-- Affiche un slider pour choisir la vitesse d'animation des pions
-     et appelle la fonction qui affiche sa valeur, lorsqu'on le modifie -->
-    <label for="vitesseAnimSlider">Vitesse des pions</label>
-    <input id="vitesseAnimSlider" type="range" min='4' max='28' value='16' oninput="fnAfficherValeurSlider(this.value);">
-    <output id="vitesseAnimSliderValue" name="vitesseAnimSliderValue" for="vitesseAnimSlider"></output>
-    <br>
-    <canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid #330968; background-color:#38196A">
-        Texte alternatif pour les navigateurs ne supportant pas Canvas.
-    </canvas>
-
-    <!-- Menu latéral des indications des joueurs -->
-    <div id="menu_indications">
-        <div id="menu_indications_titre">SCORES</div>
-        <div id="menu_indications_tours"></div>
-        <div id="menu_indications_joueurs"></div>
-    </div>
-    <!-- Fin menu des indications -->
-
-    <!-- Affichage des cartes questions avec boutons radios pour répondre -->
-    <div id="carte_question">
-        <p id="txt_question"></p>
-        <div id="rdb_question">
-            <input type="radio" name="reponse" value="r1" ondblclick="fnVerifReponseQuestion();">
-            <label id="r1" for="r1"></label>
-            <br>
-
-            <input type="radio" name="reponse" value="r2" ondblclick="fnVerifReponseQuestion();">
-            <label id="r2" for="r2"></label>
-            <br>
-
-            <input type="radio" name="reponse" value="r3" ondblclick="fnVerifReponseQuestion();">
-            <label id="r3" for="r3"></label>
-            <br>
-
-            <input type="radio" name="reponse" value="r4" ondblclick="fnVerifReponseQuestion();">
-            <label id="r4" for="r4"></label>
-            <br>
-        </div>
-        <br>
-        <input id="btn-verif" type="button" value="Réponse" width="200" onclick="fnVerifReponseQuestion(); return false;">
-    </div>
-
-    <!-- Affichages des cartes chance -->
-    <div id="carte_chance" onclick="fnEffaceChance();">
-        <img src="images/chance/close.png" width="20" align="right" onclick="fnEffaceChance()" alt="Faire disparaitre la carte chance."/>
-        <p><strong id="titre_chance"></strong></p>
-        <br>
-        <p id="txt_chance"></p>
-    </div>
-    <div id="choix_cible">
-        <p><strong id="titre_cible"></strong></p>
-        <br>
-        <form id="form_cibles">
-        </form>
-    </div>
-    <!-- Fin Cartes chance -->
-
-    <!-- Affichage de l'écran d'achat d'une carte module -->
-    <div id="carte_module" ondblclick="fnEffacerModule();">
-        <p><strong id="titre_module"></strong></p>
-        <br>
-        <p id="txt_module"></p>
-        <div>
-            <input id="acheterModule" type="button" value="Acheter"
-                   onclick="fnClickAcheterModule(caseAchetee);">
-            <input id="passerModule" type="button" value="Non merci" onclick="fnEffacerModule();">
-        </div>
-    </div>
-    <!-- Fin carte module -->
-</div>
-
 
 <!-- Ecran des règles -->
 <div id="overlayRegles" onclick="overlayReglesOff()">
@@ -285,6 +210,80 @@ SI-CA1a - juillet 2019 - CPNV
     </div>
 </div>
 
+<!-- Div qui contient toute la fenêtre -->
+<div id="game">
+
+    <!-- Affiche un slider pour choisir la vitesse d'animation des pions
+     et appelle la fonction qui affiche sa valeur, lorsqu'on le modifie -->
+    <label for="vitesseAnimSlider">Vitesse des pions</label>
+    <input id="vitesseAnimSlider" type="range" min='4' max='28' value='16' oninput="fnAfficherValeurSlider(this.value);">
+    <output id="vitesseAnimSliderValue" name="vitesseAnimSliderValue" for="vitesseAnimSlider"></output>
+    <br>
+    <canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid #330968; background-color:#38196A">
+        Texte alternatif pour les navigateurs ne supportant pas Canvas.
+    </canvas>
+
+    <!-- Menu latéral des indications des joueurs -->
+    <div id="menu_indications">
+        <div id="menu_indications_titre">SCORES</div>
+        <div id="menu_indications_tours"></div>
+        <div id="menu_indications_joueurs"></div>
+    </div>
+    <!-- Fin menu des indications -->
+
+    <!-- Affichage de l'écran d'achat d'une carte module -->
+    <div id="carte_module">
+        <p><strong id="titre_module"></strong></p>
+        <br>
+        <p id="txt_module"></p>
+        <div>
+            <input id="acheterModule" type="button" value="Acheter"
+                   onclick="fnClicAcheterModule(caseAchetee);">
+            <input id="passerModule" type="button" value="Non merci" onclick="fnEffacerModule();">
+        </div>
+    </div>
+    <!-- Fin carte module -->
+
+    <!-- Affichage des cartes questions avec boutons radios pour répondre -->
+    <div id="carte_question">
+        <p id="txt_question"></p>
+        <div id="rdb_question">
+            <input type="radio" name="reponse" value="r1" ondblclick="fnVerifReponseQuestion();">
+            <label id="r1" for="r1"></label>
+            <br>
+
+            <input type="radio" name="reponse" value="r2" ondblclick="fnVerifReponseQuestion();">
+            <label id="r2" for="r2"></label>
+            <br>
+
+            <input type="radio" name="reponse" value="r3" ondblclick="fnVerifReponseQuestion();">
+            <label id="r3" for="r3"></label>
+            <br>
+
+            <input type="radio" name="reponse" value="r4" ondblclick="fnVerifReponseQuestion();">
+            <label id="r4" for="r4"></label>
+            <br>
+        </div>
+        <br>
+        <input id="btn-verif" type="button" value="Réponse" width="200" onclick="fnVerifReponseQuestion(); return false;">
+    </div>
+
+    <!-- Affichages des cartes chance -->
+    <div id="carte_chance">
+        <img src="images/chance/close.png" width="20" align="right" onclick="fnEffaceChance()" alt="Faire disparaitre la carte chance."/>
+        <p><strong id="titre_chance"></strong></p>
+        <br>
+        <p id="txt_chance"></p>
+    </div>
+    <div id="choix_cible">
+        <p><strong id="titre_cible"></strong></p>
+        <br>
+        <form id="form_cibles">
+        </form>
+    </div>
+    <!-- Fin Cartes chance -->
+
+</div>
 
 <!-- Ecran de victoire -->
 <div id="overlayVictoire" onclick="overlayVictoireOff()">
@@ -293,7 +292,7 @@ SI-CA1a - juillet 2019 - CPNV
 </div>
 
 
-<!-- code de triche ultime, n'utiliser que pour tester les overlays
+<!-- code de triche ultime, n'utiliser que pour tester un overlay
 <div style="padding:20px">
   <button onclick="overlayVictoireOn()">CFC direct</button>
 </div>

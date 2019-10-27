@@ -18,7 +18,7 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA1a - juillet 2019 - CPNV
+// SI-CA2a - octobre 2019 - CPNV
 // *****************************************************************************
 
 //Fonction pour créer un tableau objet joueur, n étant le nombre de joueurs
@@ -145,22 +145,14 @@ function fnJoueurSuivant() {
     // variable globale
     tourFini = true;
 
-    // Passe au joueur suivant, avec retour au premier si c'est le dernier joueur de la liste
-    console.log("Au tour du joueur suivant");
-    if (jActuel < document.getElementById('nbJoueurs').value - 1) {
-        jActuel++;
-
-    } else {
-        jActuel = 0;
-    }
-
+    // Si le joueur doit passer son tour
     if(joueurs[jActuel].passeTour === 1) {
 
-        joueurs[jActuel].passeTour = 0;
-
-        // Passe au joueur suivant, avec retour au premier si c'est le dernier joueur de la liste
         alert("Le joueur de couleur " + joueurs[jActuel].couleur + " passe son tour !");
         console.log("Le joueur de couleur " + joueurs[jActuel].couleur + " passe son tour !");
+
+        // Passe au joueur suivant, avec retour au premier si c'est le dernier joueur de la liste
+        joueurs[jActuel].passeTour = 0;
 
         if (jActuel < document.getElementById('nbJoueurs').value - 1) {
             jActuel++;
@@ -168,6 +160,15 @@ function fnJoueurSuivant() {
         } else {
             jActuel = 0;
         }
+    }
+
+    // Passe au joueur suivant, avec retour au premier si c'est le dernier joueur de la liste
+    console.log("Au tour du joueur suivant");
+    if (jActuel < document.getElementById('nbJoueurs').value - 1) {
+        jActuel++;
+
+    } else {
+        jActuel = 0;
     }
 
 }
