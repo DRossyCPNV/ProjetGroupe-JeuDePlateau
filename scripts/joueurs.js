@@ -18,13 +18,14 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA2a - octobre 2019 - CPNV
+// SI-CA2a - novembre 2019 - CPNV
 // *****************************************************************************
 
 //Fonction pour créer un tableau objet joueur, n étant le nombre de joueurs
 function maker(n) {
     var arr = [];
-    for (i = 0; i < n; i++) {
+    for (var i = 0; i < n; i++)
+    {
         var nomJoueur = $("#nomJ" + i).val();
         var sectionJoueur = $("#sectionJ" + i).val();
         arr.push(new Joueur(i, nomJoueur, couleursPions[i], 500, sectionJoueur));
@@ -55,6 +56,7 @@ function Joueur(id, nom, couleur, argent_depart, section) {
         that.emplacementCase = -1;
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
     };
+
     // méthode qui déplace le pion d'un nombre de cases en fonction du dé
     this.deplacerPion = function (de) {
         var caseDepart = that.caseActuelle;
@@ -66,31 +68,35 @@ function Joueur(id, nom, couleur, argent_depart, section) {
         dureeDeplacementMS  = (caseArrive-caseDepart)/deplacement*tempsInterval;
         that.emplacementCase = -1;
 
-        // condition pour que les pions s'arrêtent à chaque coins
-        if ((that.caseActuelle + de) > 6 && that.caseActuelle < 6) {
+        // condition pour que les pions s'arrêtent à chaque coin
+        if ((that.caseActuelle + de) > 6 && that.caseActuelle < 6)
+        {
             that.caseActuelle = 6;
             fnDeplacerPionFluidement(caseDepart, 6, deplacement, that.id, tempsInterval);
             that.positionActuelle = that.caseActuelle;
-        } else if ((that.caseActuelle + de) > 12 && that.caseActuelle < 12) {
+        } else if ((that.caseActuelle + de) > 12 && that.caseActuelle < 12)
+        {
             that.caseActuelle = 12;
             fnDeplacerPionFluidement(caseDepart, 12, deplacement, that.id, tempsInterval);
             that.positionActuelle = that.caseActuelle;
-        } else if ((that.caseActuelle + de) > 18 && that.caseActuelle < 18) {
+        } else if ((that.caseActuelle + de) > 18 && that.caseActuelle < 18)
+        {
             that.caseActuelle = 18;
             fnDeplacerPionFluidement(caseDepart, 18, deplacement, that.id, tempsInterval);
             that.positionActuelle = that.caseActuelle;
-        } else if ((that.caseActuelle + de) >= 24 && that.caseActuelle < 24) {
+        } else if ((that.caseActuelle + de) >= 24 && that.caseActuelle < 24)
+        {
             // quand le pion arrive à la derniere case, caseActuelle est remise à zero
             that.caseActuelle = 0;
             fnDeplacerPionFluidement(caseDepart, 23.9, deplacement, that.id, tempsInterval);
             that.positionActuelle = that.caseActuelle;
-        } else {
+        } else
+        {
             that.caseActuelle += de;
 
             fnDeplacerPionFluidement(caseDepart, caseArrive, deplacement, that.id, tempsInterval);
 
             that.positionActuelle = that.caseActuelle;
-
         }
         that.emplacementCase = emplacementVideCase(that.caseActuelle);
     };
@@ -106,8 +112,10 @@ function Joueur(id, nom, couleur, argent_depart, section) {
 // fonction qui donne le nombre de joueur se trouvant sur la case passée en paramètre
 function nbJoueursCase(caseID) {
     nombreJoueurs = 0;
-    for (var i = 0; i < joueurs.length; i++) {
-        if (joueurs[i].caseActuelle === caseID) {
+    for (var i = 0; i < joueurs.length; i++)
+    {
+        if (joueurs[i].caseActuelle === caseID)
+        {
             nombreJoueurs++;
         }
     }
@@ -120,11 +128,14 @@ function emplacementVideCase(caseID) {
     // Crée un nouveau tableau de la taille de joueurs validés.
     // Il sera rempli a true pour les valeurs déjà prise, par défaut il est rempli de false.
     var tabEmplacement = new Array(joueurs.length).fill(false);
-    for (var i = 0; i < tabEmplacement.length; i++) {
-        if (joueurs[i].caseActuelle === caseID) {
+    for (var i = 0; i < tabEmplacement.length; i++)
+    {
+        if (joueurs[i].caseActuelle === caseID)
+        {
 
             // Condition pour sélectionner que les joueurs qui se trouvent sur un emplacement entre 0 et 5.
-            if (joueurs[i].emplacementCase < joueurs.length || joueurs[i].emplacementCase > -1) {
+            if (joueurs[i].emplacementCase < joueurs.length || joueurs[i].emplacementCase > -1)
+            {
 
                 // On dit que l'emplacement de la case où est le joueur est occupée.
                 tabEmplacement[joueurs[i].emplacementCase] = true;
@@ -132,8 +143,10 @@ function emplacementVideCase(caseID) {
         }
     }
     // Quitte la boucle et renvoie le premier emplacement disponible.
-    for (var emplacement = 0; emplacement < nbJoueursCase(caseID); emplacement++) {
-        if (tabEmplacement[emplacement] !== true) {
+    for (var emplacement = 0; emplacement < nbJoueursCase(caseID); emplacement++)
+    {
+        if (tabEmplacement[emplacement] !== true)
+        {
             return emplacement;
         }
     }
@@ -145,32 +158,31 @@ function fnJoueurSuivant() {
     // variable globale
     tourFini = true;
 
-    // Si le joueur doit passer son tour
-    if(joueurs[jActuel].passeTour === 1) {
-
-        alert("Le joueur de couleur " + joueurs[jActuel].couleur + " passe son tour !");
-        console.log("Le joueur de couleur " + joueurs[jActuel].couleur + " passe son tour !");
-
-        // Passe au joueur suivant, avec retour au premier si c'est le dernier joueur de la liste
-        joueurs[jActuel].passeTour = 0;
-
-        if (jActuel < document.getElementById('nbJoueurs').value - 1) {
-            jActuel++;
-
-        } else {
-            jActuel = 0;
-        }
-    }
-
     // Passe au joueur suivant, avec retour au premier si c'est le dernier joueur de la liste
-    console.log("Au tour du joueur suivant");
     if (jActuel < document.getElementById('nbJoueurs').value - 1) {
         jActuel++;
-
     } else {
         jActuel = 0;
     }
 
+    // Si le joueur doit passer son tour
+    if (joueurs[jActuel].passeTour === 1)
+    {
+        alert("Le joueur de couleur " + joueurs[jActuel].couleur + " passe son tour !");
+        console.log("Le joueur de couleur " + joueurs[jActuel].couleur + " passe son tour !");
+        // Le passe-tour a été utilisé
+        joueurs[jActuel].passeTour = 0;
+
+        // Passe au joueur suivant, avec retour au premier si c'est le dernier joueur de la liste
+        console.log("Au tour du joueur suivant.");
+        if (jActuel < document.getElementById('nbJoueurs').value - 1)
+        {
+            jActuel++;
+        } else
+        {
+            jActuel = 0;
+        }
+    }
 }
 
 // Cette fonction déplace le pion petit à petit jusqu'à la case d'arrivée.
@@ -180,12 +192,12 @@ function fnDeplacerPionFluidement(caseDepart, caseArrive, vitesse, jActuel, temp
 
     var mouvement = caseDepart;
 
-
-
     var interval = setInterval(function () {
-        if(mouvement > caseArrive){
+        if(mouvement > caseArrive)
+        {
             clearInterval(interval);
-        }else{
+        }else
+        {
             mouvement += vitesse;
             joueurs[jActuel].positionActuelle = mouvement;
         }

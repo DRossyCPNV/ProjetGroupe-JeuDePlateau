@@ -8,7 +8,7 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA2a - octobre 2019 - CPNV
+// SI-CA2a - novembre 2019 - CPNV
 // **********************************************************************************
 
 $("#nbJoueurs").change(function () {
@@ -16,11 +16,13 @@ $("#nbJoueurs").change(function () {
 
 
     // Afficher les options des joueurs (nom, section)
-    for(var i = 0;i < nbJoueurs;i++){
+    for(var i = 0;i < nbJoueurs;i++)
+    {
         $("#options-joueur"+i.toString()).css("display", "table-row");
     }
     // Cacher les options des joueurs
-    for(var i = nbJoueursMax;i >= nbJoueurs;i--){
+    for(var i = nbJoueursMax;i >= nbJoueurs;i--)
+    {
             $("#options-joueur"+i.toString()).css("display", "none");
         console.log(i);
     }

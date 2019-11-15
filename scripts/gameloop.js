@@ -29,7 +29,7 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA2a - octobre 2019 - CPNV
+// SI-CA2a - novembre 2019 - CPNV
 // ********************************************************************************************************************
 
 // event JQuery du clic sur le bouton-verif : vérification si la réponse à la question a été validée
@@ -42,12 +42,14 @@ function gameloop(nbJoueurs) {
 
     // crée les joueurs
     joueurs = maker(nbJoueurs);
-    for (var i = 0; i < nbJoueurs; i++) {
+    for (var i = 0; i < nbJoueurs; i++)
+    {
         // message d'info dans la console, pour test
         console.log("joueur : " + i + ", Nom: " + joueurs[i].nom + ", Couleur: " + joueurs[i].couleur + ", Section: " + joueurs[i].section + ", id: " + joueurs[i].id + ", emplacement: " + joueurs[i].emplacementCase + ", case actuel: " + joueurs[i].caseActuelle);
     }
     // place tous les joueurs sur la case départ
-    for (i = 0; i < nbJoueurs; i++) {
+    for (i = 0; i < nbJoueurs; i++)
+    {
         joueurs[i].placerPionCaseDepart();
     }
 
@@ -67,29 +69,36 @@ function gameloop(nbJoueurs) {
 function fnTourJoueur() {
 
     // Vérifie quelles cartes modules ont été obtenues
-    var nbCarteObtenue = 0;
-    for(var i = 0; i <=joueurs[jActuel].modulesObtenus.length; i++){   //condition 5 cartes modules obtenues
-        if(joueurs[jActuel].modulesObtenus[i] === 1){
+    var nbCarteObtenue = 0;                                             // condition 5 cartes modules obtenues
+    for(let i = 0; i <=joueurs[jActuel].modulesObtenus.length; i++)
+    {
+        if(joueurs[jActuel].modulesObtenus[i] === 1)
+        {
             nbCarteObtenue++;
         }
     }
-    var section = false;
-    for(var j = 0; j < joueurs[jActuel].modulesObtenus.length; j++){   //condition carte section obtenue
-        if(joueurs[jActuel].modulesObtenus[j].Theme === joueurs[jActuel].section){
+    var section = false;                                                 // condition carte section obtenue
+    for(let j = 0; j < joueurs[jActuel].modulesObtenus.length; j++)
+    {
+        if(joueurs[jActuel].modulesObtenus[j].Theme === joueurs[jActuel].section)
+        {
             section = true;
         }
     }
-    //code de triche
+
+    // code de triche
     //  nbCarteObtenue = 5;
     //  section = true;
     ///////////////////
 
-    // Teste si les conditions pour tenter le CFC sont remplies
-    if(nbCarteObtenue >=5 && section ===true && joueurs[jActuel].argent >= ptsCFC){    //si les conditions pour le cfc sont remplies
+    // Teste si les trois conditions pour passer le CFC sont remplies
+    if(nbCarteObtenue >=5 && section === true && joueurs[jActuel].argent >= ptsCFC)
+    {
         conditionCFC = true;
-        console.log(joueurs[jActuel].nom + ": " + joueurs[jActuel].argent + " / " + ptsCFC);
+        console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" possède assez de modules et " + joueurs[jActuel].argent + "ressources" + " / " + ptsCFC + "nécessaires pour passer le CFC.");
     }
-    else {
+    else
+    {
         conditionCFC = false;
     }
 
@@ -120,7 +129,8 @@ function fnActionCase() {
     var caseToCheck = joueurs[jActuel].caseActuelle;
     var typeDeCase = acartes[caseToCheck].type;
 
-    switch (true) {
+    switch (true)
+    {
 
         case (typeDeCase === "normal"):
 
@@ -163,7 +173,8 @@ function fnActionCase() {
             fnSleep(2000).then(() => {
                 console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" est arrivé sur la case de type "+typeDeCase);
 
-                if(resultatDe >= 4){
+                if(resultatDe >= 4)
+                {
                     console.log("C'est gagné !!!");
 
                     // Stoppe le timer qui affiche et actualise les scores toutes les secondes.
@@ -177,7 +188,8 @@ function fnActionCase() {
                     // Affiche un overlay de victoire avec l'image du CFC
                     overlayVictoireOn()
                 }
-                else{
+                else
+                {
                     alert("CFC raté, pas de bol !");
                     console.log("CFC raté, pas de bol!");
 
@@ -192,11 +204,8 @@ function fnActionCase() {
                     fnJoueurSuivant();
                 }
             });
-
-
             break;
     }
-
 }
 
 // fonction qui attend la fin d'exécution du setTimeOut, avant de poursuivre celle passée en paramètre

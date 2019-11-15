@@ -31,7 +31,7 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA2a - octobre 2019 - CPNV
+// SI-CA2a - novembre 2019 - CPNV
 // **************************************************************************************
 
 
@@ -44,23 +44,27 @@ function fnAcheterModule(idCase) {
                                             // dans Monopoly.html, lorsqu'on clique sur le bouton "Acheter".
 
     // Si le joueur ne possède pas le module
-    if(joueurs[jActuel].modulesObtenus[getIndexOf(amodules, acartes[idCase].texte)] === 0){
+    if(joueurs[jActuel].modulesObtenus[getIndexOf(amodules, acartes[idCase].texte)] === 0)
+    {
 
         // Si le joueur a assez de ressources pour l'acheter
-        if(joueurs[jActuel].argent >= acartes[idCase].prix){
+        if(joueurs[jActuel].argent >= acartes[idCase].prix)
+        {
 
             // On affiche la div pour l'achat du module
             fnAfficheAchatModule(idCase);
 
         // S'il n'a pas assez de ressources
-        } else {
+        } else
+        {
             // Tour fini, au tour du joueur suivant
             console.log("Tour suivant");
             fnJoueurSuivant();
         }
 
     // Si le joueur possède déjà le module
-    } else {
+    } else
+    {
         // Tour fini, au tour du joueur suivant
         console.log("Tour suivant");
         fnJoueurSuivant();
@@ -81,7 +85,6 @@ function fnAfficheAchatModule(idCase) {
     // Affichage des données de la carte module
     $('#titre_module').html("Achat d'un module " + acartes[idCase].titre);
     $('#txt_module').html("Voulez-vous acheter le module " + acartes[idCase].texte + " pour " + acartes[idCase].prix + " ?");
-
 }
 
 // Fonction de clic sur "Acheter module"
@@ -94,7 +97,6 @@ function fnClicAcheterModule(idCase) {
     joueurs[jActuel].argent -= acartes[idCase].prix;
     joueurs[jActuel].modulesObtenus[getIndexOf(amodules, acartes[idCase].texte)] = 1;
     fnEffacerModule();
-
 }
 
 // Fonction pour effacer la fenêtre d'achat de module
@@ -112,15 +114,16 @@ function fnEffacerModule(){
     // Tour fini, au tour du joueur suivant
     console.log("Tour suivant");
     fnJoueurSuivant();
-
 }
 
 // Fonction qui retourne l'index auquel se trouve une valeur dans un array
 // Code from Crayon Violent @ https://stackoverflow.com/questions/8313350/javascript-indexof-on-an-array-of-objects
 function getIndexOf(a,v) {
     var l = a.length;
-    for (var k=0;k<l;k++) {
-        if (a[k].Nom==v) {
+    for (var k=0;k<l;k++)
+    {
+        if (a[k].Nom==v)
+        {
             return k;
         }
     }

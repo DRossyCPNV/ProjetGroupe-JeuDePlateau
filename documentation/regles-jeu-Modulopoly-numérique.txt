@@ -20,8 +20,7 @@ c) case chance
 Une carte apparaîtra à l'écran, avec des instructions que vous pourrez ou devrez appliquer.
 
 d) case CFC
-Pour passer l'examen, vous devez avoir obtenu une case module de
-chaque couleur (rouge, bleu, vert et jaune) et accumulé 1000 points.
+Pour passer l'examen, vous devez avoir obtenu au moins 5 cartes modules, dont une de votre section, et avoir accumulé 1000 points.
 A ce moment, lors de votre tour de jeu, un bouton supplémentaire apparaîtra pour vous déplacer sur la case au centre du plateau.
 
 Pour recevoir votre CFC et gagner la partie, il vous faudra obtenir un 4, 5 ou 6 au dé. 

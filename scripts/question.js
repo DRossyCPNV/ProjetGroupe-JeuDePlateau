@@ -29,7 +29,7 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA2a - octobre 2019 - CPNV
+// SI-CA2a - novembre 2019 - CPNV
 // **************************************************************************************
 
 // La carte est masquée au début du jeu
@@ -44,9 +44,11 @@ $.getJSON('donnees/questions.json', function(data) {
 function fnAfficheQuestion() {
 
     // Si la défausse est pleine, on la remet en entier dans le tas et on la remet à 0.
-    if (acquestion.length === 0) {
-        console.log('Remise défausse dans pioche.');
-        for(var i = 0; i < defausse.length; i++) {
+    if (acquestion.length === 0)
+    {
+        console.log('Remise défausse dans la pioche.');
+        for(let i = 0; i < defausse.length; i++)
+        {
             acquestion.push(defausse[i]);
         }
         defausse = [];
@@ -98,7 +100,8 @@ function fnVerifReponseQuestion() {
     jActuelReponse = $("input[name='reponse']:checked");
 
     // Vérification de la réponse donnée par le joueur
-    if (bonneReponse === jActuelReponse.val()) {
+    if (bonneReponse === jActuelReponse.val())
+    {
         alert("Bravo ! Vous avez trouvé la bonne réponse.");
 
         // Le joueur augmente ses ressources, du montant de points
@@ -112,9 +115,9 @@ function fnVerifReponseQuestion() {
         // Tour fini, au tour du joueur suivant
         console.log("Tour suivant");
         fnJoueurSuivant();
-
     }
-    else {
+    else
+    {
         alert("Mauvaise réponse ! La bonne réponse était : " + txtBonneReponse);
         $('#carte_question').css('display','none');
         jActuelReponse.prop("checked", false);
@@ -123,6 +126,5 @@ function fnVerifReponseQuestion() {
         console.log("Tour suivant");
         fnJoueurSuivant();
     }
-
 }
 

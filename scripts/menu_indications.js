@@ -44,7 +44,7 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA2a - octobre 2019 - CPNV
+// SI-CA2a - novembre 2019 - CPNV
 // **************************************************************************************
 
 // Crée le tableau de référence des modules
@@ -77,8 +77,8 @@ function fnCreerDivJoueurs(nbJoueurs) {
     var divJoueurs = '';
 
     // Boucle parcourant tous les joueurs.
-    for (var i = 0; i < nbJoueurs; ++i){
-
+    for (var i = 0; i < nbJoueurs; ++i)
+    {
         // Définit la section de chaque joueur.
         var couleur_section = 'section_';
         switch(document.getElementById('sectionJ' + i).value){
@@ -97,19 +97,23 @@ function fnCreerDivJoueurs(nbJoueurs) {
         // Lorsqu'on clique sur "Lancer le dé", le bouton se masque, le tour de jeu commence
         // et le dé est lancé. On attend qu'il aie fini de tourner, puis on appelle la fonction qui gère le tour du joueur.
         // Lorsqu'on clique sur "Passer le CFC", le bouton se masque et la fonction de passage du CFC se lance.
-        if (i === jActuel && tourFini === true){
+        if (i === jActuel && tourFini === true)
+        {
             boutonAffiche =   '<div class="menu_indications_joueur_boutons">' + '\n'
                             + '<input type="button" value="Lancer le dé" class="menu_indications_joueur_boutons_lancer" onclick="$(this).hide(); tourFini = false; fnLancerDe(); fnSleep(1000).then(() => { fnTourJoueur(jActuel); });">' + '\n';
 
-            // Si les conditions sont remplies, le bouton "Passer le CFC" s'affiche.
-            if(conditionCFC){
+            // Si les trois conditions sont remplies, cette variable vaut "true" et le bouton "Passer le CFC" s'affiche.
+            if(conditionCFC)
+            {
                 boutonAffiche += '<input type="button" value="Passer le CFC" class="btn_cfc menu_indications_joueur_boutons_lancer" onclick="$(this).hide(); menu_indications_joueur_boutons_lancer.hide(); fnPasserCFC(jActuel);">' +'\n' + '</div>' + '\n';
             }
-            else{
+            else
+            {
                 boutonAffiche+= '</div>' + '\n';
             }
         }
-        else {
+        else
+        {
             // Si le tour est en cours ou que c'est la div des autres joueurs,
             // on désactive les deux boutons "Lancer le dé" et "Passer le CFC".
             boutonAffiche = "";
@@ -118,9 +122,10 @@ function fnCreerDivJoueurs(nbJoueurs) {
         var pionAffiche = '';
 
         // Affiche le pion duquel c'est le tour.
-        if (i === jActuel){
-
-            if (joueurs[jActuel].protection === 1) {
+        if (i === jActuel)
+        {
+            if (joueurs[jActuel].protection === 1)
+            {
                 pionAffiche = '<img class="menu_indications_joueur_pion" src="images/pions/' + couleursPions[i] + '_protection' + '.png" alt="rappel du pion du joueur actuel, avec protection">' + '\n';
             }
             else
@@ -128,7 +133,8 @@ function fnCreerDivJoueurs(nbJoueurs) {
                 pionAffiche = '<img class="menu_indications_joueur_pion" src="images/pions/' + couleursPions[i] + '.png" alt="rappel du pion du joueur actuel">' + '\n';
             }
 
-        } else {
+        } else
+        {
             pionAffiche = '\n';
         }
 
@@ -136,12 +142,13 @@ function fnCreerDivJoueurs(nbJoueurs) {
         var modulesAffiches = "";
 
         // Boucle parcourant tous les modules détenus.
-        for(var j = 0; j < amodules.length; ++j){
-            if(joueurs[i].modulesObtenus[j] === 1){
+        for(var j = 0; j < amodules.length; ++j)
+        {
+            if(joueurs[i].modulesObtenus[j] === 1)
+            {
                 modulesAffiches += '<img src="images/modules/' + amodules[j].Nom + '.svg" style="margin: 2px; width: 20%" alt="modules détenus">' + '\n';
             }
         }
-
 
         // Construction dynamique des Div des joueurs.
         divJoueurs +=   // Div du joueur
@@ -184,7 +191,6 @@ function fnCreerDivJoueurs(nbJoueurs) {
                             // si c'est son tour de jouer et que les conditions sont remplies.
                             + boutonAffiche
                         + '</div>' + '\n';
-
     }
 
     // Injection des divs joueurs dans le code HTML

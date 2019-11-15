@@ -66,7 +66,7 @@
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA2a - octobre 2019 - CPNV
+// SI-CA2a - novembre 2019 - CPNV
 // *****************************************************************************
 
 
@@ -105,7 +105,8 @@ function draw(){
 // Fonction d'affichage/animation des pions sur le canvas, exécutée en animationFrame dans la fonction draw()
 function fnAffichePions() {
 
-    for (var i = 0; i < joueurs.length; i++) {
+    for (var i = 0; i < joueurs.length; i++)
+    {
 
         // Paramètres des pions
         var pionxy = [];
@@ -113,7 +114,8 @@ function fnAffichePions() {
         var jCaseAct = joueurs[i].positionActuelle;
 
         // On recherche comment et où positionner les pions sur le plateau.
-        switch (true) {
+        switch (true)
+        {
 
             case (jCaseAct >= 0 && jCaseAct < 6):
 
@@ -188,12 +190,14 @@ function fnGetCoordonnees(jEmplacementCase, jCaseActuelle, facteurSoustraction, 
     var coordxy = [0, 0];
 
     // S'il y a plus de trois pions alignés, on crée une deuxième rangée de pions.
-    if (jEmplacementCase > 2){
+    if (jEmplacementCase > 2)
+    {
         decj = (jEmplacementCase - 3) * pionw;
         coordxy[0] = caseDepartX + (1 * caseCoinW) + (5 * caseW) + decj - (jCaseActuelle * caseW);
         coordxy[1] = caseDepartY + pionh;
     }
-    else{
+    else
+    {
         coordxy[0] = caseDepartX + (1 * caseCoinW) + (5 * caseW) + decj - (jCaseActuelle * caseW);
         coordxy[1] = caseDepartY;
     }
@@ -235,13 +239,13 @@ function fnLancerDe() {
     var minRandom = 0;
     var maxRandom = 59;
 
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < 6; i++)
+    {
         tabNombres[i] = Math.floor(Math.random() * (maxRandom - minRandom + 1)) + minRandom;
     }
 
     // timer qui appelle la fonction toutes les 120 milli-secondes, pour l'animation du dé.
     tmrAffiche = setInterval(fnAfficheFaceDe, 120);
-
 }
 
 // Affiche une des 6 faces du dé, selon les nombres du tableau.
@@ -260,7 +264,8 @@ function fnAfficheFaceDe() {
 
     nbFacesAffichees++;
 
-    if (nbFacesAffichees >= 6) {
+    if (nbFacesAffichees >= 6)
+    {
         ctx.font = 10 * echelle + "pt Arial";
 
         // Stockage de la dernière valeur affichée dans une variable globale.
@@ -270,7 +275,6 @@ function fnAfficheFaceDe() {
         nbFacesAffichees = 0;
         clearInterval(tmrAffiche);
     }
-
 }
 
 
