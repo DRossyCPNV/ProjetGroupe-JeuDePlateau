@@ -112,8 +112,7 @@ function fnCreerDivJoueurs(nbJoueurs) {
             section = false;
             for(var k = 0; k < joueurs[jActuel].modulesObtenus.length; k++)
             {
-                if(joueurs[jActuel].modulesObtenus[k].Theme === joueurs[jActuel].section)
-                {
+                if(joueurs[jActuel].modulesObtenus[k].Theme === joueurs[jActuel].section)                {
                     section = true;
                 }
             }
@@ -124,7 +123,7 @@ function fnCreerDivJoueurs(nbJoueurs) {
             ///////////////////
 
             // Teste si les trois conditions pour passer le CFC sont remplies
-            if(nbCarteObtenue >=1 && section === true && joueurs[jActuel].argent >= ptsCFC)
+            if(nbCarteObtenue >=5 && section === true && joueurs[jActuel].argent >= ptsCFC)
             {
                 conditionCFC = true;
                 console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" possède assez de modules et " + joueurs[jActuel].argent + "ressources" + " / " + ptsCFC + "nécessaires pour passer le CFC.");
