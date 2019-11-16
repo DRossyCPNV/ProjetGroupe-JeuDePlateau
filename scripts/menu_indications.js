@@ -99,20 +99,20 @@ function fnCreerDivJoueurs(nbJoueurs) {
         if (i === jActuel && tourFini === true)
         {
             // Vérifie quelles cartes modules ont été obtenues
-            nbCarteObtenue = 0;
-            for(var j = 0; j <=joueurs[jActuel].modulesObtenus.length; j++)
+            var nbCarteObtenue = 0;
+            for(var m = 0; m <=joueurs[jActuel].modulesObtenus.length; m++)
             {
-                if(joueurs[jActuel].modulesObtenus[j] === 1)
+                if(joueurs[jActuel].modulesObtenus[m] === 1)
                 {
                     nbCarteObtenue++;
                 }
             }
 
             // Vérifie si une carte module de la section choisie a été obtenue
-            section = false;
-            for(var k = 0; k < joueurs[jActuel].modulesObtenus.length; k++)
+            var section = false;
+            for(var s = 0; s < joueurs[jActuel].modulesObtenus.length; s++)
             {
-                if(joueurs[jActuel].modulesObtenus[k].Theme === joueurs[jActuel].section)
+                if(joueurs[jActuel].modulesObtenus[s].Theme === joueurs[jActuel].section)
                 {
                     section = true;
                 }
@@ -124,7 +124,7 @@ function fnCreerDivJoueurs(nbJoueurs) {
             ///////////////////
 
             // Teste si les trois conditions pour passer le CFC sont remplies
-            if(nbCarteObtenue >=1 && section === true && joueurs[jActuel].argent >= ptsCFC)
+            if(nbCarteObtenue >=5 && section === true && joueurs[jActuel].argent >= ptsCFC)
             {
                 conditionCFC = true;
                 console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" possède assez de modules et " + joueurs[jActuel].argent + "ressources" + " / " + ptsCFC + "nécessaires pour passer le CFC.");
@@ -142,7 +142,7 @@ function fnCreerDivJoueurs(nbJoueurs) {
             // Si les trois conditions sont remplies, cette variable vaut "true" et le bouton "Passer le CFC" s'affiche.
             if(conditionCFC)
             {
-                boutonAffiche += '<input type="button" value="Passer le CFC" class="menu_indications_joueur_boutons_lancer" onclick="$(this).hide(); fnPasserCFC(jActuel);">' +'\n' + '</div>' + '\n';
+                boutonAffiche += '&nbsp;&nbsp;' + '<input type="button" value="Passer le CFC" class="btn_cfc menu_indications_joueur_boutons_lancer" onclick="$(this).hide(); tourFini = false; fnPasserCFC(jActuel);">' +'\n' + '</div>' + '\n';
             }
             else
             {
@@ -178,12 +178,12 @@ function fnCreerDivJoueurs(nbJoueurs) {
         // Affiche les modules détenus par le joueur.
         var modulesAffiches = "";
 
-        // Boucle parcourant tous les modules détenus.
-        for(var l = 0; l < amodules.length; ++l)
+        // Boucle affichant tous les modules détenus.
+        for(var o = 0; o < amodules.length; ++o)
         {
-            if(joueurs[i].modulesObtenus[l] === 1)
+            if(joueurs[i].modulesObtenus[o] === 1)
             {
-                modulesAffiches += '<img src="images/modules/' + amodules[l].Nom + '.svg" style="margin: 2px; width: 20%" alt="modules détenus">' + '\n';
+                modulesAffiches += '<img src="images/modules/' + amodules[o].Nom + '.svg" style="margin: 2px; width: 20%" alt="modules détenus">' + '\n';
             }
         }
 

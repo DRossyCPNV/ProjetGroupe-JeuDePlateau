@@ -116,7 +116,7 @@ function fnExecuteChance(){
                             nomJoueurs += "<input type='radio' name='joueur' value='" + joueurs[i].id + "'> <label>" + joueurs[i].nom + "</label><br>";
                         }
                     }
-                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnExecuteCibleArgent();\">"
+                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnExecuteCibleArgent();\">";
                     $('#form_cibles').html(nomJoueurs);
                     console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" a donné de l'argent.");
             break;
@@ -128,7 +128,7 @@ function fnExecuteChance(){
                 {
 
                     // Si le joueur a activé une protection
-                    if(joueurs[jActuel].protection == 1 && achance[nbaleat].valeur_1 < 0)
+                    if(joueurs[jActuel].protection === 1 && achance[nbaleat].valeur_1 < 0)
                     {
 
                         // La protection est utilisée
@@ -174,15 +174,15 @@ function fnExecuteChance(){
                     $('#choix_cible').css('display', 'block');
                     $('#titre_cible').html("Choisissez un joueur cible :");
 
-                        for(var m = 0; m < nbJoueurs; m++)
+                        for(var c = 0; c < nbJoueurs; c++)
                         {
-                            if(joueurs[m] !== joueurs[jActuel])
+                            if(joueurs[c] !== joueurs[jActuel])
                             {
-                                nomJoueurs += "<input type='radio' name='joueur' value='"+ joueurs[m].id +"'> <label>" + joueurs[m].nom + "</label><br>";
+                                nomJoueurs += "<input type='radio' name='joueur' value='"+ joueurs[c].id +"'> <label>" + joueurs[c].nom + "</label><br>";
                             }
                         }
 
-                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnExecuteCibleArgent();\">"
+                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnExecuteCibleArgent();\">";
                     console.log("Choix d'un joueur cible");
                     $('#form_cibles').html(nomJoueurs);
                 }
@@ -240,7 +240,7 @@ function fnExecuteChance(){
                             nomJoueurs += "<input type='radio' name='joueur' value='" + joueurs[i].id + "'> <label>" + joueurs[i].nom + "</label><br>";
                         }
                     }
-                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnExecuteCibleDeplacement();\">"
+                    nomJoueurs += "<br><br><input type=\"button\" value=\"Choisir\" onclick=\"fnExecuteCibleDeplacement();\">";
                     $('#form_cibles').html(nomJoueurs);
                     
                     break;
@@ -278,7 +278,7 @@ function fnExecuteChance(){
 
 }
 
-function fnExecuteCibleArgent () {
+function fnExecuteCibleArgent() {
     // Efface la div de choix de cible
     $('#choix_cible').css('display', 'none');
 
@@ -301,7 +301,7 @@ function fnExecuteCibleArgent () {
             {
 
                 // Si le joueur a activé une protection
-                if(joueurs[i].protection == 1 && achance[nbaleat].valeur_1 < 0)
+                if(joueurs[i].protection === 1 && achance[nbaleat].valeur_1 < 0)
                 {
 
                     console.log("Le joueur de couleur " + joueurs[jActuel].couleur + " a utilisé sa protection.");

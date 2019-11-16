@@ -20,10 +20,6 @@
 // *****************************************************************************
 
 // Chargement des fichiers
-var img_case_standard = new Image();
-img_case_standard.src = ".\\images\\plateau\\Case_Standard.svg";
-var img_case_coin = new Image();
-img_case_coin.src = ".\\images\\plateau\\Case_Coin.svg";
 var img_fond = new Image();
 img_fond.src = ".\\images\\plateau\\Fond.svg";
 var img_plateau = new Image();
@@ -36,33 +32,34 @@ var c = document.getElementById("plateau_jeu");
 var ctx = c.getContext("2d");
 
 // Paramètres de dessin, affichage et liste des joueurs
-var echelle = 1.3; //pour pouvoir zoomer
-var angle = 0;// pour pouvoir tourner
-const ncartes = 5;//nombre de carte par coté (sans compter les coins)
-var joueurs; //tableau des joueurs
+var echelle = 1.3; // pour pouvoir zoomer
+var angle = 0; // pour pouvoir tourner
+const ncartes = 5; // nombre de carte par coté (sans compter les coins)
+var joueurs; // tableau des joueurs
 const nbJoueursMax = 6;
-var acartes = []; //tableau des cartes
+var acartes = []; // tableau des cartes
 
 
 // Paramètres du plateau
 var tcx = 60 * echelle;
-var tcy = 75 * echelle; //taille petite case en x et y
-var tcoinxy = 150 * echelle; //Taille case coin (carré)
-var tcfcxy = 150 * echelle; //Taille case cfc (carré)
-var tplateauxy = 600 * echelle; //Taille du plateau (carré)
-var tbplateau = 10; //Espacement bord plateau - Canevas
+var tcy = 75 * echelle; // taille petite case en x et y
+var tcoinxy = 150 * echelle; // taille case coin (carré)
+var tcfcxy = 150 * echelle; // taille case cfc (carré)
+var tplateauxy = 600 * echelle; // taille du plateau (carré)
+var tbplateau = 10; // espacement bord plateau - canevas
 var decx = tbplateau + (300 * echelle);
-var decy = tbplateau + (300 * echelle); //origine au milieu du plateau de jeu
+var decy = tbplateau + (300 * echelle); // origine au milieu du plateau de jeu
 var coordCaseDep = {X: 12 * echelle + tbplateau, Y: 546 * echelle + tbplateau};
+var coordCaseCFC = {X: tplateauxy / 2, Y: tplateauxy / 2};
 
 // Paramètres du dé
-var tabNombres = new Array(); // tableau qui contient les nombres générés aléatoirement
+var tabNombres = []; // tableau qui contient les nombres générés aléatoirement
 var nbFacesAffichees = 0; // compte le nombre de fois qu'une face de dé est affichée
 var resultatDe = 0; // stocke la dernière valeur affichée par le dé, utilisée pour le déplacement des pions.
 
-//Paramètres des pions
-var pionw = 12 * echelle;   // Largeur (width) des pions
-var pionh = 20 * echelle; // Hauteur (height) des pions
+// Paramètres des pions
+var pionw = 12 * echelle;   // largeur (width) des pions
+var pionh = 20 * echelle; // hauteur (height) des pions
 const couleursPions = ["rouge", "bleuClair", "bleuFonce", "orange", "violet", "vert"];
 var imgPion = [];
 
@@ -83,7 +80,10 @@ var tourFini = true;                                                            
                                                                                     // (initialisée à true, pour pouvoir commencer le premier tour)
 var creerDiv;                                                                       // stocke le menu d'indication des joueurs
 var vitesseAnimSlider = document.getElementById('vitesseAnimSlider');     // stocke la vitesse d'animation réglée sur le slider
+var deplacement = vitesseAnimSlider.value / 100;                                    // déplacement en pourcents d'une case: 1 = 100% 0 = 0%,
+                                                                                    // la vitesse peut-être modifiée à l'aide du slider
 var dureeDeplacementMS;                                                             // stocke la vitesse d'animation en micro-secondes
+var tempsInterval = 5;                                                              // temps en millisecondes entre chaque déplacement
 
 // Paramètres des cartes questions
 var acquestion = []; // array carte questions

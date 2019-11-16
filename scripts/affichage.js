@@ -36,6 +36,9 @@
 //                          -> On récupère les coordonnées d'affichage du pion.
 //                          -> On dessine le pion sur le canvas.
 //
+//                      -> si la case vaut 24 (case cfc) :
+//                          ->
+//
 //              - Fonction qui calcule les coordonnées de l'emplacement des pions, en prenant en compte la superposition (
 //              (prend 7 paramètres)
 //                  -> Décalage joueur. Cette variable décale les pions, afin qu'ils ne se superposent pas sur une même case.
@@ -107,7 +110,6 @@ function fnAffichePions() {
 
     for (var i = 0; i < joueurs.length; i++)
     {
-
         // Paramètres des pions
         var pionxy = [];
         var anglePion = Math.PI/2;
@@ -160,7 +162,12 @@ function fnAffichePions() {
                 ctx.drawImage(imgPion[i], pionxy[0], pionxy[1], pionw, pionh);
 
                 break;
+
+            // Si c'est la case CFC
             case (jCaseAct === 24):
+                pionxy = fnGetCoordonnees(joueurs[i].emplacementCase, jCaseAct, 0, coordCaseDep.X, coordCaseDep.Y, tcoinxy, tcx);
+                ctx.drawImage(imgPion[i], pionxy[0], pionxy[1], pionw, pionh);
+
                 break;
         }
     }
@@ -189,17 +196,25 @@ function fnGetCoordonnees(jEmplacementCase, jCaseActuelle, facteurSoustraction, 
     var decj = jEmplacementCase * pionw;
     var coordxy = [0, 0];
 
-    // S'il y a plus de trois pions alignés, on crée une deuxième rangée de pions.
-    if (jEmplacementCase > 2)
+    // Pour toutes les cases, sauf la case CFC
+    if (jCaseActuelle !== 24)
     {
-        decj = (jEmplacementCase - 3) * pionw;
-        coordxy[0] = caseDepartX + (1 * caseCoinW) + (5 * caseW) + decj - (jCaseActuelle * caseW);
-        coordxy[1] = caseDepartY + pionh;
-    }
-    else
+
+        // S'il y a plus de trois pions alignés, on crée une deuxième rangée de pions.
+        if (jEmplacementCase > 2) {
+            decj = (jEmplacementCase - 3) * pionw;
+            coordxy[0] = caseDepartX + (1 * caseCoinW) + (5 * caseW) + decj - (jCaseActuelle * caseW);
+            coordxy[1] = caseDepartY + pionh;
+        } else {
+            coordxy[0] = caseDepartX + (1 * caseCoinW) + (5 * caseW) + decj - (jCaseActuelle * caseW);
+            coordxy[1] = caseDepartY;
+        }
+
+    // Si la case actuelle est la case CFC
+    } else
     {
-        coordxy[0] = caseDepartX + (1 * caseCoinW) + (5 * caseW) + decj - (jCaseActuelle * caseW);
-        coordxy[1] = caseDepartY;
+      coordxy[0] = coordCaseCFC.X;
+      coordxy[1] = coordCaseCFC.Y;
     }
 
     // On retourne un tableau contenant les coordonnées X et Y du pion
@@ -300,13 +315,13 @@ function overlayReglesOff() {
 function overlayVictoireOn() {
     document.getElementById("overlayVictoire").style.display = "block";
     document.getElementById("overlayVictoireText").style.display = "block";
-    document.getElementById("img_diploma").style.display = "block";
+    document.getElementById("img_diplome").style.display = "block";
 }
 
 function overlayVictoireOff() {
     document.getElementById("overlayVictoire").style.display = "none";
     document.getElementById("overlayVictoireText").style.display = "none";
-    document.getElementById("img_diploma").style.display = "none";
+    document.getElementById("img_diplome").style.display = "none";
 
     // On recharge la page html, pour pouvoir commencer une nouvelle partie.
     location.reload();

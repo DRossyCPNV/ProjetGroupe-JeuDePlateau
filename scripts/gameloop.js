@@ -13,7 +13,7 @@
 //                  -> vérification du temps que prend le déplacement
 //                  -> vérifie les actions que le joueur doit effectuer avant de passer au tour suivant
 //
-//              - fyonction qui vérifie les actions que le joueur doit effectuer
+//              - fonction qui vérifie les actions que le joueur doit effectuer
 //                    switch :
 //                          -> normal (= cartes) - demande si le joueur veut acheter la case
 //                          -> questions - on attend que la réponse soit validée, si oui on incrémente les points
@@ -176,14 +176,11 @@ function fnSleep(ms) {
 }
 
 // fonction pour tenter de passer le CFC et gagner la partie si un 4 ou plus sort au dé
-function  fnPasserCFC(jActuel) {
-    console.log("Le joueur " + joueurs.couleur + " se présente aux examens !");
-    joueurs[jActuel].caseActuelle = 24;
+function fnPasserCFC(jActuel) {
 
-    // On attend que le pion arrive sur la case,
-    // puis on appelle la fonction qui effectue les actions liées à la case au joueur
-    fnSleep(dureeDeplacementMS + 1000).then(() => {
-        joueurs[jActuel].placerCaseCFC();
-        fnActionCase();
-    });
+    // Place le pion au centre du plateau
+    joueurs[jActuel].placerCaseCFC();
+    console.log("Le joueur " + joueurs[jActuel].couleur + "est arrivé sur la case CFC et se présente aux examens !");
+    alert(joueurs[jActuel].nom + " passe les examens ! Vous devez faire un 4 ou plus au lancer de dé pour les réussir.");
+    fnActionCase();
 }

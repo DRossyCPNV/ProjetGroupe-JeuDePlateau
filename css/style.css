@@ -1,7 +1,7 @@
 
 body {
     background-color: purple;
-    font-family: "Avenir LT Std 45 Book", Arial;
+    font-family: "Avenir LT Std 45 Book", sans-serif;
     color: white;
     overflow-x: hidden;
 }
@@ -76,9 +76,7 @@ body {
 
 .btn_cfc{
     display: inline;
-
 }
-
 
 /* CSS pour afficher l'overlay des règles du jeu, lorsqu'on clique sur le bouton "Comment jouer" sur l'écran titre. */
 
@@ -133,8 +131,9 @@ body {
     display: none;
     top: 30%;
     left: 50%;
+    font-family: 'Baloo Bhai', cursive;
     font-size: 40px;
-    color: forestgreen;
+    color: white;
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
 }
@@ -142,7 +141,7 @@ body {
 #img_diplome{
     position: absolute;
     display: none;
-    left: 42%;
-    top: 40%;
-    width: 15%;
+    left: 45%;
+    top: 60%;
+    width: 45%;
 }

@@ -54,7 +54,7 @@
                 <span class="croix" id="line2"></span>
             </div>
             <!-- Menu qui permet de choisir le nombre de joueurs, le nom de chaque joueur ainsi que leur section-->
-            <div id="menu">
+            <div id="menuJoueurs">
                 <div id="div-nbJoueurs">
                     <label for="nbJoueurs">Nombre de joueurs:</label>
                     <select name="nbJoueurs" id="nbJoueurs" class="">
@@ -161,8 +161,8 @@
             </header>
             <div id="text">
                 <span id="title" class="titles">Modulopoly</span>
-                <span id="under-title" class="titles">Un projet mandaté par M. Chavey</span>
-                <span id="under-title" class="titles">Classe SI-CA2a - novembre 2019</span>
+                <span class="under-title">Un projet mandaté par M. Chavey</span>
+                <span class="under-title">Classe SI-CA2a - novembre 2019</span>
                 <br>
                 <br>
                 <div id="btn-start" class='flat-button'>Start</div>
@@ -216,7 +216,7 @@
     <!-- Affiche un slider pour choisir la vitesse d'animation des pions
      et appelle la fonction qui affiche sa valeur, lorsqu'on le modifie -->
     <label for="vitesseAnimSlider">Vitesse des pions</label>
-    <input id="vitesseAnimSlider" type="range" min='4' max='28' value='16' oninput="fnAfficherValeurSlider(this.value);">
+    <input id="vitesseAnimSlider" type="range" min='4' max='28' value='18' oninput="fnAfficherValeurSlider(this.value);">
     <output id="vitesseAnimSliderValue" name="vitesseAnimSliderValue" for="vitesseAnimSlider"></output>
     <br>
     <canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid #330968; background-color:#38196A">
@@ -287,8 +287,10 @@
 
 <!-- Ecran de victoire -->
 <div id="overlayVictoire" onclick="overlayVictoireOff()">
-    <div id="overlayVictoireText">Bravo, vous avez obtenu votre CFC !</div>
-    <img id="img_diploma" src="images/diplome.png" alt="Diplôme obtenu">
+    <div id="overlayVictoireText">Bravo, vous avez obtenu votre CFC !
+        <p>&nbsp;</p>
+        <img id="img_diplome" src="images/cfc-obtenu.png" alt="Diplôme obtenu">
+    </div>
 </div>
 
 

@@ -82,10 +82,7 @@
 
 .menu_indications_joueur_pion{
     width: 30%;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 2px auto auto auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,7 +107,7 @@
     -moz-border-radius: 5px;
     border-radius: 5px;
     padding: 8px 8px 12px 12px;
-    text-shadow: 2px -2px 0px #73c69c;
+    text-shadow: 2px -2px 0 #73c69c;
     font-family: 'Baloo Bhai', cursive;
     color: white;
     border: none;
