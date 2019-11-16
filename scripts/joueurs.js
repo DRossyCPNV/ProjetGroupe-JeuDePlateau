@@ -2,7 +2,7 @@
 // Création des joueurs, attribution de leurs paramètres et déplacements des pions
 // ********************************************************************************
 // Ce script a pour but de créer des objets joueur, leur attribuer des paramètres,
-// et gérer le déplacement des pions en les animant à la vitesse définie par le slider sur Monopoly_base.html.
+// et gérer le déplacement des pions en les animant à la vitesse définie par le slider sur Modulopoly.html.
 //
 //              - fonction pour créer un tableau objet joueur
 //              - attribution des paramètres à l'objet joueur

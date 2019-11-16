@@ -41,7 +41,7 @@ $('#carte_module').css('display','none');
 // Fonction d'achat de module
 function fnAcheterModule(idCase) {
     caseAchetee = idCase;                   // variable globale, permet de passer l'id de la case en argument
-                                            // dans Monopoly.html, lorsqu'on clique sur le bouton "Acheter".
+                                            // dans Modulopoly.html, lorsqu'on clique sur le bouton "Acheter".
 
     // Si le joueur ne possède pas le module
     if(joueurs[jActuel].modulesObtenus[getIndexOf(amodules, acartes[idCase].texte)] === 0)
