@@ -14,6 +14,9 @@
 //                  -> Crée les divs en fonction du nombre de joueurs.
 //                  -> Boucle parcourant tous les joueurs.
 //                      -> Définit la section de chaque joueur
+//                      -> Vérifie quelles cartes modules ont été obtenues
+//                      -> Vérifie si une carte module de la section choisie a été obtenue
+//                      -> Teste si les trois conditions pour passer le CFC sont remplies
 //                      -> Affiche les boutons "Lancer le dé" et "Passer le CFC" dans la div du
 //                         joueur actuel, si le tour de jeu vient de finir et qu'il n'a pas encore cliqué dessus.
 //                          -> Lorsqu'on clique sur "Lancer le dé", le bouton se masque, le tour de jeu commence
@@ -92,20 +95,54 @@ function fnCreerDivJoueurs(nbJoueurs) {
                                    break;
         }
         
-        // Affiche les boutons "Lancer le dé" et "Passer le CFC" dans la div du
-        // joueur actuel, si le tour de jeu vient de finir et qu'il n'a pas encore cliqué dessus.
-        // Lorsqu'on clique sur "Lancer le dé", le bouton se masque, le tour de jeu commence
-        // et le dé est lancé. On attend qu'il aie fini de tourner, puis on appelle la fonction qui gère le tour du joueur.
-        // Lorsqu'on clique sur "Passer le CFC", le bouton se masque et la fonction de passage du CFC se lance.
+        // S'exécute une fois le tour fini, pour le joueur actuel
         if (i === jActuel && tourFini === true)
         {
+            // Vérifie quelles cartes modules ont été obtenues
+            nbCarteObtenue = 0;
+            for(var j = 0; j <=joueurs[jActuel].modulesObtenus.length; j++)
+            {
+                if(joueurs[jActuel].modulesObtenus[j] === 1)
+                {
+                    nbCarteObtenue++;
+                }
+            }
+
+            // Vérifie si une carte module de la section choisie a été obtenue
+            section = false;
+            for(var k = 0; k < joueurs[jActuel].modulesObtenus.length; k++)
+            {
+                if(joueurs[jActuel].modulesObtenus[k].Theme === joueurs[jActuel].section)
+                {
+                    section = true;
+                }
+            }
+
+            // code de triche ultime
+            //  nbCarteObtenue = 5;
+            //  section = true;
+            ///////////////////
+
+            // Teste si les trois conditions pour passer le CFC sont remplies
+            if(nbCarteObtenue >=1 && section === true && joueurs[jActuel].argent >= ptsCFC)
+            {
+                conditionCFC = true;
+                console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" possède assez de modules et " + joueurs[jActuel].argent + "ressources" + " / " + ptsCFC + "nécessaires pour passer le CFC.");
+            }
+            else
+            {
+                conditionCFC = false;
+            }
+
+            // Affiche les boutons "Lancer le dé" et "Passer le CFC" dans la div du
+            // joueur actuel, s'il n'a pas encore cliqué dessus.
             boutonAffiche =   '<div class="menu_indications_joueur_boutons">' + '\n'
                             + '<input type="button" value="Lancer le dé" class="menu_indications_joueur_boutons_lancer" onclick="$(this).hide(); tourFini = false; fnLancerDe(); fnSleep(1000).then(() => { fnTourJoueur(jActuel); });">' + '\n';
 
             // Si les trois conditions sont remplies, cette variable vaut "true" et le bouton "Passer le CFC" s'affiche.
             if(conditionCFC)
             {
-                boutonAffiche += '<input type="button" value="Passer le CFC" class="btn_cfc menu_indications_joueur_boutons_lancer" onclick="$(this).hide(); menu_indications_joueur_boutons_lancer.hide(); fnPasserCFC(jActuel);">' +'\n' + '</div>' + '\n';
+                boutonAffiche += '<input type="button" value="Passer le CFC" class="menu_indications_joueur_boutons_lancer" onclick="$(this).hide(); fnPasserCFC(jActuel);">' +'\n' + '</div>' + '\n';
             }
             else
             {
@@ -142,11 +179,11 @@ function fnCreerDivJoueurs(nbJoueurs) {
         var modulesAffiches = "";
 
         // Boucle parcourant tous les modules détenus.
-        for(var j = 0; j < amodules.length; ++j)
+        for(var l = 0; l < amodules.length; ++l)
         {
-            if(joueurs[i].modulesObtenus[j] === 1)
+            if(joueurs[i].modulesObtenus[l] === 1)
             {
-                modulesAffiches += '<img src="images/modules/' + amodules[j].Nom + '.svg" style="margin: 2px; width: 20%" alt="modules détenus">' + '\n';
+                modulesAffiches += '<img src="images/modules/' + amodules[l].Nom + '.svg" style="margin: 2px; width: 20%" alt="modules détenus">' + '\n';
             }
         }
 

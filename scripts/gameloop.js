@@ -9,8 +9,6 @@
 //                  -> appelle la fonction définie dans affichage.js, pour afficher le plateau et animer les pions.
 //
 //              - fonction qui représente le tour d'un joueur
-//                  -> vérifie quelles cartes modules ont été obtenues
-//                  -> teste si les conditions pour tenter le CFC sont remplies
 //                  -> appelle la fonction de joueur.js qui déplace le pion, en lui passant en paramètre le résultat du dé
 //                  -> vérification du temps que prend le déplacement
 //                  -> vérifie les actions que le joueur doit effectuer avant de passer au tour suivant
@@ -58,8 +56,6 @@ function gameloop(nbJoueurs) {
 }
 
 // Fonction qui représente le tour d'un joueur.
-//  -> vérifie quelles cartes modules ont été obtenues
-//  -> teste si les conditions pour tenter le CFC sont remplies
 //  -> appelle la fonction de joueur.js qui déplace le pion
 //     avec la fonction définie dans joueurs.js, en lui passant en paramètre le résultat du dé
 //  -> vérification du temps que prend le déplacement
@@ -67,40 +63,6 @@ function gameloop(nbJoueurs) {
 //     qui effectue les actions liées à la case au joueur
 //
 function fnTourJoueur() {
-
-    // Vérifie quelles cartes modules ont été obtenues
-    var nbCarteObtenue = 0;                                             // condition 5 cartes modules obtenues
-    for(let i = 0; i <=joueurs[jActuel].modulesObtenus.length; i++)
-    {
-        if(joueurs[jActuel].modulesObtenus[i] === 1)
-        {
-            nbCarteObtenue++;
-        }
-    }
-    var section = false;                                                 // condition carte section obtenue
-    for(let j = 0; j < joueurs[jActuel].modulesObtenus.length; j++)
-    {
-        if(joueurs[jActuel].modulesObtenus[j].Theme === joueurs[jActuel].section)
-        {
-            section = true;
-        }
-    }
-
-    // code de triche
-    //  nbCarteObtenue = 5;
-    //  section = true;
-    ///////////////////
-
-    // Teste si les trois conditions pour passer le CFC sont remplies
-    if(nbCarteObtenue >=5 && section === true && joueurs[jActuel].argent >= ptsCFC)
-    {
-        conditionCFC = true;
-        console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" possède assez de modules et " + joueurs[jActuel].argent + "ressources" + " / " + ptsCFC + "nécessaires pour passer le CFC.");
-    }
-    else
-    {
-        conditionCFC = false;
-    }
 
     // On déplace le pion du résultat du dé avec la fonction définie dans joueurs.js
     joueurs[jActuel].deplacerPion(resultatDe);

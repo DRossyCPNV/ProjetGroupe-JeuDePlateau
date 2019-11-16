@@ -73,6 +73,8 @@ for (var i = 0; i < nbJoueursMax; i++){
 
 // Paramètres du jeu
 const ptsCFC = 1000;                                                                // points requis pour tenter d'obtenir le CFC
+var nbCarteObtenue = 0;                                                             // nombre de cartes modules obtenues
+var section = false;                                                                // condition d'une carte module de section obtenue
 var conditionCFC = false;                                                           // détermine si les conditions pour obtenir le CFC sont remplies
                                                                                     // cela va afficher ou non le bouton "Passer le cfc", selon le code de menu_indications.js
 var caseAchetee;                                                                    // stocke l'id de la case que le joueur actuel veut acheter

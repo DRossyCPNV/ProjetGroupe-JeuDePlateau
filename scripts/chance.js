@@ -174,11 +174,11 @@ function fnExecuteChance(){
                     $('#choix_cible').css('display', 'block');
                     $('#titre_cible').html("Choisissez un joueur cible :");
 
-                        for(var i = 0; i < nbJoueurs; i++)
+                        for(var m = 0; m < nbJoueurs; m++)
                         {
-                            if(joueurs[i] !== joueurs[jActuel])
+                            if(joueurs[m] !== joueurs[jActuel])
                             {
-                                nomJoueurs += "<input type='radio' name='joueur' value='"+ joueurs[i].id +"'> <label>" + joueurs[i].nom + "</label><br>";
+                                nomJoueurs += "<input type='radio' name='joueur' value='"+ joueurs[m].id +"'> <label>" + joueurs[m].nom + "</label><br>";
                             }
                         }
 
@@ -187,6 +187,9 @@ function fnExecuteChance(){
                     $('#form_cibles').html(nomJoueurs);
                 }
 
+            // Tour fini, au tour du joueur suivant
+            console.log("Tour suivant");
+            fnJoueurSuivant();
             break;
             }
         break;
