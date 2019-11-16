@@ -99,7 +99,7 @@ function fnCreerDivJoueurs(nbJoueurs) {
         if (i === jActuel && tourFini === true)
         {
             // Vérifie quelles cartes modules ont été obtenues
-            var nbCarteObtenue = 0;
+            nbCarteObtenue = 0;
             for(var m = 0; m <=joueurs[jActuel].modulesObtenus.length; m++)
             {
                 if(joueurs[jActuel].modulesObtenus[m] === 1)
