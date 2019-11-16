@@ -56,6 +56,13 @@ $.getJSON('donnees/chances.json', function(data) {
 function fnAfficheChance() {
     console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" affiche une carte chance.");
 
+    // Génération d'un nombre aléatoire
+    nbaleat = Math.floor(Math.random() * nbchance);
+
+    // Ecriture du contenu de la carte chance
+    $('#titre_chance').html(achance[nbaleat].titre);
+    $('#txt_chance').html(achance[nbaleat].texte);
+
     // Affichage de la div contenant la question chance,
     // masquage du plateau, du menu latéral et des éléments du slider.
     $('body').css('background-color','rgba(0,0,0,.9)');
@@ -65,13 +72,6 @@ function fnAfficheChance() {
     $('#vitesseAnimSlider').css('display', 'none');
     $('#vitesseAnimSliderValue').css('display', 'none');
     $('#carte_chance').css('display', 'block');
-
-    // Génération d'un nombre aléatoire
-    nbaleat = Math.floor(Math.random() * nbchance);
-
-    // Affichage de la carte chance
-    $('#titre_chance').html(achance[nbaleat].titre);
-    $('#txt_chance').html(achance[nbaleat].texte);
 }
 
 // Efface la carte chance et réaffiche le plateau de jeu, le menu latéral et les éléments du slider.
@@ -108,7 +108,7 @@ function fnExecuteChance(){
                 $('#choix_cible').css('display', 'block');
                 $('#titre_cible').html("Choisissez un joueur cible:");
 
-                    for(let i = 0; i < nbJoueurs; i++)
+                    for(var i = 0; i < nbJoueurs; i++)
                     {
                         console.log("valeur de I: " +i);
                         if(joueurs[i] !== joueurs[jActuel])
@@ -187,9 +187,6 @@ function fnExecuteChance(){
                     $('#form_cibles').html(nomJoueurs);
                 }
 
-            // Tour fini, au tour du joueur suivant
-            console.log("Tour suivant");
-            fnJoueurSuivant();
             break;
             }
         break;
@@ -294,7 +291,7 @@ function fnExecuteCibleArgent () {
     else
     {
 
-        for(let i = 0; i < nbJoueurs; i++)
+        for(var i = 0; i < nbJoueurs; i++)
         {
 
             if(joueurs[i].id == document.querySelector('input[name="joueur"]:checked').value)
@@ -345,7 +342,7 @@ function fnExecuteCibleDeplacement() {
     else
     {
 
-        for(let i = 0; i < nbJoueurs; i++)
+        for(var i = 0; i < nbJoueurs; i++)
         {
             if(joueurs[i].id == document.querySelector('input[name="joueur"]:checked').value)
             {
