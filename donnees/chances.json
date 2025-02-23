@@ -11,7 +11,7 @@
   {
     "id": 1,
     "titre": "Trafic",
-    "texte": "Le train pour STE-Croix a eu du retard et vous avez manqué le premier cours, vous perdez 250 ressources",
+    "texte": "Le train pour Ste-Croix a eu du retard et vous avez manqué le premier cours, vous perdez 250 ressources",
     "indication": "Effet immédiat",
     "effet": "POINTS",
     "valeur_1": -250,
@@ -47,7 +47,7 @@
   {
     "id": 5,
     "titre": "Mauvaise ambiance",
-    "texte": "Lors d'un travail de groupe, vous vous retrouvez dans le même groupe qu'une personne que vous n'appréciez pas. Vous même et le joueur de votre choix perdez 250 ressources",
+    "texte": "Lors d'un travail de groupe, vous vous retrouvez dans le même groupe qu'une personne que vous n'appréciez pas. Vous-même et le joueur de votre choix perdez 250 ressources",
     "indication": "Effet immédiat",
     "effet": "POINTS",
     "valeur_1": -250,
@@ -56,7 +56,7 @@
   {
     "id": 50,
     "titre": "Au tricheur!",
-    "texte": "Vous vous êtes fait prendre à tricher pendant un examen, passez votre prochain tour",
+    "texte": "Vous vous êtes fait prendre à tricher pendant un examen ! Passez votre prochain tour.",
     "indication": "Effet immédiat",
     "effet": "TOURS",
     "valeur_1": 1,
@@ -65,7 +65,7 @@
   {
     "id": 100,
     "titre": "Expérience",
-    "texte": "Grâce à votre bagage personnel, vous avez plus de facilité en mathematique, relancez le dé",
+    "texte": "Grâce à votre bagage personnel, vous avez plus de facilité en mathematique. Relancez le dé.",
     "indication": "Effet immédiat",
     "effet": "DEPLACEMENT",
     "valeur_1": 1,
@@ -101,7 +101,7 @@
   {
     "id": 150,
     "titre": "Entraide",
-    "texte": "Vous recevez de information d'un camarade. Annule les pertes de ressources infligées par d'autres joueurs. Cette carte peut être conservée jusque à son utilisation",
+    "texte": "Vous recevez des informations d'un camarade. Cette carte protégera votre pion, jusqu'à son utilisation, en annulant les pertes de ressources infligées par d'autres joueurs.",
     "indication": "Effet Unique",
     "effet": "PROTECTION",
     "valeur_1": 1,
@@ -110,7 +110,7 @@
   {
     "id": 200,
     "titre": "Surprise!",
-    "texte": "Examen surprise! Si vous répondez correctement, vous gagnez 500 ressources, sinon, vous en perdez 250",
+    "texte": "Examen surprise! Si vous répondez correctement, vous gagnez 500 ressources.",
     "indication": "Effet immédiat",
     "effet": "QCM",
     "valeur_1": 500,

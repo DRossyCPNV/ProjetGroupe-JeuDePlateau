@@ -1,22 +1,15 @@
 
 body {
     background-color: purple;
-    font-family: "Avenir LT Std 45 Book";
+    font-family: "Avenir LT Std 45 Book", sans-serif;
     color: white;
     overflow-x: hidden;
 }
 
-#vitesseAnims {
-    color:whitesmoke;
-    font-size: 1em;
+#game {
+    display:none;
 }
 
-#menu {
-    /*border-style: solid;*/
-}
-#game{
-    display: none;
-}
 #carte_question {
     display: none;
     margin: auto;
@@ -58,7 +51,7 @@ body {
     top: 40%;
     left: 35%;
     width: 461px;
-    height: 500px;
+    height: 350px;
     border-radius: 9%;
     padding: 20px;
     text-align: center;
@@ -83,5 +76,72 @@ body {
 
 .btn_cfc{
     display: inline;
+}
 
+/* CSS pour afficher l'overlay des règles du jeu, lorsqu'on clique sur le bouton "Comment jouer" sur l'écran titre. */
+
+#overlayRegles {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 3;
+    cursor: pointer;
+}
+
+#overlayReglesText{
+    position: absolute;
+    display: none;
+    padding: 20px 10px;
+    top: 38%;
+    left: 50%;
+    height: 80%;
+    width: 70%;
+    font-size: 20px;
+    color: whitesmoke;
+    overflow: auto;             /* n'affiche qu'une barre de défilement vertical,
+                                 quand elle est nécessaire pour lire tout le texte*/
+    transform: translate(-50%,-40%);
+    -ms-transform: translate(-50%,-50%);
+}
+
+/* CSS pour afficher l'overlay de victoire, lorsqu'un joueur obtient son CFC */
+
+#overlayVictoire {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#overlayVictoireText{
+    position: absolute;
+    display: none;
+    top: 30%;
+    left: 50%;
+    font-family: 'Baloo Bhai', cursive;
+    font-size: 40px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+
+#img_diplome{
+    position: absolute;
+    display: none;
+    left: 45%;
+    top: 60%;
+    width: 45%;
 }

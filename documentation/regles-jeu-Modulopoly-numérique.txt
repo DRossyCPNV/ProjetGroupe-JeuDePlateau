@@ -1,0 +1,35 @@
+﻿
+Chaque joueur choisit une section, puis reçoit 500 points de ressources pour commencer.
+Un pion de couleur lui est automatiquement attribué.
+Le joueur un commence par lancer le dé, puis chaque joueur quand son tour vient. 
+Il y a différents types de cases :
+
+a) cases modules
+Quand vous vous arrêtez sur une case module vous pouvez choisir
+d'acheter une carte module avec vos points accumulés.
+Le prix du module est connu uniquement quand vous vous arrêtez dessus.
+Si on ne vous propose pas de l'acheter quand vous vous y arrêtez, c'est que vous n'avez pas assez de ressources.
+
+b) cases test
+Vous êtes obligé de vous y arrêter.
+Une question apparaîtra à l'écran, avec 4 réponses possibles à choix.
+Si vous répondez juste, vous recevrez 500 points.
+Si vous répondez faux, vous ne perdez rien et le tour passe.
+
+c) case chance
+Une carte apparaîtra à l'écran, avec des instructions que vous pourrez ou devrez appliquer.
+
+d) case CFC
+Pour passer l'examen, vous devez avoir obtenu au moins 5 cartes modules, dont une de votre section, et avoir accumulé 1000 points.
+A ce moment, lors de votre tour de jeu, un bouton supplémentaire apparaîtra pour vous déplacer sur la case au centre du plateau.
+
+Pour recevoir votre CFC et gagner la partie, il vous faudra obtenir un 4, 5 ou 6 au dé. 
+Si vous faites moins, c'est échoué.
+Vos points sont perdus, mais pas vos cartes modules et le jeu continue.
+
+Le premier joueur à obtenir son CFC gagne la partie.
+
+
+
+
+

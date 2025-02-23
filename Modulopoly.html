@@ -1,9 +1,31 @@
-<!-- **************************************************************
-Modulopoly - fichier principal du jeu, héberge le canvas
-JCY, Laurent Barraud, Bastian Chollet, Luca Coduri, Guillaume Duvoisin,
-Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
-******************************************************************* -->
-
+<!-- ***************************************************************
+//  Modulopoly - fichier principal du jeu.
+// *****************************************************************
+// Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// Un projet mandaté par M. Chavey.
+// SI-CA2a - novembre 2019 - CPNV
+********************************************************************
+// - lancement de la fonction principale du jeu, dans gameloop.js
+// - menu qui permet de configurer la partie
+// - menu qui permet de choisir le nombre de joueurs, le nom de chaque joueur ainsi que leur section
+// - bouton Start qui lance le menu de configuration de la partie
+// - bouton Comment jouer qui affiche l'écran des règles du jeu
+// - afficher un slider pour choisir la vitesse des animations
+// - affiche le canvas, où l'on dessine le plateau et les pions
+// - menu latéral des indications des joueurs
+// - boutons radios pour répondre aux cartes questions
+// - affichage des cartes chance
+// - affichage de l'écran achat d'une carte module
+// - écran des règles
+// - écran de victoire
+// - chargement de tous les fichiers scripts en mémoire
+//
+// Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy.
+// Un projet mandaté par M. Chavey.
+// SI-CA1a - juillet 2019 - CPNV
+******************************************************************** -->
 
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -13,13 +35,16 @@ Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
     <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/menu_indications.css">
-    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/boutons.css">
     <link rel="stylesheet" href="css/menu.css">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
 
-<!-- Menu qui permet de choisir le nombre de joueur, le nom de chaque joueur ainsi que leur section-->
+
+<!-- Menu qui permet de configurer la partie-->
 <div id="menu">
     <div id="cfg-bg">
         <div id="game-config">
@@ -28,8 +53,8 @@ Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
                 <span class="croix" id="line1"></span>
                 <span class="croix" id="line2"></span>
             </div>
-            <!-- Menu qui permet de choisir le nombre de joueur, le nom de chaque joueur ainsi que leur section-->
-            <div id="menu">
+            <!-- Menu qui permet de choisir le nombre de joueurs, le nom de chaque joueur ainsi que leur section-->
+            <div id="menuJoueurs">
                 <div id="div-nbJoueurs">
                     <label for="nbJoueurs">Nombre de joueurs:</label>
                     <select name="nbJoueurs" id="nbJoueurs" class="">
@@ -117,8 +142,8 @@ Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
                         </tr>
                     </table>
                 </div>
-                <button id="btnPlay" class="flat-button" name="play" value="play" onclick="afficherMenuIndications();">
-                    jouer
+                <button id="btnPlay" class="flat-button" name="play" value="play" onclick="fnAfficherMenuIndications();">
+                    Jouer
                 </button>
             </div>
         </div>
@@ -132,31 +157,73 @@ Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
                     <span id="middle-line" class="line"></span>
                     <span id="bottom-line" class="line"></span>
                 </div>
-                <!--                <nav> contiendra une liste pour le menu hamburger </nav> -->
+
             </header>
             <div id="text">
                 <span id="title" class="titles">Modulopoly</span>
-                <span id="under-title" class="titles">CPNV - 2019</span>
+                <span class="under-title">Un projet mandaté par M. Chavey</span>
+                <span class="under-title">Classe SI-CA2a - novembre 2019</span>
                 <br>
                 <br>
                 <div id="btn-start" class='flat-button'>Start</div>
-                <div id="btn-howto" class='flat-button'>Comment jouer</div>
+                <div id="btn-howto" class='flat-button' onclick="overlayReglesOn();">Comment jouer</div>
             </div>
         </div>
     </div>
 </div>
 <br>
+
+<!-- Ecran des règles -->
+<div id="overlayRegles" onclick="overlayReglesOff()">
+    <div id="overlayReglesText">
+        <p>Chaque joueur choisit une section, puis reçoit 500 points de ressources pour commencer.</p>
+        <p>Un pion de couleur lui est automatiquement attribué.</p>
+        <p>Le joueur un commence par lancer le dé, puis chaque joueur quand son tour vient.</p>
+        <br>
+        <p>Il y a différents types de cases :</p>
+        <br>
+        <p>a) cases modules</p>
+        <p>Quand vous vous arrêtez sur une case module vous pouvez choisir d'acheter une carte module avec vos points accumulés.</p>
+        <p>Le prix du module est connu uniquement quand vous vous arrêtez dessus.</p>
+        <p>Si on ne vous propose pas de l'acheter quand vous vous y arrêtez, c'est que vous n'avez pas assez de ressources.</p>
+        <br>
+        <p>b) cases test</p>
+        <p>Vous êtes obligé de vous y arrêter.</p>
+        <p>Une question apparaîtra à l'écran, avec 4 réponses possibles à choix.</p>
+        <p>Si vous répondez juste, vous recevrez 500 points.</p>
+        <p>Si vous répondez faux, vous ne perdez rien et le tour passe.</p>
+        <br>
+        <p> c) case chance</p>
+        <p>Une carte apparaîtra à l'écran, avec des instructions que vous pourrez ou devrez appliquer.</p>
+        <br>
+        <p> d) case CFC</p>
+        <p>Pour passer l'examen, vous devez avoir obtenu une case module de</p>
+        <p>chaque couleur (rouge, bleu, vert et jaune) et accumulé 1000 points.</p>
+        <p>A ce moment, lors de votre tour de jeu, un bouton supplémentaire apparaîtra pour vous déplacer sur la case au centre du plateau.</p>
+        <br>
+        <p>Pour recevoir votre CFC et gagner la partie, il vous faudra obtenir un 4, 5 ou 6 au dé.</p>
+        <p>Si vous faites moins, c'est échoué. Vos points sont perdus, mais pas vos cartes modules et le jeu continue.</p>
+        <br>
+        <p>Le premier joueur à obtenir son CFC gagne la partie.</p>
+        <br>
+        <p style="color:CadetBlue">Cliquez pour fermer.</p>
+    </div>
+</div>
+
+<!-- Div qui contient toute la fenêtre -->
 <div id="game">
 
-    <!-- Afficher un slider pour choisir la vitesse des animations -->
-    <span id="vitesseAnims">Vitesse des animations</span>
-    <input type="range" min="1" max="40" value="20" class="slider" id="vitesseAnimSlider">
+    <!-- Affiche un slider pour choisir la vitesse d'animation des pions
+     et appelle la fonction qui affiche sa valeur, lorsqu'on le modifie -->
+    <label for="vitesseAnimSlider">Vitesse des pions</label>
+    <input id="vitesseAnimSlider" type="range" min='4' max='28' value='18' oninput="fnAfficherValeurSlider(this.value);">
+    <output id="vitesseAnimSliderValue" name="vitesseAnimSliderValue" for="vitesseAnimSlider"></output>
     <br>
-    <canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid gray; background-color:midnightblue">
+    <canvas id="plateau_jeu" width="1200" height="800" style="border: 5px solid #330968; background-color:#38196A">
         Texte alternatif pour les navigateurs ne supportant pas Canvas.
     </canvas>
 
-    <!-- Menu des indications ici -->
+    <!-- Menu latéral des indications des joueurs -->
     <div id="menu_indications">
         <div id="menu_indications_titre">SCORES</div>
         <div id="menu_indications_tours"></div>
@@ -164,33 +231,46 @@ Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
     </div>
     <!-- Fin menu des indications -->
 
-    <!-- Boutons radios de réponses à la carte question -->
+    <!-- Affichage de l'écran d'achat d'une carte module -->
+    <div id="carte_module">
+        <p><strong id="titre_module"></strong></p>
+        <br>
+        <p id="txt_module"></p>
+        <div>
+            <input id="acheterModule" type="button" value="Acheter"
+                   onclick="fnClicAcheterModule(caseAchetee);">
+            <input id="passerModule" type="button" value="Non merci" onclick="fnEffacerModule();">
+        </div>
+    </div>
+    <!-- Fin carte module -->
+
+    <!-- Affichage des cartes questions avec boutons radios pour répondre -->
     <div id="carte_question">
         <p id="txt_question"></p>
         <div id="rdb_question">
-            <input type="radio" name="reponse" value="r1">
+            <input type="radio" name="reponse" value="r1" ondblclick="fnVerifReponseQuestion();">
             <label id="r1" for="r1"></label>
             <br>
 
-            <input type="radio" name="reponse" value="r2">
+            <input type="radio" name="reponse" value="r2" ondblclick="fnVerifReponseQuestion();">
             <label id="r2" for="r2"></label>
             <br>
 
-            <input type="radio" name="reponse" value="r3">
+            <input type="radio" name="reponse" value="r3" ondblclick="fnVerifReponseQuestion();">
             <label id="r3" for="r3"></label>
             <br>
 
-            <input type="radio" name="reponse" value="r4">
+            <input type="radio" name="reponse" value="r4" ondblclick="fnVerifReponseQuestion();">
             <label id="r4" for="r4"></label>
             <br>
         </div>
         <br>
-        <input id="btn-verif" type="button" value="Réponse" onclick="fnVerifReponseQuestion(); return false;">
+        <input id="btn-verif" type="button" value="Réponse" width="200" onclick="fnVerifReponseQuestion(); return false;">
     </div>
 
-    <!-- Carte chance ici -->
+    <!-- Affichages des cartes chance -->
     <div id="carte_chance">
-        <img src="images/chance/close.png" width="20px" align="right" onclick="fnEffaceChance()"/>
+        <img src="images/chance/close.png" width="20" align="right" onclick="fnEffaceChance()" alt="Faire disparaitre la carte chance."/>
         <p><strong id="titre_chance"></strong></p>
         <br>
         <p id="txt_chance"></p>
@@ -201,26 +281,27 @@ Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
         <form id="form_cibles">
         </form>
     </div>
-    <!-- Fin Carte chance -->
+    <!-- Fin Cartes chance -->
 
-    <!-- Carte module ici -->
-    <div id="carte_module">
-        <p><strong id="titre_module"></strong></p>
-        <br>
-        <p id="txt_module"></p>
-        <div>
-            <input id="acheterModule" type="button" value="Acheter"
-                   onclick="fnClickAcheterModule(joueurAchetant, caseAchetee);">
-            <input id="passerModule" type="button" value="Terminer" onclick="fnEffacerModule();">
-        </div>
+</div>
+
+<!-- Ecran de victoire -->
+<div id="overlayVictoire" onclick="overlayVictoireOff()">
+    <div id="overlayVictoireText">Bravo, vous avez obtenu votre CFC !
+        <p>&nbsp;</p>
+        <img id="img_diplome" src="images/cfc-obtenu.png" alt="Diplôme obtenu">
     </div>
-    <!-- Fin Carte module -->
 </div>
 
 
+<!-- code de triche ultime, n'utiliser que pour tester un overlay
+<div style="padding:20px">
+  <button onclick="overlayVictoireOn()">CFC direct</button>
+</div>
+-->
+
 <script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="scripts/varGlobal.js"></script>
-<script type="text/javascript" src="scripts/anim.js"></script>
 <script type="text/javascript" src="scripts/affichage.js"></script>
 <script type="text/javascript" src="scripts/joueurs.js"></script>
 <script type="text/javascript" src="scripts/jeu-html.js"></script>
@@ -229,7 +310,6 @@ Guilain Mbayo & David Rossy - SI-CA1a - juin 2019
 <script type="text/javascript" src="scripts/gameloop.js"></script>
 <script type="text/javascript" src="scripts/menu_indications.js"></script>
 <script type="text/javascript" src="scripts/obtention_module.js"></script>
-<script type="text/javascript" src="scripts/menu.js"></script>
 
 </body>
 </html>

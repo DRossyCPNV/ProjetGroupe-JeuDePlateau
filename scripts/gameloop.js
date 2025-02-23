@@ -1,202 +1,186 @@
-//******************************************************************************
-// Gameloop
-//******************************************************************************
+//********************************************************************************************************************
+// Gameloop - fonctions principales du jeu qui lient toutes les autres
+//********************************************************************************************************************
+//
 //              * event JQuery du clic sur le bouton-verif : vérification si la réponse à la question a été validée
-//              - fonction principale qui liera toutes les autres (gameloop)
-//              - fonction qui gère le tour d'un joueur et prend un ID de joueur en argument
-//              - fonction qui gère l'action définie à une case où s'est arrêté l'ID de joueur passé en argument
+//              - fonction principale qui lie toutes les autres pour rendre le jeu fonctionnel (gameloop)
+//                  -> crée les joueurs
+//                  -> place tous les joueurs sur la case départ
+//                  -> appelle la fonction définie dans affichage.js, pour afficher le plateau et animer les pions.
+//
+//              - fonction qui représente le tour d'un joueur
+//                  -> appelle la fonction de joueur.js qui déplace le pion, en lui passant en paramètre le résultat du dé
+//                  -> vérification du temps que prend le déplacement
+//                  -> vérifie les actions que le joueur doit effectuer avant de passer au tour suivant
+//
+//              - fonction qui vérifie les actions que le joueur doit effectuer
 //                    switch :
 //                          -> normal (= cartes) - demande si le joueur veut acheter la case
 //                          -> questions - on attend que la réponse soit validée, si oui on incrémente les points
 //                          -> chance - on attend une seconde de plus que la durée normale de déplacement
 //                                      avant d'afficher la carte
-//                          -> CFC - <à définir>
+//                          -> CFC - lance le dé et si le résultat est plus grand ou égal à 4, c'est gagné.
 //
-//              - fonction sleep qui attend la fin d'exécution du setTimeOut avant de poursuivre celle passée en paramètre
+//              - fonction qui attend la fin d'exécution du setTimeOut, avant de poursuivre celle passée en paramètre
+//              - fonction pour tenter de passer le CFC et gagner la partie si un 4 ou plus sort au dé
 //
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA1a - juin 2019 - CPNV
-// *****************************************************************************
+// SI-CA2a - novembre 2019 - CPNV
+// ********************************************************************************************************************
 
-//permet de vérifier si la réponse à la question à été validée
+// event JQuery du clic sur le bouton-verif : vérification si la réponse à la question a été validée
 $("#btn-verif").click(function () {
     $(this).data('clicked', true);
 });
 
-//Sorti de la boucle pour accéder partout dans le script
-var jActuel = 0;
-var nbJoueurJouant = nbJoueurs;
-//cette fonction sera la fonction principale qui liera toutes les autres pour rendre le jeu fonctionnel
+// Fonction principale qui lie toutes les autres pour rendre le jeu fonctionnel
 function gameloop(nbJoueurs) {
 
-    //crée les joueurs
+    // crée les joueurs
     joueurs = maker(nbJoueurs);
-    //message d'info dans la console
-    for (var i = 0; i < nbJoueurs; i++) {
-        // pour test
+    for (var i = 0; i < nbJoueurs; i++)
+    {
+        // message d'info dans la console, pour test
         console.log("joueur : " + i + ", Nom: " + joueurs[i].nom + ", Couleur: " + joueurs[i].couleur + ", Section: " + joueurs[i].section + ", id: " + joueurs[i].id + ", emplacement: " + joueurs[i].emplacementCase + ", case actuel: " + joueurs[i].caseActuelle);
     }
-    //placer tout les joueur sur la case départ
-    for (i = 0; i < nbJoueurs; i++) {
+    // place tous les joueurs sur la case départ
+    for (i = 0; i < nbJoueurs; i++)
+    {
         joueurs[i].placerPionCaseDepart();
     }
 
+    // appelle la fonction écrite dans affichage.js, pour afficher le plateau et animer les pions.
     draw();
 }
-//Cette fonction est appelée à chaque fois que l'on appuise sur lancer le dé
-function tourSuivant(){
-//$("#btn_cfc").click(function () { // https://css-tricks.com/snippets/jquery/click-once-and-unbind/
-    //désactive le bouton lancer le dé le temps que la fonction n'est pas terminé;
-    if(joueurs[jActuel].passeTour === 0){
-        $("#btn-lancerDe").attr('disabled', 'disabled');
-        console.log("je disable le bouton");
 
-        //crée un nombre aléatoire
-        fnLancerDe();
+// Fonction qui représente le tour d'un joueur.
+//  -> appelle la fonction de joueur.js qui déplace le pion
+//     avec la fonction définie dans joueurs.js, en lui passant en paramètre le résultat du dé
+//  -> vérification du temps que prend le déplacement
+//  -> on attend que le pion arrive sur la case, puis on appelle la fonction
+//     qui effectue les actions liées à la case au joueur
+//
+function fnTourJoueur() {
 
-        //attendre que le dé a finit de tourner
-        sleep(1000).then(() => {
-            tourJoueur(jActuel);
-            console.log('le problème est la');
-            if (jActuel < document.getElementById('nbJoueurs').value - 1) {
-                jActuel++;
-            } else {
-                jActuel = 0;
-            }
-        });
-    }
-    else{
-        joueurs[jActuel].passeTour = 0;
-        if (jActuel < document.getElementById('nbJoueurs').value - 1) {
-            jActuel++;
-        } else {
-            jActuel = 0;
-        }
-    }
+    // On déplace le pion du résultat du dé avec la fonction définie dans joueurs.js
+    joueurs[jActuel].deplacerPion(resultatDe);
 
+    // Vérification du temps que prend le déplacement
+    console.log("je me déplace de: " + resultatDe + " cases en " + dureeDeplacementMS + "ms");
 
-// });
-}
-
-//fonction qui représente le tour d'un joueur
-function tourJoueur(joueurId) {
-    var nbCarteObtenue = 0;
-    for(var i = 0; i <=joueurs[joueurId].modulesObtenus.length; i++){   //condition 5 cartes modules
-        if(joueurs[joueurId].modulesObtenus[i] === 1){
-            nbCarteObtenue++;
-        }
-    }
-    var section = false;
-    for(var i = 0; i < joueurs[joueurId].modulesObtenus.length; i++){   //condition carte section
-        if(joueurs[joueurId].modulesObtenus[i].Theme === joueurs[joueurId].section){
-            section = true;
-        }
-    }
-    //code de triche
-    //  nbCarteObtenue = 5;
-    //  section = true;
-    ///////////////////
-    if(nbCarteObtenue >=5 && section ===true && joueurs[joueurId].argent >= ptsCFC){    //Si conditions pour cfc sont remplies
-        conditionCFC = true;
-        console.log(joueurs[joueurId].nom + ": " + joueurs[joueurId].argent + " / " + ptsCFC);
-        joueurs[joueurId].deplacerPion(resultatDe);
-        console.log("je met déplace de: " + resultatDe);
-    }
-    else {
-        conditionCFC = false;
-        $('.menu_indications_joueur_boutons').html('<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourSuivant()">');
-        //Deplacer le pion en fonction du résultat du dé
-        joueurs[joueurId].deplacerPion(resultatDe);
-        console.log("je met déplace de: " + resultatDe);
-    }
-    //vérifier les actions que le joueur doit effectuer
-    console.log("le déplacement prend " + dureeDeplacementMS + "ms");
-    actionCase(joueurs[joueurId]);
-
-    //appliquer les effet s'il y en a
-
-    //réactiver le bouton à la fin du tour;
-    $("#btn-lancerDe").removeAttr('disabled');
+    // On attend que le pion arrive sur la case,
+    // puis on appelle la fonction qui effectue les actions liées à la case au joueur
+    fnSleep(dureeDeplacementMS + 500).then(() => {
+        fnActionCase();
+    });
 
 }
 
-function actionCase(joueurActuel) {
+// Fonction qui vérifie les actions que le joueur doit effectuer
+//  -> si la case est une case normale : appel de la fonction fnAcheterModule
+//    (demande si le joueur veut acheter la case)
+//  -> si la case est une case question : appel de la fonction fnAfficheQuestion
+//    (pose une question au joueur actuel)
+//  -> si la case est une case chance : appel de la fonction fnAfficheChance
+//  -> si la case est la case CFC : on lance le dé et si le joueur fait 4 ou plus un overlay de victoire est affiché
+// Puis on termine le tour de jeu.
+function fnActionCase() {
 
-    var caseToCheck = joueurActuel.caseActuelle;
+    var caseToCheck = joueurs[jActuel].caseActuelle;
     var typeDeCase = acartes[caseToCheck].type;
 
-    switch (true) {
-        //case coin
+    switch (true)
+    {
+
         case (typeDeCase === "normal"):
-            sleep(dureeDeplacementMS + 1000).then(() => {
-                console.log(typeDeCase);
-                fnAcheterModule(joueurActuel.id, caseToCheck);
-                //demander si le joueur veut acheter la case
+
+            // Attend que le pion aie fini de se déplacer
+            fnSleep(dureeDeplacementMS + 1000).then(() => {
+                console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" est arrivé sur une case de type "+typeDeCase);
+
+                // Demande si le joueur actuel veut acheter la case. Fonction définie dans obtention_module.js.
+                fnAcheterModule(caseToCheck);
             });
 
-            break;
+        break;
 
         case (typeDeCase === "question"):
 
-            sleep(dureeDeplacementMS + 1000).then(() => {
-                console.log(typeDeCase);
-                console.log(joueurActuel.id);
-                //poser une question
-                fnAfficheQuestion(joueurActuel.id);
+            // Attend que le pion aie fini de se déplacer
+            fnSleep(dureeDeplacementMS + 1000).then(() => {
+                console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" est arrivé sur une case de type "+typeDeCase);
 
-                // //on attend que la réponse soit validée
-                // while($("#btn-verif").data('clicked')){
-                //     fnAfficheQuestion(joueurActuel.id);
-                // }
-                // if (fnVerifReponseQuestion() === true) {
-                //     joueurActuel.nbTestReussi++;
-                //     console.log("Voici mes point" + joueurActuel.nbTestReussi);
-                //     $("#id").data('clicked', false);
-                // }
+                // Affiche une carte question au joueur actuel. Fonction définie dans question.js
+                fnAfficheQuestion();
+
             });
 
             break;
         case (typeDeCase === "chance"):
-            console.log(typeDeCase);
-            //case chance
-            sleep(dureeDeplacementMS + 1000).then(() => {
-                fnAfficheChance(joueurActuel.id);
+            // Attend que le pion aie fini de se déplacer
+            fnSleep(dureeDeplacementMS + 1000).then(() => {
+                console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" est arrivé sur une case de type "+typeDeCase);
+
+                // Affiche une carte chance au joueur actuel. Fonction définie dans chance.js
+                fnAfficheChance();
             });
 
             break;
         case (typeDeCase === "cfc"):
+            fnLancerDe();
 
+            // Attend que le pion aie fini de se déplacer
+            fnSleep(2000).then(() => {
+                console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" est arrivé sur la case de type "+typeDeCase);
+
+                if(resultatDe >= 4)
+                {
+                    console.log("C'est gagné !!!");
+
+                    // Stoppe le timer qui affiche et actualise les scores toutes les secondes.
+                    clearInterval(creerDiv);
+                    $('#plateau_jeu').css('display', 'none');
+                    $('#menu_indications').css('display', 'none');
+                    $('label[for="vitesseAnimSlider"]').css('display', 'none');
+                    $('#vitesseAnimSlider').css('display', 'none');
+                    $('body').css('background-color','black');
+
+                    // Affiche un overlay de victoire avec l'image du CFC
+                    overlayVictoireOn()
+                }
+                else
+                {
+                    alert("CFC raté, pas de bol !");
+                    console.log("CFC raté, pas de bol!");
+
+                    // Replace le pion sur la case d'où il était parti
+                    joueurs[jActuel].deplacerPion(-joueurs[jActuel].caseActuelle);
+
+                    // Retire 1000 points pour le passage du CFC
+                    joueurs[jActuel].argent -= 1000;
+
+                    // Tour fini, au tour du joueur suivant
+                    console.log("Tour suivant");
+                    fnJoueurSuivant();
+                }
+            });
             break;
     }
 }
 
-function sleep(ms) {
+// fonction qui attend la fin d'exécution du setTimeOut, avant de poursuivre celle passée en paramètre
+function fnSleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function  fnPasserCFC(joueurId) {
-    console.log("passe ton cfc " +joueurId);
-    joueurs[joueurId].caseActuelle = 24;
+// fonction pour tenter de passer le CFC et gagner la partie si un 4 ou plus sort au dé
+function fnPasserCFC(jActuel) {
 
-    //case CFC
-    fnLancerDe();
-    sleep(2000).then(() => {
-        if(resultatDe >= 4){
-            console.log("Gagné PD!!!");
-            // window.location = "victoire.html";
-            clearInterval(creerDiv);
-            $("body").load("victoire.html");
-        }
-        else{
-            console.log("t'as raté ton cfc connard!");
-            joueurs[joueurId].deplacerPion(-joueurs[joueurId].caseActuelle);
-            joueurs[joueurId].argent -= 1000;
-            //passer au joueur suivant
-            jActuel++;
-        }
-    });
-
-
+    // Place le pion au centre du plateau
+    joueurs[jActuel].placerCaseCFC();
+    console.log("Le joueur " + joueurs[jActuel].couleur + "est arrivé sur la case CFC et se présente aux examens !");
+    alert(joueurs[jActuel].nom + " passe les examens ! Vous devez faire un 4 ou plus au lancer de dé pour les réussir.");
+    fnActionCase();
 }

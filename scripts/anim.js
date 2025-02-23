@@ -1,15 +1,18 @@
 // *****************************************************************************
-// Fonction d'animation
+// Fonction d'animation des pions et d'affichage du plateau
 // *****************************************************************************
-//              - dessine dans le canvas une image fournie en argument,
-//				depuis un coin haut-gauche X et Y, dans une largeur X et hauteur Y.
-//				Puis appelle la fonction qui affiche les pions et
-//				elle-même de façon récursive (fonction encore en beta, requestAnimationFrame)
+//              -   dessine le plateau dans le canvas avec, comme paramètres :
+//                  (1) l'image du plateau
+//                  (2) l'espacement bord-plateau
+//                  (3) la taille du plateau dans le canevas (carré).
+//				    Puis on appelle la fonction qui affiche les pions, définie dans affichage.js.
+//	                Ensuite la fonction s'appelle elle-même, de façon récursive.
+//
 //
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA1a - juin 2019 - CPNV
+// SI-CA2a - novembre 2019 - CPNV
 // *****************************************************************************
 
 function draw(){

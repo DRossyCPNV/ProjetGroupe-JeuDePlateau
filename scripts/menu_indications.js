@@ -1,52 +1,88 @@
-// ************************************************************************************************
-// Indications du menu
-// ************************************************************************************************
-// Ce script a pour but de créer un tableau de référence des modules et d'afficher pendant le jeu
-// la section des joueurs, le nombre de modules en leur possession et leurs points de savoir.
+// *****************************************************************************************************
+// Code du panneau latéral d'indication des joueurs
+// *****************************************************************************************************
+// Ce script a pour but d'afficher un panneau latéral sur la droite du plateau
+// avec le nom du joueur, sa section, les modules obtenus, ses points de savoir et un emplacement
+// pour le bouton "Lancer le dé".
 //
-//              - crée le tableau de référence des modules
-//              - affiche et actualise les indications des joueurs (scores)
-//              - création des Div des joueurs
-//                  -> affiche les boutons dans la Div du joueur actuel
-//                  -> affiche les modules détenus dans la Div du joueur actuel
-//                  -> div affichant ou pas le bouton lancer le dé (quand c'est le tour du joueur)
-//                  -> insère les Div dans le code Html
+//              - Crée le tableau de référence des modules
+//              - Affiche le menu des indications.
+//                  ->  Récupère le nombre de joueurs.
+//                  ->  Affiche et actualise les scores toutes les secondes.
+//              - Crée les Div des joueurs, affiche et actualise les scores toutes les secondes.
+//                  -> Affiche le nombre de joueurs dans le menu des indications.
+//                  -> Crée les divs en fonction du nombre de joueurs.
+//                  -> Boucle parcourant tous les joueurs.
+//                      -> Définit la section de chaque joueur
+//                      -> Vérifie quelles cartes modules ont été obtenues
+//                      -> Vérifie si une carte module de la section choisie a été obtenue
+//                      -> Teste si les trois conditions pour passer le CFC sont remplies
+//                      -> Affiche les boutons "Lancer le dé" et "Passer le CFC" dans la div du
+//                         joueur actuel, si le tour de jeu vient de finir et qu'il n'a pas encore cliqué dessus.
+//                          -> Lorsqu'on clique sur "Lancer le dé", le bouton se masque, le tour de jeu commence
+//                             et le dé est lancé.
+//                             On attend qu'il aie fini de tourner, puis on appelle la fonction qui gère le tour du joueur.
+//                          -> Si les conditions sont remplies, le bouton "Passer le CFC" s'affiche.
+//                             -> Lorsqu'on clique sur "Passer le CFC", le bouton se masque et la fonction de passage
+//                                du CFC se lance.
+//                      -> Si le tour est en cours ou que c'est la div des autres joueurs,
+//                         on désactive les deux boutons "Lancer le dé" et "Passer le CFC".
+//                      -> Affiche le pion duquel c'est le tour.
+//                      -> Affiche les modules détenus par le joueur.
+//                      -> Boucle parcourant tous les modules détenus.
+//                      -> Construction dynamique des Div des joueurs.
+//                          -> Div du joueur
+//                          -> Div contenant les informations relatives au joueur
+//                          -> Div contenant le nom du joueur
+//                          -> Div affichant (ou pas) le pion du joueur actuel si c'est son tour de jouer
+//                             ainsi que la protection si elle a été activée.
+//                          -> Div contenant la section du joueur
+//                          -> Div affichant les modules détenus par le joueur
+//                          -> Div affichant les points de savoir du joueur
+//                          -> Affichage du bouton "Lancer le dé" et "Passer le CFC"
+//                             si c'est son tour de jouer et que les conditions sont remplies.
+//                      -> Injection des divs joueurs dans le code HTML.
+//
 //
 // Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA1a - juin 2019 - CPNV
-// ************************************************************************************************
+// SI-CA2a - novembre 2019 - CPNV
+// **************************************************************************************
 
-/*eslint-env browser*/
-//Créer le tableau de référence des modules
+// Crée le tableau de référence des modules
 var amodules = [];
 $.getJSON('donnees/modules.json', function(data) {
     amodules = data;
 });
 
-function afficherMenuIndications(){
+// Affiche le menu des indications.
+function fnAfficherMenuIndications(){
     $('#game').css('display', 'block');
-    //Récupère le nombre de joueurs
+    // Récupère le nombre de joueurs
     var nbJoueurs = document.getElementById('nbJoueurs').value;
-    
-    //Affiche et actualise les scores toutes les 500 milisecondes
-    creerDivJoueurs(nbJoueurs);
+
+    fnCreerDivJoueurs(nbJoueurs);
 }
 
-function creerDivJoueurs(nbJoueurs) {
+// Crée les Div des joueurs
+function fnCreerDivJoueurs(nbJoueurs) {
+
+    // Affiche et actualise les scores toutes les secondes.
     creerDiv = setInterval(function(){
 
     var boutonAffiche = "";
-    
-    //Afficher le nombre de joueurs dans la menu des indications
-    document.getElementById('menu_indications_tours').innerHTML = 'Nombres de joueurs : ' + nbJoueurs;
 
-    //Créer le divs en fonction du nombre de joueurs
+    // Affiche le nombre de joueurs dans le menu des indications.
+    document.getElementById('menu_indications_tours').innerHTML = 'Nombre de joueurs : ' + nbJoueurs;
+
+    // Crée les divs en fonction du nombre de joueurs.
     var divJoueurs = '';
-    for (var i = 0; i < nbJoueurs; ++i){
 
-        //Définit la section du joueur i
+    // Boucle parcourant tous les joueurs.
+    for (var i = 0; i < nbJoueurs; ++i)
+    {
+        // Définit la section de chaque joueur.
         var couleur_section = 'section_';
         switch(document.getElementById('sectionJ' + i).value){
             case 'Informatique':   couleur_section += 'info';
@@ -59,39 +95,114 @@ function creerDivJoueurs(nbJoueurs) {
                                    break;
         }
         
-        //Affiche les boutons dans la div du joueur actuel
-        if (i == jActuel){
-            boutonAffiche =   '<div class="menu_indications_joueur_boutons">' + '\n'
-                            + '<input type="button" value="Lancer le dé" class="menu_indications_bouton_lancer" onclick="tourSuivant()">' + '\n';
-                            // + '</div>' + '\n';
-            if(conditionCFC){
-                boutonAffiche += '<input type="button" value="Passer CFC" class="btn_cfc menu_indications_bouton_lancer" onclick="fnPasserCFC(jActuel)">' +'\n' + '</div>' + '\n';
+        // S'exécute une fois le tour fini, pour le joueur actuel
+        if (i === jActuel && tourFini === true)
+        {
+            // Vérifie quelles cartes modules ont été obtenues
+            nbCarteObtenue = 0;
+            for(var m = 0; m <=joueurs[jActuel].modulesObtenus.length; m++)
+            {
+                if(joueurs[jActuel].modulesObtenus[m] === 1)
+                {
+                    nbCarteObtenue++;
+                }
             }
-            else{
+
+            // Vérifie si une carte module de la section choisie a été obtenue
+            var section = false;
+            for(var s = 0; s < joueurs[jActuel].modulesObtenus.length; s++)
+            {
+                if(joueurs[jActuel].modulesObtenus[s].Theme === joueurs[jActuel].section)
+                {
+                    section = true;
+                }
+            }
+
+            // code de triche ultime
+            //  nbCarteObtenue = 5;
+            //  section = true;
+            ///////////////////
+
+            // Teste si les trois conditions pour passer le CFC sont remplies
+            if(nbCarteObtenue >=5 && section === true && joueurs[jActuel].argent >= ptsCFC)
+            {
+                conditionCFC = true;
+                console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" possède assez de modules et " + joueurs[jActuel].argent + "ressources" + " / " + ptsCFC + "nécessaires pour passer le CFC.");
+            }
+            else
+            {
+                conditionCFC = false;
+            }
+
+            // Affiche les boutons "Lancer le dé" et "Passer le CFC" dans la div du
+            // joueur actuel, s'il n'a pas encore cliqué dessus.
+            boutonAffiche =   '<div class="menu_indications_joueur_boutons">' + '\n'
+                            + '<input type="button" value="Lancer le dé" class="menu_indications_joueur_boutons_lancer" onclick="$(this).hide(); tourFini = false; fnLancerDe(); fnSleep(1000).then(() => { fnTourJoueur(jActuel); });">' + '\n';
+
+            // Si les trois conditions sont remplies, cette variable vaut "true" et le bouton "Passer le CFC" s'affiche.
+            if(conditionCFC)
+            {
+                boutonAffiche += '&nbsp;&nbsp;' + '<input type="button" value="Passer le CFC" class="btn_cfc menu_indications_joueur_boutons_lancer" onclick="$(this).hide(); tourFini = false; fnPasserCFC(jActuel);">' +'\n' + '</div>' + '\n';
+            }
+            else
+            {
                 boutonAffiche+= '</div>' + '\n';
             }
         }
-        else {
+        else
+        {
+            // Si le tour est en cours ou que c'est la div des autres joueurs,
+            // on désactive les deux boutons "Lancer le dé" et "Passer le CFC".
             boutonAffiche = "";
         }
 
-        //Affiche les modules détenus par le joueur
+        var pionAffiche = '';
+
+        // Affiche le pion duquel c'est le tour.
+        if (i === jActuel)
+        {
+            if (joueurs[jActuel].protection === 1)
+            {
+                pionAffiche = '<img class="menu_indications_joueur_pion" src="images/pions/' + couleursPions[i] + '_protection' + '.png" alt="rappel du pion du joueur actuel, avec protection">' + '\n';
+            }
+            else
+            {
+                pionAffiche = '<img class="menu_indications_joueur_pion" src="images/pions/' + couleursPions[i] + '.png" alt="rappel du pion du joueur actuel">' + '\n';
+            }
+
+        } else
+        {
+            pionAffiche = '\n';
+        }
+
+        // Affiche les modules détenus par le joueur.
         var modulesAffiches = "";
-        for(var j = 0; j < amodules.length; ++j){
-            if(joueurs[i].modulesObtenus[j] == 1){
-                modulesAffiches += '<img src="images/modules/' + amodules[j].Nom + '.svg" style="margin: 2px;">' + '\n';
+
+        // Boucle affichant tous les modules détenus.
+        for(var o = 0; o < amodules.length; ++o)
+        {
+            if(joueurs[i].modulesObtenus[o] === 1)
+            {
+                modulesAffiches += '<img src="images/modules/' + amodules[o].Nom + '.svg" style="margin: 2px; width: 20%" alt="modules détenus">' + '\n';
             }
         }
 
-        divJoueurs +=   //Div du joueur
+        // Construction dynamique des Div des joueurs.
+        divJoueurs +=   // Div du joueur
                         '<div id="menu_indications_nomJ' + i + '" class="menu_indications_joueur">' + '\n'
 
-                            //Div contenant les informations relatives au joueur
+                            // Div contenant les informations relatives au joueur
                             + '<div class="menu_indications_joueur_informations">' + '\n'
 
                                 // Div contenant le nom du joueur
                                 + '<div class="menu_indications_joueur_nom">' + '\n'
                                 + document.getElementById('nomJ' + i).value
+                                + '</div>' + '\n'
+
+                                // Div affichant (ou pas) le pion du joueur actuel si c'est son tour de jouer
+                                // ainsi que la protection si elle a été activée.
+                                + '<div class="menu_indications_joueur_pion">' + '\n'
+                                + pionAffiche + '\n'
                                 + '</div>' + '\n'
 
                                 // Div contenant la section du joueur
@@ -100,7 +211,7 @@ function creerDivJoueurs(nbJoueurs) {
                                 + '</div>' + '\n'
                             + '</div>' + '\n'
 
-                            //Div affichant les modules détenus par le joueur
+                            // Div affichant les modules détenus par le joueur
                             + '<div class="menu_indications_joueur_modules">' + '\n'
                             + 'Modules' + '\n'
                                 + '<div class="menu_indications_joueur_modules_affiches">' + '\n'
@@ -108,17 +219,18 @@ function creerDivJoueurs(nbJoueurs) {
                                 + '</div>' + '\n'
                             + '</div>' + '\n'
 
-                            //Div affichant les points de savoir du joueur
-                            + '<div class="menu_indications_joueur_pointsSavoir">' + '\n'
-                            + 'Points de savoir : ' + joueurs[i].argent + '\n'
+                            // Div affichant les points de savoir du joueur
+                            + '<div class="menu_indications_joueur_points">' + '\n'
+                            + 'Points de savoir : ' + joueurs[i].argent
                             + '</div>' + '\n'
 
-                            //Div affichant (ou pas) le bouton pour lancer le dé
+                            // Affichage du bouton "Lancer le dé" et "Passer le CFC"
+                            // si c'est son tour de jouer et que les conditions sont remplies.
                             + boutonAffiche
                         + '</div>' + '\n';
     }
 
-    //Insérer des divs joueurs dans le code HTML
+    // Injection des divs joueurs dans le code HTML
     document.getElementById('menu_indications_joueurs').innerHTML = divJoueurs;
     }, 1000);
 }

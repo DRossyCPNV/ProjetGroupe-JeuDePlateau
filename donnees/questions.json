@@ -31,7 +31,7 @@
       "question":"Quel est le dernier canton suisse, créé en 1979 ?",
       "r1":"Tessin",
       "r2":"Obwald",
-      "r3":"Shwytz",
+      "r3":"Schwytz",
       "r4":"Jura",
       "br":"r4"
    },
@@ -39,7 +39,7 @@
       "id":4,
       "question":"Qui a écrit « Le dernier jour d’un condamné ?",
       "r1":"Guy de Maupassant",
-      "r2":"simone de Beauvoir",
+      "r2":"Simone de Beauvoir",
       "r3":"Jean-Paul Sartre",
       "r4":"Victor Hugo",
       "br":"r4"
@@ -47,15 +47,15 @@
    {
       "id":5,
       "question":"En trigonométrie, comment sont appelé les côtés d’un triangle rectangle ?",
-      "r1":"L’adjacent, l’opposé, et l’hypoméduse",
-      "r2":"L’adjacent, l’opposé et l’hypothénuse",
-      "r3":"Les cathètes et l’hypothénuse",
-      "r4":"L’à côté, l’éloigné, et la diagonale",
+      "r1":"L’adjuvent, l’opposé et l’hypothénuse.",
+      "r2":"L’adjacent, l’opposé et l’hypothénuse.",
+      "r3":"Les catèles et l’hypothénuse.",
+      "r4":"L’à-côté, l’éloigné et la diagonale.",
       "br":"r2"
    },
    {
       "id":6,
-      "question":" Quelle est la superficie de la suisse?",
+      "question":" Quelle est la superficie de la Suisse?",
       "r1":"45'500 km carré",
       "r2":"38.750 km carré",
       "r3":"41'277 km carré",
@@ -92,10 +92,10 @@
    {
       "id":10,
       "question":"Quel est le plus haut sommet de Suisse ?",
-      "r1":"le Cervin",
+      "r1":"Le Cervin",
       "r2":"Le Moléson",
-      "r3":"la point Dufour",
-      "r4":"la Jungfrau",
+      "r3":"La Pointe Dufour",
+      "r4":"La Jungfrau",
       "br":"r3"
    },
    {
@@ -119,15 +119,15 @@
    {
       "id":13,
       "question":"Quel est la langue la plus parlée au monde ?",
-      "r1":"Espagnole",
+      "r1":"Espagnol",
       "r2":"Anglais",
-      "r3":"Chinois",
+      "r3":"Mandarin (Chinois)",
       "r4":"Arabe",
       "br":"r3"
    },
    {
       "id":14,
-      "question":"Quel est le nom du deuxième homme à avoir marché sur la lune en 1969 ?",
+      "question":"Quel est le nom du deuxième homme a avoir marché sur la lune en 1969 ?",
       "r1":"Neil Amstrong",
       "r2":"Buzz Aldrin",
       "r3":"Alan Bean",
@@ -155,15 +155,15 @@
    {
       "id":17,
       "question":"Quelle est la hauteur de la tour Bourj Khalifa  ?",
-      "r1":"828 m",
-      "r2":"915 m",
-      "r3":"785",
-      "r4":"1000",
+      "r1":"828 m.",
+      "r2":"915 m.",
+      "r3":"785 m.",
+      "r4":"1000 m.",
       "br":"r1"
    },
    {
       "id":18,
-      "question":"En quelle année a débuté la construction de la tour eiffel ?",
+      "question":"En quelle année a débuté la construction de la tour Eiffel ?",
       "r1":"1884",
       "r2":"1885",
       "r3":"1886",
@@ -181,16 +181,16 @@
    },
    {
       "id":20,
-      "question":"Qui a invté le velcro ?",
+      "question":"Qui a inventé le velcro ?",
       "r1":"Claude Boucher",
-      "r2":"Geroges de mestral",
+      "r2":"Georges De Mestral",
       "r3":"Clement Ader",
       "r4":" Emile Belot",
       "br":"r2"
    },
    {
       "id":21,
-      "question":"Qui a chanté le lundi au soleil ?",
+      "question":"Qui a chanté 'Le lundi au soleil' ?",
       "r1":"Gilbert Montagné",
       "r2":"Freddie Mercury",
       "r3":"Michel Fugain",
@@ -208,7 +208,7 @@
    },
    {
       "id":23,
-      "question":"Qui a dit 'ich bin ein Berliner' ?",
+      "question":"Qui a dit 'Ich bin ein Berliner' ?",
       "r1":"Adolf Hitler",
       "r2":"Staline",
       "r3":"Charles de Gaule",
@@ -226,7 +226,7 @@
    },
    {
       "id":25,
-      "question":"combien de temps a duré le guerre de 100 ans ?",
+      "question":"Combien de temps a duré la guerre de 100 ans ?",
       "r1":"116 ans ",
       "r2":"100 ans",
       "r3":"110 ans",
@@ -244,36 +244,36 @@
    },
    {
       "id":27,
-      "question":"Qu'es que l'émétophobie  ?",
-      "r1":"La peur de se blesser",
-      "r2":"La peur d'avoir peur",
-      "r3":"La peur de vomir",
-      "r4":"La peur du sang",
+      "question":"Qu'est-ce que l'émétophobie ?",
+      "r1":"La peur de se blesser.",
+      "r2":"La peur d'avoir peur.",
+      "r3":"La peur de vomir.",
+      "r4":"La peur du sang.",
       "br":"r3"
    },
    {
       "id":28,
-      "question":" Quelle est la superficie de un hectar ?",
+      "question":" Quelle est la superficie d'un hectare ?",
       "r1":"10'000 m2",
-      "r2":"1'000 m2",
-      "r3":"5'000 m2",
+      "r2":"5'000 m2",
+      "r3":"1'000 m2",
       "r4":"100 m2",
       "br":"r1"
    },
    {
       "id":29,
-      "question":" Quelle est la superficie de un hectar ?",
-      "r1":"10'000 m2",
+      "question":" Combien de mètres carrés font un hectare ?",
+      "r1":"100 m2",
       "r2":"1'000 m2",
       "r3":"5'000 m2",
-      "r4":"100 m2",
+      "r4":"10'000 m2",
       "br":"r4"
    },
    {
       "id":30,
-      "question":"le subjonctif present du verbre feindre à la deuxieme prersonne du singulier ?",
+      "question":"Quel est le subjonctif présent du verbe feindre, à la deuxième personne du singulier ?",
       "r1":"Que tu faignasses",
-      "r2":"Que tu faignassi",
+      "r2":"Que tu feignasses",
       "r3":"Que tu feint",
       "r4":"Que tu feignes",
       "br":"r4"
@@ -289,7 +289,7 @@
    },
    {
       "id":32,
-      "question":"Quelle est la température en degrés celsius du zero absolu",
+      "question":"Quelle est la température en degrés celsius du zero absolu ?",
       "r1":"0",
       "r2":"-273",
       "r3":"-100",
@@ -298,7 +298,7 @@
    },
    {
       "id":33,
-      "question":"Combien de pays sont menbre de l'ONU",
+      "question":"Combien de pays sont menbres de l'ONU",
       "r1":"172",
       "r2":"215",
       "r3":"245",
@@ -325,16 +325,16 @@
    },
    {
       "id":36,
-      "question":"La bon la brute et le truand est un film de ?",
-      "r1":" Steven Spielberg",
-      "r2":"Segio Leone",
+      "question":"'Le bon la brute et le truand' est un film de ?",
+      "r1":"Steven Spielberg",
+      "r2":"Sergio Leone",
       "r3":"Quentin Tarantino",
       "r4":"Clint Eastwood",
       "br":"r2"
    },
    {
       "id":37,
-      "question":"En quelle année Christophe Colomb a découvert l'Amérique ?",
+      "question":"En quelle année Christophe Colomb a-t-il découvert l'Amérique ?",
       "r1":"1325",
       "r2":"1475",
       "r3":"1492",
@@ -343,7 +343,7 @@
    },
    {
       "id":38,
-      "question":"Comment était appelé Paris au temps des romains ?",
+      "question":"Comment était appelée Paris au temps des romains ?",
       "r1":"Paris",
       "r2":"Lutèce",
       "r3":"Rodium",
@@ -397,11 +397,11 @@
    },
    {
       "id":44,
-      "question":"Dans quel sport le but fait-il 1.22 mètre de haut ?",
-      "r1":"Au Football",
-      "r2":"Au Hockey sur glace",
-      "r3":"Au Handball",
-      "r4":"Au Water Polo",
+      "question":"Dans quel sport le but fait-il 1.22 mètres de haut ?",
+      "r1":"Au football",
+      "r2":"Au hockey sur glace",
+      "r3":"Au handball",
+      "r4":"Au water-polo",
       "br":"r2"
    },
    {
@@ -425,24 +425,24 @@
    {
       "id":47,
       "question":"Quel est le poids moyen d’un cerveau humain ?",
-      "r1":"800 g",
-      "r2":"1 kg",
-      "r3":"1,2 kg",
-      "r4":"1,4 kg",
+      "r1":"800 grammes",
+      "r2":"1 kilogramme",
+      "r3":"1,2 kilogrammes",
+      "r4":"1,4 kilogrammes",
       "br":"r4"
    },
    {
       "id":48,
       "question":"Quel est le point culminant du massif du Jura ?",
-      "r1":"Le Crêt de la Neige",
-      "r2":"Le mont Tendre",
-      "r3":"Le mont Joli",
-      "r4":"La Dôle",
-      "br":"r1"
+      "r1":"La Dôle",
+      "r2":"Le Mont Tendre",
+      "r3":"Le Mont Joli",
+      "r4":"Le Crêt de la Neige",
+      "br":"r4"
    },
    {
       "id":49,
-      "question":"En quelle année le mur de Berlin a été construit ?",
+      "question":"En quelle année le mur de Berlin a-t-il été construit ?",
       "r1":"1960",
       "r2":"1961",
       "r3":"1962",
@@ -460,12 +460,12 @@
    },
    {
       "id":51,
-      "question":"Quelle a été la première femme élue à la présidence de la Confédération helvétique ?",
-      "r1":"Ruth Dreifuss",
+      "question":"Quelle a été la première femme élue à la présidence de la Confédération Helvétique ?",
+      "r1":"Doris Leuthard",
       "r2":"Eveline Widmer-Schlumpf",
-      "r3":"Doris Leuthard",
+      "r3":"Ruth Dreifuss",
       "r4":"Micheline Calmy-Rey",
-      "br":"r1"
+      "br":"r3"
    },
    {
       "id":52,
@@ -479,15 +479,15 @@
    {
       "id":53,
       "question":"Quel alcool produit-on à partir de la canne à sucre ?",
-      "r1":"La Vodka",
-      "r2":"La Bière",
-      "r3":"Le Pastis",
-      "r4":"Le Rhum",
+      "r1":"La vodka",
+      "r2":"La bière",
+      "r3":"Le pastis",
+      "r4":"Le rhum",
       "br":"r4"
    },
    {
       "id":54,
-      "question":"Où mange-t-on la longeole ?",
+      "question":"Où mange-t-on la longeole (saucisse composée de viande de porc et de fenouil) ?",
       "r1":"À Genève",
       "r2":"À Fribourg",
       "r3":"À Lausanne",
@@ -514,8 +514,8 @@
    },
    {
       "id":57,
-      "question":"Lequel de ces monument ne fait pas parti des 7 merveilles du monde ?",
-      "r1":"Les jardin suspendus de Babylone",
+      "question":"Lequel de ces monuments ne fait pas partie des 7 merveilles du monde ?",
+      "r1":"Les Jardins suspendus de Babylone",
       "r2":"Les Pyramides de Gizeh",
       "r3":"Le Phare d’Alexandrie",
       "r4":"La Tour Eiffel",
@@ -526,7 +526,7 @@
       "question":"Quel est le plus grand poisson connu ?",
       "r1":"Le requin blanc",
       "r2":"Le thon rouge",
-      "r3":"Le requin baleine",
+      "r3":"Le requin-baleine",
       "r4":"L’espadon",
       "br":"r3"
    },
@@ -552,7 +552,7 @@
       "id":61,
       "question":"Quand l’homme a-t-il domestiqué le chien ?",
       "r1":"Il y a 140 ans",
-      "r2":"Il y a 1’400 ans",
+      "r2":"Il y a 1400 ans",
       "r3":"Il y a 14’000 ans",
       "r4":"Il y a 140’000 ans",
       "br":"r3"
@@ -625,13 +625,13 @@
       "question":"Quels instruments de musique pouvant peser plusieurs tonnes fabrique-t-on dans la fonderie de la Sarraz ?",
       "r1":"Des orgues",
       "r2":"Des cors de chasse en plomb",
-      "r3":"Des clavecin",
+      "r3":"Des clavecins",
       "r4":"Des cloches",
       "br":"r4"
    },
    {
       "id":70,
-      "question":"Quel animal brame ?",
+      "question":"Quel animal brâme ?",
       "r1":"Le cerf",
       "r2":"Le zèbre",
       "r3":"L’okapi",
@@ -644,7 +644,7 @@
       "r1":"Une ronde",
       "r2":"Une croche",
       "r3":"Une blanche",
-      "r4":"Une double croche",
+      "r4":"Une double-croche",
       "br":"r3"
    },
    {
@@ -667,12 +667,12 @@
    },
    {
       "id": 74,
-      "question": "Quel est le premier être vivant à avoir voyager dans l'espace ?",
+      "question": "Quel est le premier être vivant à avoir voyagé dans l'espace ?",
       "r1": "Un chat ",
       "r2": "Un être humain",
       "r3": "Un chien",
       "r4": "Un rat",
-      "br": "r2"
+      "br": "r3"
    },
    {
       "id": 75,
@@ -703,7 +703,7 @@
    },
    {
       "id": 78,
-      "question": "quel est le seul mammifère qui vole",
+      "question": "Quel est le seul mammifère qui vole ?",
       "r1": "Le pélican",
       "r2": "Le pigeon",
       "r3": "Le corbeau",
