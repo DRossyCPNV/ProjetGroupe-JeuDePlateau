@@ -19,7 +19,7 @@
 //                          -> questions - on attend que la réponse soit validée, si oui on incrémente les points
 //                          -> chance - on attend une seconde de plus que la durée normale de déplacement
 //                                      avant d'afficher la carte
-//                          -> CFC - lance le dé, si le résultat est plus grand ou égal à 4,
+//                          -> CFC - lance le dé et si le résultat est plus grand ou égal à 4, c'est gagné.
 //
 //              - fonction qui attend la fin d'exécution du setTimeOut, avant de poursuivre celle passée en paramètre
 //              - fonction pour tenter de passer le CFC et gagner la partie si un 4 ou plus sort au dé
@@ -84,7 +84,7 @@ function fnTourJoueur() {
 //  -> si la case est une case question : appel de la fonction fnAfficheQuestion
 //    (pose une question au joueur actuel)
 //  -> si la case est une case chance : appel de la fonction fnAfficheChance
-//  -> si la case est la case CFC : on ne fait rien (code de cette case écrit dans la fonction fnPasserCFC)
+//  -> si la case est la case CFC : on lance le dé et si le joueur fait 4 ou plus un overlay de victoire est affiché
 // Puis on termine le tour de jeu.
 function fnActionCase() {
 
