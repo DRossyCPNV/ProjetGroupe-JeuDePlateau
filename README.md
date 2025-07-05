@@ -6,7 +6,7 @@
 
 ![Tested](https://img.shields.io/badge/tested-no%20bugs-brightgreen)
 ![Language](https://img.shields.io/badge/language-french-darkblue)
-
+![GitHub all releases](https://img.shields.io/github/downloads/DRossyCPNV/ProjetGroupe-JeuDePlateau/total?color=88aacc&style=flat)
 
 ## Introduction
 Dans le cadre du CPNV, nous avons comme but de réaliser un projet en groupe, avec une version boîte "physique" du jeu, ainsi qu'une version informatique, dont le code source doit être au besoin modulable.
