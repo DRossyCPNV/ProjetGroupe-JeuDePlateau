@@ -4,6 +4,10 @@
 <img src="https://raw.githubusercontent.com/DRossyCPNV/ProjetGroupe-JeuDePlateau/e04f7ba596209b145890ef59965c0851a660e733/JeuDePlateau-screenshot.jpg" width="500" alt="screenshot of the game" >
 </p>
 
+![Tested](https://img.shields.io/badge/tested-no%20bugs-brightgreen)
+![Language](https://img.shields.io/badge/language-french-darkblue)
+
+
 ## Introduction
 Dans le cadre du CPNV, nous avons comme but de réaliser un projet en groupe, avec une version boîte "physique" du jeu, ainsi qu'une version informatique, dont le code source doit être au besoin modulable.
 
