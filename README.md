@@ -4,8 +4,8 @@
 <img src="https://raw.githubusercontent.com/DRossyCPNV/ProjetGroupe-JeuDePlateau/e04f7ba596209b145890ef59965c0851a660e733/JeuDePlateau-screenshot.jpg" width="500" alt="screenshot of the game" >
 </p>
 
-![Tested](https://img.shields.io/badge/tested-no%20bugs-brightgreen)
-![Language](https://img.shields.io/badge/language-french-darkblue)
+![Tested](https://img.shields.io/badge/tested-no%20bugs-68a042)
+![Language](https://img.shields.io/badge/language-french-lightgrey)
 ![GitHub all releases](https://img.shields.io/github/downloads/DRossyCPNV/ProjetGroupe-JeuDePlateau/total?color=88aacc&style=flat)
 
 ## Introduction
