@@ -1,4 +1,4 @@
-# Modulopoly 
+### Modulopoly 
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/DRossyCPNV/ProjetGroupe-JeuDePlateau/e04f7ba596209b145890ef59965c0851a660e733/JeuDePlateau-screenshot.jpg" width="500" alt="screenshot of the game" >
@@ -8,10 +8,10 @@
 ![Language](https://img.shields.io/badge/language-french-lightgrey)
 ![GitHub all releases](https://img.shields.io/github/downloads/DRossyCPNV/ProjetGroupe-JeuDePlateau/total?color=88aacc&style=flat)
 
-## Introduction
+### Introduction
 Dans le cadre du CPNV, nous avons comme but de réaliser un projet en groupe, avec une version boîte "physique" du jeu, ainsi qu'une version informatique, dont le code source doit être au besoin modulable.
 
-## Règles du jeu 
+### Règles du jeu 
 (version boîte physique) 
 
 ### But du jeu:
