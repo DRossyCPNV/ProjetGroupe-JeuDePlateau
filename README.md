@@ -85,7 +85,8 @@ If necessary, on your next turn you can rerun the die and choose to start from o
 #### The winner:
 The first player to get their CFC wins the game.
 
----
+#### Download
+Go to the [Releases](../../releases) section.
 
 #### Version française :
 
@@ -165,3 +166,6 @@ Le cas échéant, à votre prochain tour vous pourrez relancer le dé et choisir
 
 #### Le vainqueur:
 Le premier joueur à obtenir son CFC gagne la partie.
+
+#### Téléchargement
+Allez à la section [Releases](../..releases).
