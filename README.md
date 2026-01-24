@@ -6,7 +6,7 @@
 
 [![Release](https://img.shields.io/badge/release-stable-84C072)](https://github.com/DRossyCPNV/ProjetGroupe-JeuDePlateau/releases)
 ![Language](https://img.shields.io/badge/language-french-415C7E) 
-![GitHub all releases](https://img.shields.io/github/downloads/DRossyCPNV/ProjetGroupe-JeuDePlateau/total?color=88aacc&style=flat)
+[![GitHub all releases](https://img.shields.io/github/downloads/DRossyCPNV/ProjetGroupe-JeuDePlateau/total?color=88aacc&style=flat)](https://github.com/DRossyCPNV/ProjetGroupe-JeuDePlateau/releases)
 
 #### Introduction
 As part of the CPNV, we aim to carry out a group project, with a "physical" boxed version of the game, as well as a computer version, whose source code must be modular if necessary.
@@ -24,7 +24,7 @@ Be the first player to have his CFC.
 - 30 "Chance" cards printed horizontally
 - 50 horizontally printed "Question" cards
 - 36 "Modules" cards printed vertically
-- 1 de
+- 1 dice
 - 100x blank notes, 
 with "50 points" in green pond writing, for a sum of 5000 points
 - 70x steel blue banknotes, 
@@ -85,8 +85,12 @@ If necessary, on your next turn you can rerun the die and choose to start from o
 #### The winner:
 The first player to get their CFC wins the game.
 
-#### Download
-Go to the [Releases](../../releases) section.
+### Download
+Go to the [Releases](../../releases) page.
+
+If you enjoy this project, feel free to give it a star.
+
+
 
 #### Version française :
 
@@ -167,5 +171,7 @@ Le cas échéant, à votre prochain tour vous pourrez relancer le dé et choisir
 #### Le vainqueur:
 Le premier joueur à obtenir son CFC gagne la partie.
 
-#### Téléchargement
-Allez à la section [Releases](../..releases).
+### Téléchargement
+Allez à la section [Releases](../../releases).
+
+Si vous aimez ce projet, n’hésitez pas à lui donner une étoile.
