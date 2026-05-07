@@ -65,10 +65,10 @@ The first player to get his or her CFC wins the game.
 
 ## How to run
 - Go to the [Releases](../../releases) page to download a zip
-  Or
-- Clone the repository directly with Git.
-The simply launch Modulopoly.html in your favorite browser.
+- or clone the repository with Git.
 
-Due to its educational purpose and local use, this project is currently available in French only. 
+Then simply launch Modulopoly.html in your favorite browser.
+
+Currently available in French only. 
 
 If you enjoyed this project, feel free to give it a star - it's always appreciated.
