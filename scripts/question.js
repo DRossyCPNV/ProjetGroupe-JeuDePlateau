@@ -1,3 +1,8 @@
+// Authors : Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// SI-CA2a - november 2019 - updated in 2026 - CPNV school
+
+
 // **************************************************************************************
 // Code d'affichage d'une carte question
 // **************************************************************************************
@@ -26,20 +31,15 @@
 //                          -> Le tour est fini, on passe au joueur suivant
 //
 //
-// Laurent Barraud, Bastian Chollet, Luca Coduri,
-// Guillaume Duvoisin, Guilain Mbayo & David Rossy
-// Un projet mandaté par M. Chavey.
-// SI-CA2a - novembre 2019 - CPNV
-// **************************************************************************************
+
 
 // La carte est masquée au début du jeu
 $('#carte_question').css('display','none');
 
-$.getJSON('donnees/questions.json', function(data) {
-    acquestion = data;
-
-    nbcquestion = acquestion.length; // Le nombre de cartes questions
-});
+function fnChargerCartesQuestion() {
+    acquestion = [...questionCards];  // copie pour permettre la défausse
+    nbcquestion = acquestion.length;
+}
 
 function fnAfficheQuestion() {
 

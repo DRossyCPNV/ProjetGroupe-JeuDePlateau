@@ -1,3 +1,7 @@
+// Authors : Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// SI-CA2a - november 2019 - updated in 2026 - CPNV school
+
 // ********************************************************************************
 // Variables globales à tout le jeu
 // ********************************************************************************
@@ -13,11 +17,6 @@
 //             * paramètres des cartes questions
 //             * paramètres des cartes chances
 //
-// Laurent Barraud, Bastian Chollet, Luca Coduri,
-// Guillaume Duvoisin, Guilain Mbayo & David Rossy
-// Un projet mandaté par M. Chavey.
-// SI-CA2a - novembre 2019 - CPNV
-// *****************************************************************************
 
 // Chargement des fichiers
 var img_fond = new Image();

@@ -1,11 +1,10 @@
-<!-- ***************************************************************
-//  Modulopoly - fichier principal du jeu.
-// *****************************************************************
-// Laurent Barraud, Bastian Chollet, Luca Coduri,
+<!--- Authors : Laurent Barraud, Bastian Chollet, Luca Coduri,
 // Guillaume Duvoisin, Guilain Mbayo & David Rossy
 // Un projet mandaté par M. Chavey.
-// SI-CA2a - novembre 2019 - CPNV
-********************************************************************
+// SI-CA2a - novembre 2019 - mis à jour en 2026 - CPNV
+// ***************************************************************
+// Modulopoly - fichier principal du jeu.
+// ***************************************************************
 // - lancement de la fonction principale du jeu, dans gameloop.js
 // - menu qui permet de configurer la partie
 // - menu qui permet de choisir le nombre de joueurs, le nom de chaque joueur ainsi que leur section
@@ -19,13 +18,7 @@
 // - affichage de l'écran achat d'une carte module
 // - écran des règles
 // - écran de victoire
-// - chargement de tous les fichiers scripts en mémoire
-//
-// Laurent Barraud, Bastian Chollet, Luca Coduri,
-// Guillaume Duvoisin, Guilain Mbayo & David Rossy.
-// Un projet mandaté par M. Chavey.
-// SI-CA1a - juillet 2019 - CPNV
-******************************************************************** -->
+// - chargement de tous les fichiers scripts en mémoire -->
 
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -162,7 +155,7 @@
             <div id="text">
                 <span id="title" class="titles">Modulopoly</span>
                 <span class="under-title">Un projet mandaté par M. Chavey</span>
-                <span class="under-title">Classe SI-CA2a - novembre 2019</span>
+                <span class="under-title">Classe SI-CA2a - v1.2 - mai 2026</span>
                 <br>
                 <br>
                 <div id="btn-start" class='flat-button'>Start</div>
@@ -293,23 +286,66 @@
     </div>
 </div>
 
+<script src="scripts/jquery-3.4.1.min.js"></script>
+<script src="scripts/varGlobal.js"></script>
 
-<!-- code de triche ultime, n'utiliser que pour tester un overlay
-<div style="padding:20px">
-  <button onclick="overlayVictoireOn()">CFC direct</button>
-</div>
--->
+<!-- Données du plateau -->
+<script src="scripts/CasesData.js"></script>
+<script src="scripts/cases.js"></script>
 
-<script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="scripts/varGlobal.js"></script>
-<script type="text/javascript" src="scripts/affichage.js"></script>
-<script type="text/javascript" src="scripts/joueurs.js"></script>
-<script type="text/javascript" src="scripts/jeu-html.js"></script>
-<script type="text/javascript" src="scripts/question.js"></script>
-<script type="text/javascript" src="scripts/chance.js"></script>
-<script type="text/javascript" src="scripts/gameloop.js"></script>
-<script type="text/javascript" src="scripts/menu_indications.js"></script>
-<script type="text/javascript" src="scripts/obtention_module.js"></script>
+<!-- Données des cartes -->
+<script src="scripts/ChanceCards.js"></script>
+<script src="scripts/QuestionCards.js"></script>
+<script src="scripts/ModuleCards.js"></script>
+
+<!-- Logique du jeu -->
+<script src="scripts/affichage.js"></script>
+<script src="scripts/joueurs.js"></script>
+<script src="scripts/jeu-html.js"></script>
+<script src="scripts/question.js"></script>
+<script src="scripts/chance.js"></script>
+<script src="scripts/gameloop.js"></script>
+<script src="scripts/menu_indications.js"></script>
+<script src="scripts/obtention_module.js"></script>
+
+<!-- Chargement des données -->
+<script>
+$(document).ready(function() {
+    fnChargerCases();
+    fnChargerCartesChance();
+    fnChargerCartesQuestion();
+    fnChargerModules();
+});
+</script>
+
+<!-- 
+ Raccourcis claviers : 
+ Entrée = lancer le dé
+ Touches 1 2 3 ou 4 = répondre à une question 
+ -->
+<script>
+document.addEventListener("keydown", e => {
+
+    // Si une carte question est affichée, touches 1/2/3/4 répondent
+    const carteQuestionVisible = document.getElementById("carte_question")?.style.display.includes("block");
+    if (carteQuestionVisible) {
+        if (["1","2","3","4"].includes(e.key)) {
+            const radio = document.querySelector(`input[name='reponse'][value='r${e.key}']`);
+            if (radio) {
+                radio.checked = true;
+                fnVerifReponseQuestion();
+            }
+        }
+        return;
+    }
+
+    // Sinon Entrée = lancer le dé
+    if (e.key === "Enter") {
+        const btn = document.querySelector(".menu_indications_joueur_boutons_lancer");
+        if (btn && btn.offsetParent !== null) btn.click();
+    }
+});
+</script>
 
 </body>
 </html>

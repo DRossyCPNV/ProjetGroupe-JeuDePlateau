@@ -1,4 +1,3 @@
-
 body {
     background-color: purple;
     font-family: "Avenir LT Std 45 Book", sans-serif;
@@ -10,76 +9,81 @@ body {
     display:none;
 }
 
-#carte_question {
-    display: none;
-    margin: auto;
-    position: absolute;
-    top: 40%;
-    left: 35%;
-    width: 461px;
-    height: 271px;
-    border-radius: 5%;
+/* Cartes centrées */
+#carte_question,
+#carte_chance,
+#carte_module,
+#choix_cible {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 480px;
+    min-height: 280px;
+
     padding: 20px;
-    text-align: center;
-    background-image: url("../images/question/fond.png");
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+
     color: black;
+    z-index: 9999;
+    display: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
+/* Images de fond */
+#carte_question { 
+    background-image: url("../images/question/fond.png");
+    text-align: center; /* ← fusion propre ici */
+}
+#carte_chance   { background-image: url("../images/chance/fond.png"); }
+#carte_module   { background-image: url("../images/modules/fond.svg"); }
+#choix_cible    { background-color: white; }
+
+/* Texte */
+#carte_question p,
+#carte_chance p,
+#carte_module p,
+#choix_cible p {
+    margin-bottom: 12px;
+}
+
+/* Bloc des réponses centré */
 #rdb_question {
     text-align: left;
-    margin-left: 20px;
+    margin: 0 auto;
+    width: fit-content;
 }
 
-#carte_chance{
-    display: none;
-    margin: auto;
-    position: absolute;
-    top: 40%;
-    left: 35%;
-    width: 461px;
-    height: 271px;
-    border-radius: 9%;
-    padding: 20px;
-    text-align: center;
-    background-image: url("../images/chance/fond.png");
-    color: black;
-}
-#choix_cible{
-    display: none;
-    margin: auto;
-    position: absolute;
-    top: 40%;
-    left: 35%;
-    width: 461px;
-    height: 350px;
-    border-radius: 9%;
-    padding: 20px;
-    text-align: center;
-    color: black;
-    background-color: white;
+/* Alignement propre des labels */
+#rdb_question label {
+    display: inline-block;
+    margin-left: 6px;
+    margin-bottom: 8px;
 }
 
-#carte_module{
-    display: none;
-    margin: auto;
-    position: absolute;
-    top: 40%;
-    left: 35%;
-    width: 461px;
-    height: 271px;
-    border-radius: 9%;
-    padding: 20px;
-    text-align: center;
-    background-image: url("../images/modules/fond.svg");
-    color: black;
+/* Radios visibles et alignées */
+#rdb_question input[type="radio"] {
+    transform: scale(1.3);
+    margin-right: 8px;
 }
 
+/* Bouton centré */
+#btn-verif {
+    display: block;
+    margin: 15px auto 0 auto;
+    padding: 8px 16px;
+}
+
+/* Curseur main pour les boutons */
+.menu_indications_joueur_boutons_lancer,
 .btn_cfc{
-    display: inline;
+    cursor: pointer;
 }
 
-/* CSS pour afficher l'overlay des règles du jeu, lorsqu'on clique sur le bouton "Comment jouer" sur l'écran titre. */
-
+/* CSS pour afficher l'overlay des règles du jeu */
 #overlayRegles {
     position: fixed;
     display: none;
@@ -104,14 +108,12 @@ body {
     width: 70%;
     font-size: 20px;
     color: whitesmoke;
-    overflow: auto;             /* n'affiche qu'une barre de défilement vertical,
-                                 quand elle est nécessaire pour lire tout le texte*/
+    overflow: auto;
     transform: translate(-50%,-40%);
     -ms-transform: translate(-50%,-50%);
 }
 
-/* CSS pour afficher l'overlay de victoire, lorsqu'un joueur obtient son CFC */
-
+/* Overlay victoire */
 #overlayVictoire {
     position: fixed;
     display: none;
@@ -145,3 +147,4 @@ body {
     top: 60%;
     width: 45%;
 }
+

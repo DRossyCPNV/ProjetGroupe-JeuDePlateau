@@ -1,3 +1,7 @@
+// Authors : Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// SI-CA2a - november 2019 - updated in 2026 - CPNV school
+//
 // *****************************************************************************
 // Fonctions d'affichage des éléments du jeu et animation des pions
 // *****************************************************************************
@@ -65,12 +69,6 @@
 //                  -> afficher/masquer l'overlay de victoire
 //                      -> On recharge la page html, pour pouvoir commencer une nouvelle partie.
 //
-//
-// Laurent Barraud, Bastian Chollet, Luca Coduri,
-// Guillaume Duvoisin, Guilain Mbayo & David Rossy
-// Un projet mandaté par M. Chavey.
-// SI-CA2a - novembre 2019 - CPNV
-// *****************************************************************************
 
 
 // Eléments Html

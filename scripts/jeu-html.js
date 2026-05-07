@@ -1,34 +1,33 @@
+// Authors : Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// SI-CA2a - november 2019 - updated in 2026 - CPNV school
+
 //***********************************************************************************
 // Code affichant le menu pour définir les options des joueurs, au début du jeu
 //***********************************************************************************
 //              - Afficher les options des joueurs (nom, section)
 //              - Cacher les options des joueurs
 //              * clic sur le bouton "Play"
-//
-// Laurent Barraud, Bastian Chollet, Luca Coduri,
-// Guillaume Duvoisin, Guilain Mbayo & David Rossy
-// Un projet mandaté par M. Chavey.
-// SI-CA2a - novembre 2019 - CPNV
-// **********************************************************************************
 
 $("#nbJoueurs").change(function () {
-    var nbJoueurs = $("#nbJoueurs").val();
+    var nbJoueurs = parseInt($("#nbJoueurs").val());
+    var nbJoueursMax = 6;
 
     // Afficher les options des joueurs (nom, section)
-    for(var i = 0;i < nbJoueurs;i++)
-    {
-        $("#options-joueur"+i.toString()).css("display", "table-row");
+    for (var i = 0; i < nbJoueurs; i++) {
+        $("#options-joueur" + i).css("display", "table-row");
     }
-    // Cacher les options des joueurs
-    for(var j = nbJoueursMax;j >= nbJoueurs;j--)
-    {
-            $("#options-joueur"+i.toString()).css("display", "none");
-        console.log(i);
+
+    // Cacher les options des joueurs restants
+    for (var j = nbJoueurs; j < nbJoueursMax; j++) {
+        $("#options-joueur" + j).css("display", "none");
     }
 });
 
 $("#btnPlay").click(function () {
    $("#menu").css("display", "none");
 });
+
+
 
 

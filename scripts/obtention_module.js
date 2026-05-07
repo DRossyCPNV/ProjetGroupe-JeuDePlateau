@@ -1,3 +1,7 @@
+// Authors : Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// SI-CA2a - november 2019 - updated in 2026 - CPNV school
+
 // **************************************************************************************
 // Obtention d'un module
 // **************************************************************************************
@@ -27,13 +31,6 @@
 //
 //              - Fonction qui retourne l'index auquel se trouve une valeur dans un array
 //
-//
-// Laurent Barraud, Bastian Chollet, Luca Coduri,
-// Guillaume Duvoisin, Guilain Mbayo & David Rossy
-// Un projet mandaté par M. Chavey.
-// SI-CA2a - novembre 2019 - CPNV
-// **************************************************************************************
-
 
 // La carte est masquée au début du jeu
 $('#carte_module').css('display','none');
@@ -86,6 +83,11 @@ function fnAfficheAchatModule(idCase) {
     $('#titre_module').html("Achat d'un module " + acartes[idCase].titre);
     $('#txt_module').html("Voulez-vous acheter le module " + acartes[idCase].texte + " pour " + acartes[idCase].prix + " ?");
 }
+
+function fnChargerModules() {
+    amodules = [...moduleCards];
+}
+
 
 // Fonction de clic sur "Acheter module"
 function fnClicAcheterModule(idCase) {

@@ -1,3 +1,7 @@
+// Authors : Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// SI-CA2a - november 2019 - updated in 2026 - CPNV school
+
 //********************************************************************************************************************
 // Gameloop - fonctions principales du jeu qui lient toutes les autres
 //********************************************************************************************************************
@@ -23,60 +27,12 @@
 //
 //              - fonction qui attend la fin d'exécution du setTimeOut, avant de poursuivre celle passée en paramètre
 //              - fonction pour tenter de passer le CFC et gagner la partie si un 4 ou plus sort au dé
-//
-// Laurent Barraud, Bastian Chollet, Luca Coduri,
-// Guillaume Duvoisin, Guilain Mbayo & David Rossy
-// Un projet mandaté par M. Chavey.
-// SI-CA2a - novembre 2019 - CPNV
-// ********************************************************************************************************************
+
 
 // event JQuery du clic sur le bouton-verif : vérification si la réponse à la question a été validée
 $("#btn-verif").click(function () {
     $(this).data('clicked', true);
 });
-
-// Fonction principale qui lie toutes les autres pour rendre le jeu fonctionnel
-function gameloop(nbJoueurs) {
-
-    // crée les joueurs
-    joueurs = maker(nbJoueurs);
-    for (var i = 0; i < nbJoueurs; i++)
-    {
-        // message d'info dans la console, pour test
-        console.log("joueur : " + i + ", Nom: " + joueurs[i].nom + ", Couleur: " + joueurs[i].couleur + ", Section: " + joueurs[i].section + ", id: " + joueurs[i].id + ", emplacement: " + joueurs[i].emplacementCase + ", case actuel: " + joueurs[i].caseActuelle);
-    }
-    // place tous les joueurs sur la case départ
-    for (i = 0; i < nbJoueurs; i++)
-    {
-        joueurs[i].placerPionCaseDepart();
-    }
-
-    // appelle la fonction écrite dans affichage.js, pour afficher le plateau et animer les pions.
-    draw();
-}
-
-// Fonction qui représente le tour d'un joueur.
-//  -> appelle la fonction de joueur.js qui déplace le pion
-//     avec la fonction définie dans joueurs.js, en lui passant en paramètre le résultat du dé
-//  -> vérification du temps que prend le déplacement
-//  -> on attend que le pion arrive sur la case, puis on appelle la fonction
-//     qui effectue les actions liées à la case au joueur
-//
-function fnTourJoueur() {
-
-    // On déplace le pion du résultat du dé avec la fonction définie dans joueurs.js
-    joueurs[jActuel].deplacerPion(resultatDe);
-
-    // Vérification du temps que prend le déplacement
-    console.log("je me déplace de: " + resultatDe + " cases en " + dureeDeplacementMS + "ms");
-
-    // On attend que le pion arrive sur la case,
-    // puis on appelle la fonction qui effectue les actions liées à la case au joueur
-    fnSleep(dureeDeplacementMS + 500).then(() => {
-        fnActionCase();
-    });
-
-}
 
 // Fonction qui vérifie les actions que le joueur doit effectuer
 //  -> si la case est une case normale : appel de la fonction fnAcheterModule
@@ -168,6 +124,49 @@ function fnActionCase() {
             });
             break;
     }
+}
+
+// Fonction principale qui lie toutes les autres pour rendre le jeu fonctionnel
+function gameloop(nbJoueurs) {
+
+    // crée les joueurs
+    joueurs = maker(nbJoueurs);
+    for (var i = 0; i < nbJoueurs; i++)
+    {
+        // message d'info dans la console, pour test
+        console.log("joueur : " + i + ", Nom: " + joueurs[i].nom + ", Couleur: " + joueurs[i].couleur + ", Section: " + joueurs[i].section + ", id: " + joueurs[i].id + ", emplacement: " + joueurs[i].emplacementCase + ", case actuel: " + joueurs[i].caseActuelle);
+    }
+    // place tous les joueurs sur la case départ
+    for (i = 0; i < nbJoueurs; i++)
+    {
+        joueurs[i].placerPionCaseDepart();
+    }
+
+    // appelle la fonction écrite dans affichage.js, pour afficher le plateau et animer les pions.
+    draw();
+}
+
+// Fonction qui représente le tour d'un joueur.
+//  -> appelle la fonction de joueur.js qui déplace le pion
+//     avec la fonction définie dans joueurs.js, en lui passant en paramètre le résultat du dé
+//  -> vérification du temps que prend le déplacement
+//  -> on attend que le pion arrive sur la case, puis on appelle la fonction
+//     qui effectue les actions liées à la case au joueur
+//
+function fnTourJoueur() {
+
+    // On déplace le pion du résultat du dé avec la fonction définie dans joueurs.js
+    joueurs[jActuel].deplacerPion(resultatDe);
+
+    // Vérification du temps que prend le déplacement
+    console.log("je me déplace de: " + resultatDe + " cases en " + dureeDeplacementMS + "ms");
+
+    // On attend que le pion arrive sur la case,
+    // puis on appelle la fonction qui effectue les actions liées à la case au joueur
+    fnSleep(dureeDeplacementMS + 500).then(() => {
+        fnActionCase();
+    });
+
 }
 
 // fonction qui attend la fin d'exécution du setTimeOut, avant de poursuivre celle passée en paramètre

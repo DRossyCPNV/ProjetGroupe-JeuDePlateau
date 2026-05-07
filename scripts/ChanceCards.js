@@ -1,0 +1,19 @@
+// Authors : Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// SI-CA2a - november 2019 - updated in 2026 - CPNV school
+
+var chanceCards = [
+  { "id": 0, "titre": "Héritage", "texte": "Vous avez retrouvé les livres de cours de vos parents, vous gagnez 1000 ressources", "indication": "Effet immédiat", "effet": "POINTS", "valeur_1": 1000, "valeur_2": 0 },
+  { "id": 1, "titre": "Trafic", "texte": "Le train pour Ste-Croix a eu du retard et vous avez manqué le premier cours, vous perdez 250 ressources", "indication": "Effet immédiat", "effet": "POINTS", "valeur_1": -250, "valeur_2": 0 },
+  { "id": 2, "titre": "Virus", "texte": "Vous êtes tombé malade et avez manqué des cours, vous perdez 500 ressources", "indication": "Effet immédiat", "effet": "POINTS", "valeur_1": -500, "valeur_2": 0 },
+  { "id": 3, "titre": "La fin justifie les moyens...", "texte": "Vous donnez de fausses informations à un camarade que vous n'appréciez pas, le joueur de votre choix perd 1000 ressources", "indication": "Effet immédiat", "effet": "POINTS", "valeur_1": 0, "valeur_2": -1000 },
+  { "id": 4, "titre": "A deux, c'est mieux!", "texte": "Vous formez un groupe de révision avec l'un de vos camarades, vous gagnez 500 ressources. Le joueur de votre choix gagne 250 ressources", "indication": "Effet immédiat", "effet": "POINTS", "valeur_1": 500, "valeur_2": 250 },
+  { "id": 5, "titre": "Mauvaise ambiance", "texte": "Lors d'un travail de groupe, vous vous retrouvez dans le même groupe qu'une personne que vous n'appréciez pas. Vous-même et le joueur de votre choix perdez 250 ressources", "indication": "Effet immédiat", "effet": "POINTS", "valeur_1": -250, "valeur_2": -250 },
+  { "id": 50, "titre": "Au tricheur!", "texte": "Vous vous êtes fait prendre à tricher pendant un examen ! Passez votre prochain tour.", "indication": "Effet immédiat", "effet": "TOURS", "valeur_1": 1, "valeur_2": 0 },
+  { "id": 100, "titre": "Expérience", "texte": "Grâce à votre bagage personnel, vous avez plus de facilité en mathematique. Relancez le dé.", "indication": "Effet immédiat", "effet": "DEPLACEMENT", "valeur_1": 1, "valeur_2": 0 },
+  { "id": 101, "titre": "Rattrapages", "texte": "Vous devez effectuer le rattrapage d'un examen, rendez-vous directement sur une case \"Test\"", "indication": "Effet immédiat", "effet": "DEPLACEMENT", "valeur_1": 0, "valeur_2": 6 },
+  { "id": 102, "titre": "Pas si vite!", "texte": "Renvoyez le joueur de votre choix sur la case \"Go\"", "indication": "Effet immédiat", "effet": "DEPLACEMENT", "valeur_1": 2, "valeur_2": 0 },
+  { "id": 103, "titre": "Retour à la case départ!", "texte": "Allez directement sur la case \"Go\"", "indication": "Effet immédiat", "effet": "DEPLACEMENT", "valeur_1": 0, "valeur_2": 0 },
+  { "id": 150, "titre": "Entraide", "texte": "Vous recevez des informations d'un camarade. Cette carte protégera votre pion, jusqu'à son utilisation, en annulant les pertes de ressources infligées par d'autres joueurs.", "indication": "Effet Unique", "effet": "PROTECTION", "valeur_1": 1, "valeur_2": 0 },
+  { "id": 200, "titre": "Surprise!", "texte": "Examen surprise! Si vous répondez correctement, vous gagnez 500 ressources.", "indication": "Effet immédiat", "effet": "QCM", "valeur_1": 500, "valeur_2": 250 }
+];

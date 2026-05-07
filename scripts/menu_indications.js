@@ -1,3 +1,7 @@
+// Authors : Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// SI-CA2a - november 2019 - updated in 2026 - CPNV school
+
 // *****************************************************************************************************
 // Code du panneau latéral d'indication des joueurs
 // *****************************************************************************************************
@@ -43,12 +47,6 @@
 //                             si c'est son tour de jouer et que les conditions sont remplies.
 //                      -> Injection des divs joueurs dans le code HTML.
 //
-//
-// Laurent Barraud, Bastian Chollet, Luca Coduri,
-// Guillaume Duvoisin, Guilain Mbayo & David Rossy
-// Un projet mandaté par M. Chavey.
-// SI-CA2a - novembre 2019 - CPNV
-// **************************************************************************************
 
 // Crée le tableau de référence des modules
 var amodules = [];
@@ -117,11 +115,6 @@ function fnCreerDivJoueurs(nbJoueurs) {
                     section = true;
                 }
             }
-
-            // code de triche ultime
-            //  nbCarteObtenue = 5;
-            //  section = true;
-            ///////////////////
 
             // Teste si les trois conditions pour passer le CFC sont remplies
             if(nbCarteObtenue >=5 && section === true && joueurs[jActuel].argent >= ptsCFC)

@@ -1,3 +1,7 @@
+// Authors : Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// SI-CA2a - november 2019 - updated in 2026 - CPNV school
+
 // ********************************************************************************
 // Création des joueurs, attribution de leurs paramètres et déplacements des pions
 // ********************************************************************************
@@ -13,13 +17,7 @@
 //              - fonction qui retourne l'emplacement vide d'une case du plateau
 //              - fonction qui change le joueur actuel
 //              - fonction qui déplace le pion fluidement
-//
-//
-// Laurent Barraud, Bastian Chollet, Luca Coduri,
-// Guillaume Duvoisin, Guilain Mbayo & David Rossy
-// Un projet mandaté par M. Chavey.
-// SI-CA2a - novembre 2019 - CPNV
-// *****************************************************************************
+
 
 //Fonction pour créer un tableau objet joueur, n étant le nombre de joueurs
 function maker(n) {

@@ -1,3 +1,7 @@
+// Authors : Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// SI-CA2a - november 2019 - updated in 2026 - CPNV school
+//
 // **************************************************************************************
 // Code d'affichage des cartes chance et application de leurs effets
 // **************************************************************************************//
@@ -35,23 +39,9 @@
 //                      -> QCM
 //                          -> Pose une question au joueur
 //
-//
-//
-// Laurent Barraud, Bastian Chollet, Luca Coduri,
-// Guillaume Duvoisin, Guilain Mbayo & David Rossy
-// Un projet mandaté par M. Chavey.
-// SI-CA2a - novembre 2019 - CPNV
-// **************************************************************************************
 
 // La carte est masquée au début du jeu
 $('#carte_chance').css('display','none');
-
-$.getJSON('donnees/chances.json', function(data) {
-    achance = data;
-
-    // Le nombre de cartes chance disponibles
-    nbchance = achance.length;
-});
 
 function fnAfficheChance() {
     console.log("Le joueur de couleur "+joueurs[jActuel].couleur+" affiche une carte chance.");
@@ -72,6 +62,11 @@ function fnAfficheChance() {
     $('#vitesseAnimSlider').css('display', 'none');
     $('#vitesseAnimSliderValue').css('display', 'none');
     $('#carte_chance').css('display', 'block');
+}
+
+function fnChargerCartesChance() {
+    achance = chanceCards;
+    nbchance = achance.length;
 }
 
 // Efface la carte chance et réaffiche le plateau de jeu, le menu latéral et les éléments du slider.

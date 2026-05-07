@@ -1,3 +1,7 @@
+// Authors : Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// SI-CA2a - november 2019 - updated in 2026 - CPNV school
+//
 // *****************************************************************************
 // Fonction d'animation des pions et d'affichage du plateau
 // *****************************************************************************
@@ -8,12 +12,6 @@
 //				    Puis on appelle la fonction qui affiche les pions, définie dans affichage.js.
 //	                Ensuite la fonction s'appelle elle-même, de façon récursive.
 //
-//
-// Laurent Barraud, Bastian Chollet, Luca Coduri,
-// Guillaume Duvoisin, Guilain Mbayo & David Rossy
-// Un projet mandaté par M. Chavey.
-// SI-CA2a - novembre 2019 - CPNV
-// *****************************************************************************
 
 function draw(){
     ctx.drawImage(img_plateau, tbplateau, tbplateau, tplateauxy, tplateauxy);

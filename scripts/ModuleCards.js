@@ -1,0 +1,22 @@
+// Authors : Laurent Barraud, Bastian Chollet, Luca Coduri,
+// Guillaume Duvoisin, Guilain Mbayo & David Rossy
+// SI-CA2a - november 2019 - updated in 2026 - CPNV school
+
+var moduleCards = [
+  { "Id": 1, "Nom": "Rédaction", "Theme": "Français", "Prix": 1000 },
+  { "Id": 2, "Nom": "Littérature", "Theme": "Français", "Prix": 1000 },
+  { "Id": 3, "Nom": "Matériaux", "Theme": "Méca", "Prix": 1000 },
+  { "Id": 4, "Nom": "Usinage", "Theme": "Méca", "Prix": 1000 },
+  { "Id": 5, "Nom": "Allemand", "Theme": "Langues", "Prix": 1000 },
+  { "Id": 6, "Nom": "Anglais", "Theme": "Langues", "Prix": 1000 },
+  { "Id": 7, "Nom": "Multimédia", "Theme": "Média", "Prix": 1000 },
+  { "Id": 8, "Nom": "Web", "Theme": "Média", "Prix": 1000 },
+  { "Id": 9, "Nom": "Economie", "Theme": "ECG", "Prix": 1000 },
+  { "Id": 10, "Nom": "Droit", "Theme": "ECG", "Prix": 1000 },
+  { "Id": 11, "Nom": "Football", "Theme": "Sport", "Prix": 1000 },
+  { "Id": 12, "Nom": "Basketball", "Theme": "Sport", "Prix": 1000 },
+  { "Id": 13, "Nom": "Géométrie", "Theme": "Maths", "Prix": 1000 },
+  { "Id": 14, "Nom": "Algèbre", "Theme": "Maths", "Prix": 1000 },
+  { "Id": 15, "Nom": "Système", "Theme": "Info", "Prix": 1000 },
+  { "Id": 16, "Nom": "Développement", "Theme": "Info", "Prix": 1000 }
+];
