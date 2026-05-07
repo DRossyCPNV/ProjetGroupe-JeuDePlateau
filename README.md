@@ -1,4 +1,4 @@
-### Modulopoly 
+## Modulopoly 
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/DRossyCPNV/ProjetGroupe-JeuDePlateau/e04f7ba596209b145890ef59965c0851a660e733/JeuDePlateau-screenshot.jpg" width="500" alt="screenshot of the game" >
@@ -8,10 +8,15 @@
 ![Language](https://img.shields.io/badge/language-french-415C7E) 
 [![GitHub all releases](https://img.shields.io/github/downloads/DRossyCPNV/ProjetGroupe-JeuDePlateau/latest/total?color=88aacc&style=flat)](https://github.com/DRossyCPNV/ProjetGroupe-JeuDePlateau/releases)
 
-#### Introduction
-As part of the CPNV school, we aim to carry out a group project, with a "physical" boxed version of the game, as well as a computer version, whose source code must be modular if necessary.
+## Introduction
+As part of the CPNV school, we aimed to carry out a group project, with a physical boxed version of the game, as well as a computer version, whose source code must be modular if necessary.
 
-#### Purpose of the game:
+The game supports 2 to 6 players and is contained in a single HTML file, which loads several JavaScript scripts at startup and displays the game cards from inline JSON arrays. 
+This approach keeps the project fully functional under file:// restrictions. 
+
+The board and pawn movements are rendered using the HTML5 Canvas, allowing smooth animations, with configurable pawn movement speed.
+
+## Purpose of the game:
 Be the first player to have his or her CFC.
 
 When your turn arrives, roll the dice, then move your piece forward as many spaces as indicated by the dice, in the direction indicated by the arrow on the start square.
@@ -53,12 +58,17 @@ In your turn, you can choose to pay 1000 points to place your pawn on the CFC sq
 To receive your CFC, you just need to answer a randomly drawn question card from your left-hand neighbor.
 Then you have to roll the dice and get a 4, 5 or 6.
 
-If necessary, on your next turn you can rerun the die and choose to start from one of the 4 chance boxes.
+If necessary, on your next turn you can rerun the dice and choose to start from one of the 4 chance boxes.
 
 #### The winner:
 The first player to get his or her CFC wins the game.
 
-### Download
-Go to the [Releases](../../releases) page.
+## How to run
+- Go to the [Releases](../../releases) page to download a zip
+  Or
+- Clone the repository directly with Git.
+The simply launch Modulopoly.html in your favorite browser.
+
+Due to its educational purpose and local use, this project is currently available in French only. 
 
 If you enjoyed this project, feel free to give it a star - it's always appreciated.
